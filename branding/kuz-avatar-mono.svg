@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Jost:wght@500&amp;display=swap');
+    </style>
+  </defs>
+
+  <rect width="512" height="512" fill="#0a0a0a"/>
+
+  <!-- K — single letter mark, sized to fill the square with breathing room -->
+  <text
+    x="256"
+    y="334"
+    font-family="'Jost', 'Futura', 'Century Gothic', 'Trebuchet MS', sans-serif"
+    font-size="260"
+    font-weight="500"
+    fill="#f0f0f0"
+    text-anchor="middle"
+  >K</text>
+
+  <!-- Hairline rule -->
+  <line x1="130" y1="366" x2="382" y2="366" stroke="#f0f0f0" stroke-width="1"/>
+</svg>

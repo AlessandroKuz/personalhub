@@ -1,0 +1,129 @@
+{% load i18n static %}
+
+<nav class="navbar navbar-expand-lg sticky-top" id="main-nav">
+  <div class="container">
+
+    {# ── 1. Brand — Grid col 1 on desktop, flex item on mobile ── #}
+    <a class="navbar-brand font-monospace fw-semibold text-accent"
+       href="{% if request.resolver_match.url_name == 'home' %}#{% else %}{% url 'core:home' %}{% endif %}">
+      Kuz
+    </a>
+
+    {# ── 2. Collapse — Grid col 2 on desktop (auto → truly centred) ── #}
+    {# On mobile: hidden until toggler fires, then stacks full-width below #}
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav gap-lg-1 py-2 py-lg-0">
+        <li class="nav-item">
+          <a class="nav-link font-monospace small text-uppercase letter-spacing-1
+                    {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
+             href="{% url 'core:home' %}"
+             {% if request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %}>
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font-monospace small text-uppercase letter-spacing-1
+                    {% if request.resolver_match.url_name == 'about' %}active{% endif %}"
+             href="{% url 'core:about' %}"
+             {% if request.resolver_match.url_name == 'about' %}aria-current="page"{% endif %}>
+            {% trans "About" %}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font-monospace small text-uppercase letter-spacing-1
+                    {% if request.resolver_match.url_name == 'work' %}active{% endif %}"
+             href="{% url 'core:work' %}"
+             {% if request.resolver_match.url_name == 'work' %}aria-current="page"{% endif %}>
+            {% trans "Work" %}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font-monospace small text-uppercase letter-spacing-1
+                    {% if request.resolver_match.url_name == 'projects' %}active{% endif %}"
+             href="{% if request.resolver_match.url_name == 'home' %}#projects{% else %}{% url 'core:home' %}#projects{% endif %}"
+             {% if request.resolver_match.url_name == 'projects' %}aria-current="page"{% endif %}>
+            {% trans "Projects" %}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font-monospace small text-uppercase letter-spacing-1
+                    {% if request.resolver_match.url_name == 'contact' %}active{% endif %}"
+             href="{% url 'core:contact' %}"
+             {% if request.resolver_match.url_name == 'contact' %}aria-current="page"{% endif %}>
+            {% trans "Contact" %}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    {# ── 3. Controls — Grid col 3 on desktop (justify-self: end) ── #}
+    {# ms-auto handles the mobile flex case: brand ........ controls toggler #}
+    {# Always visible — NOT inside the collapse — so lang/theme work on mobile #}
+    <div class="d-flex align-items-center gap-2 ms-auto" id="nav-controls">
+
+      {# Language switcher #}
+      <form id="lang-form"
+            action="{% url 'set_language' %}"
+            method="post"
+            class="d-none">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.path }}">
+        <input type="hidden" name="language" value="" id="lang-input">
+      </form>
+
+      <div class="dropdown" id="lang-switcher">
+
+        <button class="btn d-flex align-items-center gap-1 border border-secondary-subtle rounded-1 text-body-secondary lang-trigger"
+                type="button"
+                id="lang-dropdown-btn"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="{% trans 'Select language' %}">
+          <i class="bi bi-globe2" aria-hidden="true"></i>
+          <span id="lang-current">{{ LANGUAGE_CODE|upper }}</span>
+        </button>
+
+        <ul class="dropdown-menu dropdown-menu-end shadow lang-menu"
+            role="listbox"
+            aria-labelledby="lang-dropdown-btn">
+          {% get_available_languages as languages %}
+          {% get_current_language as current_lang %}
+          {% for code, name in languages %}
+            <li role="option" aria-selected="{% if code == current_lang %}true{% else %}false{% endif %}">
+              <button class="dropdown-item font-monospace d-flex align-items-center gap-2
+                            {% if code == current_lang %}active{% endif %}"
+                      type="button"
+                      data-lang="{{ code }}">
+                <span class="text-body-secondary small">{{ code|upper }}</span>
+                <span>{{ name }}</span>
+              </button>
+            </li>
+          {% endfor %}
+        </ul>
+
+      </div>
+
+      {# Theme toggle #}
+      <button id="theme-toggle"
+              class="btn d-flex align-items-center justify-content-center text-body-secondary"
+              aria-label="{% trans 'Toggle theme' %}">
+        <i id="theme-icon" aria-hidden="true"></i>
+      </button>
+
+    </div>
+
+    {# ── 4. Mobile toggler — d-lg-none: invisible inside the desktop grid ── #}
+    {# ms-2 provides breathing room from controls on mobile ── #}
+    <button class="navbar-toggler border-0 d-lg-none ms-2"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarContent"
+            aria-controls="navbarContent"
+            aria-expanded="false"
+            aria-label="{% trans 'Toggle navigation menu' %}">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>

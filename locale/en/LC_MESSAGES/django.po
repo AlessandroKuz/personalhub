@@ -1,0 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026
+# This file is distributed under the same license as the PERSONALHUB package.
+# Alessandro Kuz, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: v1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-12 13:38+0100\n"
+"PO-Revision-Date: 2026-03-12 13:40+0100\n"
+"Last-Translator: Alessandro Kuz\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: apps/core/templates/core/about.html:4 templates/components/_nav.html:29
+#: templates/components/_nav2.html:39 templates/components/_nav3.html:29
+msgid "About"
+msgstr ""
+
+#: apps/core/templates/core/contact.html:3 templates/components/_nav.html:53
+#: templates/components/_nav2.html:63 templates/components/_nav3.html:53
+msgid "Contact"
+msgstr ""
+
+#: apps/core/templates/core/work.html:4 templates/components/_nav.html:37
+#: templates/components/_nav2.html:47 templates/components/_nav3.html:37
+msgid "Work"
+msgstr ""
+
+#: config/settings/base.py:129
+msgid "English"
+msgstr ""
+
+#: config/settings/base.py:130
+msgid "Italian"
+msgstr ""
+
+#: templates/base.html:58
+msgid "Skip to main content"
+msgstr ""
+
+#: templates/components/_footer.html:13
+msgid "All rights reserved"
+msgstr ""
+
+#: templates/components/_footer.html:19
+msgid "Social links"
+msgstr ""
+
+#: templates/components/_footer.html:58 templates/components/_footer.html:59
+msgid "Back to top"
+msgstr ""
+
+#: templates/components/_nav.html:45 templates/components/_nav2.html:55
+#: templates/components/_nav3.html:45
+msgid "Projects"
+msgstr ""
+
+#: templates/components/_nav.html:82 templates/components/_nav2.html:90
+#: templates/components/_nav2.html:91 templates/components/_nav3.html:82
+msgid "Select language"
+msgstr ""
+
+#: templates/components/_nav.html:110 templates/components/_nav2.html:107
+#: templates/components/_nav2.html:108 templates/components/_nav3.html:96
+msgid "Toggle theme"
+msgstr ""
+
+#: templates/components/_nav.html:124
+msgid "Toggle navigation menu"
+msgstr ""
+
+#: templates/components/_nav2.html:17 templates/components/_nav3.html:110
+msgid "Toggle navigation"
+msgstr ""

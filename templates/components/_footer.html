@@ -1,0 +1,67 @@
+{% load i18n static %}
+
+<!-- Footer -->
+<footer class="border-top py-4 mt-auto">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+
+      {# Left: copyright #}
+      <div class="col-12 col-md">
+        <p class="mb-0 small font-monospace text-body-secondary">
+          &copy; {% now "Y" %}
+          <span class="text-accent fw-semibold">Alessandro Kuz</span>
+          &mdash; {% trans "All rights reserved" %}.
+        </p>
+      </div>
+
+      {# Centre: social links — col-auto means "take only what you need" #}
+      <div class="col-12 col-md-auto text-md-center">
+        <nav aria-label="{% trans 'Social links' %}">
+          <div class="d-flex gap-3 justify-content-start justify-content-md-center">
+            <a href="https://github.com/alessandrokuz"
+              target="_blank" rel="noopener noreferrer"
+              class="text-body-secondary link-body-emphasis fs-5 lh-1"
+              aria-label="GitHub">
+              <i class="bi bi-github" aria-hidden="true"></i>
+            </a>
+            <a href="https://linkedin.com/in/alessandrokuz"
+              target="_blank" rel="noopener noreferrer"
+              class="text-body-secondary link-body-emphasis fs-5 lh-1"
+              aria-label="LinkedIn">
+              <i class="bi bi-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="https://youtube.com/@alessandrokuz"
+              target="_blank" rel="noopener noreferrer"
+              class="text-body-secondary link-body-emphasis fs-5 lh-1"
+              aria-label="YouTube">
+              <i class="bi bi-youtube" aria-hidden="true"></i>
+            </a>
+          </div>
+        </nav>
+      </div>
+
+      {# Right: easter egg + back to top #}
+      <div class="col-12 col-md text-md-end">
+        <div class="d-flex align-items-center gap-3 justify-content-start justify-content-md-end">
+          <span class="small font-monospace text-body-secondary">
+            I use
+            <a href="https://archlinux.org/" target="_blank" rel="noopener noreferrer"
+              class="text-accent fw-semibold">arch</a>
+            btw
+          </span>
+          <a id="back-top"
+             href="#"
+             class="text-body-secondary link-body-emphasis d-inline-flex
+                     align-items-center justify-content-center"
+             data-bs-toggle="tooltip"
+             data-bs-placement="top"
+             title="{% trans 'Back to top' %}"
+             aria-label="{% trans 'Back to top' %}">
+            <i class="bi bi-arrow-up" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>

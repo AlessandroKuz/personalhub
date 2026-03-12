@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <!-- Diagonal mesh -->
+    <pattern id="diag1" x="0" y="0" width="48" height="48" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="48" x2="48" y2="0" stroke="rgba(39,93,173,0.07)" stroke-width="1"/>
+    </pattern>
+    <pattern id="diag2" x="0" y="0" width="48" height="48" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="48" y2="48" stroke="rgba(39,93,173,0.04)" stroke-width="1"/>
+    </pattern>
+    <!-- Center vignette to push mesh to edges -->
+    <radialGradient id="vig2" cx="50%" cy="50%" r="60%">
+      <stop offset="30%" stop-color="#080c12" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#080c12" stop-opacity="0.94"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Ground -->
+  <rect width="1200" height="630" fill="#080c12"/>
+
+  <!-- Diagonal mesh layers -->
+  <rect width="1200" height="630" fill="url(#diag1)"/>
+  <rect width="1200" height="630" fill="url(#diag2)"/>
+
+  <!-- Vignette -->
+  <rect width="1200" height="630" fill="url(#vig2)"/>
+
+  <!-- Corner registration marks — top-left -->
+  <path d="M 48 88 L 48 48 L 88 48" fill="none" stroke="rgba(39,93,173,0.45)" stroke-width="1" stroke-linecap="square"/>
+  <!-- top-right -->
+  <path d="M 1112 48 L 1152 48 L 1152 88" fill="none" stroke="rgba(39,93,173,0.45)" stroke-width="1" stroke-linecap="square"/>
+  <!-- bottom-left -->
+  <path d="M 48 542 L 48 582 L 88 582" fill="none" stroke="rgba(39,93,173,0.45)" stroke-width="1" stroke-linecap="square"/>
+  <!-- bottom-right -->
+  <path d="M 1112 582 L 1152 582 L 1152 542" fill="none" stroke="rgba(39,93,173,0.45)" stroke-width="1" stroke-linecap="square"/>
+
+  <!-- Blue scan line at name baseline -->
+  <line x1="0" y1="351" x2="1200" y2="351"
+    stroke="url(#scangrad)" stroke-width="1"/>
+  <defs>
+    <linearGradient id="scangrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="rgba(39,93,173,0)"/>
+      <stop offset="20%"  stop-color="rgba(39,93,173,0.18)"/>
+      <stop offset="50%"  stop-color="rgba(39,93,173,0.28)"/>
+      <stop offset="80%"  stop-color="rgba(39,93,173,0.18)"/>
+      <stop offset="100%" stop-color="rgba(39,93,173,0)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Tagline -->
+  <text x="600" y="190"
+    font-family="'Jost','Futura','Century Gothic','Trebuchet MS',sans-serif"
+    font-size="17" font-weight="300"
+    fill="rgba(240,240,240,0.40)"
+    text-anchor="middle"
+    letter-spacing="4">FROM DATA TO DEPLOYMENT.</text>
+
+  <!-- Name -->
+  <text x="565" y="340"
+    font-family="'Jost','Futura','Century Gothic','Trebuchet MS',sans-serif"
+    font-size="96" font-weight="300"
+    fill="#f0f0f0"
+    text-anchor="end"
+    letter-spacing="-1">Alessandro</text>
+
+  <text x="580" y="340"
+    font-family="'Jost','Futura','Century Gothic','Trebuchet MS',sans-serif"
+    font-size="96" font-weight="700"
+    fill="#275DAD"
+    text-anchor="start"
+    letter-spacing="-1">Kuz</text>
+
+  <!-- Subtitle -->
+  <text x="600" y="408"
+    font-family="'Jost','Futura','Century Gothic','Trebuchet MS',sans-serif"
+    font-size="18" font-weight="300"
+    fill="rgba(240,240,240,0.40)"
+    text-anchor="middle"
+    letter-spacing="5">AI / ML ENGINEER &amp; BUILDER</text>
+
+  <!-- URL -->
+  <text x="576" y="584"
+    font-family="'Courier New',monospace"
+    font-size="13"
+    fill="rgba(240,240,240,0.22)"
+    text-anchor="middle"
+    letter-spacing="2">alessandrokuz.com</text>
+
+  <!-- K mark -->
+  <rect x="1104" y="554" width="48" height="48" fill="#0d1520"/>
+  <text x="1128" y="589"
+    font-family="'Jost','Futura','Century Gothic','Trebuchet MS',sans-serif"
+    font-size="34" font-weight="500"
+    fill="#f0f0f0"
+    text-anchor="middle">K</text>
+  <line x1="1110" y1="599" x2="1146" y2="599" stroke="#275DAD" stroke-width="0.9" opacity="0.7"/>
+</svg>

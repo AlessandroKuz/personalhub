@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap');
+    </style>
+  </defs>
+  <rect width="64" height="64" fill="#0a0a0a"/>
+  <text
+    x="32" y="46"
+    font-family="'Jost', 'Futura', 'Century Gothic', 'Trebuchet MS', sans-serif"
+    font-size="44" font-weight="500"
+    fill="#f0f0f0" text-anchor="middle"
+  >K</text>
+</svg>
