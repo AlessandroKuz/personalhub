@@ -1,12 +1,12 @@
 # Alessandro Kuz | PersonalHub | Portfolio
 
-> **[SHORT DESCRIPTION — e.g. "A clean, fast, server-rendered personal portfolio built for performance and clarity."]**
+> **"A clean, fast, server-rendered personal portfolio built for performance and clarity."**
 
 [![Python](https://img.shields.io/badge/Python-3.14-3776AB?logo=python&logoColor=white)](https://python.org)
 [![Django](https://img.shields.io/badge/Django-6.0-092E20?logo=django&logoColor=white)](https://djangoproject.com)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3?logo=bootstrap&logoColor=white)](https://getbootstrap.com)
 [![HTMX](https://img.shields.io/badge/HTMX-2.0-3D72D7)](https://htmx.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](/LICENSE.md)
 [![Live](https://img.shields.io/badge/Live-alessandrokuz.com-success)](https://alessandrokuz.com)
 
 ---
@@ -85,8 +85,8 @@ personalhub/
 │   └── partials/               # HTMX response fragments
 │
 ├── static/
-│   ├── css/     # Design tokens and custom styles
-│   ├── js/      # Navbar, Theme & language switches, tooltips, ...
+│   ├── css/                    # Design tokens and custom styles
+│   ├── js/                     # Navbar, Theme & language switches, tooltips, ...
 │   └── img/
 │
 ├── locale/                     # i18n .po / .mo translation files
@@ -116,7 +116,7 @@ personalhub/
 ### Prerequisites
 
 - [uv](https://docs.astral.sh/uv/) — Python version and package management
-- Docker (optional, for running the full production stack locally)
+- [Docker](https://www.docker.com/) (optional, for running the full production stack locally)
 
 ### 1. Clone and install
 
@@ -403,7 +403,7 @@ This is a personal portfolio project and is not open to general feature contribu
 
 This project is licensed under the **MIT Licence**. You are free to use, copy, modify, and distribute it, provided the original copyright notice is retained.
 
-[Click to View - MIT LICENSE](LICENSE.md)
+[Click to View - MIT LICENSE](/LICENSE.md)
 
 ---
 
@@ -431,4 +431,5 @@ This project makes use of the following open-source tools and would not exist wi
 - [uv](https://github.com/astral-sh/uv) — fast Python package and project management
 - [Caddy](https://caddyserver.com/) — automatic HTTPS and reverse proxy
 - [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) — developer documentation
-- [Cloudflare](https://cloudflare.com/) — Domain Name, DDoS protection, Docs hosting
+- [Cloudflare](https://cloudflare.com/) — DNS, DDoS protection, and CDN layer in front of the stack + Docs hosting
+- [Docker](https://www.docker.com/) — containerised services for consistent dev and production environments
