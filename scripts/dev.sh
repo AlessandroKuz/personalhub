@@ -4,10 +4,10 @@
 set -e
 
 cleanup() {
-    echo ""
-    echo "Shutting down dev servers..."
-    kill $(jobs -p) 2>/dev/null
-    exit 0
+  echo ""
+  echo "Shutting down dev servers..."
+  kill $(jobs -p) 2>/dev/null
+  exit 0
 }
 
 trap cleanup SIGINT SIGTERM
@@ -18,7 +18,6 @@ echo "Press Ctrl+C to stop both."
 echo ""
 
 uv run uvicorn config.asgi:application --reload --port 8080 &
-uv run mkdocs serve --dev-addr 127.0.0.1:8001 &
+uv run mkdocs serve -f docs/mkdocs.yml --dev-addr 127.0.0.1:8001 &
 
 wait
-
