@@ -313,7 +313,7 @@ With core functionality in place, this phase focuses on elevating the production
 
 ### Phase 5 — AI Assistant
 
-The `apps/AI-Chat` application will introduce a context-aware AI assistant capable of answering questions about my background, projects, skills and work. The assistant will be powered by a Retrieval-Augmented Generation (RAG) pipeline: site content, project descriptions, and CV data will be embedded and stored in a vector database, retrieved at query time to ground the model's responses in accurate, up-to-date information. The interface will be a minimal chat widget, streamed over a WebSocket connection using the ASGI infrastructure already in place. The goal is not a generic chatbot, but a focused, honest assistant that represents me accurately — and declines gracefully when it doesn't know the answer.
+The `apps/chat` application will introduce a context-aware AI assistant capable of answering questions about my background, projects, skills and work. The assistant will be powered by a Retrieval-Augmented Generation (RAG) pipeline: site content, project descriptions, and CV data will be embedded and stored in a vector database, retrieved at query time to ground the model's responses in accurate, up-to-date information. The interface will be a minimal chat widget, streamed over a WebSocket connection using the ASGI infrastructure already in place. The goal is not a generic chatbot, but a focused, honest assistant that represents me accurately — and declines gracefully when it doesn't know the answer.
 Partially inspired by [Ignacio Figueroa's Portfolio](https://ignaciofigueroa.vercel.app/).
 
 ---
