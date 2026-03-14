@@ -22,6 +22,10 @@ STORAGES = {
     },
 }
 
+# This is handled directly with Cloudflare
+# The alternative is to do it here
+SECURE_SSL_REDIRECT = False
+
 SECURE_HSTS_SECONDS = 31536000
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_SSL_REDIRECT = True
