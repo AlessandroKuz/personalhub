@@ -185,8 +185,8 @@ body {
 #back-top {
   flex-shrink: 0;
   align-self: center;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   padding: 0px;
   border-radius: 50% !important;
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
