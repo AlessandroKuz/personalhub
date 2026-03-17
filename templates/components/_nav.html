@@ -4,59 +4,12 @@
   <div class="container">
 
     {# ── 1. Brand — Grid col 1 on desktop, flex item on mobile ── #}
-    <a class="navbar-brand font-monospace fw-semibold text-accent"
+    <a class="navbar-brand fw-semibold font-monospace text-accent"
        href="{% if request.resolver_match.url_name == 'home' %}#{% else %}{% url 'core:home' %}{% endif %}">
       Kuz
     </a>
 
-    {# ── 2. Collapse — Grid col 2 on desktop (auto → truly centred) ── #}
-    {# On mobile: hidden until toggler fires, then stacks full-width below #}
-    <div class="collapse navbar-collapse" id="navbarContent">
-      <ul class="navbar-nav gap-lg-1 py-2 py-lg-0">
-        <li class="nav-item">
-          <a class="nav-link font-monospace small text-uppercase letter-spacing-1
-                    {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
-             href="{% url 'core:home' %}"
-             {% if request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %}>
-            Home
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link font-monospace small text-uppercase letter-spacing-1
-                    {% if request.resolver_match.url_name == 'about' %}active{% endif %}"
-             href="{% url 'core:about' %}"
-             {% if request.resolver_match.url_name == 'about' %}aria-current="page"{% endif %}>
-            {% trans "About" %}
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link font-monospace small text-uppercase letter-spacing-1
-                    {% if request.resolver_match.url_name == 'work' %}active{% endif %}"
-             href="{% url 'core:work' %}"
-             {% if request.resolver_match.url_name == 'work' %}aria-current="page"{% endif %}>
-            {% trans "Work" %}
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link font-monospace small text-uppercase letter-spacing-1
-                    {% if request.resolver_match.url_name == 'projects' %}active{% endif %}"
-             href="{% if request.resolver_match.url_name == 'home' %}#projects{% else %}{% url 'core:home' %}#projects{% endif %}"
-             {% if request.resolver_match.url_name == 'projects' %}aria-current="page"{% endif %}>
-            {% trans "Projects" %}
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link font-monospace small text-uppercase letter-spacing-1
-                    {% if request.resolver_match.url_name == 'contact' %}active{% endif %}"
-             href="{% url 'core:contact' %}"
-             {% if request.resolver_match.url_name == 'contact' %}aria-current="page"{% endif %}>
-            {% trans "Contact" %}
-          </a>
-        </li>
-      </ul>
-    </div>
-
-    {# ── 3. Controls — Grid col 3 on desktop (justify-self: end) ── #}
+    {# ── 2. Controls — Grid col 3 on desktop (justify-self: end) ── #}
     {# ms-auto handles the mobile flex case: brand ........ controls toggler #}
     {# Always visible — NOT inside the collapse — so lang/theme work on mobile #}
     <div class="d-flex align-items-center gap-2 ms-auto" id="nav-controls">
@@ -124,6 +77,49 @@
             aria-label="{% trans 'Toggle navigation menu' %}">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+    {# ── 4. Collapse — Grid col 2 on desktop (auto → truly centred) ── #}
+    {# On mobile: hidden until toggler fires, then stacks full-width below #}
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav gap-lg-1 py-2 py-lg-0 font-monospace text-uppercase letter-spacing-1">
+        <li class="nav-item">
+          <a class="nav-link small {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
+             href="{% url 'core:home' %}"
+             {% if request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %}>
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link small {% if request.resolver_match.url_name == 'about' %}active{% endif %}"
+             href="{% url 'core:about' %}"
+             {% if request.resolver_match.url_name == 'about' %}aria-current="page"{% endif %}>
+            {% trans "About" %}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link small {% if request.resolver_match.url_name == 'work' %}active{% endif %}"
+             href="{% url 'core:work' %}"
+             {% if request.resolver_match.url_name == 'work' %}aria-current="page"{% endif %}>
+            {% trans "Work" %}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link small {% if request.resolver_match.url_name == 'projects' %}active{% endif %}"
+             href="{% if request.resolver_match.url_name == 'home' %}#projects{% else %}{% url 'core:home' %}#projects{% endif %}"
+             {% if request.resolver_match.url_name == 'projects' %}aria-current="page"{% endif %}>
+            {% trans "Projects" %}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link small {% if request.resolver_match.url_name == 'contact' %}active{% endif %}"
+             href="{% url 'core:contact' %}"
+             {% if request.resolver_match.url_name == 'contact' %}aria-current="page"{% endif %}>
+            {% trans "Contact" %}
+          </a>
+        </li>
+
+      </ul>
+    </div>
 
   </div>
 </nav>

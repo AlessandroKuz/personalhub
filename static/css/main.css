@@ -1,193 +1,222 @@
-/* ── Base ───────────────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════
+   DESIGN TOKENS
+   ══════════════════════════════════════════════════════════ */
 
 :root {
-  --navbar-height:  57px;
-
-  --accent:         #275DAD;
-  --accent-hover:   #275DAD;
-  --accent-active:  #275DAD;
+  --navbar-height: 61px;
+  --accent:        #275DAD;
 
   /* Light theme */
-  --color-bg:       #f8f7f4;   /* warm white, easier on eyes than #fff */
-  --color-surface:  #efefec;   /* cards, subtle sections */
-  --color-text:     #1a1a1a;
-  --color-muted:    #6b6b6b;
-  --color-border:   #e0ddd8;
+  --color-bg:      #f8f7f4;   /* warm off-white */
+  --color-surface: #efefec;   /* cards, subtle sections */
+  --color-text:    #1a1a1a;
+  --color-muted:   #6b6b6b;
+  --color-border:  #e0ddd8;
 }
 
 [data-bs-theme="dark"] {
-  --color-bg:       #141414;
-  --color-surface:  #1e1e1e;
-  --color-text:     #e8e6e1;
-  --color-muted:    #888;
-  --color-border:   #2a2a2a;
+  --color-bg:      #141414;
+  --color-surface: #1e1e1e;
+  --color-text:    #e8e6e1;
+  --color-muted:   #888;
+  --color-border:  #2a2a2a;
 }
 
+
+/* ══════════════════════════════════════════════════════════
+   BASE
+   ══════════════════════════════════════════════════════════ */
+
+body {
+  background-color: var(--color-bg);
+  color:            var(--color-text);
+  font-family:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                    "Helvetica Neue", Arial, sans-serif;
+  transition:       background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Offset anchor targets so sticky navbar doesn't cover headings */
 section[id],
 h1[id], h2[id], h3[id], h4[id] {
   scroll-margin-top: calc(var(--navbar-height) + 1rem);
 }
 
-body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-                "Helvetica Neue", Arial, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
+.text-accent       { color: var(--accent); }
+.letter-spacing-1  { letter-spacing: 0.1em; }
 
-/* ── Footer ─────────────────────────────────────────────── */
-.text-accent { color: var(--accent); }
 
-@media (max-width: 768px) {
-  footer .d-flex.flex-wrap {
-    flex-direction: column;
-    align-items: flex-start !important;
-  }
-}
-/* ── Navbar ─────────────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════
+   NAVBAR — STRUCTURE
+   ══════════════════════════════════════════════════════════ */
 
-/* Transparent by default, frosted glass on scroll */
+/* Transparent by default; frosted glass once page scrolls */
 #main-nav {
-  transition: background-color 0.3s ease, backdrop-filter 0.3s ease,
-              border-color 0.3s ease, box-shadow 0.3s ease;
   border-bottom: 1px solid transparent;
+  transition:    background-color 0.3s ease, backdrop-filter 0.3s ease,
+                 border-color     0.3s ease, box-shadow      0.3s ease;
 }
 
 #main-nav.scrolled {
-  background-color: rgba(var(--bs-body-bg-rgb), 0.5) !important;
-  backdrop-filter: blur(10px);
+  background-color:    rgba(var(--bs-body-bg-rgb), 0.5) !important;
+  backdrop-filter:     blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-bottom-color: var(--bs-border-color);
-  box-shadow: var(--bs-box-shadow);
+  border-bottom-color: var(--color-border);
+  box-shadow:          var(--bs-box-shadow);
 }
 
-/* Letter spacing for monospace nav links */
-.letter-spacing-1 {
-  letter-spacing: 0.1em;
+/* Desktop: collapse takes no flow space so ms-auto on controls works;
+   links are centered via absolute positioning below */
+@media (min-width: 992px) {
+  #navbarContent {
+    flex-grow: 0;
+    flex-basis: 0;
+  }
+
+  #main-nav .container {
+    position: relative;
+  }
+
+  #navbarContent .navbar-nav {
+    position:  absolute;
+    left:      50%;
+    transform: translateX(-50%);
+  }
 }
 
-/* Active link uses accent colour instead of Bootstrap's default */
+/* Mobile: always-visible border + breathing room above link list */
+@media (max-width: 991.98px) {
+  #main-nav {
+    border-bottom-color: var(--color-border);
+  }
+
+  #navbarContent .navbar-nav {
+    margin-top:  0.75rem;
+    border-top:  1px solid var(--color-border);
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   NAVBAR — BRAND
+   ══════════════════════════════════════════════════════════ */
+
+.navbar-brand {
+  display:        inline-block;   /* required for letter-spacing transition */
+  font-size:      1.4rem;
+  letter-spacing: 0.05em;
+  transition:     color 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color:          var(--color-text) !important;
+  letter-spacing: 0.12em;
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   NAVBAR — LINKS
+   ══════════════════════════════════════════════════════════ */
+
 .navbar .nav-link.active,
 .navbar .nav-link:hover {
   color: var(--accent) !important;
 }
 
 .nav-link {
-  position: relative;
+  position:   relative;
   transition: color 0.3s ease;
 }
 
+/* Expanding underline — base state (invisible) */
 .nav-link::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 0;
-  height: 3px;
+  content:          "";
+  position:         absolute;
+  bottom:           0;
+  left:             50%;
+  width:            0;
+  height:           3px;
   background-color: var(--accent);
-  transform: translateX(-50%);
-  transition: width 0.3s ease;
+  transform:        translateX(-50%);
+  transition:       width 0.3s ease;
 }
 
-.nav-link:hover::after {
-  width: 100%;
+/* Trigger only on true hover-capable devices */
+@media (hover: hover) and (pointer: fine) {
+  .nav-link:hover::after {
+    width: 100%;
+  }
 }
 
-/* ── Theme toggle ───────────────────────────────────────── */
+/* Shrink link box to text width on mobile so underline tracks text, not row */
+@media (max-width: 991.98px) {
+  .nav-link {
+    display: inline-block;
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   NAVBAR — CONTROLS (theme toggle + language switcher)
+   ══════════════════════════════════════════════════════════ */
+
+/* Shared lift-on-hover for all control buttons */
+.lang-trigger:hover,
+#theme-toggle:hover,
+#back-top:hover {
+  transform:    translateY(-1px);
+  box-shadow:   0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  border-color: var(--color-border) !important;
+  color:        var(--color-text) !important;
+}
+
+.lang-trigger:active,
+#theme-toggle:active,
+#back-top:active {
+  transform:  translateY(0);
+  box-shadow: none !important;
+}
+
+/* Theme toggle */
 #theme-toggle {
-  flex-shrink: 0;
-  align-self: center;
-  width: 37px;
-  height: 37px;
-  padding: 0px;
+  flex-shrink:   0;
+  align-self:    center;
+  width:         37px;
+  height:        37px;
+  padding:       0;
   border-radius: 50% !important;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition:    background-color 0.3s ease, transform 0.3s ease,
+                 box-shadow 0.3s ease;
 }
 
-/* Light theme hover — slightly darkened circle */
 [data-theme="light"] #theme-toggle:hover {
   background-color: rgba(0, 0, 0, 0.07) !important;
 }
 
-/* Dark theme hover — slightly lightened circle */
 [data-theme="dark"] #theme-toggle:hover {
   background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-/* ── Brand hover ────────────────────────────────────────── */
-.navbar-brand {
-  transition: opacity 0.3s ease, color 0.3s ease;
-}
-
-.navbar-brand:hover {
-  color: var(--color-text) !important;
-}
-
-@media (min-width: 992px) {
-  #main-nav .container {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-  }
-
-  /* Reset the ms-auto that positions controls on mobile;
-     the grid's 3rd column + justify-self handles it here. */
-  #nav-controls {
-    margin-inline-start: 0 !important; /* override Bootstrap's ms-auto utility */
-    justify-self: end;
-  }
-}
-
-/* ── Mobile collapse: subtle divider + breathing room ──────── */
-@media (max-width: 991.98px) {
-  #navbarContent .navbar-nav {
-    border-top: 1px solid var(--color-border);
-  }
-  #main-nav {
-    border-bottom-color: var(--bs-border-color);
-  }
-}
-
-/* ── Language switcher ──────────────────────────────────── */
-
-/* Lift on hover — matches the "feels like a button" direction */
-#back-top:hover,
-.lang-trigger:hover,
-#theme-toggle:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-  border-color: var(--color-border) !important;
-  color: var(--color-text) !important;
-}
-
-#back-top:active,
-.lang-trigger:active,
-#theme-toggle:active {
-  transform: translateY(0);
-  box-shadow: none !important;
-}
-
-/* Floating card feel — gap from the navbar + rounded */
+/* Language dropdown */
 .lang-menu {
   border-radius: 0.5rem;
-  border-color: var(--color-border);
-  min-width: 10rem;
+  border-color:  var(--color-border);
+  min-width:     10rem;
 }
 
-/* Subtle background on active item instead of Bootstrap's blue */
 .lang-menu .dropdown-item.active,
 .lang-menu .dropdown-item:active {
   background-color: var(--color-surface);
-  color: var(--accent);
+  color:            var(--accent);
 }
 
+/* Back-to-top button */
 #back-top {
-  flex-shrink: 0;
-  align-self: center;
-  width: 24px;
-  height: 24px;
-  padding: 0px;
+  flex-shrink:   0;
+  align-self:    center;
+  width:         24px;
+  height:        24px;
+  padding:       0;
   border-radius: 50% !important;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition:    background-color 0.3s ease, transform 0.3s ease,
+                 box-shadow 0.3s ease;
 }
