@@ -16,6 +16,8 @@ INSTALLED_APPS += ["debug_toolbar"]  # noqa: F405
 
 MIDDLEWARE.insert(2, "debug_toolbar.middleware.DebugToolbarMiddleware")  # noqa: F405
 
+COMPRESS_ENABLED = False  # compressor is disabled in dev by default, it compiles on the fly
+
 INTERNAL_IPS = ["127.0.0.1"]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

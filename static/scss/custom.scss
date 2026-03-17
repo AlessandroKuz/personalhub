@@ -1,0 +1,26 @@
+// =====================
+// 1. YOUR VARIABLE OVERRIDES (must come first)
+// =====================
+$primary: #275DAD;  // example, use your actual color
+
+
+// Adding custom theme colors
+$custom-colors: (
+    "alt-light": #f0f4f8,
+    "alt-dark":  #1a2433,
+);
+
+// =====================
+// 2. BOOTSTRAP SOURCE IMPORT
+// =====================
+@import "bootstrap/functions";   // must be first
+@import "bootstrap/variables";   // loads bootstrap defaults
+@import "bootstrap/mixins";      // needed for utility generation
+
+// Merge your custom colors into Bootstrap's theme-colors map
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+// =====================
+// 3. REST OF BOOTSTRAP
+// =====================
+@import "bootstrap/bootstrap";

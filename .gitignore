@@ -18,3 +18,5 @@ site/
 # sqlite db
 db.sqlite3
 
+# staticfiles
+staticfiles/

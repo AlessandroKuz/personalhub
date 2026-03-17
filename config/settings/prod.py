@@ -22,6 +22,9 @@ STORAGES = {
     },
 }
 
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = True  # pre-compiles everything at deploy time, no runtime compilation
+
 # This is handled directly with Cloudflare
 # The alternative is to do it here
 SECURE_SSL_REDIRECT = False

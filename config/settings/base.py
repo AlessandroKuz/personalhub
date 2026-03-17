@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "apps.core",
     "apps.projects",
     "apps.blog",
+    "compressor"
 ]
 
 MIDDLEWARE = [
@@ -137,6 +138,16 @@ LOCALE_PATHS = [BASE_DIR / "locale"]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+]
+
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)
 
 # STATIC_URL = 'static/'
 STATIC_URL = "/static/"
