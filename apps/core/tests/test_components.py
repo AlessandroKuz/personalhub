@@ -116,5 +116,5 @@ async def test_navbar_controls_present(async_client: AsyncClient) -> None:
     response = await async_client.get(reverse("core:home"))
     content = response.content.decode()
     assert "theme-toggle" in content
-    assert "lang-select" in content
+    assert "lang-switcher" in content
     assert "bi-globe2" in content
