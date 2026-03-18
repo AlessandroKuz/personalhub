@@ -1,7 +1,7 @@
 {% load i18n static compress %}
 {% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
-<html lang="{{ LANGUAGE_CODE }}">
+<html lang="{{ LANGUAGE_CODE }}" data-bs-theme="auto">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,10 +68,24 @@
 
   <body class="d-flex flex-column min-vh-100">
 
-    <!-- Skip to main content — accessibility -->
-    <a href="#main-content" class="visually-hidden-focusable">
+    <!-- Skip link - Accessibility best practice -->
+    <a class="visually-hidden-focusable p-3" href="#main-content">
       {% trans "Skip to main content" %}
     </a>
+
+    <!-- Messages -->
+    {% if messages %}
+      <div class="container-fluid border-bottom py-3">
+        <div class="container" id="messages">
+          {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show mb-2" role="alert">
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{% trans "Close" %}"></button>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
 
     <!-- Navbar -->
     {% block navbar %}
@@ -81,22 +95,11 @@
     <!-- Shortcuts -->
     <!-- Here I will place a special "Shortcuts" div when users press "?" it will open -->
 
-    <!-- Messages -->
-    {% if messages %}
-      <div class="container mt-3 messages">
-          {% for message in messages %}
-            <div class="alert alert-{{ message.tags }} alert-dismissible fade show">
-                {{ message }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>
-          {% endfor %}
-      </div>
-    {% endif %}
-
     <!-- Main Content -->
     <main id="main-content" class="flex-grow-1">
-        {% block content %}{% endblock content %}
+      {% block content %}{% endblock %}
     </main>
+
 
     <!-- Footer -->
     {% block footer %}
