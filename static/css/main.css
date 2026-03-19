@@ -3,9 +3,12 @@
    ══════════════════════════════════════════════════════════ */
 
 :root {
-  --navbar-height: 61px;
-  --accent:        var(--bs-primary); /* overrode in scss file */
-  --ease:          cubic-bezier(0.16, 1, 0.3, 1);
+  --navbar-height:  50px;
+  --accent:         var(--bs-primary); /* overrode in scss file */
+  --terminal-green: #4ade80;
+  --ease:           cubic-bezier(0.16, 1, 0.3, 1);
+  --nav-blur:       15px;
+  --shadow-hover:   0 4px 12px rgba(0, 0, 0, 0.1);
 
   /* Font aliases — chain to Bootstrap's compiled variables.
      The actual font names live in custom.scss only.          */
@@ -170,8 +173,8 @@ body.cursor-hover #cursor-ring {
 
 #main-nav.scrolled {
   background-color:         rgba(var(--bs-body-bg-rgb), 0.5) !important;
-  backdrop-filter:          blur(15px);
-  -webkit-backdrop-filter:  blur(15px);
+  backdrop-filter:          blur(var(--nav-blur));
+  -webkit-backdrop-filter:  blur(var(--nav-blur));
   border-bottom-color:      var(--color-border);
   box-shadow:               var(--bs-box-shadow);
 }
@@ -269,7 +272,7 @@ body.cursor-hover #cursor-ring {
 #theme-toggle:hover,
 #back-top:hover {
   transform:    translateY(-1px);
-  box-shadow:   0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  box-shadow:   var(--shadow-hover) !important;
   border-color: var(--color-border) !important;
   color:        var(--color-text) !important;
 }
