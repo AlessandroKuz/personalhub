@@ -114,4 +114,97 @@
   </div>
 </div>
 
+{# ── ABOUT ───────────────────────────────────────────────────── #}
+<section id="about" class="content-section">
+  <div class="container">
+
+    <p class="section-label reveal">{% trans "About" %}</p>
+    <h2 class="section-title reveal reveal-delay-1">
+      {% trans "A builder at heart —" %}<br>
+      <em>{% trans "curious by nature." %}</em>
+    </h2>
+
+    <div class="about-grid">
+
+      {# Left: bio text #}
+      <div class="about-text reveal reveal-delay-2">
+        <p>
+          {% blocktrans trimmed %}
+            I'm <strong>Alessandro Kuz</strong> — an Italian ML Engineer and
+            Data Scientist based in Italy, working globally. I've spent the
+            last 3+ years turning research into production systems, and I'm
+            equally at home writing a PyTorch training loop or deploying a
+            Django application behind a reverse proxy.
+          {% endblocktrans %}
+        </p>
+        <p>
+          {% blocktrans trimmed %}
+            Outside of work I'm drawn to <strong>nature</strong>,
+            <strong>teaching</strong>, and anything that sits at the
+            intersection of rigour and creativity. I speak six languages —
+            which probably explains why I find communication as interesting
+            as computation.
+          {% endblocktrans %}
+        </p>
+        <p>
+          {% blocktrans trimmed %}
+            This site is both my portfolio and a living codebase —
+            built the way I think software should be: simple, documented,
+            and designed to last.
+          {% endblocktrans %}
+        </p>
+
+        <a href="{% url 'core:about' %}"
+           class="btn btn-ghost mt-2">
+          {% trans "Read more" %} →
+        </a>
+      </div>
+
+      {# Right: personal highlights #}
+      <ul class="about-highlights reveal reveal-delay-3">
+        <li>
+          <span class="about-highlight-num">01</span>
+          <div>
+            <p class="about-highlight-title">{% trans "Polyglot" %}</p>
+            <p class="about-highlight-desc">
+              {% trans "Italian · English · Spanish · Russian · Ukrainian · German" %}
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="about-highlight-num">02</span>
+          <div>
+            <p class="about-highlight-title">{% trans "Interests" %}</p>
+            <p class="about-highlight-desc">
+              {% trans "Nature, teaching, open source, self-hosting, and lifelong learning." %}
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="about-highlight-num">03</span>
+          <div>
+            <p class="about-highlight-title">{% trans "Philosophy" %}</p>
+            <p class="about-highlight-desc">
+              {% trans "Do more with less. Simple systems outlast clever ones." %}
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="about-highlight-num">04</span>
+          <div>
+            <p class="about-highlight-title">{% trans "Currently" %}</p>
+            <p class="about-highlight-desc">
+              {% trans "Building PersonalHub — this site — and deepening expertise in MLOps and LLM systems." %}
+            </p>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</section>
+
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+<br>
+
 {% endblock content %}

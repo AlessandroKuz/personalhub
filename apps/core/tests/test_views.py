@@ -196,3 +196,27 @@ async def test_home_has_marquee(
         assert 'id="marquee-track"' in html, (
             f"marquee-track missing from home page [{lang}]"
         )
+
+async def test_home_about_has_read_more_cta(
+    home_content_per_language: dict[str, str],
+) -> None:
+    """
+    About teaser contains a CTA linking to the full about page.
+    Tests the URL resolution is correct across all languages.
+    """
+    for lang, html in home_content_per_language.items():
+        assert 'core:about' in html or '/about/' in html, (
+            f"About CTA missing from home page [{lang}]"
+        )
+
+async def test_home_work_has_cv_cta(
+    home_content_per_language: dict[str, str],
+) -> None:
+    """
+    Skills section contains a CTA linking to the full work/CV page.
+    """
+    for lang, html in home_content_per_language.items():
+        assert '/work/' in html, (
+            f"Work CTA missing from home page [{lang}]"
+        )
+
