@@ -124,6 +124,7 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = "en"
 TIME_ZONE = "Europe/Rome"
 USE_I18N = True
+# USE_L10N = True  # to localize dates, times and numbers
 USE_TZ = True
 
 LANGUAGES = [
