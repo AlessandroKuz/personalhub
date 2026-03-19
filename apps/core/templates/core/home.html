@@ -208,4 +208,102 @@
   </div>
 </section>
 
+{# ── SKILLS ──────────────────────────────────────────────────── #}
+<section id="work" class="content-section">
+  <div class="container">
+
+    <p class="section-label reveal">{% trans "Work" %}</p>
+    <h2 class="section-title reveal reveal-delay-1">
+      {% trans "The full stack —" %}<br>
+      <em>{% trans "from data to deployment." %}</em>
+    </h2>
+
+    <div class="skills-cols reveal reveal-delay-2">
+
+      {# Column 1: ML / AI #}
+      <a href="{% url 'core:work' %}#ml-ai" class="skill-col">
+        <span class="skill-view-link">{% trans "View" %} ↗</span>
+        <span class="skill-icon">[ ML / AI ]</span>
+        <h3 class="skill-col-title">{% trans "Machine Learning & AI" %}</h3>
+        <p>
+          {% blocktrans trimmed %}
+            Designing and training models that generalise — from classical
+            algorithms to deep learning and large language model systems.
+          {% endblocktrans %}
+        </p>
+        <div class="skill-tags">
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">Scikit-Learn</span>
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">Polars</span>
+          <span class="skill-tag">NumPy</span>
+          <span class="skill-tag">LangChain</span>
+          <span class="skill-tag">ChromaDB</span>
+          <span class="skill-tag">RAG</span>
+          <span class="skill-tag">Fine-Tuning</span>
+        </div>
+      </a>
+
+    {# Column 2: Data Science #}
+    <a href="{% url 'core:work' %}#data-science" class="skill-col">
+      <span class="skill-view-link">{% trans "View" %} ↗</span>
+      <span class="skill-icon">[ DATA ]</span>
+      <h3 class="skill-col-title">{% trans "Data Science" %}</h3>
+      <p>
+        {% blocktrans trimmed %}
+          Turning raw data into insight — from exploratory analysis
+          and statistical modelling to production-grade pipelines.
+        {% endblocktrans %}
+      </p>
+      <div class="skill-tags">
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">Polars</span>
+        <span class="skill-tag">NumPy</span>
+        <span class="skill-tag">Plotly</span>
+        <span class="skill-tag">Matplotlib</span>
+        <span class="skill-tag">Seaborn</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Data Pipelines</span>
+      </div>
+    </a>
+
+      {# Column 3: Backend / Web #}
+      <a href="{% url 'core:work' %}#backend-devops" class="skill-col">
+        <span class="skill-view-link">{% trans "View" %} ↗</span>
+        <span class="skill-icon">[ BACKEND ]</span>
+        <h3 class="skill-col-title">{% trans "Backend & Web" %}</h3>
+        <p>
+          {% blocktrans trimmed %}
+            Building and shipping server-side systems end-to-end —
+            from clean APIs and hypermedia-driven interfaces to
+            containerised, production-ready deployments.
+          {% endblocktrans %}
+        </p>
+        <div class="skill-tags">
+          <span class="skill-tag">Django</span>
+          <span class="skill-tag">FastAPI</span>
+          <span class="skill-tag">HTMX</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">Bootstrap 5</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">CI/CD</span>
+        </div>
+      </a>
+
+    </div>
+
+    {# CTA to full work page #}
+    <div class="text-center mt-5 reveal reveal-delay-3">
+      <a href="{% url 'core:work' %}" class="btn btn-ghost">
+        {% trans "See full CV" %} →
+      </a>
+    </div>
+
+
+  </div>
+</section>
+
 {% endblock content %}
