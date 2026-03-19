@@ -220,3 +220,14 @@ async def test_home_work_has_cv_cta(
             f"Work CTA missing from home page [{lang}]"
         )
 
+async def test_home_projects_has_cta(
+    home_content_per_language: dict[str, str],
+) -> None:
+    """
+    Projects section contains a CTA linking to the full projects page.
+    """
+    for lang, html in home_content_per_language.items():
+        assert '/projects/' in html, (
+            f"Projects CTA missing from home page [{lang}]"
+        )
+

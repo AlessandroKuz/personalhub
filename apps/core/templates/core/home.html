@@ -21,11 +21,11 @@
           {% trans "Available for opportunities" %}
         </p>
 
-        <h1 class="hero-name mb-2 fw-bold">
+        <h1 class="hero-name mb-2">
           Alessandro <span class="text-accent">Kuz</span>
         </h1>
 
-        <p class="hero-tagline fw-bold">
+        <p class="hero-tagline">
           AI/ML Engineer · Data Scientist · Builder
         </p>
 
@@ -51,7 +51,7 @@
           {% trans "Open to work" %}
         </div>
 
-        <ul class="stat-list" style="list-style: none; padding: 0; margin: 0;">
+        <ul class="stat-list">
           <li>
             <p class="stat-label">{% trans "Role" %}</p>
             <p class="stat-value">AI/ML <span>{% trans "Engineer" %}</span></p>
@@ -302,6 +302,171 @@
       </a>
     </div>
 
+
+  </div>
+</section>
+
+{# ── PROJECTS ─────────────────────────────────────────────────── #}
+<section id="projects" class="content-section">
+  <div class="container">
+
+    <p class="section-label reveal">{% trans "Projects" %}</p>
+    <h2 class="section-title reveal reveal-delay-1">
+      {% trans "Things I've built —" %}<br>
+      <em>{% trans "that are actually useful." %}</em>
+    </h2>
+
+    <div class="projects-grid reveal reveal-delay-2">
+
+      {# ── 001: PersonalHub — Featured ── #}
+      <a href="https://github.com/AlessandroKuz/personalhub"
+         target="_blank" rel="noopener noreferrer"
+         class="project-card project-featured">
+        <span class="project-link">{% trans "View" %} ↗</span>
+
+        <div>
+          <span class="featured-badge">{% trans "Featured" %}</span>
+          <div class="project-num">001</div>
+          <h3 class="project-title">PersonalHub</h3>
+          <p class="project-desc">
+            {% blocktrans trimmed %}
+              This very site. A Django-powered personal hub built with
+              <strong>HTMX</strong>, <strong>Bootstrap 5</strong>, and a
+              deliberate no-JS-framework philosophy. Designed to grow through
+              three phases — from static portfolio to dynamic blog with
+              WebSocket live preview. Every architectural decision is
+              documented so the project can be reproduced from scratch.
+            {% endblocktrans %}
+          </p>
+          <div class="project-meta">
+            <span class="project-tag">Django</span>
+            <span class="project-tag">HTMX</span>
+            <span class="project-tag">Bootstrap 5</span>
+            <span class="project-tag">PostgreSQL</span>
+            <span class="project-tag">Docker</span>
+            <span class="project-tag">Caddy</span>
+            <span class="project-tag">Uvicorn</span>
+          </div>
+        </div>
+
+        <div class="project-visual" aria-hidden="true">
+          <div class="terminal-preview">
+            <div class="t-line-dim">→ Server: <span class="t-line-accent">Uvicorn ASGI</span> running on :8000</div>
+            <div>→ Templates: <span class="t-line-accent">Django</span> + HTMX + Bootstrap 5</div>
+            <div class="t-line-dim">→ Tests: <span class="t-line-green">13 passed</span> in 0.42s</div>
+            <div>→ Phase: <span class="t-line-accent">1 / 3</span> — shipping now<span class="t-cursor"></span></div>
+          </div>
+        </div>
+
+      </a>
+
+      {# ── 002: MAO ── #}
+      <a href="#projects" class="project-card">
+        <span class="project-link">{% trans "View" %} ↗</span>
+        <div class="project-num">002</div>
+        <h3 class="project-title">Online Anamnestic Module (MAO)</h3>
+        <p class="project-desc">
+          {% blocktrans trimmed %}
+            Comprehensive clinical data collection platform built for oncology
+            specialists to digitise and streamline patient anamnestic intake.
+            Designed to be minimalist and efficient — integrating
+            <strong>PedigreeJS</strong> for interactive graphical pedigree tree
+            building and the <strong>CanRisk API</strong> for cancer mutation
+            probability assessment. Role-based access managed via Microsoft
+            Entra with Azure deployment behind IIS.
+          {% endblocktrans %}
+        </p>
+        <div class="project-meta">
+          <span class="project-tag">Django</span>
+          <span class="project-tag">HTMX</span>
+          <span class="project-tag">Bootstrap 5</span>
+          <span class="project-tag">PostgreSQL</span>
+          <span class="project-tag">PedigreeJS</span>
+          <span class="project-tag">CanRisk API</span>
+          <span class="project-tag">Microsoft Azure</span>
+          <span class="project-tag">Microsoft Entra</span>
+          <span class="project-tag">IIS</span>
+        </div>
+      </a>
+
+      {# ── 003: LLM Toolbox — spans full width as grid closer ── #}
+      <a href="#projects" class="project-card">
+        <span class="project-link">{% trans "View" %} ↗</span>
+        <div class="project-num">003</div>
+        <h3 class="project-title">LLM Toolbox</h3>
+        <p class="project-desc">
+          {% blocktrans trimmed %}
+            A collection of LLM-powered developer tools.
+            <strong>Tailor-your-CV</strong> lets users align their CV to a
+            specific job description — surfacing the most relevant experiences
+            and highlights for recruiters — powered by OpenAI, Gemini, and
+            local Ollama models, deployed as a Streamlit app.
+            <strong>Local RAG</strong> indexes local files (PDF, Markdown,
+            HTML, TXT and more) into a ChromaDB vector store with smart
+            chunking, enabling precise semantic retrieval with full source
+            attribution.
+          {% endblocktrans %}
+        </p>
+        <div class="project-meta">
+          <span class="project-tag">OpenAI</span>
+          <span class="project-tag">Gemini</span>
+          <span class="project-tag">Ollama</span>
+          <span class="project-tag">Streamlit</span>
+          <span class="project-tag">ChromaDB</span>
+          <span class="project-tag">LangChain</span>
+          <span class="project-tag">RAG</span>
+        </div>
+      </a>
+
+      {# ── 004: Cancer Prediction — spans full width ── #}
+      <a href="#projects" class="project-card project-featured project-full-width">
+        <span class="project-link">{% trans "View" %} ↗</span>
+
+        <div>
+          <div class="project-num">004</div>
+          <h3 class="project-title">Cancer Stage Prediction from DNA Methylation</h3>
+          <p class="project-desc">
+            {% blocktrans trimmed %}
+              End-to-end bioinformatics and ML pipeline to infer cancer stage
+              from tissue DNA methylation profiles. Involved deep field research
+              into cancer biology and staging, expert consultation, and processing
+              <strong>200GB+</strong> of raw methylation data via Dask and Polars
+              Lazy DataFrames — well beyond single-machine memory limits. Compared
+              multiple model architectures (XGBoost, Scikit-Learn, PyTorch) with
+              full evaluation. Achieved <strong>98% accuracy</strong>
+              distinguishing cancer vs. cancer-free samples.
+            {% endblocktrans %}
+          </p>
+          <div class="project-meta">
+            <span class="project-tag">Polars</span>
+            <span class="project-tag">Dask</span>
+            <span class="project-tag">PyTorch</span>
+            <span class="project-tag">XGBoost</span>
+            <span class="project-tag">Scikit-Learn</span>
+            <span class="project-tag">Pandas</span>
+            <span class="project-tag">EWAS DataHub</span>
+          </div>
+        </div>
+
+        <div class="project-visual" aria-hidden="true">
+          <div class="terminal-preview">
+            <div class="t-line-dim">→ Dataset: <span class="t-line-accent">200GB</span> methylation profiles</div>
+            <div>→ Samples processed: <span class="t-line-accent">10841</span></div>
+            <div class="t-line-dim">→ Cancer vs. cancer-free accuracy: <span class="t-line-green">98%</span></div>
+            <div>→ Stage prediction accuracy: <span class="t-line-accent">67,8%</span><span class="t-cursor"></span></div>
+          </div>
+        </div>
+
+      </a>
+
+    </div>
+
+    {# CTA to full projects page #}
+    <div class="text-center mt-5 reveal reveal-delay-3">
+      <a href="#projects" class="btn btn-ghost">
+        {% trans "All projects" %} →
+      </a>
+    </div>
 
   </div>
 </section>
