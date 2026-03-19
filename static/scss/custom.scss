@@ -1,14 +1,46 @@
 // =====================
-// 1. YOUR VARIABLE OVERRIDES (must come first)
+// 1. YOUR VARIABLE OVERRIDES (must come before Bootstrap imports)
 // =====================
-$primary: #275DAD;  // example, use your actual color
 
+// ── Colors ──────────────────────────────────────────────────────
+$primary: #275DAD;
+// $primary: #ff0000;
 
-// Adding custom theme colors
+// Custom extra colors merged into Bootstrap's theme map
 $custom-colors: (
-    "alt-light": #f0f4f8,
-    "alt-dark":  #1a2433,
+  "alt-light": #f0f4f8,
+  "alt-dark":  #1a2433,
 );
+
+// ── Typography ──────────────────────────────────────────────────
+// These override Bootstrap's built-in font stacks at compile time.
+// Every component that uses var(--bs-body-font-family) or
+// var(--bs-font-monospace) will automatically pick up these values.
+
+$font-family-sans-serif:
+  "DM Sans",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  sans-serif;
+
+$font-family-monospace:
+  "JetBrains Mono",
+  "SFMono-Regular",
+  Menlo,
+  monospace;
+
+// ── Shape ───────────────────────────────────────────────────────
+// Bootstrap's default radius is 0.375rem (6px) — too rounded for
+// the sharp, editorial aesthetic we want. 0.125rem ≈ 2px.
+// Setting the scale here means ALL components (buttons, cards,
+// dropdowns, inputs) inherit the sharper look automatically.
+
+$border-radius:    0.125rem;  // 2px  — base
+$border-radius-sm: 0.125rem;  // 2px  — small variant
+$border-radius-lg: 0.25rem;   // 4px  — large variant (cards etc.)
+$border-radius-xl: 0.375rem;  // 6px  — extra large (modals etc.)
+
 
 // =====================
 // 2. BOOTSTRAP SOURCE IMPORT

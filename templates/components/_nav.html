@@ -44,7 +44,7 @@
           {% get_current_language as current_lang %}
           {% for code, name in languages %}
             <li role="option" aria-selected="{% if code == current_lang %}true{% else %}false{% endif %}">
-              <button class="dropdown-item font-monospace d-flex align-items-center gap-2
+              <button class="dropdown-item lang-option font-monospace d-flex align-items-center gap-2
                             {% if code == current_lang %}active{% endif %}"
                       type="button"
                       data-lang="{{ code }}">

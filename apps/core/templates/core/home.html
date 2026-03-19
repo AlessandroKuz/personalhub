@@ -1,8 +1,117 @@
-{% extends "base.html" %}
-{% load static i18n %}
 
-{% block title %}A.Kuz — Home{% endblock title %}
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}Alessandro Kuz — AI & ML{% endblock %}
 
 {% block content %}
-{% endblock content %}
 
+{# ── HERO ─────────────────────────────────────────────────────── #}
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+
+      {# Left: text #}
+      <div>
+        <p class="hero-eyebrow">
+          {% trans "Available for opportunities" %}
+        </p>
+
+        <h1 class="hero-name mb-2 fw-bold">
+          Alessandro <span class="text-accent">Kuz</span>
+        </h1>
+
+        <p class="hero-tagline fw-bold">
+          AI/ML Engineer · Data Scientist · Builder
+        </p>
+
+        <p class="hero-desc">
+          {% blocktrans trimmed %}
+            I design and build <strong>intelligent systems end-to-end</strong>
+            — from research and experimentation to production-grade deployment.
+            Based in Italy, working globally.
+          {% endblocktrans %}
+        </p>
+
+        <div class="hero-cta">
+          <a href="#work"    class="btn btn-primary">{% trans "View my work" %}</a>
+          <a href="#contact" class="btn btn-ghost">{% trans "Get in touch" %}</a>
+        </div>
+      </div>
+
+      {# Right: status card #}
+      <div class="hero-card">
+
+        <div class="status-row">
+          <span class="status-dot" aria-hidden="true"></span>
+          {% trans "Open to work" %}
+        </div>
+
+        <ul class="stat-list" style="list-style: none; padding: 0; margin: 0;">
+          <li>
+            <p class="stat-label">{% trans "Role" %}</p>
+            <p class="stat-value">AI/ML <span>{% trans "Engineer" %}</span></p>
+          </li>
+          <li>
+            <p class="stat-label">{% trans "Experience" %}</p>
+            <p class="stat-value">3+ <span>{% trans "years" %}</span></p>
+          </li>
+          <li>
+            <p class="stat-label">{% trans "Location" %}</p>
+            <p class="stat-value">{% trans "Italy" %} <span>EU</span></p>
+          </li>
+        </ul>
+
+        <div class="divider-h"></div>
+
+        <div class="tag-cloud">
+          <span class="tag">PyTorch</span>
+          <span class="tag">Scikit-Learn</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">Polars</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">Django</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">Docker</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Linux</span>
+          <span class="tag">Python</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Go/Golang</span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{# ── MARQUEE TICKER ──────────────────────────────────────────── #}
+{# aria-hidden: purely decorative — screen readers skip it       #}
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track" id="marquee-track">
+<span class="marquee-item">MLOps</span><span class="marquee-sep">◆</span>
+<span class="marquee-item">RAG</span><span class="marquee-sep">◆</span>
+<span class="marquee-item">LLMs</span><span class="marquee-sep">◆</span>
+<span class="marquee-item">Fine-Tuning</span><span class="marquee-sep">◆</span>
+<span class="marquee-item">Vector Search</span><span class="marquee-sep">◆</span>
+<span class="marquee-item">CI/CD</span><span class="marquee-sep">◆</span>
+<span class="marquee-item">Containerisation</span><span class="marquee-sep">◆</span>
+<span class="marquee-item">REST APIs</span><span class="marquee-sep">◆</span>
+<span class="marquee-item">Async Python</span><span class="marquee-sep">◆</span>
+<span class="marquee-item">Data Pipelines</span><span class="marquee-sep">◆</span>
+<span class="marquee-item">Model Deployment</span><span class="marquee-sep">◆</span>
+<span class="marquee-item">Backend Development</span><span class="marquee-sep">◆</span>
+<span class="marquee-item">System Design</span><span class="marquee-sep">◆</span>
+<span class="marquee-item">TDD</span><span class="marquee-sep">◆</span>
+<span class="marquee-item">Server-Side Rendering</span><span class="marquee-sep">◆</span>
+<span class="marquee-item">Open Source</span><span class="marquee-sep">◆</span>
+<span class="marquee-item">Linux</span><span class="marquee-sep">◆</span>
+<span class="marquee-item">Self-Hosting</span><span class="marquee-sep">◆</span>
+<span class="marquee-item">Technical Writing</span><span class="marquee-sep">◆</span>
+<span class="marquee-item">End-to-End ML</span><span class="marquee-sep">◆</span>
+<span class="marquee-item">Lifelong Learning</span><span class="marquee-sep">◆</span>
+  </div>
+</div>
+
+{% endblock content %}
