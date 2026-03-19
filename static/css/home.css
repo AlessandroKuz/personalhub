@@ -1,0 +1,365 @@
+
+/* ══════════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════════ */
+
+#hero {
+  min-height:  calc(100vh - var(--navbar-height));
+  display:     flex;
+  align-items: center;
+  padding:     120px 0;
+}
+
+.hero-grid {
+  display:               grid;
+  grid-template-columns: 1fr 420px;
+  gap:                   80px;
+  align-items:           center;
+  width:                 100%;
+}
+
+/* Staggered entrance — each element animates in sequence.
+   `both` = holds opacity:0 before delay fires.            */
+.hero-eyebrow { animation: fadeUp 0.8s var(--ease) 0.10s both; }
+.hero-name    { animation: fadeUp 0.9s var(--ease) 0.25s both; }
+.hero-tagline { animation: fadeUp 0.9s var(--ease) 0.40s both; }
+.hero-desc    { animation: fadeUp 0.9s var(--ease) 0.55s both; }
+.hero-cta     { animation: fadeUp 0.9s var(--ease) 0.70s both; }
+.hero-card    { animation: fadeUp 0.9s var(--ease) 0.60s both; }
+
+.hero-eyebrow {
+  font-family:    var(--font-mono);
+  font-size:      0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color:          var(--accent);
+  margin-bottom:  1.5rem;
+  display:        flex;
+  align-items:    center;
+  gap:            0.75rem;
+}
+
+.hero-eyebrow::before {
+  content:    '';
+  display:    block;
+  width:      32px;
+  height:     1px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* Name: DM Sans light at display size.
+   letter-spacing: -0.02em tightens the tracking at large
+   sizes — at 6rem default tracking looks too loose.        */
+.hero-name {
+  font-size:      clamp(3.2rem, 7vw, 6rem);
+  font-weight:    300;
+  line-height:    1.02;
+  letter-spacing: -0.02em;
+  margin-bottom:  0.5rem;
+}
+
+.hero-tagline {
+  font-size:    clamp(1.1rem, 2vw, 1.4rem);
+  font-style:   italic;
+  font-weight:  300;
+  color:        var(--color-muted);
+  margin-bottom: 2.5rem;
+}
+
+.hero-desc {
+  font-size:     0.95rem;
+  color:         var(--color-muted);
+  max-width:     600px;
+  line-height:   1.85;
+  margin-bottom: 3rem;
+}
+
+.hero-desc strong {
+  color:       var(--color-text);
+  font-weight: 400;
+}
+
+.hero-cta {
+  display:   flex;
+  gap:       1rem;
+  flex-wrap: wrap;
+}
+
+/* Buttons: mono uppercase — the entire reason they don't
+   look like default Bootstrap.                            */
+main .btn {
+  font-family:    var(--font-mono);
+  font-size:      0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding:        14px 28px;
+  border-radius:  2px;
+  transition:     all 0.25s var(--ease);
+  display:        inline-block;
+}
+
+.btn-ghost {
+  background:   transparent;
+  color:        var(--color-muted);
+  border:       1px solid var(--color-border);
+}
+
+.btn-ghost:hover {
+  border-color: var(--color-muted);
+  color:        var(--color-text);
+}
+
+/* ── Hero card (right column) ─────────────────────────── */
+
+.hero-card {
+  background:    var(--color-surface);
+  border:        1px solid var(--color-border);
+  border-radius: 4px;
+  padding:       2rem;
+}
+
+.status-row {
+  display:        flex;
+  align-items:    center;
+  gap:            0.6rem;
+  font-family:    var(--font-mono);
+  font-size:      0.7rem;
+  letter-spacing: 0.1em;
+  color:          var(--color-muted);
+  margin-bottom:  1.75rem;
+  text-transform: uppercase;
+}
+
+/* Glow via box-shadow makes the dot feel "live" */
+.status-dot {
+  width:         7px;
+  height:        7px;
+  border-radius: 50%;
+  background:    #4ade80;
+  box-shadow:    0 0 8px #4ade80;
+  flex-shrink:   0;
+  animation:     pulse 2.4s ease-in-out infinite;
+}
+
+.stat-list {
+  display:        flex;
+  flex-direction: column;
+  gap:            1.25rem;
+  margin-bottom:  1.25rem;
+}
+
+/* Mono label (small) + large value = visual hierarchy
+   without any colour — pure size contrast.               */
+.stat-label {
+  font-family:    var(--font-mono);
+  font-size:      0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color:          var(--color-muted);
+  margin-bottom:  0.25rem;
+}
+
+.stat-value {
+  font-size:   1.5rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* The accent word inside stat-value (e.g. "Engineer", "EU") */
+.stat-value span {
+  font-size:   0.9rem;
+  color:       var(--accent);
+  font-family: var(--font-mono);
+}
+
+.divider-h {
+  height:     1px;
+  background: var(--color-border);
+  margin:     1.25rem 0;
+}
+
+/* Tags: border-only, no fill — featherlight */
+.tag-cloud {
+  display:   flex;
+  flex-wrap: wrap;
+  gap:       6px;
+}
+
+.tag {
+  font-family:    var(--font-mono);
+  font-size:      0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding:        4px 9px;
+  border:         1px solid var(--color-border);
+  border-radius:  2px;
+  color:          var(--color-muted);
+}
+
+/* Responsive: stack to single column below lg */
+@media (max-width: 991.98px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card {
+    margin-top: 2rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-eyebrow, .hero-name, .hero-tagline,
+  .hero-desc, .hero-cta, .hero-card {
+    animation: none;
+    opacity:   1;
+  }
+
+  .status-dot { animation: none; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   MARQUEE TICKER
+   overflow: hidden clips the track to the wrap width.
+   The track is twice as wide as the wrap (duplicated items)
+   so translateX(-50%) lands exactly at the start of copy 2.
+   ══════════════════════════════════════════════════════════ */
+
+.marquee-wrap {
+  border-top:    1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  overflow:      hidden;
+  padding:       14px 0;
+  position:      relative;
+  z-index:       1;
+  /* Fade edges — creates depth, hides the hard clip */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+.marquee-track {
+  display:     flex;
+  gap:         0;
+  width:       max-content; /* grows to fit all items naturally */
+  animation:   marquee 30s linear infinite;
+  white-space: nowrap;
+  /* Pause on hover — set via JS adding .paused class */
+}
+
+.marquee-track.paused {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  font-family:    var(--font-mono);
+  font-size:      0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color:          var(--color-muted);
+  padding:        0 40px;
+  display:        flex;
+  align-items:    center;
+  gap:            40px;
+  user-select:    none; /* text shouldn't be selectable on a ticker */
+}
+
+.marquee-sep {
+  color:       var(--accent);
+  font-size:   0.5rem;
+  user-select: none;
+  align-self:  center;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════════════════
+   ABOUT TEASER
+   Alternate background creates visual rhythm between sections
+   — light/dark sections alternate so the page doesn't feel
+   like one flat wall of content.
+   ══════════════════════════════════════════════════════════ */
+
+#about {
+  background: var(--color-bg2);
+}
+
+.about-grid {
+  display:               grid;
+  grid-template-columns: 1fr 1fr;
+  gap:                   80px;
+  align-items:           start;
+}
+
+.about-text p {
+  font-size:     0.95rem;
+  color:         var(--color-muted);
+  line-height:   1.9;
+  margin-bottom: 1.25rem;
+}
+
+.about-text p strong {
+  color:       var(--color-text);
+  font-weight: 400;
+}
+
+/* Personal highlights list — right column */
+.about-highlights {
+  list-style: none;
+  padding:    0;
+  margin:     0;
+}
+
+.about-highlights li {
+  padding:       1.1rem 0;
+  border-bottom: 1px solid var(--color-border);
+  display:       flex;
+  align-items:   flex-start;
+  gap:           1.25rem;
+}
+
+.about-highlights li:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.about-highlight-num {
+  font-family:    var(--font-mono);
+  font-size:      0.65rem;
+  color:          var(--accent);
+  letter-spacing: 0.1em;
+  min-width:      28px;
+  padding-top:    3px;
+  flex-shrink:    0;
+}
+
+.about-highlight-title {
+  font-size:     0.9rem;
+  color:         var(--color-text);
+  margin-bottom: 0.25rem;
+  font-weight:   400;
+}
+
+.about-highlight-desc {
+  font-size:   0.8rem;
+  color:       var(--color-muted);
+  line-height: 1.6;
+}
+
+/* Responsive: stack to single column below lg */
+@media (max-width: 991.98px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap:                   48px;
+  }
+}
