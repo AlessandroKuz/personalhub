@@ -536,4 +536,95 @@
   </div>
 </section>
 
+{# ── CONTACT ─────────────────────────────────────────────────── #}
+<section id="contact" class="content-section">
+  <div class="container">
+
+    <p class="section-label reveal">{% trans "Contact" %}</p>
+
+    <h2 class="contact-heading reveal reveal-delay-1">
+      {% trans "Let's build" %}<br>
+      <em>{% trans "something worth building." %}</em>
+    </h2>
+
+    <p class="contact-sub reveal reveal-delay-2">
+      {% blocktrans trimmed %}
+        Open to freelance projects, consulting engagements, and full-time roles. Response within 24 hours.
+      {% endblocktrans %}
+    </p>
+
+    {# ── Reach out directly ── #}
+    <div class="reveal reveal-delay-2">
+      <p class="contact-group-label">{% trans "Reach out directly" %}</p>
+
+      <div class="contact-links">
+
+        <a href="mailto:contact@alessandrokuz.com"
+           class="contact-link">
+          <span class="contact-link-icon">
+            <i class="bi bi-envelope-fill" aria-hidden="true"></i>
+          </span>
+          <span class="contact-link-label">{% trans "Send an email" %}</span>
+          <span class="contact-link-meta">contact@alessandrokuz.com</span>
+          <span class="contact-link-arrow">
+            <i class="bi bi-arrow-right"></i>
+          </span>
+        </a>
+
+        <a href="https://cal.com/alessandrokuz"
+           target="_blank" rel="noopener noreferrer"
+           class="contact-link">
+          <span class="contact-link-icon">
+            <i class="bi bi-calendar2-check-fill" aria-hidden="true"></i>
+          </span>
+          <span class="contact-link-label">{% trans "Book a call" %}</span>
+          <span class="contact-link-meta">cal.com/alessandrokuz</span>
+          <span class="contact-link-arrow">
+            <i class="bi bi-arrow-right"></i>
+          </span>
+        </a>
+
+      </div>
+    </div>
+
+    {# ── Find me elsewhere ── #}
+    <div class="reveal reveal-delay-3">
+      <p class="contact-group-label">{% trans "Find me elsewhere" %}</p>
+
+      <div class="social-links">
+
+        <a href="https://github.com/alessandrokuz"
+           target="_blank" rel="noopener noreferrer"
+           class="social-link">
+          <i class="bi bi-github" aria-hidden="true"></i>
+          GitHub
+        </a>
+
+        <a href="https://linkedin.com/in/alessandrokuz"
+           target="_blank" rel="noopener noreferrer"
+           class="social-link">
+          <i class="bi bi-linkedin" aria-hidden="true"></i>
+          LinkedIn
+        </a>
+
+        <a href="https://youtube.com/@alessandrokuz"
+           target="_blank" rel="noopener noreferrer"
+           class="social-link">
+          <i class="bi bi-youtube" aria-hidden="true"></i>
+          YouTube
+        </a>
+
+      </div>
+    </div>
+
+    {# CTA to full contact page #}
+    <div class="mt-5 reveal reveal-delay-4">
+      <a href="{% url 'core:contact' %}" class="btn btn-primary">
+        {% trans "Go to contact page" %} →
+      </a>
+    </div>
+
+  </div>
+</section>
+
 {% endblock content %}

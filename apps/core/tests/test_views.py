@@ -245,3 +245,30 @@ async def test_home_has_process_steps(
                 f'Process step {step} missing [{lang}]'
             )
 
+async def test_home_contact_has_email_and_cal(
+    home_content_per_language: dict[str, str],
+) -> None:
+    """
+    Contact section contains both direct contact methods.
+    These are the primary conversion points on the landing page.
+    """
+    for lang, html in home_content_per_language.items():
+        assert 'mailto:' in html, (
+            f"Email link missing from contact section [{lang}]"
+        )
+        assert 'cal.com' in html, (
+            f"cal.com link missing from contact section [{lang}]"
+        )
+
+async def test_home_contact_has_socials(
+    home_content_per_language: dict[str, str],
+) -> None:
+    """
+    Contact section contains all three social links.
+    """
+    for lang, html in home_content_per_language.items():
+        for social in ['github.com', 'linkedin.com', 'youtube.com']:
+            assert social in html, (
+                f"{social} missing from contact section [{lang}]"
+            )
+
