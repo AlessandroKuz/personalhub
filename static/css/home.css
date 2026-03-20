@@ -490,6 +490,7 @@ a.skill-col:hover .skill-view-link {
   grid-template-columns: 1fr 1fr;
   gap:                   1px;
   background:            var(--color-border);
+  align-items:           start;
 }
 
 /* ── Base card ──────────────────────────────────────────── */
@@ -671,14 +672,30 @@ a.project-featured {
     grid-template-columns: 1fr;
   }
 
-  .project-featured {
+  .project-featured,
+  a.project-featured {
     grid-column:           span 1;
     grid-template-columns: 1fr;
   }
 
+  .project-full-width {
+    grid-column: span 1;
+  }
+
   .project-card,
-  .project-featured {
+  .project-featured,
+  a.project-featured {
     padding: 36px 28px;
+  }
+
+  .project-visual {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .project-visual {
+    display: none;
   }
 }
 
@@ -690,4 +707,95 @@ a.project-featured {
 
 .project-full-width {
   grid-column: span 2;
+}
+
+/* ══════════════════════════════════════════════════════════
+   PROCESS
+   ══════════════════════════════════════════════════════════ */
+
+.process-steps {
+  display:               grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:                   0;
+  border:                1px solid var(--color-border);
+}
+
+.process-step {
+  padding:  40px 32px;
+  border-right: 1px solid var(--color-border);
+  position: relative;
+}
+
+.process-step:last-child {
+  border-right: none;
+}
+
+/* Large decorative step number — top right, purely visual.
+   color: --color-border makes it blend into the background
+   just enough to be felt rather than read.                 */
+.process-step::before {
+  content:        attr(data-step);
+  font-family:    var(--font-mono);
+  font-size:      4rem;
+  font-weight:    300;
+  color:          var(--color-border);
+  position:       absolute;
+  top:            20px;
+  right:          20px;
+  line-height:    1;
+  pointer-events: none;
+  user-select:    none;
+}
+
+.process-step-label {
+  font-family:    var(--font-mono);
+  font-size:      0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color:          var(--accent);
+  margin-bottom:  0.875rem;
+}
+
+.process-step-title {
+  font-size:     1.1rem;
+  font-weight:   400;
+  margin-bottom: 0.75rem;
+  line-height:   1.3;
+}
+
+.process-step p {
+  font-size:   0.8rem;
+  color:       var(--color-muted);
+  line-height: 1.7;
+  margin:      0;
+}
+
+/* Responsive: 4 → 2 → 1 column */
+@media (max-width: 991.98px) {
+  .process-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .process-step:nth-child(2) {
+    border-right: none;
+  }
+
+  .process-step:nth-child(n+3) {
+    border-top: 1px solid var(--color-border);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .process-step {
+    border-right: none;
+    border-top:   1px solid var(--color-border);
+  }
+
+  .process-step:first-child {
+    border-top: none;
+  }
 }

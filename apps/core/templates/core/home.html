@@ -471,4 +471,69 @@
   </div>
 </section>
 
+{# ── PROCESS ─────────────────────────────────────────────────── #}
+<section id="process" class="content-section">
+  <div class="container">
+
+    <p class="section-label reveal">{% trans "How I Work" %}</p>
+    <h2 class="section-title reveal reveal-delay-1">
+      {% trans "A process built" %}<br>
+      <em>{% trans "for real delivery." %}</em>
+    </h2>
+
+    <div class="process-steps reveal reveal-delay-2">
+
+      <div class="process-step" data-step="01">
+        <div class="process-step-label">{% trans "Understand" %}</div>
+        <div class="process-step-title">{% trans "Scope & Alignment" %}</div>
+        <p>
+          {% blocktrans trimmed %}
+            Deep-dive into the problem before writing any code. I'd rather
+            ask the uncomfortable question in week one than refactor the
+            wrong architecture in week six.
+          {% endblocktrans %}
+        </p>
+      </div>
+
+      <div class="process-step" data-step="02">
+        <div class="process-step-label">{% trans "Build" %}</div>
+        <div class="process-step-title">{% trans "Iterate Fast, Break Little" %}</div>
+        <p>
+          {% blocktrans trimmed %}
+            Rapid prototyping with a bias toward observable, testable
+            components. Every experiment tracked, every assumption
+            documented.
+          {% endblocktrans %}
+        </p>
+      </div>
+
+      <div class="process-step" data-step="03">
+        <div class="process-step-label">{% trans "Validate" %}</div>
+        <div class="process-step-title">{% trans "Evaluate Rigorously" %}</div>
+        <p>
+          {% blocktrans trimmed %}
+            Offline evals, A/B baselines, adversarial test sets. A model
+            that can't be measured can't be improved — and shouldn't be
+            trusted.
+          {% endblocktrans %}
+        </p>
+      </div>
+
+      <div class="process-step" data-step="04">
+        <div class="process-step-label">{% trans "Deploy" %}</div>
+        <div class="process-step-title">{% trans "Ship & Monitor" %}</div>
+        <p>
+          {% blocktrans trimmed %}
+            Containerised, CI-integrated, observability from day one.
+            Deployment isn't the end — it's when the real data collection
+            starts.
+          {% endblocktrans %}
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
 {% endblock content %}

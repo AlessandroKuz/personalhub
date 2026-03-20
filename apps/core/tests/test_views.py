@@ -231,3 +231,17 @@ async def test_home_projects_has_cta(
             f"Projects CTA missing from home page [{lang}]"
         )
 
+async def test_home_has_process_steps(
+    home_content_per_language: dict[str, str],
+) -> None:
+    """
+    Process section contains all 4 steps.
+    data-step attribute is how the CSS renders the decorative
+    step number — if missing the ::before content is empty.
+    """
+    for lang, html in home_content_per_language.items():
+        for step in ["01", "02", "03", "04"]:
+            assert f'data-step="{step}"' in html, (
+                f'Process step {step} missing [{lang}]'
+            )
+
