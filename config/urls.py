@@ -30,7 +30,7 @@ urlpatterns += i18n_patterns(
     path("", include("apps.core.urls")),
     # path('projects/', include('apps.projects.urls')),
     # path('blog/', include('apps.blog.urls')),
-    prefix_default_language=True,  # /about/ works as well as /en/about/
+    prefix_default_language=True,
 )
 
 if settings.DEBUG:

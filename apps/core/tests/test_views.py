@@ -4,8 +4,8 @@ from django.test import AsyncClient
 from django.urls import reverse
 from django.utils import translation
 
-
 # ── Helpers ──────────────────────────────────────────────────────────────────
+
 
 async def _assert_page(
     async_client: AsyncClient,
@@ -22,21 +22,23 @@ def _all_urls_for(url_name: str) -> list[str]:
     """
     Return the default URL + one prefixed URL per configured language.
 
-    Example for url_name="core:home" with LANGUAGES=[("en","English"),("it","Italiano")]:
-        ["/", "/en/", "/it/"]
+    Example for url_name="core:home" with 
+    LANGUAGES=[("en","English"),("it","Italiano"),(...)]:
+    ["/en/", "/it/", ...]
 
-    Why both?
-    prefix_default_language=False means "/" is valid for EN.
-    "/en/" is also valid and must not 404 — some users or crawlers
-    will hit it directly, and it's the canonical URL for that language.
+    With prefix_default_language=True every language including
+    the default gets a prefix — /en/about/, /it/about/ etc.
+    The bare unprefixed URL doesn't exist so we don't test it.
     """
-    urls = [reverse(url_name)]  # default (no prefix)
+    urls = []
     for code, _ in settings.LANGUAGES:
         with translation.override(code):
             urls.append(reverse(url_name))
     return urls
 
+
 # ── HTTP contract ─────────────────────────────────────────────────────────────
+
 
 @pytest.mark.parametrize(
     "url_name, expected_template",
@@ -80,16 +82,17 @@ async def test_nav_has_lang_options(
     finds nothing and the switcher silently stops working.
     """
     for lang, html in home_content_per_language.items():
-        assert 'class="lang-option"' in html or 'lang-option' in html, (
+        assert 'class="lang-option"' in html or "lang-option" in html, (
             f"lang-option class missing from nav [{lang}]"
         )
+
 
 @pytest.mark.parametrize(
     "url_name, expected_template",
     [
-        ("core:home",    "core/home.html"),
-        ("core:about",   "core/about.html"),
-        ("core:work",    "core/work.html"),
+        ("core:home", "core/home.html"),
+        ("core:about", "core/about.html"),
+        ("core:work", "core/work.html"),
         ("core:contact", "core/contact.html"),
     ],
 )
@@ -113,6 +116,7 @@ async def test_core_views_return_200_and_correct_template(
 # We parametrize over languages here too: a section ID missing only
 # in the Italian version would be a real bug worth catching.
 
+
 @pytest.fixture
 async def home_content_per_language(async_client: AsyncClient) -> dict[str, str]:
     """
@@ -130,14 +134,17 @@ async def home_content_per_language(async_client: AsyncClient) -> dict[str, str]
     return results
 
 
-@pytest.mark.parametrize("section_id", [
-    "hero",
-    "about",
-    "work",
-    "projects",
-    "process",
-    "contact",
-])
+@pytest.mark.parametrize(
+    "section_id",
+    [
+        "hero",
+        "about",
+        "work",
+        "projects",
+        "process",
+        "contact",
+    ],
+)
 @pytest.mark.asyncio
 async def test_home_has_required_sections(
     home_content_per_language: dict[str, str],
@@ -153,10 +160,13 @@ async def test_home_has_required_sections(
         )
 
 
-@pytest.mark.parametrize("href", [
-    "#work",
-    "#contact",
-])
+@pytest.mark.parametrize(
+    "href",
+    [
+        "#work",
+        "#contact",
+    ],
+)
 @pytest.mark.asyncio
 async def test_home_hero_has_cta_links(
     home_content_per_language: dict[str, str],
@@ -181,8 +191,9 @@ async def test_home_has_cursor_elements(
     and the custom cursor is broken with no visible error.
     """
     for lang, html in home_content_per_language.items():
-        assert 'id="cursor-dot"'  in html, f"cursor-dot missing [{lang}]"
+        assert 'id="cursor-dot"' in html, f"cursor-dot missing [{lang}]"
         assert 'id="cursor-ring"' in html, f"cursor-ring missing [{lang}]"
+
 
 async def test_home_has_marquee(
     home_content_per_language: dict[str, str],
@@ -197,6 +208,7 @@ async def test_home_has_marquee(
             f"marquee-track missing from home page [{lang}]"
         )
 
+
 async def test_home_about_has_read_more_cta(
     home_content_per_language: dict[str, str],
 ) -> None:
@@ -205,9 +217,10 @@ async def test_home_about_has_read_more_cta(
     Tests the URL resolution is correct across all languages.
     """
     for lang, html in home_content_per_language.items():
-        assert 'core:about' in html or '/about/' in html, (
+        assert "core:about" in html or "/about/" in html, (
             f"About CTA missing from home page [{lang}]"
         )
+
 
 async def test_home_work_has_cv_cta(
     home_content_per_language: dict[str, str],
@@ -216,9 +229,8 @@ async def test_home_work_has_cv_cta(
     Skills section contains a CTA linking to the full work/CV page.
     """
     for lang, html in home_content_per_language.items():
-        assert '/work/' in html, (
-            f"Work CTA missing from home page [{lang}]"
-        )
+        assert "/work/" in html, f"Work CTA missing from home page [{lang}]"
+
 
 async def test_home_projects_has_cta(
     home_content_per_language: dict[str, str],
@@ -227,9 +239,8 @@ async def test_home_projects_has_cta(
     Projects section contains a CTA linking to the full projects page.
     """
     for lang, html in home_content_per_language.items():
-        assert '/projects/' in html, (
-            f"Projects CTA missing from home page [{lang}]"
-        )
+        assert "/projects/" in html, f"Projects CTA missing from home page [{lang}]"
+
 
 async def test_home_has_process_steps(
     home_content_per_language: dict[str, str],
@@ -242,8 +253,9 @@ async def test_home_has_process_steps(
     for lang, html in home_content_per_language.items():
         for step in ["01", "02", "03", "04"]:
             assert f'data-step="{step}"' in html, (
-                f'Process step {step} missing [{lang}]'
+                f"Process step {step} missing [{lang}]"
             )
+
 
 async def test_home_contact_has_email_and_cal(
     home_content_per_language: dict[str, str],
@@ -253,12 +265,9 @@ async def test_home_contact_has_email_and_cal(
     These are the primary conversion points on the landing page.
     """
     for lang, html in home_content_per_language.items():
-        assert 'mailto:' in html, (
-            f"Email link missing from contact section [{lang}]"
-        )
-        assert 'cal.com' in html, (
-            f"cal.com link missing from contact section [{lang}]"
-        )
+        assert "mailto:" in html, f"Email link missing from contact section [{lang}]"
+        assert "cal.com" in html, f"cal.com link missing from contact section [{lang}]"
+
 
 async def test_home_contact_has_socials(
     home_content_per_language: dict[str, str],
@@ -267,8 +276,5 @@ async def test_home_contact_has_socials(
     Contact section contains all three social links.
     """
     for lang, html in home_content_per_language.items():
-        for social in ['github.com', 'linkedin.com', 'youtube.com']:
-            assert social in html, (
-                f"{social} missing from contact section [{lang}]"
-            )
-
+        for social in ["github.com", "linkedin.com", "youtube.com"]:
+            assert social in html, f"{social} missing from contact section [{lang}]"
