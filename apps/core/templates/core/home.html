@@ -2,7 +2,7 @@
 {% extends "base.html" %}
 {% load i18n static %}
 
-{% block title %}Alessandro Kuz — AI & ML{% endblock %}
+{% block title %}{% trans "Alessandro Kuz — Data Scientist & ML Engineer" %}{% endblock %}
 
 {% block extra_css %}
   <link rel="stylesheet" href="{% static 'css/home.css' %}">
@@ -11,7 +11,7 @@
 {% block content %}
 
 {# ── HERO ─────────────────────────────────────────────────────── #}
-<section id="hero">
+<section id="hero" aria-labelledby="hero-label">
   <div class="container">
     <div class="hero-grid">
 
@@ -21,19 +21,19 @@
           {% trans "Available for opportunities" %}
         </p>
 
-        <h1 class="hero-name mb-2">
+        <h1 id="hero-label" class="hero-name mb-2">
           Alessandro <span class="text-accent">Kuz</span>
         </h1>
 
-        <p class="hero-tagline">
-          AI/ML Engineer · Data Scientist · Builder
-        </p>
+        <h2 class="hero-tagline">
+          {% trans "Built Lean. Shipped Clean." %}
+        </h2>
 
         <p class="hero-desc">
           {% blocktrans trimmed %}
-            I design and build <strong>intelligent systems end-to-end</strong>
-            — from research and experimentation to production-grade deployment.
-            Based in Italy, working globally.
+          Data Scientist and ML Engineer with a degree in AI.
+          I work end-to-end: data pipelines, model training, and the interfaces
+          people actually use. Based in Italy, working globally.
           {% endblocktrans %}
         </p>
 
@@ -44,9 +44,9 @@
       </div>
 
       {# Right: status card #}
-      <div class="hero-card">
+      <aside class="hero-card" role="complementary" aria-label="{% trans 'Quick profile summary' %}">
 
-        <div class="status-row">
+        <div class="status-row" role="status">
           <span class="status-dot" aria-hidden="true"></span>
           {% trans "Open to work" %}
         </div>
@@ -54,37 +54,47 @@
         <ul class="stat-list">
           <li>
             <p class="stat-label">{% trans "Role" %}</p>
-            <p class="stat-value">AI/ML <span>{% trans "Engineer" %}</span></p>
+            <p class="stat-value">
+              Data Scientist
+              <span>{% trans "& ML Engineer" %}</span>
+            </p>
           </li>
           <li>
             <p class="stat-label">{% trans "Experience" %}</p>
-            <p class="stat-value">3+ <span>{% trans "years" %}</span></p>
+            <p class="stat-value">
+              3+ <span>{% trans "years" %}</span>
+            </p>
           </li>
           <li>
             <p class="stat-label">{% trans "Location" %}</p>
-            <p class="stat-value">{% trans "Italy" %} <span>EU</span></p>
+            <p class="stat-value">
+              {% trans "Italy" %} <span>EU</span>
+            </p>
+          </li>
+          <li>
+            <p class="stat-label">{% trans "Languages" %}</p>
+            <p class="stat-value">
+              6 <span>{% trans "spoken" %}</span>
+            </p>
           </li>
         </ul>
 
-        <div class="divider-h"></div>
+        <div class="divider-h" role="separator"></div>
 
-        <div class="tag-cloud">
+        <div class="tag-cloud" aria-label="{% trans 'Core technologies' %}">
+          <span class="tag">Python</span>
           <span class="tag">PyTorch</span>
           <span class="tag">Scikit-Learn</span>
           <span class="tag">Pandas</span>
           <span class="tag">Polars</span>
-          <span class="tag">NumPy</span>
           <span class="tag">Django</span>
           <span class="tag">FastAPI</span>
+          <span class="tag">HTMX</span>
           <span class="tag">Docker</span>
-          <span class="tag">PostgreSQL</span>
           <span class="tag">Linux</span>
-          <span class="tag">Python</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">Go/Golang</span>
         </div>
 
-      </div>
+      </aside>
 
     </div>
   </div>
@@ -94,37 +104,31 @@
 {# aria-hidden: purely decorative — screen readers skip it       #}
 <div class="marquee-wrap" aria-hidden="true">
   <div class="marquee-track" id="marquee-track">
-<span class="marquee-item">MLOps</span><span class="marquee-sep">◆</span>
-<span class="marquee-item">RAG</span><span class="marquee-sep">◆</span>
-<span class="marquee-item">LLMs</span><span class="marquee-sep">◆</span>
-<span class="marquee-item">Fine-Tuning</span><span class="marquee-sep">◆</span>
-<span class="marquee-item">Vector Search</span><span class="marquee-sep">◆</span>
-<span class="marquee-item">CI/CD</span><span class="marquee-sep">◆</span>
-<span class="marquee-item">Containerisation</span><span class="marquee-sep">◆</span>
-<span class="marquee-item">REST APIs</span><span class="marquee-sep">◆</span>
-<span class="marquee-item">Async Python</span><span class="marquee-sep">◆</span>
-<span class="marquee-item">Data Pipelines</span><span class="marquee-sep">◆</span>
-<span class="marquee-item">Model Deployment</span><span class="marquee-sep">◆</span>
-<span class="marquee-item">Backend Development</span><span class="marquee-sep">◆</span>
-<span class="marquee-item">System Design</span><span class="marquee-sep">◆</span>
-<span class="marquee-item">TDD</span><span class="marquee-sep">◆</span>
-<span class="marquee-item">Server-Side Rendering</span><span class="marquee-sep">◆</span>
-<span class="marquee-item">Open Source</span><span class="marquee-sep">◆</span>
-<span class="marquee-item">Linux</span><span class="marquee-sep">◆</span>
-<span class="marquee-item">Self-Hosting</span><span class="marquee-sep">◆</span>
-<span class="marquee-item">Technical Writing</span><span class="marquee-sep">◆</span>
-<span class="marquee-item">End-to-End ML</span><span class="marquee-sep">◆</span>
-<span class="marquee-item">Lifelong Learning</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Data Analysis</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Data Pipelines</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">LLMs</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">RAG</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">End-to-End ML</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Model Deployment</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">CI/CD</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Containerisation</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">REST APIs</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Async Python</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Backend Development</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Server-Side Rendering</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">TDD</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Linux</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Self-Hosting</span><span class="marquee-sep">◆</span>
   </div>
 </div>
 
 {# ── ABOUT ───────────────────────────────────────────────────── #}
-<section id="about" class="content-section">
+<section id="about" class="content-section" aria-labelledby="about-label">
   <div class="container">
 
-    <p class="section-label reveal">{% trans "About" %}</p>
+    <p id="about-label" class="section-label reveal">{% trans "About" %}</p>
     <h2 class="section-title reveal reveal-delay-1">
-      {% trans "A builder at heart —" %}<br>
+      {% trans "A builder at heart," %}<br>
       <em>{% trans "curious by nature." %}</em>
     </h2>
 
@@ -134,95 +138,87 @@
       <div class="about-text reveal reveal-delay-2">
         <p>
           {% blocktrans trimmed %}
-            I'm <strong>Alessandro Kuz</strong> — an Italian ML Engineer and
-            Data Scientist based in Italy, working globally. I've spent the
-            last 3+ years turning research into production systems, and I'm
-            equally at home writing a PyTorch training loop or deploying a
-            Django application behind a reverse proxy.
+            I'm <strong>Alessandro Kuz</strong>, I like building toward AI that genuinely augments what people can do, not replaces what we enjoy doing.
           {% endblocktrans %}
         </p>
         <p>
           {% blocktrans trimmed %}
-            Outside of work I'm drawn to <strong>nature</strong>,
-            <strong>teaching</strong>, and anything that sits at the
-            intersection of rigour and creativity. I speak six languages —
-            which probably explains why I find communication as interesting
-            as computation.
+            I'm curious by nature: when something catches my interest I like to learn more about it, whether that's a new concept, a language to pick up or a skill to teach myself.
           {% endblocktrans %}
         </p>
         <p>
           {% blocktrans trimmed %}
-            This site is both my portfolio and a living codebase —
-            built the way I think software should be: simple, documented,
-            and designed to last.
+            I was born and raised in Italy to Ukrainian parents, which probably explains the six languages and my fascination with cultures, history and communication.
           {% endblocktrans %}
         </p>
-
         <a href="{% url 'core:about' %}"
            class="btn btn-ghost mt-2">
-          {% trans "Read more" %} →
+          {% trans "Read more" %}
+          <i class="bi bi-arrow-right"></i>
         </a>
+
       </div>
 
-      {# Right: personal highlights #}
-      <ul class="about-highlights reveal reveal-delay-3">
-        <li>
-          <span class="about-highlight-num">01</span>
-          <div>
-            <p class="about-highlight-title">{% trans "Polyglot" %}</p>
-            <p class="about-highlight-desc">
-              {% trans "Italian · English · Spanish · Russian · Ukrainian · German" %}
-            </p>
-          </div>
-        </li>
-        <li>
-          <span class="about-highlight-num">02</span>
-          <div>
-            <p class="about-highlight-title">{% trans "Interests" %}</p>
-            <p class="about-highlight-desc">
-              {% trans "Nature, teaching, open source, self-hosting, and lifelong learning." %}
-            </p>
-          </div>
-        </li>
-        <li>
-          <span class="about-highlight-num">03</span>
-          <div>
-            <p class="about-highlight-title">{% trans "Philosophy" %}</p>
-            <p class="about-highlight-desc">
-              {% trans "Do more with less. Simple systems outlast clever ones." %}
-            </p>
-          </div>
-        </li>
-        <li>
-          <span class="about-highlight-num">04</span>
-          <div>
-            <p class="about-highlight-title">{% trans "Currently" %}</p>
-            <p class="about-highlight-desc">
-              {% trans "Building PersonalHub — this site — and deepening expertise in MLOps and LLM systems." %}
-            </p>
-          </div>
-        </li>
-      </ul>
+      {# Right: personal facts #}
+      <dl class="about-facts reveal reveal-delay-3">
+        <dt>{% trans "From" %}</dt>
+        <dd>{% trans "Italy — Ukrainian roots" %}</dd>
+
+        <dt>{% trans "Languages" %}</dt>
+        <dd>{% trans "Italian, English, Spanish, Russian, Ukrainian, German" %}</dd>
+
+        <dt>{% trans "Outside work" %}</dt>
+        <dd>{% trans "Calisthenics, nature, history & philosophy" %}</dd>
+      </dl>
 
     </div>
   </div>
 </section>
 
-{# ── SKILLS ──────────────────────────────────────────────────── #}
-<section id="work" class="content-section">
+{# ── WORK/SKILLS ──────────────────────────────────────────────────── #}
+<section id="work" class="content-section" aria-labelledby="work-label">
   <div class="container">
 
-    <p class="section-label reveal">{% trans "Work" %}</p>
+    <p id="work-label" class="section-label reveal">{% trans "Work" %}</p>
     <h2 class="section-title reveal reveal-delay-1">
-      {% trans "The full stack —" %}<br>
-      <em>{% trans "from data to deployment." %}</em>
+      {% trans "Three layers:" %}<br>
+      <em>{% trans "From data to model to product." %}</em>
     </h2>
 
     <div class="skills-cols reveal reveal-delay-2">
 
-      {# Column 1: ML / AI #}
+      {# Column 1: Data Science #}
+      <a href="{% url 'core:work' %}#data-science" class="skill-col">
+        <span class="skill-view-link">
+          {% trans "View" %}
+          <i class="bi bi-box-arrow-up-right"></i>
+        </span>
+        <span class="skill-icon">[ DATA ]</span>
+        <h3 class="skill-col-title">{% trans "Data Science" %}</h3>
+        <p>
+          {% blocktrans trimmed %}
+            Turning raw data into insight — from exploratory analysis
+            and statistical modelling to production-grade pipelines.
+          {% endblocktrans %}
+        </p>
+        <div class="skill-tags">
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">Polars</span>
+          <span class="skill-tag">NumPy</span>
+          <span class="skill-tag">Plotly</span>
+          <span class="skill-tag">Matplotlib</span>
+          <span class="skill-tag">Seaborn</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Data Pipelines</span>
+        </div>
+      </a>
+
+      {# Column 2: ML / AI #}
       <a href="{% url 'core:work' %}#ml-ai" class="skill-col">
-        <span class="skill-view-link">{% trans "View" %} ↗</span>
+        <span class="skill-view-link">
+          {% trans "View" %}
+          <i class="bi bi-box-arrow-up-right"></i>
+        </span>
         <span class="skill-icon">[ ML / AI ]</span>
         <h3 class="skill-col-title">{% trans "Machine Learning & AI" %}</h3>
         <p>
@@ -234,42 +230,20 @@
         <div class="skill-tags">
           <span class="skill-tag">PyTorch</span>
           <span class="skill-tag">Scikit-Learn</span>
-          <span class="skill-tag">Pandas</span>
-          <span class="skill-tag">Polars</span>
-          <span class="skill-tag">NumPy</span>
-          <span class="skill-tag">LangChain</span>
-          <span class="skill-tag">ChromaDB</span>
-          <span class="skill-tag">RAG</span>
+          <span class="skill-tag">Classification</span>
+          <span class="skill-tag">Regression</span>
           <span class="skill-tag">Fine-Tuning</span>
+          <span class="skill-tag">LLMs</span>
+          <span class="skill-tag">RAG</span>
         </div>
       </a>
 
-    {# Column 2: Data Science #}
-    <a href="{% url 'core:work' %}#data-science" class="skill-col">
-      <span class="skill-view-link">{% trans "View" %} ↗</span>
-      <span class="skill-icon">[ DATA ]</span>
-      <h3 class="skill-col-title">{% trans "Data Science" %}</h3>
-      <p>
-        {% blocktrans trimmed %}
-          Turning raw data into insight — from exploratory analysis
-          and statistical modelling to production-grade pipelines.
-        {% endblocktrans %}
-      </p>
-      <div class="skill-tags">
-        <span class="skill-tag">Pandas</span>
-        <span class="skill-tag">Polars</span>
-        <span class="skill-tag">NumPy</span>
-        <span class="skill-tag">Plotly</span>
-        <span class="skill-tag">Matplotlib</span>
-        <span class="skill-tag">Seaborn</span>
-        <span class="skill-tag">SQL</span>
-        <span class="skill-tag">Data Pipelines</span>
-      </div>
-    </a>
-
       {# Column 3: Backend / Web #}
       <a href="{% url 'core:work' %}#backend-devops" class="skill-col">
-        <span class="skill-view-link">{% trans "View" %} ↗</span>
+        <span class="skill-view-link">
+          {% trans "View" %}
+          <i class="bi bi-box-arrow-up-right"></i>
+        </span>
         <span class="skill-icon">[ BACKEND ]</span>
         <h3 class="skill-col-title">{% trans "Backend & Web" %}</h3>
         <p>
@@ -298,7 +272,8 @@
     {# CTA to full work page #}
     <div class="text-center mt-5 reveal reveal-delay-3">
       <a href="{% url 'core:work' %}" class="btn btn-ghost">
-        {% trans "See full CV" %} →
+        {% trans "See full CV" %}
+        <i class="bi bi-arrow-right"></i>
       </a>
     </div>
 
@@ -307,12 +282,12 @@
 </section>
 
 {# ── PROJECTS ─────────────────────────────────────────────────── #}
-<section id="projects" class="content-section">
+<section id="projects" class="content-section" aria-labelledby="projects-label">
   <div class="container">
 
-    <p class="section-label reveal">{% trans "Projects" %}</p>
+    <p id="projects-label" class="section-label reveal">{% trans "Projects" %}</p>
     <h2 class="section-title reveal reveal-delay-1">
-      {% trans "Things I've built —" %}<br>
+      {% trans "Things I've built" %}<br>
       <em>{% trans "that are actually useful." %}</em>
     </h2>
 
@@ -322,20 +297,23 @@
       <a href="https://github.com/AlessandroKuz/personalhub"
          target="_blank" rel="noopener noreferrer"
          class="project-card project-featured">
-        <span class="project-link">{% trans "View" %} ↗</span>
-
+        <span class="project-link">
+          {% trans "View" %}
+          <i class="bi bi-box-arrow-up-right"></i>
+        </span>
         <div>
           <span class="featured-badge">{% trans "Featured" %}</span>
           <div class="project-num">001</div>
           <h3 class="project-title">PersonalHub</h3>
           <p class="project-desc">
             {% blocktrans trimmed %}
-              This very site. A Django-powered personal hub built with
+              This very site. A <strong>Django</strong>-powered personal hub built with
               <strong>HTMX</strong>, <strong>Bootstrap 5</strong>, and a
               deliberate no-JS-framework philosophy. Designed to grow through
-              three phases — from static portfolio to dynamic blog with
-              WebSocket live preview. Every architectural decision is
-              documented so the project can be reproduced from scratch.
+              three phases — from static portfolio to dynamic collection
+              projects, writing and my career information. Every architectural
+              decision is documented so the project can be reproduced from
+              scratch.
             {% endblocktrans %}
           </p>
           <div class="project-meta">
@@ -351,29 +329,26 @@
 
         <div class="project-visual" aria-hidden="true">
           <div class="terminal-preview">
-            <div class="t-line-dim">→ Server: <span class="t-line-accent">Uvicorn ASGI</span> running on :8000</div>
-            <div>→ Templates: <span class="t-line-accent">Django</span> + HTMX + Bootstrap 5</div>
-            <div class="t-line-dim">→ Tests: <span class="t-line-green">13 passed</span> in 0.42s</div>
-            <div>→ Phase: <span class="t-line-accent">1 / 3</span> — shipping now<span class="t-cursor"></span></div>
+            <div class="t-line-dim">Server: <span class="t-line-accent">Uvicorn ASGI</span> running on :8000</div>
+            <div>Templates: <span class="t-line-accent">Django</span> + HTMX + Bootstrap 5</div>
+            <div>Phase: <span class="t-line-accent">1 / 3</span> — shipping now<span class="t-cursor"></span></div>
           </div>
         </div>
 
       </a>
 
       {# ── 002: MAO ── #}
+      {# TODO - RESOLVE LINK TO ACTUAL PROJECTS PAGE #}
       <a href="#projects" class="project-card">
-        <span class="project-link">{% trans "View" %} ↗</span>
+        <span class="project-link">
+          {% trans "View" %}
+          <i class="bi bi-box-arrow-up-right"></i>
+        </span>
         <div class="project-num">002</div>
         <h3 class="project-title">Online Anamnestic Module (MAO)</h3>
         <p class="project-desc">
           {% blocktrans trimmed %}
-            Comprehensive clinical data collection platform built for oncology
-            specialists to digitise and streamline patient anamnestic intake.
-            Designed to be minimalist and efficient — integrating
-            <strong>PedigreeJS</strong> for interactive graphical pedigree tree
-            building and the <strong>CanRisk API</strong> for cancer mutation
-            probability assessment. Role-based access managed via Microsoft
-            Entra with Azure deployment behind IIS.
+          Clinical data collection platform built for oncology specialists to digitise patient anamnestic intake. Integrates external tools and <strong>APIs</strong> for interactive pedigree tree building and for cancer mutation probability assessment. Role-based access via <strong>Microsoft Entra</strong>, deployed on <strong>Azure</strong>.
           {% endblocktrans %}
         </p>
         <div class="project-meta">
@@ -390,21 +365,17 @@
       </a>
 
       {# ── 003: LLM Toolbox — spans full width as grid closer ── #}
+      {# TODO - RESOLVE LINK TO ACTUAL PROJECTS PAGE #}
       <a href="#projects" class="project-card">
-        <span class="project-link">{% trans "View" %} ↗</span>
+        <span class="project-link">
+          {% trans "View" %}
+          <i class="bi bi-box-arrow-up-right"></i>
+        </span>
         <div class="project-num">003</div>
         <h3 class="project-title">LLM Toolbox</h3>
         <p class="project-desc">
           {% blocktrans trimmed %}
-            A collection of LLM-powered developer tools.
-            <strong>Tailor-your-CV</strong> lets users align their CV to a
-            specific job description — surfacing the most relevant experiences
-            and highlights for recruiters — powered by OpenAI, Gemini, and
-            local Ollama models, deployed as a Streamlit app.
-            <strong>Local RAG</strong> indexes local files (PDF, Markdown,
-            HTML, TXT and more) into a ChromaDB vector store with smart
-            chunking, enabling precise semantic retrieval with full source
-            attribution.
+            A collection of <strong>LLM</strong>-powered developer tools built around real workflows. Tailor-your-CV aligns a CV to a job description using OpenAI, Gemini, or local Ollama models. Local <strong>RAG</strong> indexes local files into a ChromaDB vector store with smart chunking and full source attribution.
           {% endblocktrans %}
         </p>
         <div class="project-meta">
@@ -419,41 +390,38 @@
       </a>
 
       {# ── 004: Cancer Prediction — spans full width ── #}
+      {# TODO - RESOLVE LINK TO ACTUAL PROJECTS PAGE #}
       <a href="#projects" class="project-card project-featured project-full-width">
-        <span class="project-link">{% trans "View" %} ↗</span>
+        <span class="project-link">
+          {% trans "View" %}
+          <i class="bi bi-box-arrow-up-right"></i>
+        </span>
 
         <div>
           <div class="project-num">004</div>
           <h3 class="project-title">Cancer Stage Prediction from DNA Methylation</h3>
           <p class="project-desc">
             {% blocktrans trimmed %}
-              End-to-end bioinformatics and ML pipeline to infer cancer stage
-              from tissue DNA methylation profiles. Involved deep field research
-              into cancer biology and staging, expert consultation, and processing
-              <strong>200GB+</strong> of raw methylation data via Dask and Polars
-              Lazy DataFrames — well beyond single-machine memory limits. Compared
-              multiple model architectures (XGBoost, Scikit-Learn, PyTorch) with
-              full evaluation. Achieved <strong>98% accuracy</strong>
-              distinguishing cancer vs. cancer-free samples.
+              End-to-end ML pipeline to infer cancer stage from tissue DNA methylation profiles, built after deep research into cancer biology and staging with expert consultation. 200GB+ of raw methylation data processed out-of-core via Dask and Polars. Compared multiple architectures with full evaluation across all stages.
             {% endblocktrans %}
           </p>
           <div class="project-meta">
             <span class="project-tag">Polars</span>
             <span class="project-tag">Dask</span>
-            <span class="project-tag">PyTorch</span>
-            <span class="project-tag">XGBoost</span>
-            <span class="project-tag">Scikit-Learn</span>
             <span class="project-tag">Pandas</span>
+            <span class="project-tag">Scikit-Learn</span>
+            <span class="project-tag">XGBoost</span>
+            <span class="project-tag">PyTorch</span>
             <span class="project-tag">EWAS DataHub</span>
           </div>
         </div>
 
         <div class="project-visual" aria-hidden="true">
           <div class="terminal-preview">
-            <div class="t-line-dim">→ Dataset: <span class="t-line-accent">200GB</span> methylation profiles</div>
-            <div>→ Samples processed: <span class="t-line-accent">10841</span></div>
-            <div class="t-line-dim">→ Cancer vs. cancer-free accuracy: <span class="t-line-green">98%</span></div>
-            <div>→ Stage prediction accuracy: <span class="t-line-accent">67,8%</span><span class="t-cursor"></span></div>
+            <div class="t-line-dim">Dataset: <span class="t-line-accent">200GB</span> methylation profiles</div>
+            <div>Samples processed: <span class="t-line-accent">10841</span></div>
+            <div class="t-line-dim">Cancer vs. cancer-free accuracy: <span class="t-line-green">98%</span></div>
+            <div>Stage prediction accuracy: <span class="t-line-accent">67,8%</span><span class="t-cursor"></span></div>
           </div>
         </div>
 
@@ -463,8 +431,10 @@
 
     {# CTA to full projects page #}
     <div class="text-center mt-5 reveal reveal-delay-3">
+      {# TODO - RESOLVE LINK TO ACTUAL PROJECTS PAGE #}
       <a href="#projects" class="btn btn-ghost">
-        {% trans "All projects" %} →
+        {% trans "All projects" %}
+        <i class="bi bi-arrow-right"></i>
       </a>
     </div>
 
@@ -472,10 +442,10 @@
 </section>
 
 {# ── PROCESS ─────────────────────────────────────────────────── #}
-<section id="process" class="content-section">
+<section id="process" class="content-section" aria-labelledby="process-label">
   <div class="container">
 
-    <p class="section-label reveal">{% trans "How I Work" %}</p>
+    <p id="process-label" class="section-label reveal">{% trans "How I Work" %}</p>
     <h2 class="section-title reveal reveal-delay-1">
       {% trans "A process built" %}<br>
       <em>{% trans "for real delivery." %}</em>
@@ -488,9 +458,9 @@
         <div class="process-step-title">{% trans "Scope & Alignment" %}</div>
         <p>
           {% blocktrans trimmed %}
-            Deep-dive into the problem before writing any code. I'd rather
-            ask the uncomfortable question in week one than refactor the
-            wrong architecture in week six.
+          Scope before code. Understand the problem, not just the stated one,
+          the real one. The right question asked in week one beats the wrong
+          solution delivered in week six.
           {% endblocktrans %}
         </p>
       </div>
@@ -500,21 +470,21 @@
         <div class="process-step-title">{% trans "Iterate Fast, Break Little" %}</div>
         <p>
           {% blocktrans trimmed %}
-            Rapid prototyping with a bias toward observable, testable
-            components. Every experiment tracked, every assumption
-            documented.
+            Build fast, get something working, then cut everything that doesn't
+            earn its place. Tested at every step, documented throughout.
+            Iterate until there's nothing left to remove.
           {% endblocktrans %}
         </p>
       </div>
 
       <div class="process-step" data-step="03">
         <div class="process-step-label">{% trans "Validate" %}</div>
-        <div class="process-step-title">{% trans "Evaluate Rigorously" %}</div>
+        <div class="process-step-title">{% trans "Measure Everything" %}</div>
         <p>
           {% blocktrans trimmed %}
-            Offline evals, A/B baselines, adversarial test sets. A model
-            that can't be measured can't be improved — and shouldn't be
-            trusted.
+            A model that can't be measured can't be improved, and it shouldn't be
+            trusted. Every assumption gets tested: offline evals, baselines,
+            edge cases. No exceptions.
           {% endblocktrans %}
         </p>
       </div>
@@ -525,8 +495,7 @@
         <p>
           {% blocktrans trimmed %}
             Containerised, CI-integrated, observability from day one.
-            Deployment isn't the end — it's when the real data collection
-            starts.
+            Deployment isn't the end: it's when the real data starts coming in.
           {% endblocktrans %}
         </p>
       </div>
@@ -537,19 +506,19 @@
 </section>
 
 {# ── CONTACT ─────────────────────────────────────────────────── #}
-<section id="contact" class="content-section">
+<section id="contact" class="content-section" aria-labelledby="contact-label">
   <div class="container">
 
-    <p class="section-label reveal">{% trans "Contact" %}</p>
+    <p id="contact-label" class="section-label reveal">{% trans "Contact" %}</p>
 
-    <h2 class="contact-heading reveal reveal-delay-1">
+    <h2 class="section-title reveal reveal-delay-1">
       {% trans "Let's build" %}<br>
       <em>{% trans "something worth building." %}</em>
     </h2>
 
     <p class="contact-sub reveal reveal-delay-2">
       {% blocktrans trimmed %}
-        Open to freelance projects, consulting engagements, and full-time roles. Response within 24 hours.
+        Open to freelance projects, consulting, and full-time roles. Response within 24 hours.
       {% endblocktrans %}
     </p>
 
@@ -607,12 +576,15 @@
           LinkedIn
         </a>
 
+        {# TODO - UNCOMMENT when uploaded first videos #}
+        {% comment %}
         <a href="https://youtube.com/@alessandrokuz"
            target="_blank" rel="noopener noreferrer"
            class="social-link">
           <i class="bi bi-youtube" aria-hidden="true"></i>
           YouTube
         </a>
+        {% endcomment %}
 
       </div>
     </div>
@@ -620,7 +592,8 @@
     {# CTA to full contact page #}
     <div class="mt-5 reveal reveal-delay-4">
       <a href="{% url 'core:contact' %}" class="btn btn-primary">
-        {% trans "Go to contact page" %} →
+        {% trans "Go to contact page" %}
+        <i class="bi bi-arrow-right"></i>
       </a>
     </div>
 

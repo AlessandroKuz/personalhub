@@ -83,9 +83,16 @@
   if (!nav) return;
 
   /* Scroll state */
-  window.addEventListener('scroll', function () {
+  function updateNav() {
     nav.classList.toggle('scrolled', window.scrollY > 10);
-  }, { passive: true });
+  }
+
+  /* Run once immediately — handles direct anchor links
+     and any page that loads mid-scroll                 */
+  updateNav();
+
+  /* Then keep updating on scroll */
+  window.addEventListener('scroll', updateNav, { passive: true });
 })();
 
 

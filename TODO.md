@@ -6,15 +6,14 @@ Legend: `[P1]` Phase 1 · `[P2]` Phase 2 · `[P3]` Phase 3· `[P4]` Phase 4· `[
 
 ## 🎨 Design & CSS Foundation `[P1]` ← Start here
 
-- [ ] Finalise design tokens in `static/css/main.css`
+- [x] Finalise design tokens in `static/css/main.css`
       — `--accent`, `--bg`, `--surface`, `--text`, `--muted`, `--border`, `--mono`
       for both `[data-theme="light"]` and `[data-theme="dark"]`
-- [ ] Confirm `data-theme` / `data-bs-theme` parity across all custom tokens
-- [ ] Lock in font trio: DM Serif Display + JetBrains Mono + DM Sans
+- [x] Confirm `data-theme` / `data-bs-theme` parity across all custom tokens
+- [x] Lock in font duo: DM Sans + JetBrains Mono
       — add Google Fonts `<link>` to `base.html` (or self-host in `static/`)
-- [ ] Add noise texture overlay (subtle, from v4 design reference)
-- [ ] Add custom lagging cursor (dot + ring, `mix-blend-mode`) to `main.js`
-- [ ] Scroll reveal — Intersection Observer fade-in on section enter (no library)
+- [x] Add custom lagging cursor (dot + ring, `mix-blend-mode`) to `main.js`
+- [x] Scroll reveal — Intersection Observer fade-in on section enter (no library)
 
 ---
 
@@ -30,7 +29,7 @@ Legend: `[P1]` Phase 1 · `[P2]` Phase 2 · `[P3]` Phase 3· `[P4]` Phase 4· `[
 
 - [x] `themeInit.js` — flash prevention, sets `data-theme` + `data-bs-theme` before first paint
 - [x] `theme.js` — toggle logic, icon sync, localStorage persistence
-- [ ] `main.js` — consolidate all: navbar scroll, navbar height offset,
+- [x] `main.js` — consolidate all: navbar scroll, navbar height offset,
       lang switcher, tooltip init, cursor effect, scroll reveal
 
 ---
@@ -40,22 +39,23 @@ Legend: `[P1]` Phase 1 · `[P2]` Phase 2 · `[P3]` Phase 3· `[P4]` Phase 4· `[
 > `home.html` is the main experience. Every other content page is an
 > **expanded version** of its corresponding section here.
 
-- [ ] Write tests first (`apps/core/tests/test_views.py`)
+- [x] Write tests first (`apps/core/tests/test_views.py`)
       — hero renders, each section `id` is present, CTA is included
-- [ ] **Hero section**
+- [x] **Hero section**
       — name + title, status card (pulsing green dot + availability line),
         tag cloud, subtle entrance animation
-- [ ] **Marquee ticker strip** — stack / tools scrolling banner
-- [ ] **About section** (`id="about"`)
+- [x] **Marquee ticker strip** — stack / tools scrolling banner
+- [x] **About section** (`id="about"`)
       — 2–3 sentence TLDR, "Read more →" links to `/about/`
-- [ ] **Work / Skills section** (`id="work"`)
+- [x] **Work / Skills section** (`id="work"`)
       — 3-col skills grid (grouped by domain), "See full CV →" links to `/work/`
-- [ ] **Projects section** (`id="projects"`)
+- [x] **Projects section** (`id="projects"`)
       — featured project card + 2 preview cards (static placeholders for now),
         "All projects →" links to `/projects/` (Phase 2)
-- [ ] **Process section** — 4-step "how I work" strip
-- [ ] **Contact section** (`id="contact"`)
+- [x] **Process section** — 4-step "how I work" strip
+- [x] **Contact section** (`id="contact"`)
       — include `_cta.html`, cal.com link, social links
+- [x] Review content inside each section
 
 ---
 

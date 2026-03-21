@@ -7,7 +7,7 @@
   min-height:  calc(100vh - var(--navbar-height));
   display:     flex;
   align-items: center;
-  padding:     120px 0;
+  padding:     20px 0;
 }
 
 .hero-grid {
@@ -18,8 +18,6 @@
   width:                 100%;
 }
 
-/* Staggered entrance — each element animates in sequence.
-   `both` = holds opacity:0 before delay fires.            */
 .hero-eyebrow { animation: fadeUp 0.8s var(--ease) 0.10s both; }
 .hero-name    { animation: fadeUp 0.9s var(--ease) 0.25s both; }
 .hero-tagline { animation: fadeUp 0.9s var(--ease) 0.40s both; }
@@ -48,9 +46,6 @@
   flex-shrink: 0;
 }
 
-/* Name: DM Sans light at display size.
-   letter-spacing: -0.02em tightens the tracking at large
-   sizes — at 6rem default tracking looks too loose.        */
 .hero-name {
   font-size:      clamp(3.2rem, 7vw, 6rem);
   font-weight:    700;
@@ -84,30 +79,6 @@
   display:   flex;
   gap:       1rem;
   flex-wrap: wrap;
-}
-
-/* Buttons: mono uppercase — the entire reason they don't
-   look like default Bootstrap.                            */
-main .btn {
-  font-family:    var(--font-mono);
-  font-size:      0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding:        14px 28px;
-  border-radius:  2px;
-  transition:     all 0.25s var(--ease);
-  display:        inline-block;
-}
-
-.btn-ghost {
-  background:   transparent;
-  color:        var(--color-muted);
-  border:       1px solid var(--color-border);
-}
-
-.btn-ghost:hover {
-  border-color: var(--color-muted);
-  color:        var(--color-text);
 }
 
 /* ── Hero card (right column) ─────────────────────────── */
@@ -146,7 +117,6 @@ main .btn {
   display:        flex;
   flex-direction: column;
   gap:            1.25rem;
-  margin-bottom:  1.25rem;
   list-style:     none;
   padding:        0;
   margin:         0;
@@ -207,6 +177,10 @@ main .btn {
 
 /* Responsive: stack to single column below lg */
 @media (max-width: 991.98px) {
+  #hero {
+    margin: 20px 0;
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
   }
@@ -229,9 +203,6 @@ main .btn {
 
 /* ══════════════════════════════════════════════════════════
    MARQUEE TICKER
-   overflow: hidden clips the track to the wrap width.
-   The track is twice as wide as the wrap (duplicated items)
-   so translateX(-50%) lands exactly at the start of copy 2.
    ══════════════════════════════════════════════════════════ */
 
 .marquee-wrap {
@@ -293,9 +264,6 @@ main .btn {
 
 /* ══════════════════════════════════════════════════════════
    ABOUT TEASER
-   Alternate background creates visual rhythm between sections
-   — light/dark sections alternate so the page doesn't feel
-   like one flat wall of content.
    ══════════════════════════════════════════════════════════ */
 
 #about {
@@ -321,49 +289,40 @@ main .btn {
   font-weight: 400;
 }
 
-/* Personal highlights list — right column */
-.about-highlights {
-  list-style: none;
-  padding:    0;
-  margin:     0;
+.about-facts {
+  margin-bottom: 1.25rem;
+  padding: 0;
 }
 
-.about-highlights li {
-  padding:       1.1rem 0;
-  border-bottom: 1px solid var(--color-border);
-  display:       flex;
-  align-items:   flex-start;
-  gap:           1.25rem;
-}
-
-.about-highlights li:first-child {
-  border-top: 1px solid var(--color-border);
-}
-
-.about-highlight-num {
+.about-facts dt {
   font-family:    var(--font-mono);
   font-size:      0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color:          var(--accent);
-  letter-spacing: 0.1em;
-  min-width:      28px;
-  padding-top:    3px;
-  flex-shrink:    0;
+  margin-bottom:  0.35rem;
+  padding-top:    1.25rem;
 }
 
-.about-highlight-title {
-  font-size:     0.9rem;
-  color:         var(--color-text);
-  margin-bottom: 0.25rem;
-  font-weight:   400;
+.about-facts dt:first-child {
+  padding-top: 0;
+  border-top:  none;
 }
 
-.about-highlight-desc {
-  font-size:   0.8rem;
-  color:       var(--color-muted);
-  line-height: 1.6;
+.about-facts dd {
+  font-size:      0.95rem;
+  color:          var(--color-muted);
+  line-height:    1.7;
+  margin-left:    0;
+  padding-bottom: 1.25rem;
+  border-bottom:  1px solid var(--color-border);
 }
 
-/* Responsive: stack to single column below lg */
+.about-facts dd:last-child {
+  padding-bottom: 0;
+  border-bottom:  none;
+}
+
 @media (max-width: 991.98px) {
   .about-grid {
     grid-template-columns: 1fr;
@@ -490,24 +449,29 @@ a.skill-col:hover .skill-view-link {
   grid-template-columns: 1fr 1fr;
   gap:                   1px;
   background:            var(--color-border);
-  align-items:           start;
+  /* align-items:           start; */
 }
 
 /* ── Base card ──────────────────────────────────────────── */
 
-.project-card {
-  background:  var(--color-bg2);
-  padding:     48px 44px;
-  position:    relative;
-  overflow:    hidden;
-  transition:  background 0.3s ease;
+
+.project-card,
+a.project-card {
+  background:     var(--color-bg2);
+  padding:        48px 44px;
+  position:       relative;
+  overflow:       hidden;
+  transition:     background 0.3s ease;
+  display:        flex;
+  flex-direction: column;
+  text-decoration: none;
+  color:           inherit;
 }
 
 .project-card:hover {
   background: var(--color-surface);
 }
 
-/* Accent underline that grows from left on hover */
 .project-card::after {
   content:    '';
   position:   absolute;
@@ -521,12 +485,6 @@ a.skill-col:hover .skill-view-link {
 
 .project-card:hover::after {
   width: 100%;
-}
-
-a.project-card {
-  display:         block;
-  text-decoration: none;
-  color:           inherit;
 }
 
 .project-link {
@@ -547,7 +505,6 @@ a.project-card {
   opacity: 1;
 }
 
-/* Project number — with extending line to the right */
 .project-num {
   font-family:    var(--font-mono);
   font-size:      0.65rem;
@@ -586,9 +543,11 @@ a.project-card {
 }
 
 .project-meta {
-  display:   flex;
-  gap:       8px;
-  flex-wrap: wrap;
+  display:    flex;
+  gap:        8px;
+  flex-wrap:  wrap;
+  margin-top: auto;
+  padding-top: 1.75rem;
 }
 
 .project-tag {
@@ -635,7 +594,6 @@ a.project-featured {
   margin-bottom:  1.25rem;
 }
 
-/* Terminal preview — right column of featured card */
 .project-visual {
   aspect-ratio: 16 / 9;
   background:   var(--color-surface);
@@ -664,6 +622,14 @@ a.project-featured {
   background:     var(--terminal-green);
   vertical-align: text-bottom;
   animation:      blink 1.1s step-end infinite;
+}
+
+.t-line-dim    { color: var(--color-muted); }
+.t-line-accent { color: var(--accent); }
+.t-line-green  { color: var(--terminal-green); }
+
+.project-full-width {
+  grid-column: span 2;
 }
 
 /* Responsive */
@@ -697,16 +663,6 @@ a.project-featured {
   .project-visual {
     display: none;
   }
-}
-
-/* Fix class names to match v4 */
-.t-line-dim    { color: var(--color-muted); }
-.t-line-accent { color: var(--accent); }
-.t-line-green  { color: var(--terminal-green); }
-
-
-.project-full-width {
-  grid-column: span 2;
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -806,19 +762,6 @@ a.project-featured {
 
 #contact {
   background: var(--color-bg2);
-}
-
-.contact-heading {
-  font-size:      clamp(2rem, 5vw, 3.5rem);
-  font-weight:    300;
-  letter-spacing: -0.02em;
-  line-height:    1.1;
-  margin-bottom:  0.5rem;
-}
-
-.contact-heading em {
-  font-style: italic;
-  color:      var(--color-muted);
 }
 
 .contact-sub {

@@ -14,7 +14,6 @@
      The actual font names live in custom.scss only.          */
   --font-sans:  var(--bs-body-font-family);
   --font-mono:  var(--bs-font-monospace);
-  --font-serif: "DM Serif Display", Georgia, serif;
 
   --color-bg:      #f8f7f4;
   --color-bg2:     #ececec;
@@ -64,6 +63,33 @@ h1[id], h2[id], h3[id], h4[id] {
   background:  var(--color-text) !important;
   color:       var(--color-bg) !important;
   text-shadow: none;
+}
+
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+}
+
+main .btn {
+  font-family:    var(--font-mono);
+  font-size:      0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding:        14px 28px;
+  border-radius:  2px;
+  transition:     all 0.25s var(--ease);
+  display:        inline-block;
+}
+
+.btn-ghost {
+  background:   transparent;
+  color:        var(--color-muted);
+  border:       1px solid var(--color-border);
+}
+
+.btn-ghost:hover {
+  border-color: var(--color-muted);
+  color:        var(--color-text);
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -391,6 +417,6 @@ body.cursor-hover #cursor-ring {
 
 .section-title em {
   font-style: italic;
-  color:      var(--color-muted);
+  color:      var(--accent);
 }
 

@@ -39,6 +39,8 @@ def _all_urls_for(url_name: str) -> list[str]:
 
 # ── HTTP contract ─────────────────────────────────────────────────────────────
 
+def test_home_url_is_root(self):
+    self.assertEqual(self.url, "/")
 
 @pytest.mark.parametrize(
     "url_name, expected_template",

@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Page Title -->
-    <title>{% block title %}Alessandro Kuz — AI/ML Engineer & Builder{% endblock title %}</title>
+    <title>{% block title %}Alessandro Kuz — Data Scientist & AI/ML Engineer{% endblock title %}</title>
     <!-- Description & Author -->
     <meta
       name="description"
-      content="{% block meta_description %}Alessandro Kuz — AI/ML Engineer, Data Scientist & Builder.{% endblock meta_description %}">
+      content="{% block meta_description %}{% blocktrans trimmed %} Data Scientist and ML Engineer based in Italy. I build end-to-end data products — from pipelines and models to the interfaces people actually use. {% endblocktrans %} {% endblock meta_description %}">
     <meta name="author" content="Alessandro Kuz">
 
     <!-- Canonical — prevents duplicate content across i18n prefixes -->
@@ -19,14 +19,14 @@
 
     <!-- Open Graph — controls how the page appears when shared on socials -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="{% block og_title %}Alessandro Kuz — AI/ML Engineer & Builder{% endblock og_title %}">
-    <meta property="og:description" content="{% block og_description %}AI/ML Engineer, Data Scientist & Builder.{% endblock og_description %}">
+    <meta property="og:title" content="{% block og_title %}Alessandro Kuz — Data Scientist & AI/ML Engineer{% endblock og_title %}">
+    <meta property="og:description" content="{% block og_description %}{% blocktrans trimmed %} Data Scientist and ML Engineer based in Italy. I build end-to-end data products — from pipelines and models to the interfaces people actually use. {% endblocktrans %}{% endblock og_description %}">
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
     <meta property="og:image" content="{% block og_image %}{% static 'img/og-card.png' %}{% endblock og_image %}">
     <meta property="og:image:type"   content="image/png">
     <meta property="og:image:width"  content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt"    content="Alessandro Kuz — AI/ML Engineer & Builder">
+    <meta property="og:image:alt"    content="Alessandro Kuz — Data Scientist & AI/ML Engineer">
 
     <!-- Meta Block -->
     {% block meta %}{% endblock meta %}
