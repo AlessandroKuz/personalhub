@@ -168,7 +168,7 @@
         <dd>{% trans "Italian, English, Spanish, Russian, Ukrainian, German" %}</dd>
 
         <dt>{% trans "Outside work" %}</dt>
-        <dd>{% trans "Calisthenics, nature, history & philosophy" %}</dd>
+        <dd>{% trans "Calisthenics, nature, history and philosophy" %}</dd>
       </dl>
 
     </div>
@@ -224,7 +224,7 @@
         <p>
           {% blocktrans trimmed %}
             Designing and training models that generalise — from classical
-            algorithms to deep learning and large language model systems.
+            algorithms to Deep Learning and Large Language Model systems.
           {% endblocktrans %}
         </p>
         <div class="skill-tags">
@@ -345,7 +345,7 @@
           <i class="bi bi-box-arrow-up-right"></i>
         </span>
         <div class="project-num">002</div>
-        <h3 class="project-title">Online Anamnestic Module (MAO)</h3>
+        <h3 class="project-title">{% trans "Online Anamnestic Module (MAO)" %}</h3>
         <p class="project-desc">
           {% blocktrans trimmed %}
           Clinical data collection platform built for oncology specialists to digitise patient anamnestic intake. Integrates external tools and <strong>APIs</strong> for interactive pedigree tree building and for cancer mutation probability assessment. Role-based access via <strong>Microsoft Entra</strong>, deployed on <strong>Azure</strong>.
@@ -389,7 +389,7 @@
         </div>
       </a>
 
-      {# ── 004: Cancer Prediction — spans full width ── #}
+      {# ── 004: Cancer Inference — spans full width ── #}
       {# TODO - RESOLVE LINK TO ACTUAL PROJECTS PAGE #}
       <a href="#projects" class="project-card project-featured project-full-width">
         <span class="project-link">
@@ -399,7 +399,7 @@
 
         <div>
           <div class="project-num">004</div>
-          <h3 class="project-title">Cancer Stage Prediction from DNA Methylation</h3>
+          <h3 class="project-title">{% trans "Cancer Stage Inference from DNA Methylation" %}</h3>
           <p class="project-desc">
             {% blocktrans trimmed %}
               End-to-end ML pipeline to infer cancer stage from tissue DNA methylation profiles, built after deep research into cancer biology and staging with expert consultation. 200GB+ of raw methylation data processed out-of-core via Dask and Polars. Compared multiple architectures with full evaluation across all stages.
@@ -467,7 +467,7 @@
 
       <div class="process-step" data-step="02">
         <div class="process-step-label">{% trans "Build" %}</div>
-        <div class="process-step-title">{% trans "Iterate Fast, Break Little" %}</div>
+        <div class="process-step-title">{% trans "Fast Iteration" %}</div>
         <p>
           {% blocktrans trimmed %}
             Build fast, get something working, then cut everything that doesn't
