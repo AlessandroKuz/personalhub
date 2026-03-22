@@ -453,10 +453,10 @@ msgstr "Alemán"
 #: templates/base.html:14 templates/base.html:23
 msgid ""
 "Data Scientist and ML Engineer based in Italy. I build end-to-end data "
-"products, from pipelines and models to the interfaces people actually use."
+"products: from pipelines and models to the interfaces people actually use."
 msgstr ""
 "Data Scientist e Ingeniero de ML con base en Italia. Desarrollo productos de datos "
-"de extremo a extremo — desde pipelines y modelos hasta las interfaces que la "
+"de extremo a extremo: desde pipelines y modelos hasta las interfaces que la "
 "gente realmente usa."
 
 #: templates/base.html:78
