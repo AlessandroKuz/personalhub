@@ -2,7 +2,7 @@
 {% extends "base.html" %}
 {% load i18n static %}
 
-{% block title %}{% trans "Alessandro Kuz — Data Scientist & ML Engineer" %}{% endblock %}
+{% block title %}{% trans "Alessandro Kuz - Data Scientist & ML Engineer" %}{% endblock %}
 
 {% block extra_css %}
   <link rel="stylesheet" href="{% static 'css/home.css' %}">
@@ -101,7 +101,7 @@
 </section>
 
 {# ── MARQUEE TICKER ──────────────────────────────────────────── #}
-{# aria-hidden: purely decorative — screen readers skip it       #}
+{# aria-hidden: purely decorative - screen readers skip it       #}
 <div class="marquee-wrap" aria-hidden="true">
   <div class="marquee-track" id="marquee-track">
     <span class="marquee-item">Data Analysis</span><span class="marquee-sep">◆</span>
@@ -162,7 +162,7 @@
       {# Right: personal facts #}
       <dl class="about-facts reveal reveal-delay-3">
         <dt>{% trans "From" %}</dt>
-        <dd>{% trans "Italy — Ukrainian roots" %}</dd>
+        <dd>{% trans "Italy, Ukrainian roots" %}</dd>
 
         <dt>{% trans "Languages" %}</dt>
         <dd>{% trans "Italian, English, Spanish, Russian, Ukrainian, German" %}</dd>
@@ -197,7 +197,7 @@
         <h3 class="skill-col-title">{% trans "Data Science" %}</h3>
         <p>
           {% blocktrans trimmed %}
-            Turning raw data into insight — from exploratory analysis
+            Turning raw data into insight, from exploratory analysis
             and statistical modelling to production-grade pipelines.
           {% endblocktrans %}
         </p>
@@ -223,7 +223,7 @@
         <h3 class="skill-col-title">{% trans "Machine Learning & AI" %}</h3>
         <p>
           {% blocktrans trimmed %}
-            Designing and training models that generalise — from classical
+            Designing and training models that generalise, from classical
             algorithms to Deep Learning and Large Language Model systems.
           {% endblocktrans %}
         </p>
@@ -248,7 +248,7 @@
         <h3 class="skill-col-title">{% trans "Backend & Web" %}</h3>
         <p>
           {% blocktrans trimmed %}
-            Building and shipping server-side systems end-to-end —
+            Building and shipping server-side systems end-to-end,
             from clean APIs and hypermedia-driven interfaces to
             containerised, production-ready deployments.
           {% endblocktrans %}
@@ -293,7 +293,7 @@
 
     <div class="projects-grid reveal reveal-delay-2">
 
-      {# ── 001: PersonalHub — Featured ── #}
+      {# ── 001: PersonalHub - Featured ── #}
       <a href="https://github.com/AlessandroKuz/personalhub"
          target="_blank" rel="noopener noreferrer"
          class="project-card project-featured">
@@ -310,7 +310,7 @@
               This very site. A <strong>Django</strong>-powered personal hub built with
               <strong>HTMX</strong>, <strong>Bootstrap 5</strong>, and a
               deliberate no-JS-framework philosophy. Designed to grow through
-              three phases — from static portfolio to dynamic collection
+              three phases: from static portfolio to dynamic collection
               projects, writing and my career information. Every architectural
               decision is documented so the project can be reproduced from
               scratch.
@@ -331,7 +331,7 @@
           <div class="terminal-preview">
             <div class="t-line-dim">Server: <span class="t-line-accent">Uvicorn ASGI</span> running on :8000</div>
             <div>Templates: <span class="t-line-accent">Django</span> + HTMX + Bootstrap 5</div>
-            <div>Phase: <span class="t-line-accent">1 / 3</span> — shipping now<span class="t-cursor"></span></div>
+            <div>Phase: <span class="t-line-accent">1 / 3</span> - shipping now<span class="t-cursor"></span></div>
           </div>
         </div>
 
@@ -364,7 +364,7 @@
         </div>
       </a>
 
-      {# ── 003: LLM Toolbox — spans full width as grid closer ── #}
+      {# ── 003: LLM Toolbox - spans full width as grid closer ── #}
       {# TODO - RESOLVE LINK TO ACTUAL PROJECTS PAGE #}
       <a href="#projects" class="project-card">
         <span class="project-link">
@@ -389,7 +389,7 @@
         </div>
       </a>
 
-      {# ── 004: Cancer Inference — spans full width ── #}
+      {# ── 004: Cancer Inference - spans full width ── #}
       {# TODO - RESOLVE LINK TO ACTUAL PROJECTS PAGE #}
       <a href="#projects" class="project-card project-featured project-full-width">
         <span class="project-link">

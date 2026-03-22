@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-21 20:23+0100\n"
+"POT-Creation-Date: 2026-03-22 10:02+0100\n"
 "PO-Revision-Date: 2026-03-12 13:40+0100\n"
 "Last-Translator: Alessandro Kuz\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,7 +29,7 @@ msgid "Contact"
 msgstr ""
 
 #: apps/core/templates/core/home.html:5
-msgid "Alessandro Kuz — Data Scientist & ML Engineer"
+msgid "Alessandro Kuz - Data Scientist & ML Engineer"
 msgstr ""
 
 #: apps/core/templates/core/home.html:21
@@ -136,7 +136,7 @@ msgid "From"
 msgstr ""
 
 #: apps/core/templates/core/home.html:165
-msgid "Italy — Ukrainian roots"
+msgid "Italy, Ukrainian roots"
 msgstr ""
 
 #: apps/core/templates/core/home.html:168
@@ -180,7 +180,7 @@ msgstr ""
 
 #: apps/core/templates/core/home.html:199
 msgid ""
-"Turning raw data into insight — from exploratory analysis and statistical "
+"Turning raw data into insight, from exploratory analysis and statistical "
 "modelling to production-grade pipelines."
 msgstr ""
 
@@ -190,7 +190,7 @@ msgstr ""
 
 #: apps/core/templates/core/home.html:225
 msgid ""
-"Designing and training models that generalise — from classical algorithms to "
+"Designing and training models that generalise, from classical algorithms to "
 "Deep Learning and Large Language Model systems."
 msgstr ""
 
@@ -200,7 +200,7 @@ msgstr ""
 
 #: apps/core/templates/core/home.html:250
 msgid ""
-"Building and shipping server-side systems end-to-end — from clean APIs and "
+"Building and shipping server-side systems end-to-end, from clean APIs and "
 "hypermedia-driven interfaces to containerised, production-ready deployments."
 msgstr ""
 
@@ -228,7 +228,7 @@ msgstr ""
 msgid ""
 "This very site. A <strong>Django</strong>-powered personal hub built with "
 "<strong>HTMX</strong>, <strong>Bootstrap 5</strong>, and a deliberate no-JS-"
-"framework philosophy. Designed to grow through three phases — from static "
+"framework philosophy. Designed to grow through three phases: from static "
 "portfolio to dynamic collection projects, writing and my career information. "
 "Every architectural decision is documented so the project can be reproduced "
 "from scratch."
@@ -378,26 +378,26 @@ msgstr ""
 msgid "Go to contact page"
 msgstr ""
 
-#: config/settings/base.py:131
+#: config/settings/base.py:124
 msgid "English"
 msgstr ""
 
-#: config/settings/base.py:132
+#: config/settings/base.py:125
 msgid "Italian"
 msgstr ""
 
-#: config/settings/base.py:133
+#: config/settings/base.py:126
 msgid "Spanish"
 msgstr ""
 
-#: config/settings/base.py:134
+#: config/settings/base.py:127
 msgid "German"
 msgstr ""
 
 #: templates/base.html:14 templates/base.html:23
 msgid ""
 "Data Scientist and ML Engineer based in Italy. I build end-to-end data "
-"products — from pipelines and models to the interfaces people actually use."
+"products, from pipelines and models to the interfaces people actually use."
 msgstr ""
 
 #: templates/base.html:78

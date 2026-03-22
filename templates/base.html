@@ -7,26 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Page Title -->
-    <title>{% block title %}Alessandro Kuz — Data Scientist & AI/ML Engineer{% endblock title %}</title>
+    <title>{% block title %}Alessandro Kuz - Data Scientist & AI/ML Engineer{% endblock title %}</title>
     <!-- Description & Author -->
     <meta
       name="description"
-      content="{% block meta_description %}{% blocktrans trimmed %} Data Scientist and ML Engineer based in Italy. I build end-to-end data products — from pipelines and models to the interfaces people actually use. {% endblocktrans %} {% endblock meta_description %}">
+      content="{% block meta_description %}{% blocktrans trimmed %} Data Scientist and ML Engineer based in Italy. I build end-to-end data products, from pipelines and models to the interfaces people actually use. {% endblocktrans %} {% endblock meta_description %}">
     <meta name="author" content="Alessandro Kuz">
 
-    <!-- Canonical — prevents duplicate content across i18n prefixes -->
+    <!-- Canonical - prevents duplicate content across i18n prefixes -->
     <link rel="canonical" href="{{ request.build_absolute_uri }}">
 
-    <!-- Open Graph — controls how the page appears when shared on socials -->
+    <!-- Open Graph - controls how the page appears when shared on socials -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="{% block og_title %}Alessandro Kuz — Data Scientist & AI/ML Engineer{% endblock og_title %}">
-    <meta property="og:description" content="{% block og_description %}{% blocktrans trimmed %} Data Scientist and ML Engineer based in Italy. I build end-to-end data products — from pipelines and models to the interfaces people actually use. {% endblocktrans %}{% endblock og_description %}">
+    <meta property="og:title" content="{% block og_title %}Alessandro Kuz - Data Scientist & AI/ML Engineer{% endblock og_title %}">
+    <meta property="og:description" content="{% block og_description %}{% blocktrans trimmed %} Data Scientist and ML Engineer based in Italy. I build end-to-end data products, from pipelines and models to the interfaces people actually use. {% endblocktrans %}{% endblock og_description %}">
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
     <meta property="og:image" content="{% block og_image %}{% static 'img/og-card.png' %}{% endblock og_image %}">
     <meta property="og:image:type"   content="image/png">
     <meta property="og:image:width"  content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt"    content="Alessandro Kuz — Data Scientist & AI/ML Engineer">
+    <meta property="og:image:alt"    content="Alessandro Kuz - Data Scientist & AI/ML Engineer">
 
     <!-- Meta Block -->
     {% block meta %}{% endblock meta %}
@@ -46,7 +46,7 @@
       })();
     </script>
 
-    <!-- Google Fonts — DM Serif Display + JetBrains Mono + DM Sans -->
+    <!-- Google Fonts - DM Serif Display + JetBrains Mono + DM Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
