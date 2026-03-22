@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-21 20:19+0100\n"
-"PO-Revision-Date: 2026-03-21 19:40+0100\n"
+"POT-Creation-Date: 2026-03-22 09:59+0100\n"
+"PO-Revision-Date: 2026-03-20 10:28+0100\n"
 "Last-Translator: Alessandro Kuz\n"
 "Language-Team: Italiano <it@li.org>\n"
 "Language: it\n"
@@ -29,8 +29,8 @@ msgid "Contact"
 msgstr "Contatti"
 
 #: apps/core/templates/core/home.html:5
-msgid "Alessandro Kuz — Data Scientist & ML Engineer"
-msgstr "Alessandro Kuz — Data Scientist & ML Engineer"
+msgid "Alessandro Kuz - Data Scientist & ML Engineer"
+msgstr "Alessandro Kuz - Data Scientist & ML Engineer"
 
 #: apps/core/templates/core/home.html:21
 msgid "Available for opportunities"
@@ -71,8 +71,6 @@ msgid "Role"
 msgstr "Ruolo"
 
 #: apps/core/templates/core/home.html:59
-#, fuzzy
-#| msgid "Engineer"
 msgid "& ML Engineer"
 msgstr "Ingegnere"
 
@@ -117,9 +115,9 @@ msgid ""
 "I'm <strong>Alessandro Kuz</strong>, I like building toward AI that "
 "genuinely augments what people can do, not replaces what we enjoy doing."
 msgstr ""
-"Sono <strong>Alessandro Kuz</strong>, mi piace sviluppare con l'obiettivo di un'AI che "
-"amplifichi davvero ciò che le persone possono fare, non che sostituisca "
-"ciò che ci piace fare."
+"Sono <strong>Alessandro Kuz</strong>, mi piace sviluppare con l'obiettivo di "
+"un'AI che amplifichi davvero ciò che le persone possono fare, non che "
+"sostituisca ciò che ci piace fare."
 
 #: apps/core/templates/core/home.html:145
 msgid ""
@@ -137,8 +135,9 @@ msgid ""
 "the six languages and my fascination with cultures, history and "
 "communication."
 msgstr ""
-"Sono nato e cresciuto in Italia da genitori ucraini, il che spiega probabilmente "
-"le sei lingue e la mia passione per le culture, la storia e la comunicazione."
+"Sono nato e cresciuto in Italia da genitori ucraini, il che spiega "
+"probabilmente le sei lingue e la mia passione per le culture, la storia e la "
+"comunicazione."
 
 #: apps/core/templates/core/home.html:156
 msgid "Read more"
@@ -146,11 +145,11 @@ msgstr "Leggi di più"
 
 #: apps/core/templates/core/home.html:164
 msgid "From"
-msgstr "Basato in"
+msgstr "Origini"
 
 #: apps/core/templates/core/home.html:165
-msgid "Italy — Ukrainian roots"
-msgstr "Italia, origini ucraine"
+msgid "Italy, Ukrainian roots"
+msgstr "Italia, radici ucraine"
 
 #: apps/core/templates/core/home.html:168
 msgid "Italian, English, Spanish, Russian, Ukrainian, German"
@@ -193,7 +192,7 @@ msgstr "Data Science"
 
 #: apps/core/templates/core/home.html:199
 msgid ""
-"Turning raw data into insight — from exploratory analysis and statistical "
+"Turning raw data into insight, from exploratory analysis and statistical "
 "modelling to production-grade pipelines."
 msgstr ""
 "Trasformare dati grezzi in conoscenza, dall'analisi esplorativa e "
@@ -205,11 +204,11 @@ msgstr "Machine Learning & AI"
 
 #: apps/core/templates/core/home.html:225
 msgid ""
-"Designing and training models that generalise — from classical algorithms to "
+"Designing and training models that generalise, from classical algorithms to "
 "Deep Learning and Large Language Model systems."
 msgstr ""
-"Progettare e addestrare modelli che generalizzano, dagli algoritmi "
-"classici al Deep Learning e ai sistemi basati su Large Language Model."
+"Progettare e addestrare modelli che generalizzano, dagli algoritmi classici "
+"al Deep Learning e ai sistemi basati su Large Language Model."
 
 #: apps/core/templates/core/home.html:248
 msgid "Backend & Web"
@@ -217,7 +216,7 @@ msgstr "Backend & Web"
 
 #: apps/core/templates/core/home.html:250
 msgid ""
-"Building and shipping server-side systems end-to-end — from clean APIs and "
+"Building and shipping server-side systems end-to-end, from clean APIs and "
 "hypermedia-driven interfaces to containerised, production-ready deployments."
 msgstr ""
 "Costruire e rilasciare sistemi end-to-end server-side, da API pulite e "
@@ -248,17 +247,17 @@ msgstr "In evidenza"
 msgid ""
 "This very site. A <strong>Django</strong>-powered personal hub built with "
 "<strong>HTMX</strong>, <strong>Bootstrap 5</strong>, and a deliberate no-JS-"
-"framework philosophy. Designed to grow through three phases — from static "
+"framework philosophy. Designed to grow through three phases: from static "
 "portfolio to dynamic collection projects, writing and my career information. "
 "Every architectural decision is documented so the project can be reproduced "
 "from scratch."
 msgstr ""
 "Questo sito stesso. Un hub personale costruito con <strong>Django</strong>, "
-"<strong>HTMX</strong>, <strong>Bootstrap 5</strong> e deliberatamente "
-"senza framework JavaScript. Progettato per il rilascio in tre fasi da "
-"portfolio statico a raccolta dinamica di progetti, articoli e informazioni "
-"sulla mia carriera. Ogni decisione architetturale è documentata per poter "
-"riprodurre il progetto da zero."
+"<strong>HTMX</strong>, <strong>Bootstrap 5</strong> e deliberatamente senza "
+"framework JavaScript. Progettato per il rilascio in tre fasi da portfolio "
+"statico a raccolta dinamica di progetti, articoli e informazioni sulla mia "
+"carriera. Ogni decisione architetturale è documentata per poter riprodurre "
+"il progetto da zero."
 
 #: apps/core/templates/core/home.html:348
 msgid "Online Anamnestic Module (MAO)"
@@ -359,8 +358,8 @@ msgid ""
 "place. Tested at every step, documented throughout. Iterate until there's "
 "nothing left to remove."
 msgstr ""
-"Costruire veloce, far funzionare qualcosa e poi tagliare via tutto ciò che non "
-"merita il suo posto. Testato ad ogni passo, documentato durante tutto il "
+"Costruire veloce, far funzionare qualcosa e poi tagliare via tutto ciò che "
+"non merita il suo posto. Testato ad ogni passo, documentato durante tutto il "
 "processo. Iterare finché non c'è più nulla da rimuovere."
 
 #: apps/core/templates/core/home.html:481
@@ -378,8 +377,8 @@ msgid ""
 "No exceptions."
 msgstr ""
 "Un modello che non si può misurare non può essere migliorato e di "
-"conseguenza è inaffidabile. Ogni supposizione viene testata: "
-"valutazioni offline, baseline, casi limite. Niente eccezioni."
+"conseguenza è inaffidabile. Ogni supposizione viene testata: valutazioni "
+"offline, baseline, casi limite. Niente eccezioni."
 
 #: apps/core/templates/core/home.html:493
 msgid "Deploy"
@@ -433,30 +432,29 @@ msgstr "Trovami altrove"
 msgid "Go to contact page"
 msgstr "Vai alla pagina contatti"
 
-#: config/settings/base.py:131
+#: config/settings/base.py:124
 msgid "English"
 msgstr "Inglese"
 
-#: config/settings/base.py:132
+#: config/settings/base.py:125
 msgid "Italian"
 msgstr "Italiano"
 
-#: config/settings/base.py:133
+#: config/settings/base.py:126
 msgid "Spanish"
 msgstr "Spagnolo"
 
-#: config/settings/base.py:134
+#: config/settings/base.py:127
 msgid "German"
 msgstr "Tedesco"
 
 #: templates/base.html:14 templates/base.html:23
 msgid ""
 "Data Scientist and ML Engineer based in Italy. I build end-to-end data "
-"products — from pipelines and models to the interfaces people actually use."
+"products, from pipelines and models to the interfaces people actually use."
 msgstr ""
-"Data Scientist e ML Engineer basato in Italia. Costruisco prodotti dati end-"
-"to-end, dalle pipeline e modelli alle interfacce che le persone usano "
-"davvero."
+"Data Scientist e ML Engineer basato in Italia. Costruisco prodotti dati end-to-end,"
+" dalle pipeline e modelli alle interfacce che le persone usano davvero."
 
 #: templates/base.html:78
 msgid "Skip to main content"
@@ -487,7 +485,5 @@ msgid "Toggle theme"
 msgstr "Cambia tema"
 
 #: templates/components/_nav.html:77
-#, fuzzy
-#| msgid "Toggle navigation"
 msgid "Toggle navigation menu"
 msgstr "Apri/Chiudi menu di navigazione"
