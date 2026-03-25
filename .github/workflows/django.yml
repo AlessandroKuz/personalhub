@@ -16,6 +16,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+      DEBUG: ${{ secrets.DEBUG }}
     strategy:
       matrix:
         python-version: ["3.14"]
@@ -40,4 +43,7 @@ jobs:
           uv run ruff format --check .
 
       - name: Run Tests
+        env:
+          SECRET_KEY: "django-insecure-github-actions-ci-dummy-key-for-testing-only"
+          DEBUG: "True"
         run: uv run pytest
