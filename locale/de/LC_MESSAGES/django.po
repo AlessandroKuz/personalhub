@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-22 10:02+0100\n"
+"POT-Creation-Date: 2026-03-25 14:43+0100\n"
 "PO-Revision-Date: 2026-03-22 11:00+0100\n"
 "Last-Translator: Alessandro Kuz\n"
 "Language-Team: Deutsch <de@li.org>\n"
@@ -24,7 +24,7 @@ msgid "About"
 msgstr "Über mich"
 
 #: apps/core/templates/core/contact.html:3
-#: apps/core/templates/core/home.html:512 templates/components/_nav.html:117
+#: apps/core/templates/core/home.html:521 templates/components/_nav.html:117
 msgid "Contact"
 msgstr "Kontakt"
 
@@ -47,8 +47,8 @@ msgid ""
 "Italy, working globally."
 msgstr ""
 "Data Scientist und ML Engineer mit Abschluss in KI. Ich arbeite end-to-end: "
-"von Datenpipelines über Modelltraining bis hin zu den Schnittstellen, die Menschen tatsächlich nutzen. "
-"Mit Sitz in Italien und weltweit tätig."
+"von Datenpipelines über Modelltraining bis hin zu den Schnittstellen, die "
+"Menschen tatsächlich nutzen. Mit Sitz in Italien und weltweit tätig."
 
 #: apps/core/templates/core/home.html:41
 msgid "View my work"
@@ -115,9 +115,8 @@ msgid ""
 "I'm <strong>Alessandro Kuz</strong>, I like building toward AI that "
 "genuinely augments what people can do, not replaces what we enjoy doing."
 msgstr ""
-"Ich bin <strong>Alessandro Kuz</strong> und arbeite an KI, die "
-"menschliche Fähigkeiten erweitert, anstatt das zu ersetzen, "
-"was wir gerne tun."
+"Ich bin <strong>Alessandro Kuz</strong> und arbeite an KI, die menschliche "
+"Fähigkeiten erweitert, anstatt das zu ersetzen, was wir gerne tun."
 
 #: apps/core/templates/core/home.html:145
 msgid ""
@@ -125,8 +124,9 @@ msgid ""
 "more about it, whether that's a new concept, a language to pick up or a "
 "skill to teach myself."
 msgstr ""
-"Ich bin von Natur aus neugierig: Wenn mich etwas interessiert, möchte ich mehr darüber lernen, "
-"sei es ein neues Konzept, eine Sprache oder eine Fähigkeit, die ich mir selbst beibringe."
+"Ich bin von Natur aus neugierig: Wenn mich etwas interessiert, möchte ich "
+"mehr darüber lernen, sei es ein neues Konzept, eine Sprache oder eine "
+"Fähigkeit, die ich mir selbst beibringe."
 
 #: apps/core/templates/core/home.html:150
 msgid ""
@@ -134,8 +134,9 @@ msgid ""
 "the six languages and my fascination with cultures, history and "
 "communication."
 msgstr ""
-"Ich wurde in Italien als Kind ukrainischer Eltern geboren und bin dort aufgewachsen, "
-"was wahrscheinlich meine sechs Sprachen und meine Faszination für Kulturen, Geschichte und Kommunikation erklärt."
+"Ich wurde in Italien als Kind ukrainischer Eltern geboren und bin dort "
+"aufgewachsen, was wahrscheinlich meine sechs Sprachen und meine Faszination "
+"für Kulturen, Geschichte und Kommunikation erklärt."
 
 #: apps/core/templates/core/home.html:156
 msgid "Read more"
@@ -177,10 +178,10 @@ msgstr "Von Daten über Modelle zum Produkt."
 #: apps/core/templates/core/home.html:193
 #: apps/core/templates/core/home.html:219
 #: apps/core/templates/core/home.html:244
-#: apps/core/templates/core/home.html:301
-#: apps/core/templates/core/home.html:344
-#: apps/core/templates/core/home.html:371
-#: apps/core/templates/core/home.html:396
+#: apps/core/templates/core/home.html:310
+#: apps/core/templates/core/home.html:353
+#: apps/core/templates/core/home.html:380
+#: apps/core/templates/core/home.html:405
 msgid "View"
 msgstr "Ansehen"
 
@@ -193,8 +194,8 @@ msgid ""
 "Turning raw data into insight, from exploratory analysis and statistical "
 "modelling to production-grade pipelines."
 msgstr ""
-"Rohdaten in Erkenntnisse verwandeln, von explorativer Analyse und statistischer Modellierung "
-"bis hin zu produktionsreifen Pipelines."
+"Rohdaten in Erkenntnisse verwandeln, von explorativer Analyse und "
+"statistischer Modellierung bis hin zu produktionsreifen Pipelines."
 
 #: apps/core/templates/core/home.html:223
 msgid "Machine Learning & AI"
@@ -205,8 +206,8 @@ msgid ""
 "Designing and training models that generalise, from classical algorithms to "
 "Deep Learning and Large Language Model systems."
 msgstr ""
-"Entwicklung und Training von Modellen, die gut generalisieren, von klassischen Algorithmen "
-"bis hin zu Deep Learning und Large Language Models."
+"Entwicklung und Training von Modellen, die gut generalisieren, von "
+"klassischen Algorithmen bis hin zu Deep Learning und Large Language Models."
 
 #: apps/core/templates/core/home.html:248
 msgid "Backend & Web"
@@ -217,30 +218,35 @@ msgid ""
 "Building and shipping server-side systems end-to-end, from clean APIs and "
 "hypermedia-driven interfaces to containerised, production-ready deployments."
 msgstr ""
-"Entwicklung und Bereitstellung von serverseitigen Systemen end-to-end, von sauberen APIs "
-"und hypermedia-gesteuerten Interfaces bis hin zu containerisierten, produktionsreifen Deployments."
+"Entwicklung und Bereitstellung von serverseitigen Systemen end-to-end, von "
+"sauberen APIs und hypermedia-gesteuerten Interfaces bis hin zu "
+"containerisierten, produktionsreifen Deployments."
 
 #: apps/core/templates/core/home.html:275
 msgid "See full CV"
 msgstr "Vollständigen Lebenslauf ansehen"
 
-#: apps/core/templates/core/home.html:288 templates/components/_nav.html:110
+#: apps/core/templates/core/home.html:284
+msgid "Open CV pdf"
+msgstr "Lebenslauf als PDF öffnen"
+
+#: apps/core/templates/core/home.html:297 templates/components/_nav.html:110
 msgid "Projects"
 msgstr "Projekte"
 
-#: apps/core/templates/core/home.html:290
+#: apps/core/templates/core/home.html:299
 msgid "Things I've built"
 msgstr "Was ich gebaut habe"
 
-#: apps/core/templates/core/home.html:291
+#: apps/core/templates/core/home.html:300
 msgid "that are actually useful."
 msgstr "und die wirklich nützlich sind."
 
-#: apps/core/templates/core/home.html:305
+#: apps/core/templates/core/home.html:314
 msgid "Featured"
 msgstr "Hervorgehoben"
 
-#: apps/core/templates/core/home.html:309
+#: apps/core/templates/core/home.html:318
 msgid ""
 "This very site. A <strong>Django</strong>-powered personal hub built with "
 "<strong>HTMX</strong>, <strong>Bootstrap 5</strong>, and a deliberate no-JS-"
@@ -249,17 +255,18 @@ msgid ""
 "Every architectural decision is documented so the project can be reproduced "
 "from scratch."
 msgstr ""
-"Diese Website selbst. Ein persönlicher Hub auf Basis von <strong>Django</strong>, "
-"gebaut mit <strong>HTMX</strong>, <strong>Bootstrap 5</strong> und einer bewussten No-JS-Framework-Philosophie. "
-"Konzipiert für Wachstum in drei Phasen: vom statischen Portfolio hin zu einer dynamischen Sammlung von Projekten, "
-"Texten und Karrieredaten. Jede Architekturentscheidung ist dokumentiert, sodass das Projekt von Grund auf reproduzierbar ist."
+"Diese Website selbst. Ein persönlicher Hub auf Basis von <strong>Django</"
+"strong>, gebaut mit <strong>HTMX</strong>, <strong>Bootstrap 5</strong> und "
+"einer bewussten No-JS-Framework-Philosophie. Konzipiert für Wachstum in drei "
+"Phasen: vom statischen Portfolio hin zu einer dynamischen Sammlung von "
+"Projekten, Texten und Karrieredaten. Jede Architekturentscheidung ist "
+"dokumentiert, sodass das Projekt von Grund auf reproduzierbar ist."
 
-
-#: apps/core/templates/core/home.html:348
+#: apps/core/templates/core/home.html:357
 msgid "Online Anamnestic Module (MAO)"
 msgstr "Online-Anamnese-Modul (MAO)"
 
-#: apps/core/templates/core/home.html:350
+#: apps/core/templates/core/home.html:359
 msgid ""
 "Clinical data collection platform built for oncology specialists to digitise "
 "patient anamnestic intake. Integrates external tools and <strong>APIs</"
@@ -267,12 +274,14 @@ msgid ""
 "probability assessment. Role-based access via <strong>Microsoft Entra</"
 "strong>, deployed on <strong>Azure</strong>."
 msgstr ""
-"Plattform zur Erfassung klinischer Daten für Onkologie-Spezialisten zur Digitalisierung der Patientenanamnese. "
-"Integriert externe Tools und <strong>APIs</strong> für die interaktive Erstellung von Stammbaumdiagrammen "
-"sowie zur Bewertung von Mutationswahrscheinlichkeiten. Rollenbasierter Zugriff über <strong>Microsoft Entra</strong>, "
-"bereitgestellt auf <strong>Azure</strong>."
+"Plattform zur Erfassung klinischer Daten für Onkologie-Spezialisten zur "
+"Digitalisierung der Patientenanamnese. Integriert externe Tools und "
+"<strong>APIs</strong> für die interaktive Erstellung von Stammbaumdiagrammen "
+"sowie zur Bewertung von Mutationswahrscheinlichkeiten. Rollenbasierter "
+"Zugriff über <strong>Microsoft Entra</strong>, bereitgestellt auf "
+"<strong>Azure</strong>."
 
-#: apps/core/templates/core/home.html:377
+#: apps/core/templates/core/home.html:386
 msgid ""
 "A collection of <strong>LLM</strong>-powered developer tools built around "
 "real workflows. Tailor-your-CV aligns a CV to a job description using "
@@ -280,16 +289,17 @@ msgid ""
 "local files into a ChromaDB vector store with smart chunking and full source "
 "attribution."
 msgstr ""
-"Eine Sammlung von Entwickler-Tools auf Basis von <strong>LLM</strong>, entwickelt rund um reale Workflows. "
-"Tailor-your-CV passt einen Lebenslauf an eine Stellenbeschreibung an, mit OpenAI, Gemini oder lokalen Ollama-Modellen. "
-"Lokales <strong>RAG</strong> indexiert Dateien in einem ChromaDB-Vektorspeicher mit intelligentem Chunking "
-"und vollständiger Quellenzuordnung."
+"Eine Sammlung von Entwickler-Tools auf Basis von <strong>LLM</strong>, "
+"entwickelt rund um reale Workflows. Tailor-your-CV passt einen Lebenslauf an "
+"eine Stellenbeschreibung an, mit OpenAI, Gemini oder lokalen Ollama-"
+"Modellen. Lokales <strong>RAG</strong> indexiert Dateien in einem ChromaDB-"
+"Vektorspeicher mit intelligentem Chunking und vollständiger Quellenzuordnung."
 
-#: apps/core/templates/core/home.html:402
+#: apps/core/templates/core/home.html:411
 msgid "Cancer Stage Inference from DNA Methylation"
 msgstr "Vorhersage des Krebsstadiums anhand von DNA-Methylierung"
 
-#: apps/core/templates/core/home.html:404
+#: apps/core/templates/core/home.html:413
 msgid ""
 "End-to-end ML pipeline to infer cancer stage from tissue DNA methylation "
 "profiles, built after deep research into cancer biology and staging with "
@@ -297,154 +307,176 @@ msgid ""
 "via Dask and Polars. Compared multiple architectures with full evaluation "
 "across all stages."
 msgstr ""
-"End-to-End-ML-Pipeline zur Bestimmung des Krebsstadiums anhand von DNA-Methylierungsprofilen, "
-"entwickelt nach intensiver Forschung in der Krebsbiologie und Stadieneinteilung sowie in Zusammenarbeit mit Experten. "
+"End-to-End-ML-Pipeline zur Bestimmung des Krebsstadiums anhand von DNA-"
+"Methylierungsprofilen, entwickelt nach intensiver Forschung in der "
+"Krebsbiologie und Stadieneinteilung sowie in Zusammenarbeit mit Experten. "
 "Über 200GB Rohdaten wurden out-of-core mit Dask und Polars verarbeitet. "
 "Mehrere Architekturen wurden umfassend über alle Stadien hinweg evaluiert."
 
-#: apps/core/templates/core/home.html:436
+#: apps/core/templates/core/home.html:445
 msgid "All projects"
 msgstr "Alle Projekte"
 
-#: apps/core/templates/core/home.html:448
+#: apps/core/templates/core/home.html:457
 msgid "How I Work"
 msgstr "Wie ich arbeite"
 
-#: apps/core/templates/core/home.html:450
+#: apps/core/templates/core/home.html:459
 msgid "A process built"
 msgstr "Ein Prozess, entwickelt"
 
-#: apps/core/templates/core/home.html:451
+#: apps/core/templates/core/home.html:460
 msgid "for real delivery."
 msgstr "für echte Ergebnisse."
 
-#: apps/core/templates/core/home.html:457
+#: apps/core/templates/core/home.html:466
 msgid "Understand"
 msgstr "Verstehen"
 
-#: apps/core/templates/core/home.html:458
+#: apps/core/templates/core/home.html:467
 msgid "Scope & Alignment"
 msgstr "Umfang und Abstimmung"
 
-#: apps/core/templates/core/home.html:460
+#: apps/core/templates/core/home.html:469
 msgid ""
 "Scope before code. Understand the problem, not just the stated one, the real "
 "one. The right question asked in week one beats the wrong solution delivered "
 "in week six."
 msgstr ""
-"Erst der Umfang, dann der Code. Verstehe das echte Problem, nicht nur das formulierte. "
-"Die richtige Frage in Woche eins schlägt die falsche Lösung in Woche sechs."
+"Erst der Umfang, dann der Code. Verstehe das echte Problem, nicht nur das "
+"formulierte. Die richtige Frage in Woche eins schlägt die falsche Lösung in "
+"Woche sechs."
 
-#: apps/core/templates/core/home.html:469
+#: apps/core/templates/core/home.html:478
 msgid "Build"
 msgstr "Umsetzen"
 
-#: apps/core/templates/core/home.html:470
+#: apps/core/templates/core/home.html:479
 msgid "Fast Iteration"
 msgstr "Schnelle Iteration"
 
-#: apps/core/templates/core/home.html:472
+#: apps/core/templates/core/home.html:481
 msgid ""
 "Build fast, get something working, then cut everything that doesn't earn its "
 "place. Tested at every step, documented throughout. Iterate until there's "
 "nothing left to remove."
 msgstr ""
-"Schnell umsetzen, etwas Funktionsfähiges schaffen und dann alles entfernen, was keinen Mehrwert bringt. "
-"Jeder Schritt wird getestet und dokumentiert. Iteration, bis nichts mehr entfernt werden kann."
+"Schnell umsetzen, etwas Funktionsfähiges schaffen und dann alles entfernen, "
+"was keinen Mehrwert bringt. Jeder Schritt wird getestet und dokumentiert. "
+"Iteration, bis nichts mehr entfernt werden kann."
 
-#: apps/core/templates/core/home.html:481
+#: apps/core/templates/core/home.html:490
 msgid "Validate"
 msgstr "Validieren"
 
-#: apps/core/templates/core/home.html:482
+#: apps/core/templates/core/home.html:491
 msgid "Measure Everything"
 msgstr "Alles messen"
 
-#: apps/core/templates/core/home.html:484
+#: apps/core/templates/core/home.html:493
 msgid ""
 "A model that can't be measured can't be improved, and it shouldn't be "
 "trusted. Every assumption gets tested: offline evals, baselines, edge cases. "
 "No exceptions."
 msgstr ""
-"Ein Modell, das nicht messbar ist, kann nicht verbessert werden, und man sollte ihm nicht vertrauen. "
-"Jede Annahme wird getestet: Offline-Evaluationen, Baselines, Edge Cases. Keine Ausnahmen."
+"Ein Modell, das nicht messbar ist, kann nicht verbessert werden, und man "
+"sollte ihm nicht vertrauen. Jede Annahme wird getestet: Offline-"
+"Evaluationen, Baselines, Edge Cases. Keine Ausnahmen."
 
-
-#: apps/core/templates/core/home.html:493
+#: apps/core/templates/core/home.html:502
 msgid "Deploy"
 msgstr "Bereitstellen"
 
-#: apps/core/templates/core/home.html:494
+#: apps/core/templates/core/home.html:503
 msgid "Ship & Monitor"
 msgstr "Ausliefern und überwachen"
 
-#: apps/core/templates/core/home.html:496
+#: apps/core/templates/core/home.html:505
 msgid ""
 "Containerised, CI-integrated, observability from day one. Deployment isn't "
 "the end: it's when the real data starts coming in."
 msgstr ""
-"Containerisiert, in CI integriert, Observability von Anfang an. Deployment ist nicht das Ende, "
-"sondern der Moment, in dem echte Daten ankommen."
+"Containerisiert, in CI integriert, Observability von Anfang an. Deployment "
+"ist nicht das Ende, sondern der Moment, in dem echte Daten ankommen."
 
-#: apps/core/templates/core/home.html:515
+#: apps/core/templates/core/home.html:524
 msgid "Let's build"
 msgstr "Lass uns bauen"
 
-#: apps/core/templates/core/home.html:516
+#: apps/core/templates/core/home.html:525
 msgid "something worth building."
 msgstr "etwas, das sich zu bauen lohnt."
 
-#: apps/core/templates/core/home.html:520
+#: apps/core/templates/core/home.html:529
 msgid ""
 "Open to freelance projects, consulting, and full-time roles. Response within "
 "24 hours."
-msgstr "Offen für Freelance-Projekte, Beratung und Festanstellungen. Ich antworte innerhalb von 24 Stunden."
+msgstr ""
+"Offen für Freelance-Projekte, Beratung und Festanstellungen. Ich antworte "
+"innerhalb von 24 Stunden."
 
-
-#: apps/core/templates/core/home.html:527
+#: apps/core/templates/core/home.html:536
 msgid "Reach out directly"
 msgstr "Direkt kontaktieren"
 
-#: apps/core/templates/core/home.html:536
+#: apps/core/templates/core/home.html:545
 msgid "Send an email"
 msgstr "E-Mail senden"
 
-
-#: apps/core/templates/core/home.html:549
+#: apps/core/templates/core/home.html:558
 msgid "Book a call"
 msgstr "Termin buchen"
 
-#: apps/core/templates/core/home.html:561
+#: apps/core/templates/core/home.html:570
 msgid "Find me elsewhere"
 msgstr "Weitere Profile"
 
-#: apps/core/templates/core/home.html:596
+#: apps/core/templates/core/home.html:605
 msgid "Go to contact page"
 msgstr "Zur Kontaktseite"
 
-#: config/settings/base.py:124
+#: config/settings/base.py:131
 msgid "English"
 msgstr "Englisch"
 
-#: config/settings/base.py:125
+#: config/settings/base.py:132
 msgid "Italian"
 msgstr "Italienisch"
 
-#: config/settings/base.py:126
+#: config/settings/base.py:133
 msgid "Spanish"
 msgstr "Spanisch"
 
-#: config/settings/base.py:127
+#: config/settings/base.py:134
 msgid "German"
 msgstr "Deutsch"
+
+#: site/PROJECT_CONTEXT/index.html:1830
+msgid "Hello"
+msgstr ""
+
+#: site/PROJECT_CONTEXT/index.html:1830
+msgid "..."
+msgstr ""
+
+#: site/frontend/i18n/index.html:1604
+#, python-format
+msgid ""
+"\n"
+"<a id=\"__codelineno-3-8\" name=\"__codelineno-3-8\" "
+"href=\"#__codelineno-3-8\"></a>  Hello, %(name)s. Welcome to my site.\n"
+"<a id=\"__codelineno-3-9\" name=\"__codelineno-3-9\" "
+"href=\"#__codelineno-3-9\"></a>"
+msgstr ""
 
 #: templates/base.html:14 templates/base.html:23
 msgid ""
 "Data Scientist and ML Engineer based in Italy. I build end-to-end data "
 "products: from pipelines and models to the interfaces people actually use."
 msgstr ""
-"Data Scientist und ML Engineer mit Sitz in Italien. Ich entwickle End-to-End-Datenprodukte: "
-"von Pipelines und Modellen bis hin zu den Interfaces, die Menschen tatsächlich nutzen."
+"Data Scientist und ML Engineer mit Sitz in Italien. Ich entwickle End-to-End-"
+"Datenprodukte: von Pipelines und Modellen bis hin zu den Interfaces, die "
+"Menschen tatsächlich nutzen."
 
 #: templates/base.html:78
 msgid "Skip to main content"
