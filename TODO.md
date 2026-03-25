@@ -1,10 +1,17 @@
 # Personalhub — To-Do
 
-Legend: `[P1]` Phase 1 · `[P2]` Phase 2 · `[P3]` Phase 3· `[P4]` Phase 4· `[P5]` Phase 5
+Legend:
+
+- `[P0]` Phase 0: Simple Landing page website
+- `[P1]` Phase 1: Complete website with dedicated details pages
+- `[P2]` Phase 2: Website with dynamic projects section
+- `[P3]` Phase 3: Website with dynamic blog section
+- `[P4]` Phase 4: Clean code and SEO optimizations
+- `[P5]` Phase 5: LLM-ChatBot to talk about the content
 
 ---
 
-## 🎨 Design & CSS Foundation `[P1]` ← Start here
+## 🎨 Design & CSS Foundation `[P0]` ← Start here
 
 - [x] Finalise design tokens in `static/css/main.css`
       — `--accent`, `--bg`, `--surface`, `--text`, `--muted`, `--border`, `--mono`
@@ -17,24 +24,25 @@ Legend: `[P1]` Phase 1 · `[P2]` Phase 2 · `[P3]` Phase 3· `[P4]` Phase 4· `[
 
 ---
 
-## 🧩 Components `[P1]`
+## 🧩 Components `[P0]`
 
 - [x] `_footer.html` — copyright, socials, easter egg, back-to-top
-- [x] `_nav.html` — brand, true-centered links, lang switcher, theme toggle, scroll effect
+- [x] `_nav.html` — brand, true-centered links, lang switcher, theme toggle,
+      scroll effect
 - [ ] `_cta.html` — reusable "get in touch" block, used at the bottom of every page
 
 ---
 
-## ⚙️ JavaScript `[P1]`
+## ⚙️ JavaScript `[P0]`
 
-- [x] `themeInit.js` — flash prevention, sets `data-theme` + `data-bs-theme` before first paint
+- [x] `themeInit.js` — flash prevention, sets `data-bs-theme` before first paint
 - [x] `theme.js` — toggle logic, icon sync, localStorage persistence
 - [x] `main.js` — consolidate all: navbar scroll, navbar height offset,
       lang switcher, tooltip init, cursor effect, scroll reveal
 
 ---
 
-## 🏠 `home.html` — Primary Document `[P1]`
+## 🏠 `home.html` — Primary Document `[P0]`
 
 > `home.html` is the main experience. Every other content page is an
 > **expanded version** of its corresponding section here.
@@ -59,6 +67,18 @@ Legend: `[P1]` Phase 1 · `[P2]` Phase 2 · `[P3]` Phase 3· `[P4]` Phase 4· `[
 
 ---
 
+## 📄 Custom Error pages - [P1]
+
+> Each page should cover the corresponding error code.
+
+- [ ] Write tests first
+- [ ] 400 error pages
+  - [ ] 404 page
+  - [ ] ...
+- [ ] 500 error pages
+
+---
+
 ## 📄 Content Pages — Expanded Versions `[P1]`
 
 > Each page expands on its home.html section.
@@ -68,7 +88,7 @@ Legend: `[P1]` Phase 1 · `[P2]` Phase 2 · `[P3]` Phase 3· `[P4]` Phase 4· `[
 
 - [ ] Write tests first
 - [ ] Full personal bio — background, ML/AI focus, builder mentality
-- [ ] Human languages spoken (EN, IT, ES, RU, UK, DE)
+- [ ] Human languages spoken (EN, IT, ES, DE)
 - [ ] Interests / what I'm currently building
 - [ ] Include `_cta.html` at the bottom
 
@@ -93,12 +113,26 @@ Legend: `[P1]` Phase 1 · `[P2]` Phase 2 · `[P3]` Phase 3· `[P4]` Phase 4· `[
 
 ---
 
-## 🌍 i18n `[P1]`
+### 🌍 i18n `[P1]`
+
+> QA step.
 
 - [ ] Mark all template strings with `{% trans %}` / `{% blocktrans %}`
       once content is written (do this last, before release)
 - [ ] `makemessages -l it` → fill translations → `compilemessages`
 - [ ] Smoke-test both `/` (EN) and `/it/` (IT) routes end-to-end
+
+---
+
+### 🔒 SEO, Accessibility & Performance `[P1 wrap-up]`
+
+- [ ] `robots.txt` — served from `static/`
+- [ ] `sitemap.xml` — via `django.contrib.sitemaps`
+- [ ] Verify Open Graph tags on each page (use opengraph.xyz)
+- [ ] Lighthouse audit — target 95+ on Performance, Accessibility, Best Practices
+- [ ] All images have `alt` text
+- [ ] All icon-only interactive elements have `aria-label`
+- [ ] Keyboard navigation works end-to-end (Tab through navbar, form, footer)
 
 ---
 
@@ -120,6 +154,12 @@ Legend: `[P1]` Phase 1 · `[P2]` Phase 2 · `[P3]` Phase 3· `[P4]` Phase 4· `[
 
 ---
 
+### 🌍 i18n translations for projects `[P2]`
+
+- [ ] Handle translations for each language in each model
+
+---
+
 ## 📝 Phase 3 — Blog App `[P3]`
 
 - [ ] Write model tests first (`apps/blog/tests/test_models.py`)
@@ -133,6 +173,13 @@ Legend: `[P1]` Phase 1 · `[P2]` Phase 2 · `[P3]` Phase 3· `[P4]` Phase 4· `[
 - [ ] EasyMDE editor — CDN, no build step
 - [ ] WebSocket live Markdown preview — Django Channels (ASGI already set up)
 - [ ] RSS feed — `django.contrib.syndication`
+
+---
+
+### 🌍 i18n translations for articles `[P3]`
+
+- [ ] Handle translations for each article
+- [ ] Make sure all images wont contain "hardcoded" text
 
 ---
 
@@ -168,8 +215,6 @@ Legend: `[P1]` Phase 1 · `[P2]` Phase 2 · `[P3]` Phase 3· `[P4]` Phase 4· `[
 
 ### Common to both
 
-- [ ] `docs.yourdomain.com` — Caddy serves MkDocs `site/` directory
-- [ ] `docs.yourdomain.com` — Cloudflare pages could be an alternative
 - [ ] DB backup — `pg_dump` via cron, stored off-host (Backblaze B2 free tier)
 - [ ] Confirm HTTPS, HSTS, and all security headers via securityheaders.com
 - [ ] Cloudflare R2 as an alternative to Backblaze B2 for DB
@@ -180,21 +225,18 @@ Legend: `[P1]` Phase 1 · `[P2]` Phase 2 · `[P3]` Phase 3· `[P4]` Phase 4· `[
 
 ## 📚 Documentation (MkDocs)
 
-- [ ] Fill all stub `.md` files — most are currently empty skeletons
+- [x] Fill all stub `.md` files — most are currently empty skeletons
 - [ ] `frontend/design-system.md` — final token values, font choices
 - [ ] `frontend/components.md` — footer, navbar, CTA patterns with examples
 - [ ] `testing/tdd.md` — update test inventory as new tests are added ✅
 - [ ] `decisions.md` — add: sticky-top rationale, Bootstrap-first CSS approach,
       page architecture decision (home = primary, others = expanded)
-- [ ] `mkdocs.yml` — add `repo_url` + `repo_name` once repo is public
-- [ ] Consider Cloudflare Pages for docs.yourdomain.com instead of serving
-      site/ from Caddy — connect the repo, set build command mkdocs build,
-      publish directory site/. Auto-deploys on every push to main.
-      Free, no server config needed
+- [x] `mkdocs.yml` — add `repo_url` + `repo_name` once repo is public
+- [x] Cloudflare Pages for docs.alessandrokuz.com
 
 ---
 
-## 🔒 SEO, Accessibility & Performance `[P1 wrap-up]`
+## 🔒 Occasional check - SEO, Accessibility & Performance `[P1 to P5]`
 
 - [ ] `robots.txt` — served from `static/`
 - [ ] `sitemap.xml` — via `django.contrib.sitemaps`
