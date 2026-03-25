@@ -151,11 +151,13 @@
             I was born and raised in Italy to Ukrainian parents, which probably explains the six languages and my fascination with cultures, history and communication.
           {% endblocktrans %}
         </p>
-        <a href="{% url 'core:about' %}"
+        {% comment %}
+        <a href="#about"
            class="btn btn-ghost mt-2">
           {% trans "Read more" %}
           <i class="bi bi-arrow-right"></i>
         </a>
+        {% endcomment %}
 
       </div>
 
@@ -188,7 +190,7 @@
     <div class="skills-cols reveal reveal-delay-2">
 
       {# Column 1: Data Science #}
-      <a href="{% url 'core:work' %}#data-science" class="skill-col">
+      <a href="#work" class="skill-col">
         <span class="skill-view-link">
           {% trans "View" %}
           <i class="bi bi-box-arrow-up-right"></i>
@@ -214,7 +216,7 @@
       </a>
 
       {# Column 2: ML / AI #}
-      <a href="{% url 'core:work' %}#ml-ai" class="skill-col">
+      <a href="#work" class="skill-col">
         <span class="skill-view-link">
           {% trans "View" %}
           <i class="bi bi-box-arrow-up-right"></i>
@@ -239,7 +241,7 @@
       </a>
 
       {# Column 3: Backend / Web #}
-      <a href="{% url 'core:work' %}#backend-devops" class="skill-col">
+      <a href="#work" class="skill-col">
         <span class="skill-view-link">
           {% trans "View" %}
           <i class="bi bi-box-arrow-up-right"></i>
@@ -271,12 +273,16 @@
 
     {# CTA to full work page #}
     <div class="text-center mt-5 reveal reveal-delay-3">
-      <a href="{% url 'core:work' %}" class="btn btn-ghost">
-        {% trans "See full CV" %}
+      <a
+        href="{% static "CV-AlessandroKuz.pdf" %}"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-ghost">
+        <i class="bi bi-file-earmark-pdf-fill"></i>
+        {% trans "see full cv" %}
         <i class="bi bi-arrow-right"></i>
       </a>
     </div>
-
 
   </div>
 </section>
@@ -429,6 +435,7 @@
 
     </div>
 
+    {% comment %}
     {# CTA to full projects page #}
     <div class="text-center mt-5 reveal reveal-delay-3">
       {# TODO - RESOLVE LINK TO ACTUAL PROJECTS PAGE #}
@@ -437,6 +444,7 @@
         <i class="bi bi-arrow-right"></i>
       </a>
     </div>
+    {% endcomment %}
 
   </div>
 </section>
@@ -589,6 +597,7 @@
       </div>
     </div>
 
+    {% comment %}
     {# CTA to full contact page #}
     <div class="mt-5 reveal reveal-delay-4">
       <a href="{% url 'core:contact' %}" class="btn btn-primary">
@@ -596,6 +605,7 @@
         <i class="bi bi-arrow-right"></i>
       </a>
     </div>
+    {% endcomment %}
 
   </div>
 </section>

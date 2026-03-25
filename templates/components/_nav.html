@@ -83,39 +83,19 @@
     <div class="collapse navbar-collapse" id="navbarContent">
       <ul class="navbar-nav gap-lg-1 py-2 py-lg-0 font-monospace text-uppercase letter-spacing-1">
         <li class="nav-item">
-          <a class="nav-link small {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
-             href="{% url 'core:home' %}"
-             {% if request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %}>
-            Home
-          </a>
+          <a class="nav-link small active" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link small {% if request.resolver_match.url_name == 'about' %}active{% endif %}"
-             href="{% url 'core:about' %}"
-             {% if request.resolver_match.url_name == 'about' %}aria-current="page"{% endif %}>
-            {% trans "About" %}
-          </a>
+          <a class="nav-link small" href="#about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link small {% if request.resolver_match.url_name == 'work' %}active{% endif %}"
-             href="{% url 'core:work' %}"
-             {% if request.resolver_match.url_name == 'work' %}aria-current="page"{% endif %}>
-            {% trans "Work" %}
-          </a>
+          <a class="nav-link small" href="#work">Work</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link small {% if request.resolver_match.url_name == 'projects' %}active{% endif %}"
-             href="{% if request.resolver_match.url_name == 'home' %}#projects{% else %}{% url 'core:home' %}#projects{% endif %}"
-             {% if request.resolver_match.url_name == 'projects' %}aria-current="page"{% endif %}>
-            {% trans "Projects" %}
-          </a>
+          <a class="nav-link small" href="#projects">Projects</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link small {% if request.resolver_match.url_name == 'contact' %}active{% endif %}"
-             href="{% url 'core:contact' %}"
-             {% if request.resolver_match.url_name == 'contact' %}aria-current="page"{% endif %}>
-            {% trans "Contact" %}
-          </a>
+          <a class="nav-link small" href="#contact">Contact</a>
         </li>
 
       </ul>
