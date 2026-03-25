@@ -93,6 +93,20 @@ main .btn {
 }
 
 /* ══════════════════════════════════════════════════════════
+   DEFAULT LINK
+   ══════════════════════════════════════════════════════════ */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.25s var(--ease);
+}
+
+a:hover {
+  color: var(--color-text);
+}
+
+/* ══════════════════════════════════════════════════════════
    CUSTOM CURSOR
    ══════════════════════════════════════════════════════════ */
 
@@ -128,7 +142,7 @@ main .btn {
   left:           0;
   width:          40px;
   height:         40px;
-  border:         2.5px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  border:         1.5px solid color-mix(in srgb, var(--accent) 35%, transparent);
   border-radius:  50%;
   border-color:   var(--accent);
   transform:      translate(-50%, -50%);
@@ -147,13 +161,14 @@ main .btn {
 
 /* Expanded state when hovering interactive elements */
 body.cursor-hover #cursor-dot {
-  width:  12px;
-  height: 12px;
+  width:  10px;
+  height: 10px;
 }
 
 body.cursor-hover #cursor-ring {
   width:        60px;
   height:       60px;
+  border-width: 2.5px;
   border-color: var(--color-text);
 }
 
