@@ -2,8 +2,16 @@ name: Django CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
+    paths-ignore:
+      - "docs/**"
+      - "*.md"
+      - ".github/ISSUE_TEMPLATE/**"
   pull_request:
+    paths-ignore:
+      - "docs/**"
+      - "*.md"
+      - ".github/ISSUE_TEMPLATE/**"
 
 jobs:
   build:
@@ -13,23 +21,23 @@ jobs:
         python-version: ["3.12", "3.13", "3.14"]
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Install uv
-      uses: astral-sh/setup-uv@v7
-      with:
-        python-version: ${{ matrix.python-version }}
-        enable-cache: true
-        cache-dependency-glob: "uv.lock"
-        version: "0.11.1"
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+          version: "0.11.1"
 
-    - name: Install Dependencies
-      run: uv sync --locked --all-extras --dev
+      - name: Install Dependencies
+        run: uv sync --locked --all-extras --dev
 
-    - name: Lint
-      run: |
-        uv run ruff check .
-        uv run ruff format --check .
+      - name: Lint
+        run: |
+          uv run ruff check .
+          uv run ruff format --check .
 
-    - name: Run Tests
-      run: uv run pytest
+      - name: Run Tests
+        run: uv run pytest
