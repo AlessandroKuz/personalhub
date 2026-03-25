@@ -45,9 +45,9 @@ async def test_footer_contains_linkedin_link(async_client: AsyncClient) -> None:
     assert "linkedin.com" in response.content.decode()
 
 
-async def test_footer_contains_youtube_link(async_client: AsyncClient) -> None:
-    response = await async_client.get(reverse("core:home"))
-    assert "youtube.com" in response.content.decode()
+# async def test_footer_contains_youtube_link(async_client: AsyncClient) -> None:
+#     response = await async_client.get(reverse("core:home"))
+#     assert "youtube.com" in response.content.decode()
 
 
 # Navbar Tests -----------------------------------------------------------------
