@@ -136,6 +136,20 @@ Legend:
 
 ---
 
+## GDPR and Privacy pages `[P1 wrap-up]`
+
+- [ ] Research what GDPR rules are there for site visitors
+- [ ] US-based CDNs are not GDPR compliant, serve via staticfiles
+  - [ ] Google
+  - [ ] Bootstrap
+    - [ ] Bootstrap CSS
+    - [ ] Bootstrap JS
+    - [ ] Bootstrap ICONS
+- [ ] Add `legal` app with needed pages
+- [ ] Create dedicated pages
+
+---
+
 ## 🗃️ Phase 2 — Projects App `[P2]`
 
 - [ ] Write model tests first (`apps/projects/tests/test_models.py`)
@@ -259,3 +273,149 @@ Legend:
       free, zero JS performance cost compared to Google Analytics
 - [ ] Consider Cloudflare Email Routing for the contact form — forwards form submissions to your real inbox
       without exposing your email address or needing an SMTP server. Free tier, zero infrastructure
+
+---
+
+## EU Deployment checklist
+
+Here is a comprehensive EU compliance checklist organized by regulatory sector. The scope of each regulation scales with your site's size and functionality — items marked **⚠️ if applicable** only trigger depending on your features.
+
+***
+
+### 🔐 1. GDPR — Data Protection
+
+The foundational regulation. Applies to any site that processes personal data of EU residents. [drupfan](https://drupfan.com/en/blog/how-to-make-your-website-gdpr-compliant)
+
+**Data & Legal Basis**
+
+- [ ] Identify every piece of personal data you collect (names, emails, IPs, cookies, etc.)
+- [ ] Define a lawful basis for each (consent, contract, legitimate interest, legal obligation) [cookieyes](https://www.cookieyes.com/blog/gdpr-checklist-for-websites/)
+- [ ] Apply **data minimization** — don't collect more than you need [onlinehashcrack](https://www.onlinehashcrack.com/guides/best-practices/gdpr-compliance-2025-essential-checklist.php)
+- [ ] Document your data processing activities (even a simple spreadsheet works)
+
+**Transparency**
+
+- [ ] Publish a **Privacy Policy** accessible from every page (footer link)
+- [ ] State: what you collect, why, how long you keep it, who you share it with [drupfan](https://drupfan.com/en/blog/how-to-make-your-website-gdpr-compliant)
+- [ ] Disclose all **third-party processors** (CDNs, Google Fonts, email providers, etc.)
+- [ ] Name yourself as data controller with a contact address
+
+**User Rights**
+
+- [ ] Provide a way for users to request **access, correction, deletion** of their data [cookieyes](https://www.cookieyes.com/blog/gdpr-checklist-for-websites/)
+- [ ] Respond to data subject requests within **30 days**
+- [ ] Allow withdrawal of consent as easily as it was given
+
+**Security & Breaches**
+
+- [ ] Use HTTPS/TLS across the entire site
+- [ ] Report data breaches to your national DPA (Italy: *Garante*) within **72 hours** [onlinehashcrack](https://www.onlinehashcrack.com/guides/best-practices/gdpr-compliance-2025-essential-checklist.php)
+- [ ] Store passwords with strong hashing (bcrypt/argon2) — never plaintext
+- [ ] Apply **Privacy by Design**: don't store what you don't need from the start
+
+**Cross-Border Transfers**
+
+- [ ] If sending data outside the EU/EEA, use Standard Contractual Clauses (SCCs) or verify the third party is covered by an adequacy decision [onlinehashcrack](https://www.onlinehashcrack.com/guides/best-practices/gdpr-compliance-2025-essential-checklist.php)
+
+***
+
+### 🍪 2. ePrivacy Directive — Cookies & Tracking
+
+Applies on top of GDPR specifically for cookies, local storage, and tracking. [osano](https://www.osano.com/articles/eu-cookie-law)
+
+**Cookie Consent**
+
+- [ ] No non-essential cookies/trackers before explicit consent — no pre-ticked boxes [osano](https://www.osano.com/articles/eu-cookie-law)
+- [ ] Show a **cookie banner** on first visit with clear Accept / Reject options
+- [ ] Allow users to change or withdraw consent at any time (e.g. a "Cookie settings" link in the footer) [cookieinformation](https://cookieinformation.com/what-is-the-eprivacy-directive/)
+- [ ] Log and store consent records
+
+**Essential vs. Non-Essential**
+
+- [ ] Essential cookies (session auth, CSRF tokens, security) are **exempt** from consent [cookieinformation](https://cookieinformation.com/what-is-the-eprivacy-directive/)
+- [ ] localStorage used purely for UI preferences (e.g. theme) is generally considered essential — no consent needed, but **disclose it** in your privacy policy [cookieinformation](https://cookieinformation.com/regulations/the-eprivacy-directive/)
+- [ ] Analytics, advertising, and third-party tracking cookies are **non-essential** → require opt-in
+
+**Cookie Policy**
+
+- [ ] Publish a **Cookie Policy** (can be part of your Privacy Policy) listing every cookie, its purpose, duration, and provider
+
+***
+
+### ♿ 3. European Accessibility Act (EAA)
+
+In force since **June 28, 2025** — applies to businesses offering digital services in the EU. [beespoke](https://www.beespoke.it/en/website-accessibility-compliance-2025)
+
+> **Note:** Micro-enterprises (< 10 employees, < €2M turnover) are **exempt** from the EAA. As a freelancer/solo developer this likely doesn't apply to you yet, but it's good practice. [ogd-solutions](https://ogd-solutions.com/blog/eaa-compliance-in-2025-what-the-european-accessibility-act-means-for-your-website)
+
+- [ ] All images have **alt text**
+- [ ] Full **keyboard navigation** support (no mouse required)
+- [ ] Sufficient **color contrast** ratios (WCAG AA minimum: 4.5:1 for text) [digife](https://www.digife.it/en/european-accessibility-act-2025-your-site-is-truly-accessible/)
+- [ ] Semantic HTML structure (headings, landmarks, ARIA roles) [digife](https://www.digife.it/en/european-accessibility-act-2025-your-site-is-truly-accessible/)
+- [ ] Forms have clear labels and error messages
+- [ ] Publish an **Accessibility Statement** on your site [ogd-solutions](https://ogd-solutions.com/blog/eaa-compliance-in-2025-what-the-european-accessibility-act-means-for-your-website)
+- [ ] Target **WCAG 2.1 Level AA** as your compliance baseline
+
+***
+
+### 📜 4. Legal Pages & Notices
+
+Required by EU/Italian law depending on site type. [openforest](https://www.openforest.co/articles/terms-conditions-website-legal-requirements)
+
+| Page | Required For | Notes |
+|---|---|---|
+| **Privacy Policy** | All sites processing any EU user data | GDPR Art. 13/14 |
+| **Cookie Policy** | Any site using cookies | ePrivacy Directive |
+| **Terms & Conditions** | E-commerce, SaaS, user accounts | Legally mandatory for online sales  [openforest](https://www.openforest.co/articles/terms-conditions-website-legal-requirements) |
+| **Imprint / Legal Notice** | Commercial/business sites (Italy: *note legali*) | VAT number, registered address |
+| **Accessibility Statement** | EAA scope (see above) |  [ogd-solutions](https://ogd-solutions.com/blog/eaa-compliance-in-2025-what-the-european-accessibility-act-means-for-your-website) |
+
+***
+
+### 🛒 5. E-Commerce Rules *(if selling anything)*
+
+Only relevant if you take payments or sell products/services. [openforest](https://www.openforest.co/articles/terms-conditions-website-legal-requirements)
+
+- [ ] Display **full pricing including VAT**
+- [ ] Provide a clear **14-day right of withdrawal** (cooling-off period)
+- [ ] Publish returns and refund procedures
+- [ ] Show your business's legal name, address, VAT number before purchase
+- [ ] Send an **order confirmation** email after purchase
+- [ ] Do not use **dark patterns** (fake urgency, hidden fees, manipulative UX) — banned by DSA [shma.co](https://www.shma.co.uk/our-thoughts/eu-digital-services-act-what-businesses-need-to-know-after-first-non-compliance-decision/)
+
+***
+
+### 🌐 6. Digital Services Act (DSA)
+
+Applies to all online services, but obligations scale with size. [digital-strategy.ec.europa](https://digital-strategy.ec.europa.eu/en/policies/digital-services-act)
+
+- [ ] **Small/personal sites**: minimal obligations — just no dark patterns and no illegal content
+- [ ] **Online platforms with user content** (comments, uploads, marketplace): must have a content reporting mechanism and terms of service [en.wikipedia](https://en.wikipedia.org/wiki/Digital_Services_Act)
+- [ ] **Very large platforms** (45M+ EU users): full DSA obligations — not relevant to personal sites [youtube](https://www.youtube.com/watch?v=_fm_-NfI03g)
+
+***
+
+### 🔒 7. Security (NIS2 Directive)
+
+NIS2 primarily targets essential/important sector entities, not personal or small portfolio sites. However, good-practice security hygiene is expected regardless: [medialaws](https://www.medialaws.eu/rivista/the-new-nis-ii-directive-and-its-impact-on-small-and-medium-enterprises-smes-initial-considerations/)
+
+- [ ] HTTPS everywhere (TLS 1.2+)
+- [ ] Keep dependencies (Django, libraries) up to date
+- [ ] Use strong, unique passwords and MFA for admin accounts [dataguard](https://www.dataguard.com/nis2/requirements/)
+- [ ] Set up basic rate limiting and CSRF protection (Django handles much of this by default)
+- [ ] Regular backups of any data you do store
+
+***
+
+### 📧 8. Email & Marketing *(if applicable)*
+
+- [ ] Never send marketing emails without **explicit prior opt-in**
+- [ ] Every marketing email must include an **easy unsubscribe** link
+- [ ] Honor unsubscribe requests immediately
+- [ ] Store proof of consent with timestamp
+
+***
+
+### 🇮🇹 Italy-Specific Note
+
+Italy's *Garante* enforces GDPR strictly and has issued additional national guidelines, especially around cookies and Google services. The Garante specifically found **Google Fonts loaded via Google CDN to be non-compliant** in cases brought before Italian courts  — self-hosting fonts is the cleanest fix, as mentioned earlier. [pandectes](https://pandectes.io/blog/italys-privacy-guidelines-what-you-need-to-know/)
