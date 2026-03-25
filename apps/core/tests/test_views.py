@@ -22,7 +22,7 @@ def _all_urls_for(url_name: str) -> list[str]:
     """
     Return the default URL + one prefixed URL per configured language.
 
-    Example for url_name="core:home" with 
+    Example for url_name="core:home" with
     LANGUAGES=[("en","English"),("it","Italiano"),(...)]:
     ["/en/", "/it/", ...]
 
@@ -39,8 +39,10 @@ def _all_urls_for(url_name: str) -> list[str]:
 
 # ── HTTP contract ─────────────────────────────────────────────────────────────
 
+
 def test_home_url_is_root(self):
     self.assertEqual(self.url, "/")
+
 
 @pytest.mark.parametrize(
     "url_name, expected_template",
