@@ -51,7 +51,15 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 SECURE_CSP = {
     "default-src": [CSP.SELF],
-    "script-src": [CSP.SELF, CSP.NONCE],
-    "style-src": [CSP.SELF, CSP.NONCE, "https://fonts.googleapis.com"],
-    "font-src": [CSP.SELF, "https://fonts.gstatic.com"],
+    "script-src": [CSP.SELF, CSP.NONCE, "https://cdn.jsdelivr.net"],
+    "style-src": [
+        CSP.SELF,
+        CSP.NONCE,
+        "https://cdn.jsdelivr.net",
+        "https://fonts.googleapis.com",
+        "'sha256-faU7yAF8NxuMTNEwVmBz+VcYeIoBQ2EMHW3WaVxCvnk='",
+    ],
+    "img-src": [CSP.SELF, "data:"],
+    "connect-src": [CSP.SELF],
+    "font-src": [CSP.SELF, "https://fonts.gstatic.com", "https://cdn.jsdelivr.net"],
 }
