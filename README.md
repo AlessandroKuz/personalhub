@@ -34,6 +34,7 @@ The site is built on a deliberately minimal but slick stack: server-rendered Dja
 - **Dockerised deployment** with separate development and production Compose configurations
 - **Zero build step** — no webpack, no Node, no asset pipeline
 - **MkDocs documentation** for the project itself, available at `docs.alessandrokuz.com`
+- **Max Security Scores** on both [Security Headers](https://securityheaders.com/?q=alessandrokuz.com&followRedirects=on) and [Mozilla observatory](https://developer.mozilla.org/en-US/observatory/analyze?host=alessandrokuz.com)
 
 ---
 
