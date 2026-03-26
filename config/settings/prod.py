@@ -64,6 +64,6 @@ SECURE_CSP = {
         "'sha256-faU7yAF8NxuMTNEwVmBz+VcYeIoBQ2EMHW3WaVxCvnk='",
     ],
     "img-src": [CSP.SELF, "data:"],
-    "connect-src": [CSP.SELF],
+    "connect-src": [CSP.SELF, "https://cdn.jsdelivr.net"],
     "font-src": [CSP.SELF, "https://fonts.gstatic.com", "https://cdn.jsdelivr.net"],
 }
