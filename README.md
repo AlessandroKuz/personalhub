@@ -77,7 +77,8 @@ personalhub/
 ├── apps/
 │   ├── core/                   # Phase 1: home, about, work, contact
 │   ├── projects/               # Phase 2: Project + Tag models
-│   └── blog/                   # Phase 3: Post model, writing interface
+│   ├── blog/                   # Phase 3: Post model, writing interface
+│   └── chat/                   # Phase 5: LLM-base custom chatbot
 │
 ├── templates/
 │   ├── base.html               # Master layout — extended by all pages
@@ -263,15 +264,21 @@ And inside the `core` app:
 
 ### Design tokens
 
-All colours are defined as CSS custom properties in `static/css/main.css`. Light and dark variants are set in a single place:
+All colours are defined globally inside `static/scss/custom.scss` and as CSS custom properties in `static/css/main.css`. Light and dark variants are set in a single place:
 
 ```css
 :root {
-    --accent: #275DAD;   /* Change this one value to re-theme the entire site */
+    --accent
+    --color-bg
+    --color-bg2
+    --color-surface
+    --color-text
+    --color-muted
+    --color-border
     /* ... */
 }
-[data-theme="dark"] {
-    --accent: #4a8fd4;
+[data-bs-theme="dark"] {
+    /* same as above */
     /* ... */
 }
 ```
@@ -293,7 +300,7 @@ uv run python manage.py compilemessages
 
 | Light mode                                                 | Dark mode                                                |
 | ---------------------------------------------------------- | -------------------------------------------------------- |
-| ![Light mode screenshot](docs/assets/screenshot-light.png) | ![Dark mode screenshot](docs/assets/screenshot-dark.png) |
+| ![Light mode screenshot](assets/screenshot-light.png) | ![Dark mode screenshot](assets/screenshot-dark.png) |
 
 ---
 
@@ -370,10 +377,10 @@ apps/
 └── core/
     └── tests/
         ├── __init__.py
+        ├── test_forms.py     # Navbar rendered on all pages, controls present
         ├── test_urls.py      # URL resolution + i18n prefix correctness
         ├── test_views.py     # HTTP status codes + template assertions
-        ├── test_navbar.py    # Navbar rendered on all pages, controls present
-        └── test_footer.py    # Footer rendered on all pages, content assertions
+        └── test_*.py         # For everything else that might need it
 ```
 
 ### The Red → Green → Refactor cycle
@@ -394,7 +401,7 @@ This is a personal portfolio project and is not open to general feature contribu
 
 - **Bug reports** — if you spot a broken layout, a template rendering issue, or unexpected behaviour, please open an issue with your browser, OS, and a clear description of what you expected vs. what you saw.
 - **Accessibility feedback** — if you encounter any barrier navigating the site with assistive technology, please open an issue. Accessibility is treated as a first-class concern in this project.
-- **Security disclosures** — please do not open a public issue for security vulnerabilities. Contact me directly at [akuzcontact@gmail.com](mailto:akuzcontact@gmail.com) with a description of the issue.
+- **Security disclosures** — please do not open a public issue for security vulnerabilities. Contact me directly at [contact@alessandrokuz.com](mailto:contact@alessandrokuz.com) with a description of the issue.
 - If you are forking this project as a base for your own portfolio, you are welcome to do so under the terms of the licence below. A mention or backlink is appreciated but not required.
 
 ---
@@ -414,7 +421,7 @@ This project is licensed under the **MIT Licence**. You are free to use, copy, m
 | Channel | Link |
 | --- | --- |
 | Website | [alessandrokuz.com](https://alessandrokuz.com) |
-| Email | [akuzcontact@gmail.com](mailto:akuzcontact@gmail.com) |
+| Email | [contact@alessandrokuz.com](mailto:contact@alessandrokuz.com) |
 | LinkedIn | [linkedin.com/in/alessandrokuz](https://linkedin.com/in/alessandrokuz) |
 | GitHub | [github.com/alessandrokuz](https://github.com/alessandrokuz) |
 | Schedule a call | [cal.com/alessandrokuz](https://cal.com/alessandrokuz) |
