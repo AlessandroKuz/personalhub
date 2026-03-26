@@ -50,7 +50,7 @@ SECURE_HSTS_PRELOAD = True
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 SECURE_CSP = {
-    "default-src": [CSP.SELF],
+    "default-src": [CSP.NONE],
     "script-src": [CSP.SELF, CSP.NONCE, "https://cdn.jsdelivr.net"],
     "style-src": [
         CSP.SELF,
