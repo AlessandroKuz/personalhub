@@ -49,6 +49,9 @@ SECURE_HSTS_PRELOAD = True
 # behind reverse proxy / load balancer
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
+# Might need to change in the future: Prevent JS from reading it via document.cookie
+CSRF_COOKIE_HTTPONLY = True
+
 SECURE_CSP = {
     "default-src": [CSP.NONE],
     "script-src": [CSP.SELF, CSP.NONCE, "https://cdn.jsdelivr.net"],
