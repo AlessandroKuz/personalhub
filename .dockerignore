@@ -1,0 +1,84 @@
+# Docker-related
+.dockerignore
+Dockerfile
+Dockerfile.*
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Python bytecode / cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Django / project-specific
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Translations
+*.mo
+*.pot
+
+# Node / frontend (if present)
+node_modules/
+npm-debug.log
+yarn.lock
+pnpm-lock.yaml
+dist/
+build/
+
+# IDE / editor
+*.swp
+*.swo
+.idea/
+.vscode/
+*.iml
+.project
+.pydevproject
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Tests / coverage
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/
+
+# Packaging
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Environment / secrets
+.env
+.env.*
+*.pem
+*.key
+*.crt
+
+# Docs & assets - there is not need
+docs/
+assets/
+
+# Docs & assets - there is not need
+docs/
+assets/
+
+# Markdown docs (usually not needed at runtime)
+*.md
+!README.md  # keep the README
