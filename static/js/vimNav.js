@@ -94,6 +94,8 @@ export function processKey(key, state, routes, timeout = 2000) {
     state.gTimer   = null;
 
     if (key === 'g') return { type: 'scrollTop' };
+    if (key === 't') return { type: 'toggleTheme' };
+    if (key === 'l') return { type: 'openLangDropdown' };
 
     const url = routes[key];
     if (url) return { type: 'navigate', url };
@@ -131,24 +133,58 @@ export function processKey(key, state, routes, timeout = 2000) {
 // ─── Private helpers ─────────────────────────────────────────────────────────
 
 /**
- * Reads URL routes from data-url-* attributes on <body>.
+ * Reads URL routes from data-vim-key attributes in the navbar links.
  * Django resolves the correct i18n-prefixed URL at render time;
- * JS reads it back here. Falls back to '#' for pages not yet built
- * (graceful degradation across phases).
  *
  * @returns {Record<string, string>}
  */
 function readRoutes() {
-  const d = document.body.dataset;
+  const get = key => document.querySelector(`a[data-vim-key="${key}"]`)?.href ?? '#';
   return {
-    h: d.urlHome     || '#',
-    a: d.urlAbout    || '#',
-    w: d.urlWork     || '#',
-    p: d.urlProjects || '#',
-    c: d.urlContact  || '#',
+    h: get('h'),
+    a: get('a'),
+    w: get('w'),
+    p: get('p'),
+    c: get('c'),
   };
 }
 
+// ─── Dropdown Navigation ─────────────────────────────────────────────────────────
+/**
+ * Moves focus between items in whichever dropdown is currently open using j/k.
+ *
+ * The focusable items are whatever Bootstrap itself would make keyboard-
+ * navigable: any non-disabled button or anchor inside the open menu.
+ * This mirrors Bootstrap's own arrow-key selector so j/k and arrows are
+ * consistent in what they can reach.
+ *
+ * Returns true if the key was consumed, false if it should fall through.
+ *
+ * @param {string} key
+ * @returns {boolean}
+ */
+function handleDropdownNav(key) {
+  if (key !== 'j' && key !== 'k') return false;
+
+  const menu = document.querySelector('.dropdown-menu.show');
+  if (!menu) return false;
+
+  // Same selector Bootstrap uses internally for its own arrow-key handling —
+  // keeps j/k and ↑/↓ consistent in what they can reach.
+  const FOCUSABLE = 'button:not(:disabled), a:not(.disabled)[href]';
+  const options   = Array.from(menu.querySelectorAll(FOCUSABLE));
+  if (!options.length) return false;
+
+  const current = options.indexOf(document.activeElement);
+
+  if (key === 'j') {
+    options[(current + 1) % options.length].focus();
+  } else {
+    options[current <= 0 ? options.length - 1 : current - 1].focus();
+  }
+
+  return true;
+}
 
 // ─── init() ──────────────────────────────────────────────────────────────────
 
@@ -208,6 +244,23 @@ export function init({ scrollStep = 0.15, gTimeout = 2000 } = {}) {
         break;
       }
 
+      case 'toggleTheme':
+        // Delegate to the existing button — single source of truth,
+        // no duplicated theme logic here.
+        document.getElementById('theme-toggle')?.click();
+        break;
+
+      case 'openLangDropdown': {
+        const btn = document.getElementById('lang-dropdown-btn');
+        if (!btn) return;
+        window.bootstrap?.Dropdown.getOrCreateInstance(btn).show();
+        // Shift focus into the first option so arrow keys work immediately.
+        requestAnimationFrame(() => {
+          document.querySelector('.lang-menu .lang-option')?.focus();
+        });
+        break;
+      }
+
       case 'navigate':
         // Guard against '#' fallback (page not built yet in current phase)
         if (cmd.url && cmd.url !== '#') window.location.assign(cmd.url);
@@ -251,7 +304,14 @@ export function init({ scrollStep = 0.15, gTimeout = 2000 } = {}) {
       return;
     }
 
-    // ── Guard: modal is open — suppress everything else ───────────────────
+    // ── Guard: open modal or dropdown  ───────────────────────────────────
+    // ── Dropdown open: only j/k navigate options, everything else suppressed ──
+    if (document.querySelector('.dropdown-menu.show')) {
+      if (handleDropdownNav(e.key)) e.preventDefault();
+      return;
+    }
+
+    // ── Modal open: suppress everything (? and Escape handled above already) ──
     if (document.querySelector('.modal.show')) return;
 
     // Prevent browser defaults for our intercepted keys before processing

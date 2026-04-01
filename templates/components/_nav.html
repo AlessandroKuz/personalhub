@@ -84,46 +84,71 @@
       <ul class="navbar-nav gap-lg-1 py-2 py-lg-0 font-monospace text-uppercase letter-spacing-1">
         <li class="nav-item">
           <a class="nav-link small {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
-             href="{% url 'core:home' %}"
-             {% if request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %}>
+            href="{% url 'core:home' %}"
+            data-vim-key="h"
+            {% if request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %}>
             Home
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link small {% if request.resolver_match.url_name == 'about' %}active{% endif %}"
-             href="{% url 'core:about' %}"
-             {% if request.resolver_match.url_name == 'about' %}aria-current="page"{% endif %}>
+            href="{% url 'core:about' %}"
+            data-vim-key="a"
+            {% if request.resolver_match.url_name == 'about' %}aria-current="page"{% endif %}>
             {% trans "About" %}
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link small {% if request.resolver_match.url_name == 'work' %}active{% endif %}"
-             href="{% url 'core:work' %}"
-             {% if request.resolver_match.url_name == 'work' %}aria-current="page"{% endif %}>
+            href="{% url 'core:work' %}"
+            data-vim-key="w"
+            {% if request.resolver_match.url_name == 'work' %}aria-current="page"{% endif %}>
             {% trans "Work" %}
           </a>
         </li>
+        {% comment %}
         <li class="nav-item">
           <a class="nav-link small {% if request.resolver_match.url_name == 'projects' %}active{% endif %}"
-             href="{% if request.resolver_match.url_name == 'home' %}#projects{% else %}{% url 'core:home' %}#projects{% endif %}"
-             {% if request.resolver_match.url_name == 'projects' %}aria-current="page"{% endif %}>
+            href="{% url 'projects:home' %}"
+            data-vim-key="p"
+            {% if request.resolver_match.url_name == 'projects' %}aria-current="page"{% endif %}>
             {% trans "Projects" %}
           </a>
         </li>
+        {% endcomment %}
         <li class="nav-item">
-          <a class="nav-link small {% if request.resolver_match.url_name == 'contact' %}active{% endif %}"
-             href="{% url 'core:contact' %}"
-             {% if request.resolver_match.url_name == 'contact' %}aria-current="page"{% endif %}>
-            {% trans "Contact" %}
+          <a class="nav-link small {% if request.resolver_match.url_name == 'projects' %}active{% endif %}"
+            href="{% if request.resolver_match.url_name == 'home' %}#projects{% else %}{% url 'core:home' %}#projects{% endif %}"
+            data-vim-key="p"
+            {% if request.resolver_match.url_name == 'projects' %}aria-current="page"{% endif %}>
+            {% trans "Projects" %}
           </a>
         </li>
         {% comment %}
-        {% endcomment %}
         <li class="nav-item">
-          <a class="nav-link small" href="{% url 'core:toast_preview' %}">
-            {% trans "Msgs" %}
+          <a class="nav-link small {% if request.resolver_match.url_name == 'blog' %}active{% endif %}"
+            href="{% url 'blog:home' %}"
+            data-vim-key="b"
+            {% if request.resolver_match.url_name == 'blog' %}aria-current="page"{% endif %}>
+            {% trans "Blog" %}
           </a>
         </li>
+        {% endcomment %}
+        <li class="nav-item">
+          <a class="nav-link small {% if request.resolver_match.url_name == 'contact' %}active{% endif %}"
+            href="{% url 'core:contact' %}"
+            data-vim-key="c"
+            {% if request.resolver_match.url_name == 'contact' %}aria-current="page"{% endif %}>
+            {% trans "Contact" %}
+          </a>
+        </li>
+        {% if DEBUG %}
+        <button type="button" class="btn btn-warning">
+          <a href="{% url 'core:toast_preview' %}">
+            {% trans "Alerts" %}
+          </a>
+        </button>
+        {% endif %}
 
       </ul>
     </div>

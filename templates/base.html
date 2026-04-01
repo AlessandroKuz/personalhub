@@ -71,12 +71,7 @@
     <meta name="csrf-token" content="{{ csrf_token }}">
   </head>
 
-  <body class="d-flex flex-column min-vh-100"
-      data-url-home="{% url 'core:home' %}"
-      data-url-about="{% url 'core:about' %}"
-      data-url-work="{% url 'core:work' %}"
-      data-url-projects="{% url 'core:home' %}#projects"
-      data-url-contact="{% url 'core:contact' %}">
+  <body class="d-flex flex-column min-vh-100">
 
     <!-- Skip link - Accessibility best practice -->
     <a class="visually-hidden-focusable" href="#main-content">
@@ -115,7 +110,6 @@
       </div>
       {% block content %}{% endblock %}
     </main>
-
 
     <!-- Footer -->
     {% block footer %}
