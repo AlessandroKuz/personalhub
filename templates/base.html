@@ -64,14 +64,19 @@
     <!-- Base CSS -->
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
-    <!-- CSRF token for HTMX requests -->
-    <meta name="csrf-token" content="{{ csrf_token }}">
-
     <!-- Extra CSS -->
     {% block extra_css %}{% endblock extra_css %}
+
+    <!-- CSRF token for HTMX requests -->
+    <meta name="csrf-token" content="{{ csrf_token }}">
   </head>
 
-  <body class="d-flex flex-column min-vh-100">
+  <body class="d-flex flex-column min-vh-100"
+      data-url-home="{% url 'core:home' %}"
+      data-url-about="{% url 'core:about' %}"
+      data-url-work="{% url 'core:work' %}"
+      data-url-projects="{% url 'core:home' %}#projects"
+      data-url-contact="{% url 'core:contact' %}">
 
     <!-- Skip link - Accessibility best practice -->
     <a class="visually-hidden-focusable" href="#main-content">
@@ -81,30 +86,33 @@
     <div id="cursor-dot"  aria-hidden="true"></div>
     <div id="cursor-ring" aria-hidden="true"></div>
 
-    <!-- Messages -->
-    {% if messages %}
-      <div class="container-fluid">
-        <div class="container" id="messages">
-          {% for message in messages %}
-            <div class="alert alert-{{ message.tags }} alert-dismissible fade show mb-2" role="alert">
-              {{ message }}
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{% trans "Close" %}"></button>
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-    {% endif %}
-
     <!-- Navbar -->
     {% block navbar %}
       {% include "components/_nav.html" %}
     {% endblock navbar %}
 
-    <!-- Shortcuts -->
-    <!-- Here I will place a special "Shortcuts" div when users press "?" it will open -->
+    <!-- Alerts -->
+    {% block alerts %}
+      {% include "components/_alerts.html" %}
+    {% endblock alerts %}
+
+    <!-- Toasts -->
+    {% block toasts %}
+      {% include "components/_toasts.html" %}
+    {% endblock toasts %}
+
+    <!-- Shortcuts Modal -->
+    {% block shortcutsModal %}
+      {% include "components/_shortcutsModal.html" %}
+    {% endblock shortcutsModal %}
 
     <!-- Main Content -->
     <main id="main-content" class="flex-grow-1">
+      <div class="text-center d-none d-md-block">
+        <small class="my-0 font-monospace text-muted opacity-50">
+          {% trans "Press" %} <kbd>?</kbd> {% trans "for keyboard shortcuts" %}.
+        </small>
+      </div>
       {% block content %}{% endblock %}
     </main>
 
@@ -132,7 +140,7 @@
     <script src="{% static 'js/theme.js' %}" defer></script>
 
     <!-- Main JavaScript -->
-    <script src="{% static 'js/main.js' %}" defer></script>
+    <script type="module" src="{% static 'js/main.js' %}"></script>
 
     <!-- Extra JavaScript -->
     {% block extra_js %}{% endblock extra_js %}

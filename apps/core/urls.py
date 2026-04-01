@@ -9,4 +9,5 @@ urlpatterns = [
     path("work/", views.work, name="work"),
     path("about/", views.about, name="about"),
     path("contact/", views.contact, name="contact"),
+    path("__toast-preview__/", views.toast_preview, name="toast_preview"),
 ]

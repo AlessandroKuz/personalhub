@@ -1,0 +1,17 @@
+{% load i18n %}
+
+{% if messages %}
+  <div class="container-fluid pt-3">
+    <div class="container" id="messages">
+      {% for message in messages %}
+        {# Only handle ERRORS, everything else will stay in a Toast - for redundacy errors also appear in toasts #}
+        {% if message.tags == 'error' %}
+          <div role="alert" class="alert alert-danger alert-dismissible fade show mb-2">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{% trans 'Close' %}"></button>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

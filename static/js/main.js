@@ -4,13 +4,22 @@
    theme.js and themeInit.js run separately (see base.html).
 
    Sections:
+     0.  Toast Messages
      1.  Custom cursor
      2.  Navbar scroll + height offset
      3.  Language switcher
      4.  Bootstrap tooltips
      5.  Scroll reveal (IntersectionObserver)
+     6.  Marquee
+     7.  Shortcuts Modal
    ============================================================ */
 
+/* ── 0. TOAST MESSAGES ──────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.toast').forEach(function (toastEl) {
+    new bootstrap.Toast(toastEl).show();
+  });
+});
 
 /* ── 1. CUSTOM CURSOR ───────────────────────────────────────── */
 /* Dot snaps to mouse instantly via mousemove.
@@ -218,3 +227,9 @@ document.addEventListener('DOMContentLoaded', function () {
     track.style.animationPlayState = 'paused';
   }
 })();
+
+/* ── 7. SHORTCUTS MODAL ───────────────────────────────────────── */
+
+import { init as initVimNav } from './vimNav.js';
+initVimNav();
+
