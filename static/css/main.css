@@ -105,6 +105,7 @@ main .btn {
 .toast {
   width: auto;
   max-width: calc(100vw - 2rem);
+  box-shadow: var(--bs-toast-box-shadow);
 }
 
 @media (min-width: 576px) {
