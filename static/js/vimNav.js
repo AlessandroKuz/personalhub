@@ -212,11 +212,11 @@ export function init({ scrollStep = 0.15, gTimeout = 2000 } = {}) {
     switch (cmd.type) {
 
       case 'scrollDown':
-        window.scrollBy({ top: step, behavior: 'smooth' });
+        window.scrollBy({ top: step, behavior: 'instant' });
         break;
 
       case 'scrollUp':
-        window.scrollBy({ top: -step, behavior: 'smooth' });
+        window.scrollBy({ top: -step, behavior: 'instant' });
         break;
 
       case 'scrollBottom':
