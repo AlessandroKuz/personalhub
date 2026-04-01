@@ -1,0 +1,24 @@
+# ── Stack lifecycle ───────────────────────────────────────────────────────────
+docker compose up --build          # First run, or after changing Dockerfile/deps
+docker compose up                  # Normal start
+docker compose down                # Stop and remove containers (volumes kept)
+docker compose down -v             # Nuclear: also destroys volumes (fresh DB)
+
+# ── Django management (against running stack) ─────────────────────────────────
+docker compose exec app python manage.py makemigrations
+docker compose exec app python manage.py migrate
+docker compose exec app python manage.py createsuperuser
+docker compose exec app python manage.py shell
+docker compose exec app python manage.py check
+
+# ── One-off commands (stack not running) ──────────────────────────────────────
+docker compose run --rm app python manage.py migrate
+docker compose run --rm app pytest -v
+
+# ── Linting and formatting (these are dev deps, now available in the container) 
+docker compose exec app ruff check .
+docker compose exec app ruff format .
+
+# ── Logs ─────────────────────────────────────────────────────────────────────
+docker compose logs -f             # All services
+docker compose logs -f app         # Just Django

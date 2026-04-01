@@ -1,7 +1,9 @@
 # config/settings/dev.py
 from .base import *  # noqa: F401, F403
+from django.contrib.messages import constants as messages
 
 DEBUG = True
+MESSAGE_LEVEL = messages.DEBUG  # show all levels including debug
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 

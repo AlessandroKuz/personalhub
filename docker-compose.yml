@@ -1,0 +1,102 @@
+# Production compose file.
+# Key differences from development:
+#   - Uses the final runtime stage (no uv, no dev tools)
+#   - No volume mounts for code (code is baked into the image)
+#   - Caddy handles HTTPS and proxying
+#   - PostgreSQL as the database
+#   - Proper health checks and restart policies
+
+services:
+  # ─── Django Application ───────────────────────────────────────────────────
+  app:
+    build:
+      context: .
+      target: runtime # Use the lean production stage
+    restart: unless-stopped # Automatically restart if the container crashes
+    env_file:
+      - .env
+    environment:
+      - DJANGO_SETTINGS_MODULE=config.settings.prod
+    depends_on:
+      db:
+        # Wait for db to pass its health check before starting the app.
+        # Without this, Django will fail immediately trying to migrate
+        # against a Postgres that hasn't finished initializing.
+        condition: service_healthy
+    volumes:
+      - static_files:/srv/djangoapp/staticfiles
+    # No `ports:` here — the app is not exposed directly to the internet.
+    # Only Caddy is. The app is reachable internally at app:8000.
+    networks:
+      - internal
+
+  # ─── PostgreSQL Database ──────────────────────────────────────────────────
+  db:
+    image: postgres:18-alpine
+    # Alpine variant of Postgres — same rationale as before, but Postgres's
+    # Alpine image has no known musl compatibility issues since it's the
+    # official image maintained by the Postgres team.
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      # Named volume for persistent database storage.
+      # If you `docker compose down` and `up` again, your data survives.
+      # Only `docker compose down -v` removes volumes.
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      # pg_isready checks if PostgreSQL is accepting connections.
+      # -U is the username, -d is the database name — both read from env.
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s # Check every 10 seconds
+      timeout: 5s # Fail the check if it takes longer than 5 seconds
+      retries: 5 # Mark unhealthy after 5 consecutive failures
+      start_period: 30s # Give Postgres 30s to start before checking
+    networks:
+      - internal
+
+  # ─── Caddy Reverse Proxy ──────────────────────────────────────────────────
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      # These are the ONLY ports exposed to the internet.
+      # 80: HTTP (Caddy redirects to HTTPS and handles ACME HTTP-01 challenges)
+      # 443: HTTPS
+      # 443/udp: HTTP/3 over QUIC (modern browsers will prefer this)
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      # The Caddyfile is a bind mount — changes on the host reflect immediately.
+      # You can reload Caddy config without rebuilding: `docker compose exec caddy caddy reload`
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      # caddy_data: Where Caddy stores TLS certificates and ACME account info.
+      # This MUST be a persistent volume — if lost, Caddy re-requests certs
+      # and Let's Encrypt rate limits will bite you.
+      - caddy_data:/data
+      # caddy_config: Caddy's runtime configuration cache.
+      - caddy_config:/config
+      # custom certifications
+      - ./certs:/etc/caddy/certs:ro
+      - static_files:/srv/djangoapp/staticfiles:ro
+    depends_on:
+      - app
+    networks:
+      - internal
+
+# ─── Named Volumes ────────────────────────────────────────────────────────────
+# Declaring volumes at the top level lets Docker manage them as first-class
+# objects. You can inspect them with `docker volume ls` and `docker volume inspect`.
+volumes:
+  postgres_data:
+  caddy_data:
+  caddy_config:
+  static_files:
+
+# ─── Networks ─────────────────────────────────────────────────────────────────
+# An explicit internal network. All services communicate here, and nothing
+# except what's in `ports:` is reachable from outside.
+networks:
+  internal:
+    driver: bridge

@@ -64,6 +64,7 @@ Legend:
 - [x] **Contact section** (`id="contact"`)
       — include `_cta.html`, cal.com link, social links
 - [x] Review content inside each section
+- [x] Add vim-like shortcuts and navigation
 
 ---
 
@@ -199,12 +200,12 @@ Legend:
 
 ## 🐳 Docker & Infrastructure
 
-- [ ] `Dockerfile` — finalise: uv install, collectstatic, Uvicorn entrypoint
-- [ ] `docker-compose.yml` — dev: volume mounts, SQLite, live reload
-- [ ] `docker-compose.prod.yml` — web + PostgreSQL + Caddy
-- [ ] `Caddyfile` — reverse proxy to `web:8000`, auto-HTTPS via Let's Encrypt
-- [ ] `.env.example` — document every required variable
-- [ ] Confirm `CompressedManifestStaticFilesStorage` is in `prod.py` only ✅
+- [x] `Dockerfile` — finalise: uv install, collectstatic, Uvicorn entrypoint
+- [x] `docker-compose.yml` — dev: volume mounts, SQLite, live reload
+- [x] `docker-compose.prod.yml` — web + PostgreSQL + Caddy
+- [x] `Caddyfile` — reverse proxy to `web:8000`, auto-HTTPS with Cloudflare CA
+- [x] `.env.example` — document every required variable
+- [x] Confirm `CompressedManifestStaticFilesStorage` is in `prod.py` only ✅
 
 ---
 
@@ -221,10 +222,10 @@ Legend:
 
 ### Option B — Hetzner VPS CX22/23 (~€4/mo)
 
-- [ ] Provision CX22/23 (2 vCPU, 4GB RAM, 40GB SSD)
-- [ ] Configure DNS → VPS IP (optionally via Cloudflare proxy)
-- [ ] SSH hardening — disable password auth, `ufw` firewall
-- [ ] Clone repo, fill `.env`, `docker compose -f docker-compose.prod.yml up -d`
+- [x] Provision CX22/23 (2 vCPU, 4GB RAM, 40GB SSD)
+- [x] Configure DNS → VPS IP (optionally via Cloudflare proxy)
+- [x] SSH hardening — disable password auth, `ufw` firewall
+- [x] Clone repo, fill `.env`, `docker compose -f docker-compose.prod.yml up -d`
 - [ ] First deploy checklist (see `docs/infrastructure/deployment.md`)
 
 ### Common to both
@@ -240,10 +241,10 @@ Legend:
 ## 📚 Documentation (MkDocs)
 
 - [x] Fill all stub `.md` files — most are currently empty skeletons
-- [ ] `frontend/design-system.md` — final token values, font choices
-- [ ] `frontend/components.md` — footer, navbar, CTA patterns with examples
-- [ ] `testing/tdd.md` — update test inventory as new tests are added ✅
-- [ ] `decisions.md` — add: sticky-top rationale, Bootstrap-first CSS approach,
+- [x] `frontend/design-system.md` — final token values, font choices
+- [x] `frontend/components.md` — footer, navbar, CTA patterns with examples
+- [x] `testing/tdd.md` — update test inventory as new tests are added ✅
+- [x] `decisions.md` — add: sticky-top rationale, Bootstrap-first CSS approach,
       page architecture decision (home = primary, others = expanded)
 - [x] `mkdocs.yml` — add `repo_url` + `repo_name` once repo is public
 - [x] Cloudflare Pages for docs.alessandrokuz.com
@@ -264,14 +265,15 @@ Legend:
 
 ## Cloudflare-specific setup
 
-- [ ] Set SSL/TLS mode to "Full (strict)" in Cloudflare dashboard — not just "Full".
+- [x] Set SSL/TLS mode to "Full (strict)" in Cloudflare dashboard — not just "Full".
       Full (strict) requires a valid certificate on the origin server;
       without it Cloudflare accepts self-signed certs and you're vulnerable to origin impersonation
-- [ ] Install a Cloudflare Origin Certificate on the server (via Caddy or manually) — this is a cert
+- [x] Install a Cloudflare Origin Certificate on the server (via Caddy or manually) — this is a cert
       issued by Cloudflare specifically for the Cloudflare→origin leg, valid for 15 years, free, no renewal
-- [ ] Enable Cloudflare Web Analytics — privacy-friendly, no cookie banner needed,
+- [x] Install a Pull Origin verification
+- [x] Enable Cloudflare Web Analytics — privacy-friendly, no cookie banner needed,
       free, zero JS performance cost compared to Google Analytics
-- [ ] Consider Cloudflare Email Routing for the contact form — forwards form submissions to your real inbox
+- [x] Consider Cloudflare Email Routing for the contact form — forwards form submissions to your real inbox
       without exposing your email address or needing an SMTP server. Free tier, zero infrastructure
 
 ---
