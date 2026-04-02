@@ -1,22 +1,43 @@
 from django.http import HttpRequest, HttpResponse
+from django.conf import settings
 from django.contrib import messages
 from django.shortcuts import render, redirect
+from dataclasses import dataclass
+
+
+@dataclass
+class Section:
+    id: str
+    label: str
 
 
 async def home(request: HttpRequest) -> HttpResponse:
-    return render(request, "core/home.html")
+    section_list = [
+        Section("hero", "Introduction"),
+        Section("about", "About"),
+        Section("work", "Work"),
+        Section("projects", "Projects"),
+        # Section("blog", "blog"),
+        Section("process", "Process"),
+        Section("contact", "Contact"),
+    ]
+    return render(
+        request,
+        "core/home.html",
+        context={"section_list": section_list, "DEBUG": settings.DEBUG},
+    )
 
 
 async def work(request: HttpRequest) -> HttpResponse:
-    return render(request, "core/work.html")
+    return render(request, "core/work.html", context={"DEBUG": settings.DEBUG})
 
 
 async def about(request: HttpRequest) -> HttpResponse:
-    return render(request, "core/about.html")
+    return render(request, "core/about.html", context={"DEBUG": settings.DEBUG})
 
 
 async def contact(request: HttpRequest) -> HttpResponse:
-    return render(request, "core/contact.html")
+    return render(request, "core/contact.html", context={"DEBUG": settings.DEBUG})
 
 
 async def toast_preview(request):
