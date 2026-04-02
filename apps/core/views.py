@@ -1,8 +1,9 @@
-from django.http import HttpRequest, HttpResponse
+from dataclasses import dataclass
+
 from django.conf import settings
 from django.contrib import messages
-from django.shortcuts import render, redirect
-from dataclasses import dataclass
+from django.http import HttpRequest, HttpResponse
+from django.shortcuts import redirect, render
 
 
 @dataclass

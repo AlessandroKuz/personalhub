@@ -6,14 +6,14 @@ to run in the containerized production environment. They run inside
 the container as part of CI or a pre-deploy check.
 
 Run with:
-docker compose -f docker-compose.prod.yml run --rm app pytest tests/test_docker_config.py
+docker compose -f docker-compose.prod.yml run --rm app \
+pytest tests/test_docker_config.py
 """
 
 import os
 
-from django.conf import settings
 import pytest
-
+from django.conf import settings
 
 # ─── Configuration Sanity Checks ──────────────────────────────────────────────
 

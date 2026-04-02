@@ -1,6 +1,7 @@
 # config/settings/dev.py
-from .base import *  # noqa: F401, F403
 from django.contrib.messages import constants as messages
+
+from .base import *  # noqa: F401, F403
 
 DEBUG = True
 MESSAGE_LEVEL = messages.DEBUG  # show all levels including debug

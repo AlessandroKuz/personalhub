@@ -1,7 +1,7 @@
 {% load i18n static compress %}
 {% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
-<html lang="{{ LANGUAGE_CODE }}" data-bs-theme="auto">
+<html lang="{{ LANGUAGE_CODE }}">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
     <!-- Description & Author -->
     <meta
       name="description"
-      content="{% block meta_description %}{% blocktrans trimmed %} Data Scientist and ML Engineer based in Italy. I build end-to-end data products: from pipelines and models to the interfaces people actually use. {% endblocktrans %} {% endblock meta_description %}">
+      content="{% block meta_description %}{% blocktrans %} Data Scientist and ML Engineer based in Italy. I build end-to-end data products: from pipelines and models to the interfaces people actually use. {% endblocktrans %} {% endblock meta_description %}">
     <meta name="author" content="Alessandro Kuz">
 
     <!-- Canonical - prevents duplicate content across i18n prefixes -->
@@ -20,13 +20,18 @@
     <!-- Open Graph - controls how the page appears when shared on socials -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="{% block og_title %}Alessandro Kuz - Data Scientist & AI/ML Engineer{% endblock og_title %}">
-    <meta property="og:description" content="{% block og_description %}{% blocktrans trimmed %} Data Scientist and ML Engineer based in Italy. I build end-to-end data products: from pipelines and models to the interfaces people actually use. {% endblocktrans %}{% endblock og_description %}">
+    <meta property="og:description" content="{% block og_description %}{% blocktrans %} Data Scientist and ML Engineer based in Italy. I build end-to-end data products: from pipelines and models to the interfaces people actually use. {% endblocktrans %}{% endblock og_description %}">
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
     <meta property="og:image" content="{% block og_image %}{% static 'img/og-card.png' %}{% endblock og_image %}">
     <meta property="og:image:type"   content="image/png">
     <meta property="og:image:width"  content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt"    content="Alessandro Kuz - Data Scientist & AI/ML Engineer">
+
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:title"       content="{% block twitter_title %}Alessandro Kuz - Data Scientist & AI/ML Engineer{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}{% blocktrans %} Data Scientist and ML Engineer based in Italy. I build end-to-end data products: from pipelines and models to the interfaces people actually use. {% endblocktrans %}{% endblock %}">
+    <meta name="twitter:image"       content="{% block twitter_image %}{% static 'img/og-card.png' %}{% endblock twitter_image %}">
 
     <!-- Meta Block -->
     {% block meta %}{% endblock meta %}
@@ -46,7 +51,7 @@
       })();
     </script>
 
-    <!-- Google Fonts - DM Serif Display + JetBrains Mono + DM Sans -->
+    <!-- Google Fonts - JetBrains Mono + DM Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -101,13 +106,15 @@
       {% include "components/_shortcutsModal.html" %}
     {% endblock shortcutsModal %}
 
+    <!-- Shortcuts Hint -->
+    <div class="text-center d-none d-md-block">
+      <small class="my-0 font-monospace text-muted opacity-50">
+        {% trans "Press" %} <kbd>?</kbd> {% trans "for keyboard shortcuts" %}.
+      </small>
+    </div>
+
     <!-- Main Content -->
     <main id="main-content" class="flex-grow-1">
-      <div class="text-center d-none d-md-block">
-        <small class="my-0 font-monospace text-muted opacity-50">
-          {% trans "Press" %} <kbd>?</kbd> {% trans "for keyboard shortcuts" %}.
-        </small>
-      </div>
       {% block content %}{% endblock %}
     </main>
 
