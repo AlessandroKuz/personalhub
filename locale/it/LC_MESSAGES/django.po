@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-25 14:43+0100\n"
-"PO-Revision-Date: 2026-03-20 10:28+0100\n"
+"POT-Creation-Date: 2026-04-02 14:42+0200\n"
+"PO-Revision-Date: 2026-04-02 14:51+0200\n"
 "Last-Translator: Alessandro Kuz\n"
 "Language-Team: Italiano <it@li.org>\n"
 "Language: it\n"
@@ -18,13 +18,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps/core/templates/core/about.html:4 apps/core/templates/core/home.html:129
-#: templates/components/_nav.html:96
+#: apps/core/templates/core/about.html:4 apps/core/templates/core/home.html:156
+#: apps/core/views.py:19 templates/components/_nav.html:98
+#: templates/components/_shortcutsModal.html:29
 msgid "About"
 msgstr "Chi sono"
 
 #: apps/core/templates/core/contact.html:3
-#: apps/core/templates/core/home.html:521 templates/components/_nav.html:117
+#: apps/core/templates/core/home.html:548 apps/core/views.py:24
+#: templates/components/_nav.html:144
+#: templates/components/_shortcutsModal.html:32
 msgid "Contact"
 msgstr "Contatti"
 
@@ -32,85 +35,96 @@ msgstr "Contatti"
 msgid "Alessandro Kuz - Data Scientist & ML Engineer"
 msgstr "Alessandro Kuz - Data Scientist & ML Engineer"
 
-#: apps/core/templates/core/home.html:21
+#: apps/core/templates/core/home.html:12
+msgid "Page sections"
+msgstr "Sezioni pagina"
+
+#: apps/core/templates/core/home.html:23
+#, python-format
+msgid "%(label)s"
+msgstr "%(label)s"
+
+#: apps/core/templates/core/home.html:48
 msgid "Available for opportunities"
 msgstr "Disponibile per opportunità"
 
-#: apps/core/templates/core/home.html:29
+#: apps/core/templates/core/home.html:56
+# Translator note: kept in English intentionally as a brand tagline.
 msgid "Built Lean. Shipped Clean."
-msgstr ""
+msgstr "Built Lean. Shipped Clean."
 
-#: apps/core/templates/core/home.html:33
+#: apps/core/templates/core/home.html:60
 msgid ""
 "Data Scientist and ML Engineer with a degree in AI. I work end-to-end: data "
 "pipelines, model training, and the interfaces people actually use. Based in "
 "Italy, working globally."
 msgstr ""
 "Data Scientist e ML Engineer con diploma in AI. Lavoro end-to-end: pipeline "
-"dati, training di modelli e interfacce che vengono effettivamente usate "
-"usate. Basato in Italia, lavoro a livello globale."
+"dati, training di modelli e interfacce che vengono effettivamente usate. "
+"Basato in Italia, lavoro a livello globale."
 
-#: apps/core/templates/core/home.html:41
+#: apps/core/templates/core/home.html:68
 msgid "View my work"
 msgstr "Scopri i miei lavori"
 
-#: apps/core/templates/core/home.html:42
+#: apps/core/templates/core/home.html:69
 msgid "Get in touch"
 msgstr "Contattami"
 
-#: apps/core/templates/core/home.html:47
+#: apps/core/templates/core/home.html:74
 msgid "Quick profile summary"
 msgstr "Riepilogo del profilo"
 
-#: apps/core/templates/core/home.html:51
+#: apps/core/templates/core/home.html:78
 msgid "Open to work"
 msgstr "Aperto a collaborazioni"
 
-#: apps/core/templates/core/home.html:56
+#: apps/core/templates/core/home.html:83
 msgid "Role"
 msgstr "Ruolo"
 
-#: apps/core/templates/core/home.html:59
+#: apps/core/templates/core/home.html:86
 msgid "& ML Engineer"
-msgstr "Ingegnere"
+msgstr "& ML Engineer"
 
-#: apps/core/templates/core/home.html:63
+#: apps/core/templates/core/home.html:90
 msgid "Experience"
 msgstr "Esperienza"
 
-#: apps/core/templates/core/home.html:65
+#: apps/core/templates/core/home.html:92
 msgid "years"
 msgstr "anni"
 
-#: apps/core/templates/core/home.html:69
+#: apps/core/templates/core/home.html:96
 msgid "Location"
 msgstr "Posizione"
 
-#: apps/core/templates/core/home.html:71
+#: apps/core/templates/core/home.html:98
 msgid "Italy"
 msgstr "Italia"
 
-#: apps/core/templates/core/home.html:75 apps/core/templates/core/home.html:167
+#: apps/core/templates/core/home.html:102
+#: apps/core/templates/core/home.html:194
 msgid "Languages"
 msgstr "Lingue"
 
-#: apps/core/templates/core/home.html:77
+#: apps/core/templates/core/home.html:104
 msgid "spoken"
 msgstr "parlate"
 
-#: apps/core/templates/core/home.html:84
+#: apps/core/templates/core/home.html:111
 msgid "Core technologies"
 msgstr "Tecnologie principali"
 
-#: apps/core/templates/core/home.html:131
+#: apps/core/templates/core/home.html:158
 msgid "A builder at heart,"
 msgstr "Costruttore nel cuore,"
 
-#: apps/core/templates/core/home.html:132
+#: apps/core/templates/core/home.html:159
 msgid "curious by nature."
 msgstr "curioso per natura."
 
-#: apps/core/templates/core/home.html:140
+#: apps/core/templates/core/home.html:167
 msgid ""
 "I'm <strong>Alessandro Kuz</strong>, I like building toward AI that "
 "genuinely augments what people can do, not replaces what we enjoy doing."
@@ -119,7 +133,7 @@ msgstr ""
 "un'AI che amplifichi davvero ciò che le persone possono fare, non che "
 "sostituisca ciò che ci piace fare."
 
-#: apps/core/templates/core/home.html:145
+#: apps/core/templates/core/home.html:172
 msgid ""
 "I'm curious by nature: when something catches my interest I like to learn "
 "more about it, whether that's a new concept, a language to pick up or a "
@@ -129,7 +143,7 @@ msgstr ""
 "approfondire, che si tratti di un nuovo concetto, una lingua da imparare o "
 "un'abilità da sviluppare."
 
-#: apps/core/templates/core/home.html:150
+#: apps/core/templates/core/home.html:177
 msgid ""
 "I was born and raised in Italy to Ukrainian parents, which probably explains "
 "the six languages and my fascination with cultures, history and "
@@ -139,58 +153,59 @@ msgstr ""
 "probabilmente le sei lingue e la mia passione per le culture, la storia e la "
 "comunicazione."
 
-#: apps/core/templates/core/home.html:156
+#: apps/core/templates/core/home.html:183
 msgid "Read more"
 msgstr "Leggi di più"
 
-#: apps/core/templates/core/home.html:164
+#: apps/core/templates/core/home.html:191
 msgid "From"
 msgstr "Origini"
 
-#: apps/core/templates/core/home.html:165
+#: apps/core/templates/core/home.html:192
 msgid "Italy, Ukrainian roots"
 msgstr "Italia, radici ucraine"
 
-#: apps/core/templates/core/home.html:168
+#: apps/core/templates/core/home.html:195
 msgid "Italian, English, Spanish, Russian, Ukrainian, German"
 msgstr "Italiano, Inglese, Spagnolo, Russo, Ucraino, Tedesco"
 
-#: apps/core/templates/core/home.html:170
+#: apps/core/templates/core/home.html:197
 msgid "Outside work"
 msgstr "Fuori dal lavoro"
 
-#: apps/core/templates/core/home.html:171
+#: apps/core/templates/core/home.html:198
 msgid "Calisthenics, nature, history and philosophy"
 msgstr "Calisthenics, natura, storia e filosofia"
 
-#: apps/core/templates/core/home.html:182 apps/core/templates/core/work.html:4
-#: templates/components/_nav.html:103
+#: apps/core/templates/core/home.html:209 apps/core/templates/core/work.html:4
+#: apps/core/views.py:20 templates/components/_nav.html:106
+#: templates/components/_shortcutsModal.html:30
 msgid "Work"
 msgstr "Lavoro"
 
-#: apps/core/templates/core/home.html:184
+#: apps/core/templates/core/home.html:211
 msgid "Three layers:"
 msgstr "Tre livelli:"
 
-#: apps/core/templates/core/home.html:185
+#: apps/core/templates/core/home.html:212
 msgid "From data to model to product."
 msgstr "Dai dati ai modelli al prodotto."
 
-#: apps/core/templates/core/home.html:193
-#: apps/core/templates/core/home.html:219
-#: apps/core/templates/core/home.html:244
-#: apps/core/templates/core/home.html:310
-#: apps/core/templates/core/home.html:353
+#: apps/core/templates/core/home.html:220
+#: apps/core/templates/core/home.html:246
+#: apps/core/templates/core/home.html:271
+#: apps/core/templates/core/home.html:337
 #: apps/core/templates/core/home.html:380
-#: apps/core/templates/core/home.html:405
+#: apps/core/templates/core/home.html:407
+#: apps/core/templates/core/home.html:432
 msgid "View"
 msgstr "Vedi"
 
-#: apps/core/templates/core/home.html:197
+#: apps/core/templates/core/home.html:224
 msgid "Data Science"
 msgstr "Data Science"
 
-#: apps/core/templates/core/home.html:199
+#: apps/core/templates/core/home.html:226
 msgid ""
 "Turning raw data into insight, from exploratory analysis and statistical "
 "modelling to production-grade pipelines."
@@ -198,11 +213,11 @@ msgstr ""
 "Trasformare dati grezzi in conoscenza, dall'analisi esplorativa e "
 "modellazione statistica a pipeline pronte per la produzione."
 
-#: apps/core/templates/core/home.html:223
+#: apps/core/templates/core/home.html:250
 msgid "Machine Learning & AI"
 msgstr "Machine Learning & AI"
 
-#: apps/core/templates/core/home.html:225
+#: apps/core/templates/core/home.html:252
 msgid ""
 "Designing and training models that generalise, from classical algorithms to "
 "Deep Learning and Large Language Model systems."
@@ -210,11 +225,11 @@ msgstr ""
 "Progettare e addestrare modelli che generalizzano, dagli algoritmi classici "
 "al Deep Learning e ai sistemi basati su Large Language Model."
 
-#: apps/core/templates/core/home.html:248
+#: apps/core/templates/core/home.html:275
 msgid "Backend & Web"
 msgstr "Backend & Web"
 
-#: apps/core/templates/core/home.html:250
+#: apps/core/templates/core/home.html:277
 msgid ""
 "Building and shipping server-side systems end-to-end, from clean APIs and "
 "hypermedia-driven interfaces to containerised, production-ready deployments."
@@ -223,31 +238,33 @@ msgstr ""
 "interfacce hypermedia a deployment containerizzati e pronti per la "
 "produzione."
 
-#: apps/core/templates/core/home.html:275
+#: apps/core/templates/core/home.html:302
 msgid "See full CV"
 msgstr "Vedi CV completo"
 
-#: apps/core/templates/core/home.html:284
+#: apps/core/templates/core/home.html:311
 msgid "Open CV pdf"
 msgstr "Apri CV in PDF"
 
-#: apps/core/templates/core/home.html:297 templates/components/_nav.html:110
+#: apps/core/templates/core/home.html:324 apps/core/views.py:21
+#: templates/components/_nav.html:125
+#: templates/components/_shortcutsModal.html:31
 msgid "Projects"
 msgstr "Progetti"
 
-#: apps/core/templates/core/home.html:299
+#: apps/core/templates/core/home.html:326
 msgid "Things I've built"
 msgstr "Cose che ho costruito"
 
-#: apps/core/templates/core/home.html:300
+#: apps/core/templates/core/home.html:327
 msgid "that are actually useful."
 msgstr "che sono davvero utili."
 
-#: apps/core/templates/core/home.html:314
+#: apps/core/templates/core/home.html:341
 msgid "Featured"
 msgstr "In evidenza"
 
-#: apps/core/templates/core/home.html:318
+#: apps/core/templates/core/home.html:345
 msgid ""
 "This very site. A <strong>Django</strong>-powered personal hub built with "
 "<strong>HTMX</strong>, <strong>Bootstrap 5</strong>, and a deliberate no-JS-"
@@ -263,11 +280,11 @@ msgstr ""
 "carriera. Ogni decisione architetturale è documentata per poter riprodurre "
 "il progetto da zero."
 
-#: apps/core/templates/core/home.html:357
+#: apps/core/templates/core/home.html:384
 msgid "Online Anamnestic Module (MAO)"
 msgstr "Modulo Anamnestico Online (MAO)"
 
-#: apps/core/templates/core/home.html:359
+#: apps/core/templates/core/home.html:386
 msgid ""
 "Clinical data collection platform built for oncology specialists to digitise "
 "patient anamnestic intake. Integrates external tools and <strong>APIs</"
@@ -282,7 +299,7 @@ msgstr ""
 "ruoli tramite <strong>Microsoft Entra</strong>, distribuito su "
 "<strong>Azure</strong>."
 
-#: apps/core/templates/core/home.html:386
+#: apps/core/templates/core/home.html:413
 msgid ""
 "A collection of <strong>LLM</strong>-powered developer tools built around "
 "real workflows. Tailor-your-CV aligns a CV to a job description using "
@@ -296,11 +313,11 @@ msgstr ""
 "indicizza file locali in un vector store ChromaDB con chunking intelligente "
 "e attribuzione completa delle fonti."
 
-#: apps/core/templates/core/home.html:411
+#: apps/core/templates/core/home.html:438
 msgid "Cancer Stage Inference from DNA Methylation"
-msgstr "Inferenza Stadio tumorale dalla metilazione del DNA"
+msgstr "Inferenza dello stadio tumorale dalla metilazione del DNA"
 
-#: apps/core/templates/core/home.html:413
+#: apps/core/templates/core/home.html:440
 msgid ""
 "End-to-end ML pipeline to infer cancer stage from tissue DNA methylation "
 "profiles, built after deep research into cancer biology and staging with "
@@ -314,31 +331,31 @@ msgstr ""
 "grezzi di metilazione elaborati out-of-core tramite Dask e Polars. Confronto "
 "tra più architetture con valutazione completa su tutti gli stadi."
 
-#: apps/core/templates/core/home.html:445
+#: apps/core/templates/core/home.html:472
 msgid "All projects"
 msgstr "Tutti i progetti"
 
-#: apps/core/templates/core/home.html:457
-msgid "How I Work"
-msgstr "Come lavoro"
+#: apps/core/templates/core/home.html:484 apps/core/views.py:23
+msgid "Process"
+msgstr "Processo"
 
-#: apps/core/templates/core/home.html:459
+#: apps/core/templates/core/home.html:486
 msgid "A process built"
 msgstr "Un processo sviluppato"
 
-#: apps/core/templates/core/home.html:460
+#: apps/core/templates/core/home.html:487
 msgid "for real delivery."
-msgstr "per risultati concreti"
+msgstr "per risultati concreti."
 
-#: apps/core/templates/core/home.html:466
+#: apps/core/templates/core/home.html:493
 msgid "Understand"
 msgstr "Comprensione"
 
-#: apps/core/templates/core/home.html:467
+#: apps/core/templates/core/home.html:494
 msgid "Scope & Alignment"
 msgstr "Scope & Allineamento"
 
-#: apps/core/templates/core/home.html:469
+#: apps/core/templates/core/home.html:496
 msgid ""
 "Scope before code. Understand the problem, not just the stated one, the real "
 "one. The right question asked in week one beats the wrong solution delivered "
@@ -348,15 +365,15 @@ msgstr ""
 "dichiarato. La domanda giusta posta alla prima settimana vale più della "
 "soluzione sbagliata consegnata alla sesta."
 
-#: apps/core/templates/core/home.html:478
+#: apps/core/templates/core/home.html:505
 msgid "Build"
 msgstr "Sviluppo"
 
-#: apps/core/templates/core/home.html:479
+#: apps/core/templates/core/home.html:506
 msgid "Fast Iteration"
 msgstr "Iterazione Rapida"
 
-#: apps/core/templates/core/home.html:481
+#: apps/core/templates/core/home.html:508
 msgid ""
 "Build fast, get something working, then cut everything that doesn't earn its "
 "place. Tested at every step, documented throughout. Iterate until there's "
@@ -366,15 +383,15 @@ msgstr ""
 "non merita il suo posto. Testato ad ogni passo, documentato durante tutto il "
 "processo. Iterare finché non c'è più nulla da rimuovere."
 
-#: apps/core/templates/core/home.html:490
+#: apps/core/templates/core/home.html:517
 msgid "Validate"
 msgstr "Validazione"
 
-#: apps/core/templates/core/home.html:491
+#: apps/core/templates/core/home.html:518
 msgid "Measure Everything"
 msgstr "Misurare Tutto"
 
-#: apps/core/templates/core/home.html:493
+#: apps/core/templates/core/home.html:520
 msgid ""
 "A model that can't be measured can't be improved, and it shouldn't be "
 "trusted. Every assumption gets tested: offline evals, baselines, edge cases. "
@@ -384,15 +401,15 @@ msgstr ""
 "conseguenza è inaffidabile. Ogni supposizione viene testata: valutazioni "
 "offline, baseline, casi limite. Niente eccezioni."
 
-#: apps/core/templates/core/home.html:502
+#: apps/core/templates/core/home.html:529
 msgid "Deploy"
 msgstr "Rilascio"
 
-#: apps/core/templates/core/home.html:503
+#: apps/core/templates/core/home.html:530
 msgid "Ship & Monitor"
 msgstr "Rilascio & Monitoraggio"
 
-#: apps/core/templates/core/home.html:505
+#: apps/core/templates/core/home.html:532
 msgid ""
 "Containerised, CI-integrated, observability from day one. Deployment isn't "
 "the end: it's when the real data starts coming in."
@@ -400,15 +417,15 @@ msgstr ""
 "Containerizzato, integrato in CI, osservabilità dal primo giorno. Il "
 "deployment non è la fine: è quando i dati reali iniziano ad arrivare."
 
-#: apps/core/templates/core/home.html:524
+#: apps/core/templates/core/home.html:551
 msgid "Let's build"
 msgstr "Costruiamo"
 
-#: apps/core/templates/core/home.html:525
+#: apps/core/templates/core/home.html:552
 msgid "something worth building."
 msgstr "qualcosa che valga la pena costruire."
 
-#: apps/core/templates/core/home.html:529
+#: apps/core/templates/core/home.html:556
 msgid ""
 "Open to freelance projects, consulting, and full-time roles. Response within "
 "24 hours."
@@ -416,74 +433,90 @@ msgstr ""
 "Disponibile per progetti freelance, consulenze e posizioni full-time. "
 "Rispondo entro 24 ore."
 
-#: apps/core/templates/core/home.html:536
+#: apps/core/templates/core/home.html:563
 msgid "Reach out directly"
 msgstr "Contattami direttamente"
 
-#: apps/core/templates/core/home.html:545
+#: apps/core/templates/core/home.html:572
 msgid "Send an email"
 msgstr "Invia un'email"
 
-#: apps/core/templates/core/home.html:558
+#: apps/core/templates/core/home.html:585
 msgid "Book a call"
 msgstr "Prenota un meeting"
 
-#: apps/core/templates/core/home.html:570
+#: apps/core/templates/core/home.html:597
 msgid "Find me elsewhere"
 msgstr "Trovami altrove"
 
-#: apps/core/templates/core/home.html:605
+#: apps/core/templates/core/home.html:632
 msgid "Go to contact page"
 msgstr "Vai alla pagina contatti"
 
-#: config/settings/base.py:131
+#: apps/core/views.py:18
+msgid "Introduction"
+msgstr "Introduzione"
+
+#: apps/core/views.py:47
+msgid "🐛 DEBUG — lowest level, hidden in production"
+msgstr "🐛 DEBUG — livello più basso, nascosto in produzione"
+
+#: apps/core/views.py:48
+msgid "ℹ️ INFO — general information"
+msgstr "ℹ️ INFO — informazioni generali"
+
+#: apps/core/views.py:49
+msgid "✅ SUCCESS — action completed"
+msgstr "✅ SUCCESSO — azione completata"
+
+#: apps/core/views.py:50
+msgid "⚠️ WARNING — something needs attention"
+msgstr "⚠️ AVVISO — qualcosa richiede attenzione"
+
+#: apps/core/views.py:51
+msgid "❌ ERROR — something went wrong"
+msgstr "❌ ERRORE — qualcosa è andato storto"
+
+#: config/settings/base.py:134
 msgid "English"
 msgstr "Inglese"
 
-#: config/settings/base.py:132
+#: config/settings/base.py:135
 msgid "Italian"
 msgstr "Italiano"
 
-#: config/settings/base.py:133
+#: config/settings/base.py:136
 msgid "Spanish"
 msgstr "Spagnolo"
 
-#: config/settings/base.py:134
+#: config/settings/base.py:137
 msgid "German"
 msgstr "Tedesco"
 
-#: site/PROJECT_CONTEXT/index.html:1830
-msgid "Hello"
-msgstr ""
-
-#: site/PROJECT_CONTEXT/index.html:1830
-msgid "..."
-msgstr ""
-
-#: site/frontend/i18n/index.html:1604
-#, python-format
-msgid ""
-"\n"
-"<a id=\"__codelineno-3-8\" name=\"__codelineno-3-8\" "
-"href=\"#__codelineno-3-8\"></a>  Hello, %(name)s. Welcome to my site.\n"
-"<a id=\"__codelineno-3-9\" name=\"__codelineno-3-9\" "
-"href=\"#__codelineno-3-9\"></a>"
-msgstr ""
-
-#: templates/base.html:14 templates/base.html:23
+#: templates/base.html:14 templates/base.html:23 templates/base.html:33
 msgid ""
 "Data Scientist and ML Engineer based in Italy. I build end-to-end data "
-"products: from pipelines and models to the interfaces people actually use."
+"products: from pipelines and models to the interfaces people actually use. "
 msgstr ""
 "Data Scientist e ML Engineer basato in Italia. Costruisco prodotti dati end-"
 "to-end, dalle pipeline e modelli alle interfacce che le persone usano "
 "davvero."
 
-#: templates/base.html:78
+#: templates/base.html:83
 msgid "Skip to main content"
 msgstr "Vai al contenuto principale"
 
-#: templates/base.html:91
+#: templates/base.html:112 templates/components/_shortcutsModal.html:56
+msgid "Press"
+msgstr "Premi"
+
+#: templates/base.html:112
+msgid "for keyboard shortcuts"
+msgstr "per le scorciatoie da tastiera"
+
+#: templates/components/_alerts.html:11
+#: templates/components/_shortcutsModal.html:8
+#: templates/components/_toasts.html:30
 msgid "Close"
 msgstr "Chiudi"
 
@@ -493,13 +526,14 @@ msgstr "Tutti i diritti riservati"
 
 #: templates/components/_footer.html:22
 msgid "Social links"
-msgstr "Link ai Social"
+msgstr "Link ai social"
 
 #: templates/components/_footer.html:61 templates/components/_footer.html:62
 msgid "Back to top"
 msgstr "Torna su"
 
 #: templates/components/_nav.html:35
+#: templates/components/_shortcutsModal.html:37
 msgid "Select language"
 msgstr "Scegli lingua"
 
@@ -509,4 +543,87 @@ msgstr "Cambia tema"
 
 #: templates/components/_nav.html:77
 msgid "Toggle navigation menu"
-msgstr "Apri/Chiudi menu di navigazione"
+msgstr "Apri/chiudi menu di navigazione"
+
+#: templates/components/_nav.html:150
+msgid "Alerts"
+msgstr "Avvisi"
+
+#: templates/components/_shortcutsModal.html:7
+msgid "Navigation Shortcuts"
+msgstr "Scorciatoie di navigazione"
+
+#: templates/components/_shortcutsModal.html:12
+msgid "Inspired by"
+msgstr "Ispirato dalle"
+
+#: templates/components/_shortcutsModal.html:12
+msgid "vim keybindings"
+msgstr "scorciatoie di vim"
+
+#: templates/components/_shortcutsModal.html:14
+msgid "Scrolling"
+msgstr "Scorrimento"
+
+#: templates/components/_shortcutsModal.html:16
+msgid "Jump to bottom"
+msgstr "Vai in fondo alla pagina"
+
+#: templates/components/_shortcutsModal.html:17
+msgid "Jump to top"
+msgstr "Torna in cima alla pagina"
+
+#: templates/components/_shortcutsModal.html:18
+msgid "Scroll down / up"
+msgstr "Scorri giù / su"
+
+#: templates/components/_shortcutsModal.html:21
+msgid "Sections"
+msgstr "Sezioni"
+
+#: templates/components/_shortcutsModal.html:23
+msgid "Prev / next section"
+msgstr "Sezione precedente / successiva"
+
+#: templates/components/_shortcutsModal.html:26
+msgid "Pages"
+msgstr "Pagine"
+
+#: templates/components/_shortcutsModal.html:28
+msgid "Home"
+msgstr "Home"
+
+#: templates/components/_shortcutsModal.html:35
+msgid "Actions"
+msgstr "Azioni"
+
+#: templates/components/_shortcutsModal.html:38
+msgid "Switch theme"
+msgstr "Cambia tema"
+
+#: templates/components/_shortcutsModal.html:41
+msgid "Other"
+msgstr "Altro"
+
+#: templates/components/_shortcutsModal.html:43
+msgid "Close opened menu / reset shortcut combination"
+msgstr "Chiudi menu aperto / reimposta combinazione di scorciatoia"
+
+#: templates/components/_shortcutsModal.html:44
+msgid "Toggle this help"
+msgstr "Mostra/nascondi questa guida"
+
+#: templates/components/_shortcutsModal.html:50
+msgid ""
+"Scrolling and navigation commands are inactive inside modals and dropdowns."
+msgstr ""
+"I comandi di scorrimento e navigazione sono disattivati all'interno di "
+"modali e dropdown."
+
+#: templates/components/_shortcutsModal.html:56
+msgid "or"
+msgstr "o"
+
+#: templates/components/_shortcutsModal.html:56
+msgid "to close"
+msgstr "per chiudere"

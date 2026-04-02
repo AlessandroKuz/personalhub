@@ -4,12 +4,12 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header border-0 pb-0">
-        <h5 class="modal-title font-monospace text-primary fs-5" id="keyboardShortcutsModalLabel">Navigation Shortcuts</h5>
+        <h5 class="modal-title font-monospace text-primary fs-5" id="keyboardShortcutsModalLabel">{% trans "Navigation Shortcuts" %}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
       </div>
       <div class="modal-body pt-3">
         <p>
-          Insipired by <a href="https://devhints.io/vim#navigating" target="_blank" rel="noopener noreferrer" class="fw-semibold">vim keybindings</a>.
+          {% trans "Inspired by" %} <a href="https://devhints.io/vim#navigating" target="_blank" rel="noopener noreferrer" class="fw-semibold">{% trans "vim keybindings" %}</a>.
         </p>
         <p class="vim-modal__section-label">{% trans "Scrolling" %}</p>
           <ul class="list-unstyled">
@@ -34,7 +34,7 @@
 
           <p class="vim-modal__section-label">{% trans "Actions" %}</p>
           <ul class="list-unstyled">
-            <li><kbd>gl</kbd> - {% trans "Choose language" %}</li>
+            <li><kbd>gl</kbd> - {% trans "Select language" %}</li>
             <li><kbd>gt</kbd> - {% trans "Switch theme" %}</li>
           </ul>
 
