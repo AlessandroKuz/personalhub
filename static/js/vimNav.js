@@ -253,7 +253,8 @@ export function init({ scrollStep = 0.15, gTimeout = 2000 } = {}) {
       case 'openLangDropdown': {
         const btn = document.getElementById('lang-dropdown-btn');
         if (!btn) return;
-        window.bootstrap?.Dropdown.getOrCreateInstance(btn).show();
+        // window.bootstrap?.Dropdown.getOrCreateInstance(btn).show();
+        window.bootstrap?.Dropdown.getOrCreateInstance(btn).toggle();
         // Shift focus into the first option so arrow keys work immediately.
         requestAnimationFrame(() => {
           document.querySelector('.lang-menu .lang-option')?.focus();
@@ -307,8 +308,12 @@ export function init({ scrollStep = 0.15, gTimeout = 2000 } = {}) {
     // ── Guard: open modal or dropdown  ───────────────────────────────────
     // ── Dropdown open: only j/k navigate options, everything else suppressed ──
     if (document.querySelector('.dropdown-menu.show')) {
-      if (handleDropdownNav(e.key)) e.preventDefault();
-      return;
+      if (e.key === 'g' || (state.gPending && e.key === 'l')) {
+        // let g and the subsequent l fall through to processKey/executeCommand
+      } else {
+        if (handleDropdownNav(e.key)) e.preventDefault();
+        return;
+      }
     }
 
     // ── Modal open: suppress everything (? and Escape handled above already) ──
