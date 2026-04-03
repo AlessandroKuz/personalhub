@@ -42,7 +42,7 @@ async def contact(request: HttpRequest) -> HttpResponse:
     return render(request, "core/contact.html", context={"DEBUG": settings.DEBUG})
 
 
-async def toast_preview(request):
+async def toast_preview(request: HttpRequest):
     messages.set_level(request, messages.DEBUG)  # enables DEBUG level (off by default)
     messages.debug(request, _("🐛 DEBUG — lowest level, hidden in production"))
     messages.info(request, _("ℹ️ INFO — general information"))
@@ -50,3 +50,7 @@ async def toast_preview(request):
     messages.warning(request, _("⚠️ WARNING — something needs attention"))
     messages.error(request, _("❌ ERROR — something went wrong"))
     return redirect("/")  # or any page that extends base.html
+
+
+async def gone(request: HttpRequest, message: str = ""):
+    return render(request, "410.html", status=410)

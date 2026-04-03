@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}403 - {% trans "Access denied" %} | Alessandro Kuz{% endblock %}
+{% block meta_description %}{% trans "You don't have permission to access this page." %}{% endblock %}
+{% block og_title %}403 - {% trans "Access denied" %} | Alessandro Kuz{% endblock %}
+
+{% block content %}
+<section
+  class="d-flex align-items-center"
+  style="min-height: calc(100vh - var(--navbar-height) - 120px); padding: clamp(48px, 8vh, 96px) 0;"
+  aria-labelledby="error-heading">
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-7 col-xl-6">
+
+        {# ── Label ── #}
+        <p class="section-label reveal mb-4" aria-hidden="true">
+          {% trans "Error" %}
+        </p>
+
+        {# ── Code ── #}
+        <div class="reveal reveal-delay-1" aria-hidden="true">
+          <span
+            class="font-monospace fw-bold text-accent d-block"
+            style="font-size: clamp(5rem, 18vw, 10rem); line-height: 1; letter-spacing: -0.04em;">
+            403
+          </span>
+        </div>
+
+        {# ── Heading ── #}
+        <h1 id="error-heading" class="h2 mb-3 reveal reveal-delay-2">
+          {% trans "Access denied" %}
+        </h1>
+
+        {# ── Description ── #}
+        <p class="text-body-secondary mb-5 reveal reveal-delay-3" style="max-width: 52ch;">
+          {% blocktrans %}You don't have permission to access this page. If you believe this is a mistake, feel free to get in touch.{% endblocktrans %}
+        </p>
+
+        {# ── Actions ── #}
+        <div class="d-flex flex-wrap gap-3 reveal reveal-delay-4">
+          <a href="/" class="btn btn-primary">
+            <i class="bi bi-house me-2" aria-hidden="true"></i>{% trans "Go home" %}
+          </a>
+          <a href="{% url 'core:contact' %}" class="btn btn-ghost">
+            <i class="bi bi-envelope me-2" aria-hidden="true"></i>{% trans "Contact me" %}
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}403 - {% trans "CSRF verification failed" %} | Alessandro Kuz{% endblock %}
+{% block meta_description %}{% trans "The form submission was blocked due to a missing or invalid security token." %}{% endblock %}
+{% block og_title %}403 - {% trans "CSRF verification failed" %} | Alessandro Kuz{% endblock %}
+
+{% block content %}
+<section
+  class="d-flex align-items-center"
+  style="min-height: calc(100vh - var(--navbar-height) - 120px); padding: clamp(48px, 8vh, 96px) 0;"
+  aria-labelledby="error-heading">
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-7 col-xl-6">
+
+        {# ── Label ── #}
+        <p class="section-label reveal mb-4" aria-hidden="true">
+          {% trans "Error" %}
+        </p>
+
+        {# ── Code ── #}
+        <div class="reveal reveal-delay-1" aria-hidden="true">
+          <span
+            class="font-monospace fw-bold text-accent d-block"
+            style="font-size: clamp(5rem, 18vw, 10rem); line-height: 1; letter-spacing: -0.04em;">
+            403
+          </span>
+        </div>
+
+        {# ── Heading ── #}
+        <h1 id="error-heading" class="h2 mb-3 reveal reveal-delay-2">
+          {% trans "Request blocked" %}
+        </h1>
+
+        {# ── Description ── #}
+        <p class="text-body-secondary mb-3 reveal reveal-delay-3" style="max-width: 52ch;">
+          {% blocktrans %}Your form submission was blocked because the security token was missing or expired. This typically happens when your session times out or you navigate back after submitting a form.{% endblocktrans %}
+        </p>
+
+        {# ── Hint box ── #}
+        <div class="mb-5 reveal reveal-delay-3"
+          style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 2px; padding: 0.9rem 1.1rem;">
+          <p class="font-monospace mb-0" style="font-size: 0.75rem; color: var(--color-muted);">
+            <i class="bi bi-info-circle me-2" aria-hidden="true"></i>
+            {% trans "Fix: reload the page and submit the form again." %}
+          </p>
+        </div>
+
+        {# ── Actions ── #}
+        <div class="d-flex flex-wrap gap-3 reveal reveal-delay-4">
+          <button type="button" onclick="history.back()" class="btn btn-primary">
+            <i class="bi bi-arrow-counterclockwise me-2" aria-hidden="true"></i>{% trans "Go back and retry" %}
+          </button>
+          <a href="/" class="btn btn-ghost">
+            <i class="bi bi-house me-2" aria-hidden="true"></i>{% trans "Go home" %}
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
