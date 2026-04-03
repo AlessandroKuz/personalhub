@@ -1,4 +1,3 @@
-# config/settings/prod.py
 import os
 
 from .base import *  # noqa: F401, F403
@@ -39,3 +38,6 @@ CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS", "").split(",")
 STATIC_ROOT = "/srv/personalhub/staticfiles"
 COMPRESS_ROOT = STATIC_ROOT
 COMPRESS_URL = STATIC_URL
+
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")

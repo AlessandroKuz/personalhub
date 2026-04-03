@@ -21,6 +21,12 @@ from django.contrib import admin
 from django.http import HttpResponse
 from django.urls import include, path
 
+
+handler400 = "apps.core.views.error_400"
+handler403 = "apps.core.views.error_403"
+handler404 = "apps.core.views.error_404"
+handler500 = "apps.core.views.error_500"
+
 urlpatterns = [
     path("health/", lambda _: HttpResponse(b"ok"), name="health"),
     path("i18n/", include("django.conf.urls.i18n")),  # language switcher endpoint

@@ -1,10 +1,8 @@
-# config/settings/prod.py
 import os
 
 from .base import *  # noqa: F401, F403
 
 DEBUG = False
-CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS", "").split(",")
 
 DATABASES = {
     "default": {
@@ -30,11 +28,12 @@ STORAGES = {
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True
 
-# This is handled directly with Cloudflare
-# The alternative is to do it here
 SECURE_SSL_REDIRECT = False
-# SECURE_HSTS_SECONDS = 1
+CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS", "").split(",")
 
 STATIC_ROOT = "/srv/personalhub/staticfiles"
 COMPRESS_ROOT = STATIC_ROOT
 COMPRESS_URL = STATIC_URL
+
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")

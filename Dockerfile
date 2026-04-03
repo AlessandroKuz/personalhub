@@ -16,6 +16,13 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+  gcc \
+  g++ \
+  libc6-dev \
+  && rm -rf /var/lib/apt/lists/*
+
 # --- DEPENDENCY INSTALLATION (exploiting layer caching) ---
 # We copy ONLY the dependency manifest files first, before copying
 # any application code. This way, if you change views.py but not
