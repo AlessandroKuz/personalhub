@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     # Third party
     "django_htmx",
     # Local
-    # "apps.core.CoreConfig",
     "apps.core",
     "apps.projects",
     "apps.blog",
@@ -120,6 +119,68 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,  # Keep Django's default loggers active
+    "formatters": {
+        "verbose": {
+            "format": "[{levelname}] {asctime} {name} {module} — {message}",
+            "style": "{",
+        },
+        "simple": {
+            "format": "[{levelname}] {asctime} — {message}",
+            "style": "{",
+        },
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",  # writes to stderr by default (visible in docker logs)
+            "formatter": "verbose",
+        },
+    },
+    "root": {
+        # Catch-all: any logger that doesn't match below still surfaces WARNING+
+        "handlers": ["console"],
+        "level": "WARNING",
+    },
+    "loggers": {
+        # ---------------------------------------------------------------
+        # django.request: the one you NEED for 500 errors
+        # Django calls this at ERROR level with exc_info=True automatically,
+        # so the full traceback is included in the log output.
+        # ---------------------------------------------------------------
+        "django.request": {
+            "handlers": ["console"],
+            "level": "ERROR",
+            "propagate": False,
+        },
+        # ---------------------------------------------------------------
+        # django.security: catches SuspiciousOperation, DisallowedHost, etc.
+        # These silently become 400s in production — log them too.
+        # ---------------------------------------------------------------
+        "django.security": {
+            "handlers": ["console"],
+            "level": "WARNING",
+            "propagate": False,
+        },
+        # ---------------------------------------------------------------
+        # django: general Django internals (middleware, template errors, etc.)
+        # ---------------------------------------------------------------
+        "django": {
+            "handlers": ["console"],
+            "level": "INFO",
+            "propagate": False,
+        },
+        # ---------------------------------------------------------------
+        # Your own app loggers — replace "myapp" with your app name(s)
+        # ---------------------------------------------------------------
+        "apps": {
+            "handlers": ["console"],
+            "level": "DEBUG",
+            "propagate": False,
+        },
+    },
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
@@ -155,7 +216,6 @@ STATICFILES_FINDERS = [
 
 COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
 
-# STATIC_URL = 'static/'
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"  # where collectstatic writes to
