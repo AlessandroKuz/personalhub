@@ -112,14 +112,16 @@ personalhub/
 
 ---
 
-## Local Development Setup
+## Local Development
 
-### Prerequisites
+### Setup
+
+#### Prerequisites
 
 - [uv](https://docs.astral.sh/uv/) — Python version and package management
 - [Docker](https://www.docker.com/) (optional, for running the full production stack locally)
 
-### 1. Clone and install
+#### 1. Clone and install
 
 ```bash
 git clone https://github.com/AlessandroKuz/personalhub.git
@@ -143,13 +145,13 @@ uv sync
 uv run python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
 ```
 
-### 2. Run migrations - Initialize db
+#### 2. Run migrations - Initialize db
 
 ```bash
 uv run python manage.py migrate
 ```
 
-### 3. Start the development servers
+#### 3. Start the development servers
 
 The included script starts both the Django/Uvicorn server and the MkDocs documentation server simultaneously. A single `Ctrl+C` shuts both down cleanly.
 
@@ -167,7 +169,7 @@ uv run uvicorn config.asgi:application --reload --port 8080
 uv run mkdocs serve --dev-addr 127.0.0.1:8001
 ```
 
-### 4. Run the test suite
+#### 4. Run the test suite
 
 ```bash
 uv run pytest -v
@@ -177,6 +179,47 @@ With coverage:
 
 ```bash
 uv run pytest --cov=apps --cov-report=term-missing
+```
+
+### Developer Commands
+
+Two parallel command runners are provided — `just` (preferred) and `make`
+(universally available fallback). They expose identical functionality. Install
+`just` on Arch with `sudo pacman -S just` or on Debian/Ubuntu with
+`sudo apt install just`.
+
+```bash
+just          # list all available recipes
+make          # same, for Make
+```
+
+#### Passing extra arguments
+
+`just` accepts extra arguments naturally — append them after the recipe name:
+
+```bash
+just check --deploy
+just migrate --run-syncdb
+just test apps/core/tests.py -x
+```
+
+`make` requires the `ARGS` variable:
+
+```bash
+make check ARGS="--deploy"
+make migrate ARGS="--run-syncdb"
+make test ARGS="apps/core/tests.py -x"
+```
+
+#### Key workflows
+
+```bash
+just install          # set up the environment from uv.lock
+just run              # start the ASGI dev server (preferred — mirrors production)
+just runserver        # start Django's WSGI dev server (use for browser error debugger)
+just ci               # lint + format check + full test suite — run before pushing
+just deploy           # full production deployment cycle inside Docker
+just reset-db         # wipe and recreate local SQLite (dev only — irreversible)
 ```
 
 ---
