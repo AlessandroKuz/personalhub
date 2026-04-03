@@ -175,7 +175,7 @@ up: ## Build images and start all containers in the background
 	$(DC) up -d --build
 
 down: ## Stop and remove all containers (named volumes are preserved)
-	$(DC) down
+	$(DC) down $(ARGS)
 
 logs: ## Stream live logs — accepts a service name via ARGS: make logs ARGS="web"
 	$(DC) logs -f $(ARGS)

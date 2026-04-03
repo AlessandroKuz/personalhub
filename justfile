@@ -173,8 +173,8 @@ up:
     {{ dc }} up -d --build
 
 # Stop and remove all containers (named volumes are preserved)
-down:
-    {{ dc }} down
+down *args:
+    {{ dc }} down {{ args }}
 
 # Stream live logs from all running containers (Ctrl+C to stop)
 logs *args:
