@@ -111,25 +111,25 @@ async def gone(request: HttpRequest):
     return render(request, "410.html", status=410)
 
 
-async def error_400(request: HttpRequest, exception=None):
+def error_400(request: HttpRequest, exception=None):
     return TemplateResponse(request, "400.html", status=400)
 
 
-async def error_403(request: HttpRequest, exception=None):
+def error_403(request: HttpRequest, exception=None):
     return TemplateResponse(request, "403.html", status=403)
 
 
-async def error_403_csrf(request: HttpRequest, reason: str = ""):
+def error_403_csrf(request: HttpRequest, reason: str = ""):
     return TemplateResponse(request, "403_csrf.html", {"reason": reason}, status=403)
 
 
-async def error_404(request: HttpRequest, exception=None):
+def error_404(request: HttpRequest, exception=None):
     return TemplateResponse(request, "404.html", status=404)
 
 
-async def error_410(request: HttpRequest):
+def error_410(request: HttpRequest):
     return TemplateResponse(request, "410.html", status=410)
 
 
-async def error_500(request: HttpRequest):
+def error_500(request: HttpRequest):
     return TemplateResponse(request, "500.html", status=500)

@@ -10,6 +10,7 @@ from django.utils import translation
         ("core:home", "/"),
         ("core:about", "/about/"),
         ("core:work", "/work/"),
+        ("core:projects", "/projects/"),
         ("core:contact", "/contact/"),
     ],
 )

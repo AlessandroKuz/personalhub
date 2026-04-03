@@ -7,7 +7,7 @@ TESTING = True
 # ─────────────────────────────────────────────────────────────────────────────
 
 # A fixed, arbitrary key — no rotation needed, nothing real is at stake.
-SECRET_KEY = "test-only-secret-key-do-not-use-in-production"
+SECRET_KEY = "test-only-secret-key-do-not-use-in-production-only-for-testing"
 
 # THIS IS THE MOST IMPORTANT TEST OVERRIDE.
 # With DEBUG=True, Django short-circuits your error handlers and renders its
