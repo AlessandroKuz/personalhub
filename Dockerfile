@@ -4,7 +4,7 @@
 # We use a separate stage so that uv itself and any build-time system packages
 # never end up in the final production image.
 # =============================================================================
-FROM astral/uv:python3.14-bookworm-slim AS builder
+FROM ghcr.io/astral-sh/uv:python3.14-trixie-slim AS builder
 
 # PYTHONDONTWRITEBYTECODE: Prevents Python from writing .pyc bytecode files.
 # We don't need them in a container — they'd just add layer weight.
@@ -55,20 +55,24 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
+# Create a non-root user for running the application.
+# Running as root inside a container is a security risk — if an attacker
+# escapes the container, they'd have root on the host. This is a standard
+# hardening practice.
+RUN addgroup --system appgroup && adduser --system --ingroup appgroup appuser
+
 # Copy the entire application (code + installed .venv) from the builder stage.
 # We do NOT copy uv — it's not needed at runtime.
-COPY --from=builder /app /app
+COPY --from=builder --chown=appuser:appgroup /app /app
 
 # Copy and prepare the entrypoint script.
 # The entrypoint handles migrations and collectstatic before starting the server.
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-# Create a non-root user for running the application.
-# Running as root inside a container is a security risk — if an attacker
-# escapes the container, they'd have root on the host. This is a standard
-# hardening practice.
-RUN addgroup --system appgroup && adduser --system --ingroup appgroup appuser
+RUN mkdir -p /srv/personalhub/staticfiles \
+  && chown -R appuser:appgroup /srv/personalhub
+
 USER appuser
 
 # Document that the container listens on port 8000.

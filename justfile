@@ -191,11 +191,6 @@ exec:
 # Full deployment cycle: rebuild images, restart containers, migrate, compile translations
 deploy: build
     {{ dc }} up -d
-    {{ dc }} exec {{ service }} {{ manage }} migrate
-    {{ dc }} exec {{ service }} {{ manage }} compilemessages
-    {{ dc }} exec {{ service }} {{ manage }} compress --force
-    {{ dc }} exec {{ service }} {{ manage }} collectstatic --no-input
-    {{ dc }} logs -f {{ service }}
 
 
 # ── Utils ─────────────────────────────────────────────────────────────────────

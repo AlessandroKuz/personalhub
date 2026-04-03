@@ -188,11 +188,6 @@ exec: ## Open an interactive bash shell inside the running web container
 
 deploy: build ## Full deployment: build, restart, migrate, compile, compress, collect static
 	$(DC) up -d
-	$(DC) exec $(SERVICE) $(MANAGE) migrate
-	$(DC) exec $(SERVICE) $(MANAGE) compilemessages
-	$(DC) exec $(SERVICE) $(MANAGE) compress --force
-	$(DC) exec $(SERVICE) $(MANAGE) collectstatic --no-input
-	$(DC) logs -f $(SERVICE)
 
 
 # ── Utils ─────────────────────────────────────────────────────────────────────

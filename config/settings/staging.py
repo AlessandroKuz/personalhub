@@ -4,6 +4,7 @@ import os
 from .base import *  # noqa: F401, F403
 
 DEBUG = False
+CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS", "").split(",")
 
 DATABASES = {
     "default": {
@@ -29,12 +30,10 @@ STORAGES = {
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True
 
-SECURE_HSTS_SECONDS = 10
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS", "").split(",")
+# This is handled directly with Cloudflare
+# The alternative is to do it here
+SECURE_SSL_REDIRECT = False
+# SECURE_HSTS_SECONDS = 1
 
 STATIC_ROOT = "/srv/personalhub/staticfiles"
 COMPRESS_ROOT = STATIC_ROOT

@@ -18,9 +18,11 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
+from django.http import HttpResponse
 from django.urls import include, path
 
 urlpatterns = [
+    path("health/", lambda _: HttpResponse(b"ok"), name="health"),
     path("i18n/", include("django.conf.urls.i18n")),  # language switcher endpoint
 ]
 

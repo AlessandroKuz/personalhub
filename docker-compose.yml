@@ -9,6 +9,7 @@
 services:
   # ─── Django Application ───────────────────────────────────────────────────
   web:
+    image: personalhub-web:latest
     build:
       context: .
       target: runtime # Use the lean production stage
@@ -24,7 +25,27 @@ services:
         # against a Postgres that hasn't finished initializing.
         condition: service_healthy
     volumes:
-      - static_files:/srv/djangoapp/staticfiles
+      - static_files:/srv/personalhub/staticfiles
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import http.client; c = http.client.HTTPConnection('localhost', 8000, timeout=5); c.request('GET', '/health/'); r = c.getresponse(); exit(0 if r.status == 200 else 1)",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      # start_period gives the entrypoint time to run migrations + compress +
+      # collectstatic before Docker starts counting failed checks.
+      # Unhealthy retries only begin counting AFTER start_period ends.
+      start_period: 90s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5" # keeps last 50MB of logs per service
     # No `ports:` here — the app is not exposed directly to the internet.
     # Only Caddy is. The app is reachable internally at web:8000.
     networks:
@@ -52,6 +73,11 @@ services:
       timeout: 5s # Fail the check if it takes longer than 5 seconds
       retries: 5 # Mark unhealthy after 5 consecutive failures
       start_period: 30s # Give Postgres 30s to start before checking
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
     networks:
       - internal
 
@@ -79,9 +105,15 @@ services:
       - caddy_config:/config
       # custom certifications
       - ./certs:/etc/caddy/certs:ro
-      - static_files:/srv/djangoapp/staticfiles:ro
+      - static_files:/srv/personalhub/staticfiles:ro
     depends_on:
-      - web
+      web:
+        condition: service_healthy
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
     networks:
       - internal
 
