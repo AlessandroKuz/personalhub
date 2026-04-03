@@ -4,6 +4,7 @@ from django.conf import settings
 from django.contrib import messages
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
+from django.template.response import TemplateResponse
 from django.utils.translation import gettext as _
 
 
@@ -106,5 +107,29 @@ async def toast_preview(request: HttpRequest):
     return redirect("/")  # or any page that extends base.html
 
 
-async def gone(request: HttpRequest, message: str = ""):
+async def gone(request: HttpRequest):
     return render(request, "410.html", status=410)
+
+
+async def error_400(request: HttpRequest, exception=None):
+    return TemplateResponse(request, "400.html", status=400)
+
+
+async def error_403(request: HttpRequest, exception=None):
+    return TemplateResponse(request, "403.html", status=403)
+
+
+async def error_403_csrf(request: HttpRequest, reason: str = ""):
+    return TemplateResponse(request, "403_csrf.html", {"reason": reason}, status=403)
+
+
+async def error_404(request: HttpRequest, exception=None):
+    return TemplateResponse(request, "404.html", status=404)
+
+
+async def error_410(request: HttpRequest):
+    return TemplateResponse(request, "410.html", status=410)
+
+
+async def error_500(request: HttpRequest):
+    return TemplateResponse(request, "500.html", status=500)

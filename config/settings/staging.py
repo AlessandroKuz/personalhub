@@ -29,6 +29,7 @@ COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True
 
 SECURE_SSL_REDIRECT = False
+SECURE_HSTS_PRELOAD = False
 CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS", "").split(",")
 
 STATIC_ROOT = "/srv/personalhub/staticfiles"
