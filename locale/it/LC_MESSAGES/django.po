@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-03 15:48+0200\n"
-"PO-Revision-Date: 2026-04-03 15:49+0200\n"
+"POT-Creation-Date: 2026-04-03 16:12+0200\n"
+"PO-Revision-Date: 2026-04-03 16:15+0200\n"
 "Last-Translator: Alessandro Kuz\n"
 "Language-Team: Italiano <it@li.org>\n"
 "Language: it\n"
@@ -25,7 +25,7 @@ msgid "About"
 msgstr "Chi sono"
 
 #: apps/core/templates/core/contact.html:3
-#: apps/core/templates/core/home.html:578 apps/core/views.py:24
+#: apps/core/templates/core/home.html:591 apps/core/views.py:24
 #: templates/components/_nav.html:144
 #: templates/components/_shortcutsModal.html:32
 msgid "Contact"
@@ -192,20 +192,24 @@ msgid "From data to model to product."
 msgstr "Dai dati ai modelli al prodotto."
 
 #: apps/core/templates/core/home.html:227
-#: apps/core/templates/core/home.html:256
-#: apps/core/templates/core/home.html:284
-#: apps/core/templates/core/home.html:354
-#: apps/core/templates/core/home.html:400
-#: apps/core/templates/core/home.html:430
-#: apps/core/templates/core/home.html:458
+msgid "View Data Science work"
+msgstr "Vedi progetti di Data Science"
+
+#: apps/core/templates/core/home.html:229
+#: apps/core/templates/core/home.html:260
+#: apps/core/templates/core/home.html:290
+#: apps/core/templates/core/home.html:361
+#: apps/core/templates/core/home.html:409
+#: apps/core/templates/core/home.html:441
+#: apps/core/templates/core/home.html:471
 msgid "View"
 msgstr "Vedi"
 
-#: apps/core/templates/core/home.html:233
+#: apps/core/templates/core/home.html:235
 msgid "Data Science"
 msgstr "Data Science"
 
-#: apps/core/templates/core/home.html:236
+#: apps/core/templates/core/home.html:238
 msgid ""
 "Turning raw data into insight, from exploratory analysis and statistical "
 "modelling to production-grade pipelines."
@@ -213,11 +217,15 @@ msgstr ""
 "Trasformare dati grezzi in conoscenza, dall'analisi esplorativa e "
 "modellazione statistica a pipeline pronte per la produzione."
 
-#: apps/core/templates/core/home.html:262
+#: apps/core/templates/core/home.html:258
+msgid "View Machine Learning and AI work"
+msgstr "Vedi progetti di Machine Learning e AI"
+
+#: apps/core/templates/core/home.html:266
 msgid "Machine Learning & AI"
 msgstr "Machine Learning & AI"
 
-#: apps/core/templates/core/home.html:265
+#: apps/core/templates/core/home.html:269
 msgid ""
 "Designing and training models that generalise, from classical algorithms to "
 "Deep Learning and Large Language Model systems."
@@ -225,11 +233,15 @@ msgstr ""
 "Progettare e addestrare modelli che generalizzano, dagli algoritmi classici "
 "al Deep Learning e ai sistemi basati su Large Language Model."
 
-#: apps/core/templates/core/home.html:290
+#: apps/core/templates/core/home.html:288
+msgid "View Backend and DevOps work"
+msgstr "Vedi progetti di Backend e DevOps"
+
+#: apps/core/templates/core/home.html:296
 msgid "Backend & Web"
 msgstr "Backend & Web"
 
-#: apps/core/templates/core/home.html:293
+#: apps/core/templates/core/home.html:299
 msgid ""
 "Building and shipping server-side systems end-to-end, from clean APIs and "
 "hypermedia-driven interfaces to containerised, production-ready deployments."
@@ -238,37 +250,45 @@ msgstr ""
 "interfacce hypermedia a deployment containerizzati e pronti per la "
 "produzione."
 
-#: apps/core/templates/core/home.html:319
+#: apps/core/templates/core/home.html:325
 msgid "See full CV"
 msgstr "Vedi CV completo"
 
-#: apps/core/templates/core/home.html:328
+#: apps/core/templates/core/home.html:334
 msgid "Open CV pdf"
 msgstr "Apri CV in PDF"
 
-#: apps/core/templates/core/home.html:341 apps/core/views.py:21
+#: apps/core/templates/core/home.html:347 apps/core/views.py:21
 #: templates/components/_nav.html:125
 #: templates/components/_shortcutsModal.html:31
 msgid "Projects"
 msgstr "Progetti"
 
-#: apps/core/templates/core/home.html:343
+#: apps/core/templates/core/home.html:349
 msgid "Things I've built"
 msgstr "Cose che ho costruito"
 
-#: apps/core/templates/core/home.html:344
+#: apps/core/templates/core/home.html:350
 msgid "that are actually useful."
 msgstr "che sono davvero utili."
 
-#: apps/core/templates/core/home.html:358
-msgid "Featured"
-msgstr "In evidenza"
+#: apps/core/templates/core/home.html:359
+#: apps/core/templates/core/home.html:407
+#: apps/core/templates/core/home.html:439
+#: apps/core/templates/core/home.html:469
+msgid "View project: "
+msgstr "Vedi progetto:"
 
-#: apps/core/templates/core/home.html:362
+#: apps/core/templates/core/home.html:359
+#: apps/core/templates/core/home.html:369
 msgid "PersonalHub"
 msgstr "PersonalHub"
 
 #: apps/core/templates/core/home.html:365
+msgid "Featured"
+msgstr "In evidenza"
+
+#: apps/core/templates/core/home.html:372
 msgid ""
 "This very site. A <strong>Django</strong>-powered personal hub built with "
 "<strong>HTMX</strong>, <strong>Bootstrap 5</strong>, and a deliberate no-JS-"
@@ -284,11 +304,12 @@ msgstr ""
 "carriera. Ogni decisione architetturale è documentata per poter riprodurre "
 "il progetto da zero."
 
-#: apps/core/templates/core/home.html:406
+#: apps/core/templates/core/home.html:407
+#: apps/core/templates/core/home.html:415
 msgid "Online Anamnestic Module (MAO)"
 msgstr "Modulo Anamnestico Online (MAO)"
 
-#: apps/core/templates/core/home.html:409
+#: apps/core/templates/core/home.html:418
 msgid ""
 "Clinical data collection platform built for oncology specialists to digitise "
 "patient anamnestic intake. Integrates external tools and <strong>APIs</"
@@ -304,6 +325,11 @@ msgstr ""
 "<strong>Azure</strong>."
 
 #: apps/core/templates/core/home.html:439
+#: apps/core/templates/core/home.html:447
+msgid "LLM Toolbox"
+msgstr "LLM Toolbox"
+
+#: apps/core/templates/core/home.html:450
 msgid ""
 "A collection of <strong>LLM</strong>-powered developer tools built around "
 "real workflows. Tailor-your-CV aligns a CV to a job description using "
@@ -317,11 +343,12 @@ msgstr ""
 "indicizza file locali in un vector store ChromaDB con chunking intelligente "
 "e attribuzione completa delle fonti."
 
-#: apps/core/templates/core/home.html:466
+#: apps/core/templates/core/home.html:469
+#: apps/core/templates/core/home.html:479
 msgid "Cancer Stage Inference from DNA Methylation"
 msgstr "Inferenza dello stadio tumorale dalla metilazione del DNA"
 
-#: apps/core/templates/core/home.html:469
+#: apps/core/templates/core/home.html:482
 msgid ""
 "End-to-end ML pipeline to infer cancer stage from tissue DNA methylation "
 "profiles, built after deep research into cancer biology and staging with "
@@ -335,31 +362,31 @@ msgstr ""
 "grezzi di metilazione elaborati out-of-core tramite Dask e Polars. Confronto "
 "tra più architetture con valutazione completa su tutti gli stadi."
 
-#: apps/core/templates/core/home.html:502
+#: apps/core/templates/core/home.html:515
 msgid "All projects"
 msgstr "Tutti i progetti"
 
-#: apps/core/templates/core/home.html:514 apps/core/views.py:23
+#: apps/core/templates/core/home.html:527 apps/core/views.py:23
 msgid "Process"
 msgstr "Processo"
 
-#: apps/core/templates/core/home.html:516
+#: apps/core/templates/core/home.html:529
 msgid "A process built"
 msgstr "Un processo sviluppato"
 
-#: apps/core/templates/core/home.html:517
+#: apps/core/templates/core/home.html:530
 msgid "for real delivery."
 msgstr "per risultati concreti."
 
-#: apps/core/templates/core/home.html:523
+#: apps/core/templates/core/home.html:536
 msgid "Understand"
 msgstr "Comprensione"
 
-#: apps/core/templates/core/home.html:524
+#: apps/core/templates/core/home.html:537
 msgid "Scope & Alignment"
 msgstr "Scope & Allineamento"
 
-#: apps/core/templates/core/home.html:526
+#: apps/core/templates/core/home.html:539
 msgid ""
 "Scope before code. Understand the problem, not just the stated one, the real "
 "one. The right question asked in week one beats the wrong solution delivered "
@@ -369,15 +396,15 @@ msgstr ""
 "dichiarato. La domanda giusta posta alla prima settimana vale più della "
 "soluzione sbagliata consegnata alla sesta."
 
-#: apps/core/templates/core/home.html:535
+#: apps/core/templates/core/home.html:548
 msgid "Build"
 msgstr "Sviluppo"
 
-#: apps/core/templates/core/home.html:536
+#: apps/core/templates/core/home.html:549
 msgid "Fast Iteration"
 msgstr "Iterazione Rapida"
 
-#: apps/core/templates/core/home.html:538
+#: apps/core/templates/core/home.html:551
 msgid ""
 "Build fast, get something working, then cut everything that doesn't earn its "
 "place. Tested at every step, documented throughout. Iterate until there's "
@@ -387,15 +414,15 @@ msgstr ""
 "non merita il suo posto. Testato ad ogni passo, documentato durante tutto il "
 "processo. Iterare finché non c'è più nulla da rimuovere."
 
-#: apps/core/templates/core/home.html:547
+#: apps/core/templates/core/home.html:560
 msgid "Validate"
 msgstr "Validazione"
 
-#: apps/core/templates/core/home.html:548
+#: apps/core/templates/core/home.html:561
 msgid "Measure Everything"
 msgstr "Misurare Tutto"
 
-#: apps/core/templates/core/home.html:550
+#: apps/core/templates/core/home.html:563
 msgid ""
 "A model that can't be measured can't be improved, and it shouldn't be "
 "trusted. Every assumption gets tested: offline evals, baselines, edge cases. "
@@ -405,15 +432,15 @@ msgstr ""
 "conseguenza è inaffidabile. Ogni supposizione viene testata: valutazioni "
 "offline, baseline, casi limite. Niente eccezioni."
 
-#: apps/core/templates/core/home.html:559
+#: apps/core/templates/core/home.html:572
 msgid "Deploy"
 msgstr "Rilascio"
 
-#: apps/core/templates/core/home.html:560
+#: apps/core/templates/core/home.html:573
 msgid "Ship & Monitor"
 msgstr "Rilascio & Monitoraggio"
 
-#: apps/core/templates/core/home.html:562
+#: apps/core/templates/core/home.html:575
 msgid ""
 "Containerised, CI-integrated, observability from day one. Deployment isn't "
 "the end: it's when the real data starts coming in."
@@ -421,15 +448,15 @@ msgstr ""
 "Containerizzato, integrato in CI, osservabilità dal primo giorno. Il "
 "deployment non è la fine: è quando i dati reali iniziano ad arrivare."
 
-#: apps/core/templates/core/home.html:581
+#: apps/core/templates/core/home.html:594
 msgid "Let's build"
 msgstr "Costruiamo"
 
-#: apps/core/templates/core/home.html:582
+#: apps/core/templates/core/home.html:595
 msgid "something worth building."
 msgstr "qualcosa che valga la pena costruire."
 
-#: apps/core/templates/core/home.html:586
+#: apps/core/templates/core/home.html:599
 msgid ""
 "Open to freelance projects, consulting, and full-time roles. Response within "
 "24 hours."
@@ -437,23 +464,39 @@ msgstr ""
 "Disponibile per progetti freelance, consulenze e posizioni full-time. "
 "Rispondo entro 24 ore."
 
-#: apps/core/templates/core/home.html:593
+#: apps/core/templates/core/home.html:606
 msgid "Reach out directly"
 msgstr "Contattami direttamente"
 
-#: apps/core/templates/core/home.html:602
+#: apps/core/templates/core/home.html:612
+msgid "Send an email to Alessandro Kuz"
+msgstr "Manda un'email ad Alessandro Kuz"
+
+#: apps/core/templates/core/home.html:616
 msgid "Send an email"
 msgstr "Invia un'email"
 
-#: apps/core/templates/core/home.html:615
+#: apps/core/templates/core/home.html:626
+msgid "Book a call with Alessandro Kuz"
+msgstr "Prenota un meeting con Alessandro Kuz"
+
+#: apps/core/templates/core/home.html:630
 msgid "Book a call"
 msgstr "Prenota un meeting"
 
-#: apps/core/templates/core/home.html:627
+#: apps/core/templates/core/home.html:642
 msgid "Find me elsewhere"
 msgstr "Trovami altrove"
 
-#: apps/core/templates/core/home.html:662
+#: apps/core/templates/core/home.html:649 templates/components/_footer.html:28
+msgid "Visit Alessandro Kuz on GitHub"
+msgstr "Visita Alessandro Kuz su GitHub"
+
+#: apps/core/templates/core/home.html:657 templates/components/_footer.html:35
+msgid "Visit Alessandro Kuz on LinkedIn"
+msgstr "Visita Alessandro Kuz su LinkedIn"
+
+#: apps/core/templates/core/home.html:680
 msgid "Go to contact page"
 msgstr "Vai alla pagina contatti"
 
