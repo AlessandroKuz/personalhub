@@ -1,5 +1,7 @@
 import os
 
+from django.utils.csp import CSP
+
 from .base import *  # noqa: F401, F403
 
 DEBUG = False
@@ -32,6 +34,8 @@ COMPRESS_OFFLINE = True
 SECURE_SSL_REDIRECT = False
 
 SECURE_HSTS_SECONDS = 300
+# SECURE_HSTS_SECONDS = 15768000
+# SECURE_HSTS_SECONDS = 31536000
 SECURE_HSTS_PRELOAD = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SESSION_COOKIE_SECURE = True
@@ -43,4 +47,26 @@ COMPRESS_ROOT = STATIC_ROOT
 COMPRESS_URL = STATIC_URL  # noqa: F405
 
 USE_X_FORWARDED_HOST = True
+# behind reverse proxy / load balancer
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# Might need to change in the future: Prevent JS from reading it via document.cookie
+CSRF_COOKIE_HTTPONLY = True
+
+SECURE_CSP = {
+    "default-src": [CSP.NONE],
+    "script-src": [CSP.SELF, CSP.NONCE, "https://cdn.jsdelivr.net"],
+    "style-src": [
+        CSP.SELF,
+        CSP.NONCE,
+        "https://cdn.jsdelivr.net",
+        "https://fonts.googleapis.com",
+        "'sha256-faU7yAF8NxuMTNEwVmBz+VcYeIoBQ2EMHW3WaVxCvnk='",
+    ],
+    "img-src": [CSP.SELF, "data:"],
+    "connect-src": [CSP.SELF, "https://cdn.jsdelivr.net"],
+    "font-src": [CSP.SELF, "https://fonts.gstatic.com", "https://cdn.jsdelivr.net"],
+}

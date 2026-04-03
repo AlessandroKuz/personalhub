@@ -401,7 +401,7 @@
 
         {# ── 002: MAO ── #}
         {# TODO - RESOLVE LINK TO ACTUAL PROJECTS PAGE #}
-        <a href="#projects"
+        <a href="{% url 'core:projects' %}"
           class="project-card"
           aria-label="{% trans 'View project: ' %}{% trans 'Online Anamnestic Module (MAO)' %}">
           <span class="project-link">
@@ -433,7 +433,7 @@
 
         {# ── 003: LLM Toolbox - spans full width as grid closer ── #}
         {# TODO - RESOLVE LINK TO ACTUAL PROJECTS PAGE #}
-        <a href="#projects"
+        <a href="{% url 'core:projects' %}"
           class="project-card"
           aria-label="{% trans 'View project: ' %}{% trans 'LLM Toolbox' %}">
           <span class="project-link">
@@ -463,7 +463,7 @@
 
         {# ── 004: Cancer Inference - spans full width ── #}
         {# TODO - RESOLVE LINK TO ACTUAL PROJECTS PAGE #}
-        <a href="#projects"
+        <a href="{% url 'core:projects' %}"
           class="project-card project-featured project-full-width"
           aria-label="{% trans 'View project: ' %}{% trans 'Cancer Stage Inference from DNA Methylation' %}">
           <span class="project-link">
@@ -509,7 +509,7 @@
       {# CTA to full projects page #}
       <div class="text-center mt-5 reveal reveal-delay-3">
         {# TODO - RESOLVE LINK TO ACTUAL PROJECTS PAGE #}
-        <a href="#projects" class="btn btn-ghost">
+        <a href="{% url 'core:projects' %}" class="btn btn-ghost">
           <i class="bi bi-grid-fill" aria-hidden="true"></i>
           {% trans "All projects" %}
           <i class="bi bi-arrow-right" aria-hidden="true"></i>

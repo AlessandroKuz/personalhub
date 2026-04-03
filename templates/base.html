@@ -40,7 +40,7 @@
     <link rel="icon" type="image/svg+xml" href="{% static 'img/kuz-favicon.svg' %}">
 
     <!-- Theme Initialization JS - loading immediatly in order to prevent theme flash -->
-    <script>
+    <script nonce="{{ csp_nonce }}">
       (function () {
         var s = localStorage.getItem("theme") || "auto";
         var t = s === "auto"
