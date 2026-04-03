@@ -42,12 +42,15 @@
     <!-- Theme Initialization JS - loading immediatly in order to prevent theme flash -->
     <script nonce="{{ csp_nonce }}">
       (function () {
-        var s = localStorage.getItem("theme") || "auto";
-        var t = s === "auto"
-          ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
-          : s;
-        document.documentElement.setAttribute("data-theme", t);
-        document.documentElement.setAttribute("data-bs-theme", t);
+        try {
+          var s = localStorage.getItem("theme") || "auto";
+          var t = s === "auto"
+            ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+            : s;
+          document.documentElement.setAttribute("data-bs-theme", t);
+        } catch (e) {
+          document.documentElement.setAttribute("data-bs-theme", "dark");
+        }
       })();
     </script>
 

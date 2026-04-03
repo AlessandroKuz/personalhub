@@ -9,10 +9,7 @@
 {% block og_title %}{% trans "Coming soon" %} | Alessandro Kuz{% endblock %}
 
 {% block content %}
-<section
-  class="d-flex align-items-center"
-  style="min-height: calc(100vh - var(--navbar-height) - 120px); padding: clamp(48px, 8vh, 96px) 0;"
-  aria-labelledby="coming-soon-heading">
+<section class="d-flex align-items-center error-page-section" aria-labelledby="coming-soon-heading">
 
   <div class="container">
     <div class="row justify-content-center">
@@ -26,7 +23,7 @@
         {# ── Optional page icon ── #}
         {% if page_icon %}
         <div class="reveal reveal-delay-1 mb-3" aria-hidden="true">
-          <i class="bi {{ page_icon }}" style="font-size: 2rem; color: var(--accent);"></i>
+          <i class="bi {{ page_icon }} error-page-icon"></i>
         </div>
         {% endif %}
 
@@ -40,7 +37,7 @@
         </h1>
 
         {# ── Description ── #}
-        <p class="text-body-secondary mb-5 reveal reveal-delay-3" style="max-width: 52ch;">
+        <p class="text-body-secondary mb-5 reveal reveal-delay-3 error-page-description"">
           {% if page_message %}
             {{ page_message }}
           {% else %}

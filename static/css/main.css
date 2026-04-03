@@ -575,3 +575,20 @@ body.cursor-hover #cursor-ring {
   background: var(--accent);
   transform: scale(1.35);
 }
+
+/* ══════════════════════════════════════════════════════════
+   ERROR PAGES
+   ══════════════════════════════════════════════════════════ */
+
+.error-page-section {
+  min-height: calc(100vh - var(--navbar-height) - 120px);
+  padding: clamp(48px, 8vh, 96px) 0;
+}
+
+.error-page-icon {
+  font-size: 2rem; color: var(--accent);
+}
+
+.error-page-description {
+  max-width: 52ch;
+}

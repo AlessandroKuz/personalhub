@@ -15,7 +15,7 @@ if static files / whitenoise are unavailable.
   <meta name="robots" content="noindex, nofollow">
 
   {# ── Theme init - must run before any render to prevent flash ── #}
-  <script>
+  <script nonce="{{ csp_nonce }}">
     (function () {
       try {
         var s = localStorage.getItem("theme") || "auto";
@@ -36,9 +36,9 @@ if static files / whitenoise are unavailable.
 
   {# ── Bootstrap CSS ── #}
   <link
-    rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
     crossorigin="anonymous">
 
   {# ── Bootstrap Icons ── #}
@@ -49,7 +49,7 @@ if static files / whitenoise are unavailable.
     crossorigin="anonymous">
 
   {# ── Inline design tokens - mirrored from main.css & custom.scss ── #}
-  <style>
+  <style nonce="{{ csp_nonce }}">
     :root {
       --accent:          #275DAD;
       --ease:            cubic-bezier(0.16, 1, 0.3, 1);
@@ -169,6 +169,17 @@ if static files / whitenoise are unavailable.
     @media (prefers-reduced-motion: reduce) {
       .fade-up { animation: none; opacity: 1; transform: none; }
     }
+
+    .custom-div {
+      max-width: 520px;
+      width: 100%;
+    }
+
+    .custom-description {
+      color: var(--color-muted);
+      max-width: 52ch;
+      margin-bottom: 2.5rem;
+    }
   </style>
 </head>
 
@@ -177,7 +188,7 @@ if static files / whitenoise are unavailable.
   {# ── Brand link back home ── #}
   <a href="/" class="brand fade-up" aria-label="{% trans 'Back to homepage' %}">Kuz</a>
 
-  <div style="max-width: 520px; width: 100%;">
+  <div class="custom-div">
 
     {# ── Label ── #}
     <p class="section-label fade-up" aria-hidden="true">
@@ -193,7 +204,7 @@ if static files / whitenoise are unavailable.
     </h1>
 
     {# ── Description ── #}
-    <p style="color: var(--color-muted); max-width: 52ch; margin-bottom: 2.5rem;" class="fade-up fade-up-3">
+    <p class="fade-up fade-up-3">
       {% blocktrans %}An unexpected error occurred on my end. I've been notified and I'm looking into it. Please try again in a moment.{% endblocktrans %}
     </p>
 
@@ -210,11 +221,11 @@ if static files / whitenoise are unavailable.
   </div>
 
   {# ── Bootstrap JS - minimal, only for potential future use ── #}
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous">
-  </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous">
+    </script>
 
 </body>
 </html>
