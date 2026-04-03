@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-03 16:12+0200\n"
+"POT-Creation-Date: 2026-04-03 21:40+0200\n"
 "PO-Revision-Date: 2026-04-03 16:23+0200\n"
 "Last-Translator: Alessandro Kuz\n"
 "Language-Team: Deutsch <de@li.orgLanguage: de\n"
@@ -19,14 +19,15 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps/core/templates/core/about.html:4 apps/core/templates/core/home.html:162
-#: apps/core/views.py:19 templates/components/_nav.html:98
+#: apps/core/views.py:19 apps/core/views.py:38
+#: templates/components/_nav.html:98
 #: templates/components/_shortcutsModal.html:29
 msgid "About"
 msgstr "Über mich"
 
 #: apps/core/templates/core/contact.html:3
 #: apps/core/templates/core/home.html:591 apps/core/views.py:24
-#: templates/components/_nav.html:144
+#: apps/core/views.py:82 templates/components/_nav.html:144
 #: templates/components/_shortcutsModal.html:32
 msgid "Contact"
 msgstr "Kontakt"
@@ -177,7 +178,8 @@ msgid "Calisthenics, nature, history and philosophy"
 msgstr "Calisthenics, Natur, Geschichte und Philosophie"
 
 #: apps/core/templates/core/home.html:216 apps/core/templates/core/work.html:4
-#: apps/core/views.py:20 templates/components/_nav.html:106
+#: apps/core/views.py:20 apps/core/views.py:53
+#: templates/components/_nav.html:106
 #: templates/components/_shortcutsModal.html:30
 msgid "Work"
 msgstr "Arbeit"
@@ -258,7 +260,7 @@ msgid "Open CV pdf"
 msgstr "Lebenslauf als PDF öffnen"
 
 #: apps/core/templates/core/home.html:347 apps/core/views.py:21
-#: templates/components/_nav.html:125
+#: apps/core/views.py:68 templates/components/_nav.html:125
 #: templates/components/_shortcutsModal.html:31
 msgid "Projects"
 msgstr "Projekte"
@@ -505,39 +507,77 @@ msgstr "Zur Kontaktseite"
 msgid "Introduction"
 msgstr "Einführung"
 
-#: apps/core/views.py:47
+#: apps/core/views.py:41
+msgid ""
+"I'm putting together a proper about page: background, the six languages, how "
+"I think about problems. The homepage introduction covers the essentials for "
+"now."
+msgstr ""
+"Ich arbeite gerade an einer richtigen Über-mich-Seite: Hintergrund, die "
+"sechs Sprachen, wie ich Probleme angehe. Die Einleitung auf der Startseite "
+"deckt das Wesentliche vorerst ab."
+
+#: apps/core/views.py:56
+msgid ""
+"A detailed breakdown of what I do and how I do it is coming: services, "
+"tools, and the approach behind the work. The homepage gives a summary in the "
+"meantime."
+msgstr ""
+"Eine detaillierte Übersicht darüber, was ich tue und wie ich es tue, kommt "
+"bald: Leistungen, Tools und der Ansatz hinter der Arbeit. Die Startseite "
+"bietet in der Zwischenzeit eine Zusammenfassung."
+
+#: apps/core/views.py:71
+msgid ""
+"A curated showcase of my work is being put together: data pipelines, ML "
+"systems, and the web projects in between. The homepage gives a preview for "
+"now."
+msgstr ""
+"Eine kuratierte Auswahl meiner Arbeiten wird zusammengestellt — "
+"Datenpipelines, ML-Systeme und die Web-Projekte dazwischen. Die Startseite "
+"bietet vorerst eine Vorschau."
+
+#: apps/core/views.py:85
+msgid ""
+"This form is still being built. In the meantime, reach me directly at my "
+"email, I respond within 24 hours."
+msgstr ""
+"Dieses Formular ist noch im Aufbau. Schreib mir in der Zwischenzeit direkt "
+"per E-Mail, ich antworte innerhalb von 24 Stunden."
+
+#: apps/core/views.py:94
 msgid "🐛 DEBUG — lowest level, hidden in production"
 msgstr "🐛 DEBUG — niedrigste Ebene, in Produktion ausgeblendet"
 
-#: apps/core/views.py:48
+#: apps/core/views.py:95
 msgid "ℹ️ INFO — general information"
 msgstr "ℹ️ INFO — allgemeine Information"
 
-#: apps/core/views.py:49
+#: apps/core/views.py:96
 msgid "✅ SUCCESS — action completed"
 msgstr "✅ SUCCESS — Aktion abgeschlossen"
 
-#: apps/core/views.py:50
+#: apps/core/views.py:97
 msgid "⚠️ WARNING — something needs attention"
 msgstr "⚠️ WARNING — etwas erfordert Aufmerksamkeit"
 
-#: apps/core/views.py:51
+#: apps/core/views.py:98
 msgid "❌ ERROR — something went wrong"
 msgstr "❌ ERROR — etwas ist schiefgelaufen"
 
-#: config/settings/base.py:134
+#: config/settings/base.py:195
 msgid "English"
 msgstr "Englisch"
 
-#: config/settings/base.py:135
+#: config/settings/base.py:196
 msgid "Italian"
 msgstr "Italienisch"
 
-#: config/settings/base.py:136
+#: config/settings/base.py:197
 msgid "Spanish"
 msgstr "Spanisch"
 
-#: config/settings/base.py:137
+#: config/settings/base.py:198
 msgid "German"
 msgstr "Deutsch"
 
@@ -566,10 +606,11 @@ msgstr ""
 
 #: templates/400.html:45 templates/403.html:45 templates/403_csrf.html:57
 #: templates/404.html:45 templates/410.html:45 templates/500.html:206
+#: templates/coming_soon.html:54
 msgid "Go home"
 msgstr "Zur Startseite"
 
-#: templates/400.html:48 templates/404.html:48
+#: templates/400.html:48 templates/404.html:48 templates/coming_soon.html:57
 msgid "Go back"
 msgstr "Zurück"
 
@@ -712,6 +753,23 @@ msgstr "Drücke"
 #: templates/base.html:112
 msgid "for keyboard shortcuts"
 msgstr "für Tastaturkürzel"
+
+#: templates/coming_soon.html:5 templates/coming_soon.html:9
+#: templates/coming_soon.html:38
+msgid "Coming soon"
+msgstr "Demnächst"
+
+#: templates/coming_soon.html:8
+msgid "This page is under construction. Check back soon."
+msgstr "Diese Seite ist im Aufbau. Schau bald wieder vorbei."
+
+#: templates/coming_soon.html:23
+msgid "work in progress"
+msgstr "in Bearbeitung"
+
+#: templates/coming_soon.html:47
+msgid "This page is currently being built. Come back soon, it won't be long."
+msgstr "Diese Seite wird gerade aufgebaut. Komm bald wieder, es dauert nicht mehr lange."
 
 #: templates/components/_alerts.html:11
 #: templates/components/_shortcutsModal.html:8

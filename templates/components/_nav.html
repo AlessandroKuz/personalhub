@@ -118,7 +118,7 @@
         {% endcomment %}
         <li class="nav-item">
           <a class="nav-link small {% if request.resolver_match.url_name == 'projects' %}active{% endif %}"
-            href="{% if request.resolver_match.url_name == 'home' %}#projects{% else %}{% url 'core:home' %}#projects{% endif %}"
+            href="{% url 'core:projects' %}"
             data-vim-key="p"
             {% if request.resolver_match.url_name == 'projects' %}aria-current="page"{% endif %}>
             {% trans "Projects" %}
