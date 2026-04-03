@@ -87,7 +87,7 @@
             href="{% url 'core:home' %}"
             data-vim-key="h"
             {% if request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %}>
-            Home
+            {% trans "Home" %}
           </a>
         </li>
         <li class="nav-item">

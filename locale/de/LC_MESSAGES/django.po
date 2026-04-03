@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-03 15:38+0200\n"
-"PO-Revision-Date: 2026-04-03 15:31+0200\n"
+"POT-Creation-Date: 2026-04-03 15:49+0200\n"
+"PO-Revision-Date: 2026-04-03 15:50+0200\n"
 "Last-Translator: Alessandro Kuz\n"
 "Language-Team: Deutsch <de@li.orgLanguage: de\n"
 "Language: \n"
@@ -496,24 +496,6 @@ msgstr "Spanisch"
 msgid "German"
 msgstr "Deutsch"
 
-#: site/PROJECT_CONTEXT/index.html:1830
-msgid "Hello"
-msgstr ""
-
-#: site/PROJECT_CONTEXT/index.html:1830
-msgid "..."
-msgstr ""
-
-#: site/frontend/i18n/index.html:1604
-#, python-format
-msgid ""
-"\n"
-"<a id=\"__codelineno-3-8\" name=\"__codelineno-3-8\" "
-"href=\"#__codelineno-3-8\"></a>  Hello, %(name)s. Welcome to my site.\n"
-"<a id=\"__codelineno-3-9\" name=\"__codelineno-3-9\" "
-"href=\"#__codelineno-3-9\"></a>"
-msgstr ""
-
 #: templates/400.html:4 templates/400.html:6 templates/400.html:34
 msgid "Bad request"
 msgstr "Ungültige Anfrage"
@@ -717,6 +699,11 @@ msgstr "Design umschalten"
 msgid "Toggle navigation menu"
 msgstr "Navigationsmenü öffnen/schließen"
 
+#: templates/components/_nav.html:90
+#: templates/components/_shortcutsModal.html:28
+msgid "Home"
+msgstr "Startseite"
+
 #: templates/components/_shortcutsModal.html:7
 msgid "Navigation Shortcuts"
 msgstr "Tastaturkürzel"
@@ -756,10 +743,6 @@ msgstr "Vorheriger / nächster Abschnitt"
 #: templates/components/_shortcutsModal.html:26
 msgid "Pages"
 msgstr "Seiten"
-
-#: templates/components/_shortcutsModal.html:28
-msgid "Home"
-msgstr "Startseite"
 
 #: templates/components/_shortcutsModal.html:35
 msgid "Actions"
