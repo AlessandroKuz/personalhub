@@ -134,7 +134,8 @@ LOGGING = {
     },
     "handlers": {
         "console": {
-            "class": "logging.StreamHandler",  # writes to stderr by default (visible in docker logs)
+            # writes to stderr by default (visible in docker logs)
+            "class": "logging.StreamHandler",
             "formatter": "verbose",
         },
     },

@@ -232,4 +232,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
 import { init as initVimNav } from './vimNav.js';
 initVimNav();
-

@@ -38,7 +38,9 @@ async def about(request: HttpRequest) -> HttpResponse:
             "page_title": _("About"),
             "page_icon": "bi-person-fill",
             "page_message": _(
-                "I'm putting together a proper about page: background, the six languages, how I think about problems. The homepage introduction covers the essentials for now."
+                "I'm putting together a proper about page: background, the six "
+                "languages, how I think about problems. The homepage "
+                "introduction covers the essentials for now."
             ),
         },
     )
@@ -53,7 +55,9 @@ async def work(request: HttpRequest) -> HttpResponse:
             "page_title": _("Work"),
             "page_icon": "bi-briefcase-fill",
             "page_message": _(
-                "A detailed breakdown of what I do and how I do it is coming: services, tools, and the approach behind the work. The homepage gives a summary in the meantime."
+                "A detailed breakdown of what I do and how I do it is coming: "
+                "services, tools, and the approach behind the work. The "
+                "homepage gives a summary in the meantime."
             ),
         },
     )
@@ -68,7 +72,9 @@ async def projects(request: HttpRequest) -> HttpResponse:
             "page_title": _("Projects"),
             "page_icon": "bi-code-slash",
             "page_message": _(
-                "A curated showcase of my work is being put together: data pipelines, ML systems, and the web projects in between. The homepage gives a preview for now."
+                "A curated showcase of my work is being put together: data "
+                "pipelines, ML systems, and the web projects in between. "
+                "The homepage gives a preview for now."
             ),
         },
     )
@@ -82,7 +88,8 @@ async def contact(request: HttpRequest) -> HttpResponse:
             "page_title": _("Contact"),
             "page_icon": "bi-envelope-fill",
             "page_message": _(
-                "This form is still being built. In the meantime, reach me directly at my email, I respond within 24 hours."
+                "This form is still being built. In the meantime, reach me "
+                "directly at my email, I respond within 24 hours."
             ),
         },
     )
