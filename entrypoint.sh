@@ -9,16 +9,16 @@ set -e
 echo "==> Running database migrations..."
 python manage.py migrate --noinput
 
-#echo "==> Compressing SCSS and JS assets (offline compression)..."
+echo "==> Compressing SCSS and JS assets (offline compression)..."
 # compress must run BEFORE collectstatic.
 # It compiles SCSS → CSS, writes output files, and generates a manifest
 # that Django uses to serve pre-compiled assets without runtime compilation.
-#python manage.py compress --force
+python manage.py compress --force
 
-#echo "==> Collecting static files..."
+echo "==> Collecting static files..."
 # WhiteNoise serves static files directly from Django, so we need
 # collectstatic to gather everything into STATIC_ROOT before starting.
-#python manage.py collectstatic --noinput
+python manage.py collectstatic --noinput
 
 echo "==> Starting Uvicorn (ASGI)..."
 # `exec` replaces this shell process with uvicorn, making uvicorn PID 1.

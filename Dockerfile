@@ -4,7 +4,7 @@
 # We use a separate stage so that uv itself and any build-time system packages
 # never end up in the final production image.
 # =============================================================================
-FROM python:3.14-slim-trixie AS builder
+FROM astral/uv:python3.14-bookworm-slim AS builder
 
 # PYTHONDONTWRITEBYTECODE: Prevents Python from writing .pyc bytecode files.
 # We don't need them in a container — they'd just add layer weight.
@@ -15,16 +15,6 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
   PYTHONUNBUFFERED=1
 
 WORKDIR /app
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
-  build-essential \
-  && rm -rf /var/lib/apt/lists/*
-
-# Copy uv's single static binary from its official image.
-# This is the "COPY --from external image" pattern. We get uv without
-# running pip install or any other installer. The binary is statically
-# linked so it has no system library dependencies.
-COPY --from=ghcr.io/astral-sh/uv:0.11.2 /uv /uvx /bin/
 
 # --- DEPENDENCY INSTALLATION (exploiting layer caching) ---
 # We copy ONLY the dependency manifest files first, before copying
@@ -47,8 +37,6 @@ COPY . .
 # Install the project itself (makes your apps importable as a package if needed)
 # The dependencies are already installed from the step above, so this is fast.
 RUN uv sync --frozen --no-dev
-
-ENV PATH="/app/.venv/bin:$PATH"
 
 
 # =============================================================================
