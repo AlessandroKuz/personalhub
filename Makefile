@@ -117,11 +117,11 @@ createsuperuser: ## Interactively create a Django admin superuser
 messages: ## Extract translatable strings into .po files for all configured languages
 	@for lang in $(LANGUAGES); do \
 		echo "→ Extracting messages for $$lang..."; \
-		$(MANAGE) makemessages -l $$lang; \
+		$(MANAGE) makemessages -l $$lang --ignore="site/*" --ignore="docs/*" --ignore=".venv/*"; \
 	done
 
 message: ## Extract strings for one language — usage: make message ARGS="de"
-	$(MANAGE) makemessages -l $(ARGS)
+	$(MANAGE) makemessages -l $(ARGS) --ignore="site/*" --ignore="docs/*" --ignore=".venv/*"
 
 compile-messages: ## Compile all .po files into binary .mo files
 	$(MANAGE) compilemessages

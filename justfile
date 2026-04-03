@@ -101,12 +101,12 @@ messages:
     set -euo pipefail
     for lang in {{ langs }}; do
         echo "→ Extracting messages for $lang..."
-        {{ manage }} makemessages -l $lang
+        {{ manage }} makemessages -l $lang --ignore="site/*" --ignore="docs/*" --ignore=".venv/*"
     done
 
 # Extract translatable strings for a single language (usage: just message de)
 message lang:
-    {{ manage }} makemessages -l {{ lang }}
+    {{ manage }} makemessages -l {{ lang }} --ignore="site/*" --ignore="docs/*" --ignore=".venv/*"
 
 # Compile all .po translation files into binary .mo files Django reads at runtime
 compile-messages:
