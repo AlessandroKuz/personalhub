@@ -1,0 +1,20 @@
+# Replace yourdomain.com with your actual domain.
+# Caddy will:
+#   1. Automatically obtain a TLS certificate from Let's Encrypt
+#   2. Redirect all HTTP traffic to HTTPS
+#   3. Proxy all HTTPS requests to the Django container on port 8000
+#
+# CLOUDFLARE NOTE: In your Cloudflare SSL/TLS settings, set mode to
+# "Full (strict)". This means Cloudflare↔Caddy communication is encrypted
+# and Cloudflare verifies Caddy's certificate. "Flexible" would mean
+# Cloudflare connects to Caddy over plain HTTP — wrong.
+
+localhost, :80 {
+	handle_path /static/* {
+		root * /srv/personalhub/staticfiles
+		file_server
+	}
+
+  reverse_proxy web:8000
+}
+
