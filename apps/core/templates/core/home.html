@@ -64,8 +64,14 @@
           </p>
 
           <div class="hero-cta">
-            <a href="#work"    class="btn btn-primary">{% trans "View my work" %}</a>
-            <a href="#contact" class="btn btn-ghost">{% trans "Get in touch" %}</a>
+            <a href="#work"    class="btn btn-primary">
+              {% trans "View my work" %}
+              <i class="bi bi-arrow-down"></i>
+            </a>
+            <a href="#contact" class="btn btn-ghost">
+              {% trans "Get in touch" %}
+              <i class="bi bi-send-fill"></i>
+            </a>
           </div>
         </div>
 
@@ -179,6 +185,7 @@
           </p>
           <a href="{% url 'core:about' %}"
             class="btn btn-ghost mt-2">
+            <i class="bi bi-book"></i>
             {% trans "Read more" %}
             <i class="bi bi-arrow-right"></i>
           </a>
@@ -220,7 +227,10 @@
             <i class="bi bi-box-arrow-up-right"></i>
           </span>
           <span class="skill-icon">[ DATA ]</span>
-          <h3 class="skill-col-title">{% trans "Data Science" %}</h3>
+          <h3 class="skill-col-title">
+            <i class="bi bi-bar-chart-line"></i>
+            {% trans "Data Science" %}
+          </h3>
           <p>
             {% blocktrans trimmed %}
               Turning raw data into insight, from exploratory analysis
@@ -246,7 +256,10 @@
             <i class="bi bi-box-arrow-up-right"></i>
           </span>
           <span class="skill-icon">[ ML / AI ]</span>
-          <h3 class="skill-col-title">{% trans "Machine Learning & AI" %}</h3>
+          <h3 class="skill-col-title">
+            <i class="bi bi-cpu"></i>
+            {% trans "Machine Learning & AI" %}
+          </h3>
           <p>
             {% blocktrans trimmed %}
               Designing and training models that generalise, from classical
@@ -271,7 +284,10 @@
             <i class="bi bi-box-arrow-up-right"></i>
           </span>
           <span class="skill-icon">[ BACKEND ]</span>
-          <h3 class="skill-col-title">{% trans "Backend & Web" %}</h3>
+          <h3 class="skill-col-title">
+            <i class="bi bi-layers"></i>
+            {% trans "Backend & Web" %}
+          </h3>
           <p>
             {% blocktrans trimmed %}
               Building and shipping server-side systems end-to-end,
@@ -298,6 +314,7 @@
       {# CTA to full work page #}
       <div class="text-center mt-5 reveal reveal-delay-3">
         <a href="{% url 'core:work' %}" class="btn btn-ghost">
+          <i class="bi bi-briefcase-fill"></i>
           {% trans "See full CV" %}
           <i class="bi bi-arrow-right"></i>
         </a>
@@ -339,7 +356,10 @@
           <div>
             <span class="featured-badge">{% trans "Featured" %}</span>
             <div class="project-num">001</div>
-            <h3 class="project-title">PersonalHub</h3>
+            <h3 class="project-title">
+              <i class="bi bi-globe"></i>
+              {% trans "PersonalHub" %}
+            </h3>
             <p class="project-desc">
               {% blocktrans trimmed %}
                 This very site. A <strong>Django</strong>-powered personal hub built with
@@ -380,7 +400,10 @@
             <i class="bi bi-box-arrow-up-right"></i>
           </span>
           <div class="project-num">002</div>
-          <h3 class="project-title">{% trans "Online Anamnestic Module (MAO)" %}</h3>
+          <h3 class="project-title">
+            <i class="bi bi-journal-medical"></i>
+            {% trans "Online Anamnestic Module (MAO)" %}
+          </h3>
           <p class="project-desc">
             {% blocktrans trimmed %}
             Clinical data collection platform built for oncology specialists to digitise patient anamnestic intake. Integrates external tools and <strong>APIs</strong> for interactive pedigree tree building and for cancer mutation probability assessment. Role-based access via <strong>Microsoft Entra</strong>, deployed on <strong>Azure</strong>.
@@ -407,7 +430,10 @@
             <i class="bi bi-box-arrow-up-right"></i>
           </span>
           <div class="project-num">003</div>
-          <h3 class="project-title">LLM Toolbox</h3>
+          <h3 class="project-title">
+            <i class="bi bi-terminal"></i>
+            LLM Toolbox
+          </h3>
           <p class="project-desc">
             {% blocktrans trimmed %}
               A collection of <strong>LLM</strong>-powered developer tools built around real workflows. Tailor-your-CV aligns a CV to a job description using OpenAI, Gemini, or local Ollama models. Local <strong>RAG</strong> indexes local files into a ChromaDB vector store with smart chunking and full source attribution.
@@ -434,7 +460,10 @@
 
           <div>
             <div class="project-num">004</div>
-            <h3 class="project-title">{% trans "Cancer Stage Inference from DNA Methylation" %}</h3>
+            <h3 class="project-title">
+              <i class="bi bi-heart-pulse"></i>
+              {% trans "Cancer Stage Inference from DNA Methylation" %}
+            </h3>
             <p class="project-desc">
               {% blocktrans trimmed %}
                 End-to-end ML pipeline to infer cancer stage from tissue DNA methylation profiles, built after deep research into cancer biology and staging with expert consultation. 200GB+ of raw methylation data processed out-of-core via Dask and Polars. Compared multiple architectures with full evaluation across all stages.
@@ -455,7 +484,7 @@
             <div class="terminal-preview">
               <div class="t-line-dim">Dataset: <span class="t-line-accent">200GB</span> methylation profiles</div>
               <div>Samples processed: <span class="t-line-accent">10841</span></div>
-              <div class="t-line-dim">Cancer vs. cancer-free accuracy: <span class="t-line-green">98%</span></div>
+              <div class="t-line-dim">Cancer vs. cancer-free accuracy: <span class="t-line-accent">98%</span></div>
               <div>Stage prediction accuracy: <span class="t-line-accent">67,8%</span><span class="t-cursor"></span></div>
             </div>
           </div>
@@ -468,6 +497,7 @@
       <div class="text-center mt-5 reveal reveal-delay-3">
         {# TODO - RESOLVE LINK TO ACTUAL PROJECTS PAGE #}
         <a href="#projects" class="btn btn-ghost">
+          <i class="bi bi-grid-fill"></i>
           {% trans "All projects" %}
           <i class="bi bi-arrow-right"></i>
         </a>

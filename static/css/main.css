@@ -5,7 +5,7 @@
 :root {
   --navbar-height:  50px;
   --accent:         var(--bs-primary); /* overrode in scss file */
-  --terminal-green: #4ade80;
+  --green:          #4ade80;
   --ease:           cubic-bezier(0.16, 1, 0.3, 1);
   --nav-blur:       15px;
   --shadow-hover:   0 4px 12px rgba(0, 0, 0, 0.1);
