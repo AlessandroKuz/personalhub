@@ -1,0 +1,874 @@
+# PersonalHub - Персональний сайт Олександра Кузя.
+# Copyright (C) 2026 Alessandro Kuz.
+# This file is distributed under the same license as the PERSONALHUB package.
+# Alessandro Kuz contact@alessandrokuz.com, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: v1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-04 08:56+0200\n"
+"PO-Revision-Date: 2026-04-03 21:40+0200\n"
+"Last-Translator: Олександр Кузь\n"
+"Language-Team: Українська <uk@li.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+
+#: apps/core/templates/core/about.html:4 apps/core/templates/core/home.html:162
+#: apps/core/views.py:20 apps/core/views.py:39
+#: templates/components/_nav.html:98
+#: templates/components/_shortcutsModal.html:29
+msgid "About"
+msgstr "Про мене"
+
+#: apps/core/templates/core/contact.html:3
+#: apps/core/templates/core/home.html:591 apps/core/views.py:25
+#: apps/core/views.py:89 templates/components/_nav.html:144
+#: templates/components/_shortcutsModal.html:32
+msgid "Contact"
+msgstr "Контакти"
+
+---
+
+
+#: apps/core/templates/core/home.html:5
+msgid "Alessandro Kuz - Data Scientist & ML Engineer"
+msgstr "Олександр Кузь Data Scientist та ML Engineer"
+
+#: apps/core/templates/core/home.html:12
+msgid "Page sections"
+msgstr "Розділи сторінки"
+
+#: apps/core/templates/core/home.html:23
+#, python-format
+msgid "%(label)s"
+msgstr "%(label)s"
+
+#: apps/core/templates/core/home.html:48
+msgid "Available for opportunities"
+msgstr "Відкритий до можливостей"
+
+#: apps/core/templates/core/home.html:56
+msgid "Built Lean. Shipped Clean."
+msgstr "Створено лаконічно. Запущено якісно."
+
+#: apps/core/templates/core/home.html:60
+msgid ""
+"Data Scientist and ML Engineer with a degree in AI. I work end-to-end: data "
+"pipelines, model training, and the interfaces people actually use. Based in "
+"Italy, working globally."
+msgstr ""
+"Data Scientist та ML Engineer з освітою у сфері штучного інтелекту. Працюю "
+"повністю від початку до кінця: конвеєри даних, навчання моделей та "
+"інтерфейси, якими реально користуються люди. Базуюсь в Італії, працюю "
+"глобально."
+
+#: apps/core/templates/core/home.html:69
+msgid "View my work"
+msgstr "Переглянути мої роботи"
+
+#: apps/core/templates/core/home.html:73
+msgid "Get in touch"
+msgstr "Зв’язатися"
+
+#: apps/core/templates/core/home.html:80
+msgid "Quick profile summary"
+msgstr "Короткий профіль"
+
+#: apps/core/templates/core/home.html:84
+msgid "Open to work"
+msgstr "Відкритий до роботи"
+
+#: apps/core/templates/core/home.html:89
+msgid "Role"
+msgstr "Роль"
+
+#: apps/core/templates/core/home.html:92
+msgid "& ML Engineer"
+msgstr "та ML Engineer"
+
+#: apps/core/templates/core/home.html:96
+msgid "Experience"
+msgstr "Досвід"
+
+#: apps/core/templates/core/home.html:98
+msgid "years"
+msgstr "років"
+
+#: apps/core/templates/core/home.html:102
+msgid "Location"
+msgstr "Локація"
+
+#: apps/core/templates/core/home.html:104
+msgid "Italy"
+msgstr "Італія"
+
+#: apps/core/templates/core/home.html:108
+#: apps/core/templates/core/home.html:201
+msgid "Languages"
+msgstr "Мови"
+
+#: apps/core/templates/core/home.html:110
+msgid "spoken"
+msgstr "якими володію"
+
+#: apps/core/templates/core/home.html:117
+msgid "Core technologies"
+msgstr "Основні технології"
+
+#: apps/core/templates/core/home.html:164
+msgid "A builder at heart,"
+msgstr "Творець за натурою,"
+
+#: apps/core/templates/core/home.html:165
+msgid "curious by nature."
+msgstr "допитливий від природи."
+
+#: apps/core/templates/core/home.html:173
+msgid ""
+"I'm <strong>Alessandro Kuz</strong>, I like building toward AI that "
+"genuinely augments what people can do, not replaces what we enjoy doing."
+msgstr ""
+"Я <strong>Олександр Кузь</strong>, мені подобається створювати рішення у "
+"сфері штучного інтелекту, які справді підсилюють можливості людей, а не "
+"замінюють те, що нам подобається робити."
+
+#: apps/core/templates/core/home.html:178
+msgid ""
+"I'm curious by nature: when something catches my interest I like to learn "
+"more about it, whether that's a new concept, a language to pick up or a "
+"skill to teach myself."
+msgstr ""
+"Я допитливий за природою: коли щось привертає мою увагу, я прагну дізнатися "
+"більше, будь то нова концепція, мова чи навичка."
+
+#: apps/core/templates/core/home.html:183
+msgid ""
+"I was born and raised in Italy to Ukrainian parents, which probably explains "
+"the six languages and my fascination with cultures, history and "
+"communication."
+msgstr ""
+"Я народився і виріс в Італії в українській родині, що, ймовірно, пояснює "
+"шість мов і моє захоплення культурами, історією та комунікацією."
+
+#: apps/core/templates/core/home.html:190
+msgid "Read more"
+msgstr "Читати більше"
+
+#: apps/core/templates/core/home.html:198
+msgid "From"
+msgstr "Походження"
+
+#: apps/core/templates/core/home.html:199
+msgid "Italy, Ukrainian roots"
+msgstr "Італія, українське коріння"
+
+#: apps/core/templates/core/home.html:202
+msgid "Italian, English, Spanish, Russian, Ukrainian, German"
+msgstr "Італійська, англійська, іспанська, російська, українська, німецька"
+
+#: apps/core/templates/core/home.html:204
+msgid "Outside work"
+msgstr "Поза роботою"
+
+#: apps/core/templates/core/home.html:205
+msgid "Calisthenics, nature, history and philosophy"
+msgstr "Калістеніка, природа, історія та філософія"
+
+#: apps/core/templates/core/home.html:216 apps/core/templates/core/work.html:4
+#: apps/core/views.py:21 apps/core/views.py:56
+#: templates/components/_nav.html:106
+#: templates/components/_shortcutsModal.html:30
+msgid "Work"
+msgstr "Робота"
+
+#: apps/core/templates/core/home.html:218
+msgid "Three layers:"
+msgstr "Три рівні:"
+
+#: apps/core/templates/core/home.html:219
+msgid "From data to model to product."
+msgstr "Від даних до моделі до продукту."
+
+#: apps/core/templates/core/home.html:227
+msgid "View Data Science work"
+msgstr "Переглянути роботи з Data Science"
+
+#: apps/core/templates/core/home.html:229
+#: apps/core/templates/core/home.html:260
+#: apps/core/templates/core/home.html:290
+#: apps/core/templates/core/home.html:361
+#: apps/core/templates/core/home.html:409
+#: apps/core/templates/core/home.html:441
+#: apps/core/templates/core/home.html:471
+msgid "View"
+msgstr "Переглянути"
+
+#: apps/core/templates/core/home.html:235
+msgid "Data Science"
+msgstr "Data Science"
+
+#: apps/core/templates/core/home.html:238
+msgid ""
+"Turning raw data into insight, from exploratory analysis and statistical "
+"modelling to production-grade pipelines."
+msgstr ""
+"Перетворення сирих даних на інсайти: від дослідницького аналізу та "
+"статистичного моделювання до конвеєрів рівня продакшн."
+
+#: apps/core/templates/core/home.html:258
+msgid "View Machine Learning and AI work"
+msgstr "Переглянути роботи з машинного навчання та штучного інтелекту"
+
+#: apps/core/templates/core/home.html:266
+msgid "Machine Learning & AI"
+msgstr "Машинне навчання та штучний інтелект"
+
+#: apps/core/templates/core/home.html:269
+msgid ""
+"Designing and training models that generalise, from classical algorithms to "
+"Deep Learning and Large Language Model systems."
+msgstr ""
+"Проєктування та навчання моделей, що узагальнюють: від класичних алгоритмів "
+"до глибокого навчання та систем великих мовних моделей."
+
+#: apps/core/templates/core/home.html:288
+msgid "View Backend and DevOps work"
+msgstr "Переглянути роботи з Backend та DevOps"
+
+#: apps/core/templates/core/home.html:296
+msgid "Backend & Web"
+msgstr "Backend та Web"
+
+#: apps/core/templates/core/home.html:299
+msgid ""
+"Building and shipping server-side systems end-to-end, from clean APIs and "
+"hypermedia-driven interfaces to containerised, production-ready deployments."
+msgstr ""
+"Розробка серверних систем від початку до кінця: від чистих API та "
+"інтерфейсів до контейнеризованих рішень, готових до продакшну."
+
+#: apps/core/templates/core/home.html:325
+msgid "See full CV"
+msgstr "Переглянути повне CV"
+
+#: apps/core/templates/core/home.html:334
+msgid "Open CV pdf"
+msgstr "Відкрити CV у форматі PDF"
+
+#: apps/core/templates/core/home.html:347 apps/core/views.py:22
+#: apps/core/views.py:73 templates/components/_nav.html:125
+#: templates/components/_shortcutsModal.html:31
+msgid "Projects"
+msgstr "Проєкти"
+
+#: apps/core/templates/core/home.html:349
+msgid "Things I've built"
+msgstr "Речі, які я створив"
+
+#: apps/core/templates/core/home.html:350
+msgid "that are actually useful."
+msgstr "які справді корисні."
+
+#: apps/core/templates/core/home.html:359
+#: apps/core/templates/core/home.html:407
+#: apps/core/templates/core/home.html:439
+#: apps/core/templates/core/home.html:469
+msgid "View project: "
+msgstr "Переглянути проєкт: "
+
+#: apps/core/templates/core/home.html:359
+#: apps/core/templates/core/home.html:369
+msgid "PersonalHub"
+msgstr "PersonalHub"
+
+#: apps/core/templates/core/home.html:365
+msgid "Featured"
+msgstr "Рекомендоване"
+
+#: apps/core/templates/core/home.html:372
+msgid ""
+"This very site. A <strong>Django</strong>-powered personal hub built with "
+"<strong>HTMX</strong>, <strong>Bootstrap 5</strong>, and a deliberate no-JS-"
+"framework philosophy. Designed to grow through three phases: from static "
+"portfolio to dynamic collection projects, writing and my career information. "
+"Every architectural decision is documented so the project can be reproduced "
+"from scratch."
+msgstr ""
+"Цей сайт. Персональний хаб на базі <strong>Django</strong>, створений з "
+"використанням <strong>HTMX</strong> та <strong>Bootstrap 5</strong> з "
+"принциповою відмовою від JS фреймворків. Розроблений для розвитку у три "
+"етапи: від статичного портфоліо до динамічної платформи з проєктами, "
+"текстами та інформацією про кар’єру. Кожне архітектурне рішення "
+"задокументовано, щоб проєкт можна було відтворити з нуля."
+
+#: apps/core/templates/core/home.html:407
+#: apps/core/templates/core/home.html:415
+msgid "Online Anamnestic Module (MAO)"
+msgstr "Онлайн анамнестичний модуль MAO"
+
+#: apps/core/templates/core/home.html:418
+msgid ""
+"Clinical data collection platform built for oncology specialists to digitise "
+"patient anamnestic intake. Integrates external tools and <strong>APIs</"
+"strong> for interactive pedigree tree building and for cancer mutation "
+"probability assessment. Role-based access via <strong>Microsoft Entra</"
+"strong>, deployed on <strong>Azure</strong>."
+msgstr ""
+"Платформа збору клінічних даних, створена для онкологів з метою цифровізації "
+"анамнезу пацієнтів. Інтегрує зовнішні інструменти та <strong>API</strong> "
+"для побудови генеалогічних дерев та оцінки ймовірності мутацій раку. "
+"Доступ на основі ролей через <strong>Microsoft Entra</strong>, розгорнуто "
+"на <strong>Azure</strong>."
+
+#: apps/core/templates/core/home.html:439
+#: apps/core/templates/core/home.html:447
+msgid "LLM Toolbox"
+msgstr "LLM Toolbox"
+
+#: apps/core/templates/core/home.html:450
+msgid ""
+"A collection of <strong>LLM</strong>-powered developer tools built around "
+"real workflows. Tailor-your-CV aligns a CV to a job description using "
+"OpenAI, Gemini, or local Ollama models. Local <strong>RAG</strong> indexes "
+"local files into a ChromaDB vector store with smart chunking and full source "
+"attribution."
+msgstr ""
+"Набір інструментів для розробників на базі <strong>LLM</strong>, створених "
+"для реальних робочих процесів. Tailor your CV узгоджує резюме з описом "
+"вакансії за допомогою OpenAI, Gemini або локальних моделей Ollama. Локальний "
+"<strong>RAG</strong> індексує файли у векторне сховище ChromaDB з "
+"розумним поділом на частини та повною атрибуцією джерел."
+
+#: apps/core/templates/core/home.html:469
+#: apps/core/templates/core/home.html:479
+msgid "Cancer Stage Inference from DNA Methylation"
+msgstr "Визначення стадії раку за метилюванням ДНК"
+
+#: apps/core/templates/core/home.html:482
+msgid ""
+"End-to-end ML pipeline to infer cancer stage from tissue DNA methylation "
+"profiles, built after deep research into cancer biology and staging with "
+"expert consultation. 200GB+ of raw methylation data processed out-of-core "
+"via Dask and Polars. Compared multiple architectures with full evaluation "
+"across all stages."
+msgstr ""
+"Повний ML конвеєр для визначення стадії раку за профілями метилювання ДНК, "
+"створений після глибокого дослідження біології раку та стадіювання з "
+"консультаціями експертів. Понад 200GB сирих даних оброблено поза пам’яттю "
+"за допомогою Dask та Polars. Порівняно кілька архітектур з повною оцінкою "
+"на всіх стадіях."
+
+#: apps/core/templates/core/home.html:515
+msgid "All projects"
+msgstr "Усі проєкти"
+
+#: apps/core/templates/core/home.html:527 apps/core/views.py:24
+msgid "Process"
+msgstr "Процес"
+
+#: apps/core/templates/core/home.html:529
+msgid "A process built"
+msgstr "Процес, створений"
+
+#: apps/core/templates/core/home.html:530
+msgid "for real delivery."
+msgstr "для реального результату."
+
+#: apps/core/templates/core/home.html:536
+msgid "Understand"
+msgstr "Розуміння"
+
+#: apps/core/templates/core/home.html:537
+msgid "Scope & Alignment"
+msgstr "Обсяг та узгодження"
+
+#: apps/core/templates/core/home.html:539
+msgid ""
+"Scope before code. Understand the problem, not just the stated one, the real "
+"one. The right question asked in week one beats the wrong solution delivered "
+"in week six."
+msgstr ""
+"Спочатку обсяг, потім код. Розуміти проблему, не лише сформульовану, а "
+"справжню. Правильне питання на першому тижні краще за неправильне рішення "
+"на шостому."
+
+#: apps/core/templates/core/home.html:548
+msgid "Build"
+msgstr "Створення"
+
+#: apps/core/templates/core/home.html:549
+msgid "Fast Iteration"
+msgstr "Швидкі ітерації"
+
+#: apps/core/templates/core/home.html:551
+msgid ""
+"Build fast, get something working, then cut everything that doesn't earn its "
+"place. Tested at every step, documented throughout. Iterate until there's "
+"nothing left to remove."
+msgstr ""
+"Швидко створювати, отримати робочий результат, а потім прибрати все, що не "
+"має цінності. Тестування на кожному етапі, постійна документація. "
+"Ітерувати, поки нічого зайвого не залишиться."
+
+#: apps/core/templates/core/home.html:560
+msgid "Validate"
+msgstr "Перевірка"
+
+#: apps/core/templates/core/home.html:561
+msgid "Measure Everything"
+msgstr "Вимірювати все"
+
+#: apps/core/templates/core/home.html:563
+msgid ""
+"A model that can't be measured can't be improved, and it shouldn't be "
+"trusted. Every assumption gets tested: offline evals, baselines, edge cases. "
+"No exceptions."
+msgstr ""
+"Модель, яку не можна виміряти, не можна покращити, і їй не варто довіряти. "
+"Кожне припущення перевіряється: офлайн оцінки, базові рівні, крайні випадки. "
+"Без винятків."
+
+#: apps/core/templates/core/home.html:572
+msgid "Deploy"
+msgstr "Розгортання"
+
+#: apps/core/templates/core/home.html:573
+msgid "Ship & Monitor"
+msgstr "Запуск та моніторинг"
+
+#: apps/core/templates/core/home.html:575
+msgid ""
+"Containerised, CI-integrated, observability from day one. Deployment isn't "
+"the end: it's when the real data starts coming in."
+msgstr ""
+"Контейнеризація, інтеграція з CI, спостережуваність з першого дня. "
+"Розгортання це не кінець, це початок надходження реальних даних."
+
+#: apps/core/templates/core/home.html:594
+msgid "Let's build"
+msgstr "Давайте створимо"
+
+#: apps/core/templates/core/home.html:595
+msgid "something worth building."
+msgstr "щось вартісне."
+
+#: apps/core/templates/core/home.html:599
+msgid ""
+"Open to freelance projects, consulting, and full-time roles. Response within "
+"24 hours."
+msgstr ""
+"Відкритий до фриланс проєктів, консалтингу та повної зайнятості. Відповідь "
+"протягом 24 годин."
+
+#: apps/core/templates/core/home.html:606
+msgid "Reach out directly"
+msgstr "Зв’яжіться напряму"
+
+#: apps/core/templates/core/home.html:612
+msgid "Send an email to Alessandro Kuz"
+msgstr "Надіслати email Олександру Кузю"
+
+#: apps/core/templates/core/home.html:616
+msgid "Send an email"
+msgstr "Надіслати email"
+
+#: apps/core/templates/core/home.html:626
+msgid "Book a call with Alessandro Kuz"
+msgstr "Забронювати дзвінок з Олександром Кузем"
+
+#: apps/core/templates/core/home.html:630
+msgid "Book a call"
+msgstr "Забронювати дзвінок"
+
+#: apps/core/templates/core/home.html:642
+msgid "Find me elsewhere"
+msgstr "Знайдіть мене також тут"
+
+#: apps/core/templates/core/home.html:649 templates/components/_footer.html:28
+msgid "Visit Alessandro Kuz on GitHub"
+msgstr "Переглянути профіль Олександра Кузя на GitHub"
+
+#: apps/core/templates/core/home.html:657 templates/components/_footer.html:35
+msgid "Visit Alessandro Kuz on LinkedIn"
+msgstr "Переглянути профіль Олександра Кузя на LinkedIn"
+
+#: apps/core/templates/core/home.html:680
+msgid "Go to contact page"
+msgstr "Перейти на сторінку контактів"
+
+#: apps/core/views.py:19
+msgid "Introduction"
+msgstr "Вступ"
+
+#: apps/core/views.py:42
+msgid ""
+"I'm putting together a proper about page: background, the six languages, how "
+"I think about problems. The homepage introduction covers the essentials for "
+"now."
+msgstr ""
+"Я готую повноцінну сторінку про себе: досвід, шість мов та мій підхід до "
+"вирішення задач. Наразі головна сторінка містить основне."
+
+#: apps/core/views.py:59
+msgid ""
+"A detailed breakdown of what I do and how I do it is coming: services, "
+"tools, and the approach behind the work. The homepage gives a summary in the "
+"meantime."
+msgstr ""
+"Незабаром з’явиться детальний опис того, що я роблю і як: послуги, "
+"інструменти та підхід. Поки що на головній сторінці є короткий огляд."
+
+#: apps/core/views.py:76
+msgid ""
+"A curated showcase of my work is being put together: data pipelines, ML "
+"systems, and the web projects in between. The homepage gives a preview for "
+"now."
+msgstr ""
+"Готується відібрана презентація моїх робіт: конвеєри даних, ML системи та "
+"веб проєкти. Поки що головна сторінка дає попередній огляд."
+
+#: apps/core/views.py:92
+msgid ""
+"This form is still being built. In the meantime, reach me directly at my "
+"email, I respond within 24 hours."
+msgstr ""
+"Ця форма ще розробляється. Тим часом зв’яжіться зі мною через email, я "
+"відповідаю протягом 24 годин."
+
+#: apps/core/views.py:102
+msgid "🐛 DEBUG — lowest level, hidden in production"
+msgstr "🐛 DEBUG — найнижчий рівень, прихований у продакшні"
+
+#: apps/core/views.py:103
+msgid "ℹ️ INFO — general information"
+msgstr "ℹ️ INFO — загальна інформація"
+
+#: apps/core/views.py:104
+msgid "✅ SUCCESS — action completed"
+msgstr "✅ SUCCESS — дію виконано"
+
+#: apps/core/views.py:105
+msgid "⚠️ WARNING — something needs attention"
+msgstr "⚠️ WARNING — щось потребує уваги"
+
+#: apps/core/views.py:106
+msgid "❌ ERROR — something went wrong"
+msgstr "❌ ERROR — щось пішло не так"
+
+#: config/settings/base.py:198
+msgid "English"
+msgstr "Англійська"
+
+#: config/settings/base.py:199
+msgid "Italian"
+msgstr "Італійська"
+
+#: config/settings/base.py:200
+msgid "Spanish"
+msgstr "Іспанська"
+
+#: config/settings/base.py:201
+msgid "German"
+msgstr "Німецька"
+
+#: config/settings/base.py:202
+msgid "Ukrainian"
+msgstr "Українська"
+
+#: templates/400.html:4 templates/400.html:6 templates/400.html:10
+msgid "Bad request"
+msgstr "Неправильний запит"
+
+#: templates/400.html:5
+msgid "The server couldn't process this request."
+msgstr "Сервер не зміг обробити цей запит."
+
+#: templates/400.html:13
+msgid ""
+"The server couldn't understand this request. This can happen with a "
+"malformed URL, missing parameters, or invalid data. Try going back and "
+"repeating the action."
+msgstr ""
+"Сервер не зміг зрозуміти цей запит. Це може статися через неправильну URL "
+"адресу, відсутні параметри або некоректні дані. Спробуйте повернутися назад "
+"і повторити дію."
+
+#: templates/400.html:18 templates/403.html:18 templates/403_csrf.html:32
+#: templates/404.html:18 templates/410.html:18 templates/500.html:218
+#: templates/coming_soon.html:51
+msgid "Go home"
+msgstr "На головну"
+
+#: templates/400.html:23 templates/404.html:23 templates/coming_soon.html:54
+msgid "Go back"
+msgstr "Назад"
+
+#: templates/403.html:4 templates/403.html:6 templates/403.html:10
+msgid "Access denied"
+msgstr "Доступ заборонено"
+
+#: templates/403.html:5
+msgid "You don't have permission to access this page."
+msgstr "У вас немає дозволу на доступ до цієї сторінки."
+
+#: templates/403.html:13
+msgid ""
+"You don't have permission to access this page. If you believe this is a "
+"mistake, feel free to get in touch."
+msgstr ""
+"У вас немає дозволу на доступ до цієї сторінки. Якщо ви вважаєте, що це "
+"помилка, зв’яжіться зі мною."
+
+#: templates/403.html:23
+msgid "Contact me"
+msgstr "Зв’язатися зі мною"
+
+#: templates/403_csrf.html:4 templates/403_csrf.html:6
+msgid "CSRF verification failed"
+msgstr "Перевірка CSRF не вдалася"
+
+#: templates/403_csrf.html:5
+msgid ""
+"The form submission was blocked due to a missing or invalid security token."
+msgstr ""
+"Надсилання форми заблоковано через відсутній або недійсний токен безпеки."
+
+#: templates/403_csrf.html:10 templates/403_csrf.html:20
+msgid "Fix: reload the page and submit the form again."
+msgstr "Виправлення: перезавантажте сторінку і надішліть форму ще раз."
+
+#: templates/403_csrf.html:13
+msgid ""
+"Your form submission was blocked because the security token was missing or "
+"expired. This typically happens when your session times out or you navigate "
+"back after submitting a form."
+msgstr ""
+"Надсилання форми було заблоковано, оскільки токен безпеки був відсутній або "
+"прострочений. Це зазвичай трапляється, коли сесія завершується або ви "
+"повертаєтесь назад після надсилання форми."
+
+#: templates/403_csrf.html:27
+msgid "Go back and retry"
+msgstr "Повернутися назад і спробувати знову"
+
+#: templates/404.html:4 templates/404.html:6 templates/404.html:10
+msgid "Page not found"
+msgstr "Сторінку не знайдено"
+
+#: templates/404.html:5
+msgid "The page you're looking for doesn't exist or has been moved."
+msgstr "Сторінка, яку ви шукаєте, не існує або була переміщена."
+
+#: templates/404.html:13
+msgid ""
+"The page you're looking for doesn't exist, may have been moved, or the URL "
+"might be incorrect. Double-check the address or head back home."
+msgstr ""
+"Сторінка, яку ви шукаєте, не існує, могла бути переміщена або URL адреса "
+"вказана неправильно. Перевірте адресу або поверніться на головну."
+
+#: templates/410.html:4 templates/410.html:6
+msgid "Page gone"
+msgstr "Сторінку видалено"
+
+#: templates/410.html:5
+msgid "This page has been permanently removed."
+msgstr "Цю сторінку було остаточно видалено."
+
+#: templates/410.html:10
+msgid "Page permanently removed"
+msgstr "Сторінку остаточно видалено"
+
+#: templates/410.html:13
+msgid ""
+"This page has been intentionally and permanently removed, it won't be coming "
+"back. If you followed a link here, that link is now outdated."
+msgstr ""
+"Цю сторінку було навмисно та остаточно видалено, вона не буде відновлена. "
+"Якщо ви перейшли за посиланням, воно більше не актуальне."
+
+#: templates/4xx_base.html:13 templates/500.html:196
+msgid "Error"
+msgstr "Помилка"
+
+#: templates/500.html:15
+msgid "Server error"
+msgstr "Помилка сервера"
+
+#: templates/500.html:190
+msgid "Back to homepage"
+msgstr "Повернутися на головну"
+
+#: templates/500.html:204
+msgid "Something went wrong"
+msgstr "Щось пішло не так"
+
+#: templates/500.html:209
+msgid ""
+"An unexpected error occurred on my end. I've been notified and I'm looking "
+"into it. Please try again in a moment."
+msgstr ""
+"Сталася неочікувана помилка з мого боку. Я вже отримав сповіщення і "
+"перевіряю це. Спробуйте ще раз трохи пізніше."
+
+#: templates/500.html:215
+msgid "Try again"
+msgstr "Спробувати ще раз"
+
+#: templates/base.html:14 templates/base.html:23 templates/base.html:33
+msgid ""
+"Data Scientist and ML Engineer based in Italy. I build end-to-end data "
+"products: from pipelines and models to the interfaces people actually use. "
+msgstr ""
+"Data Scientist та ML Engineer, що базується в Італії. Я створюю продукти "
+"даних повністю від початку до кінця: від конвеєрів і моделей до "
+"інтерфейсів, якими користуються люди."
+
+#: templates/base.html:86
+msgid "Skip to main content"
+msgstr "Перейти до основного вмісту"
+
+#: templates/base.html:115 templates/components/_shortcutsModal.html:56
+msgid "Press"
+msgstr "Натисніть"
+
+#: templates/base.html:115
+msgid "for keyboard shortcuts"
+msgstr "для перегляду гарячих клавіш"
+
+#: templates/coming_soon.html:5 templates/coming_soon.html:9
+#: templates/coming_soon.html:35
+msgid "Coming soon"
+msgstr "Незабаром"
+
+#: templates/coming_soon.html:8
+msgid "This page is under construction. Check back soon."
+msgstr "Ця сторінка в процесі розробки. Завітайте пізніше."
+
+#: templates/coming_soon.html:20
+msgid "work in progress"
+msgstr "в процесі роботи"
+
+#: templates/coming_soon.html:44
+msgid "This page is currently being built. Come back soon, it won't be long."
+msgstr "Ця сторінка наразі створюється. Поверніться незабаром."
+
+#: templates/components/_alerts.html:11
+#: templates/components/_shortcutsModal.html:8
+#: templates/components/_toasts.html:30
+msgid "Close"
+msgstr "Закрити"
+
+#: templates/components/_footer.html:13
+msgid "All rights reserved"
+msgstr "Усі права захищено"
+
+#: templates/components/_footer.html:22
+msgid "Social links"
+msgstr "Соціальні посилання"
+
+#: templates/components/_footer.html:61 templates/components/_footer.html:62
+msgid "Back to top"
+msgstr "Вгору"
+
+#: templates/components/_nav.html:35
+#: templates/components/_shortcutsModal.html:37
+msgid "Select language"
+msgstr "Обрати мову"
+
+#: templates/components/_nav.html:63
+msgid "Toggle theme"
+msgstr "Змінити тему"
+
+#: templates/components/_nav.html:77
+msgid "Toggle navigation menu"
+msgstr "Перемкнути меню навігації"
+
+#: templates/components/_nav.html:90
+#: templates/components/_shortcutsModal.html:28
+msgid "Home"
+msgstr "Головна"
+
+#: templates/components/_shortcutsModal.html:7
+msgid "Navigation Shortcuts"
+msgstr "Швидкі клавіші навігації"
+
+#: templates/components/_shortcutsModal.html:12
+msgid "Inspired by"
+msgstr "Натхнено"
+
+#: templates/components/_shortcutsModal.html:12
+msgid "vim keybindings"
+msgstr "комбінаціями клавіш vim"
+
+#: templates/components/_shortcutsModal.html:14
+msgid "Scrolling"
+msgstr "Прокрутка"
+
+#: templates/components/_shortcutsModal.html:16
+msgid "Jump to bottom"
+msgstr "Перейти вниз"
+
+#: templates/components/_shortcutsModal.html:17
+msgid "Jump to top"
+msgstr "Перейти вгору"
+
+#: templates/components/_shortcutsModal.html:18
+msgid "Scroll down / up"
+msgstr "Прокрутка вниз або вгору"
+
+#: templates/components/_shortcutsModal.html:21
+msgid "Sections"
+msgstr "Розділи"
+
+#: templates/components/_shortcutsModal.html:23
+msgid "Prev / next section"
+msgstr "Попередній або наступний розділ"
+
+#: templates/components/_shortcutsModal.html:26
+msgid "Pages"
+msgstr "Сторінки"
+
+#: templates/components/_shortcutsModal.html:35
+msgid "Actions"
+msgstr "Дії"
+
+#: templates/components/_shortcutsModal.html:38
+msgid "Switch theme"
+msgstr "Змінити тему"
+
+#: templates/components/_shortcutsModal.html:41
+msgid "Other"
+msgstr "Інше"
+
+#: templates/components/_shortcutsModal.html:43
+msgid "Close opened menu / reset shortcut combination"
+msgstr "Закрити відкрите меню або скинути комбінацію клавіш"
+
+#: templates/components/_shortcutsModal.html:44
+msgid "Toggle this help"
+msgstr "Перемкнути цю довідку"
+
+#: templates/components/_shortcutsModal.html:50
+msgid ""
+"Scrolling and navigation commands are inactive inside modals and dropdowns."
+msgstr ""
+"Команди прокрутки та навігації неактивні всередині модальних вікон і "
+"випадаючих списків."
+
+#: templates/components/_shortcutsModal.html:56
+msgid "or"
+msgstr "або"
+
+#: templates/components/_shortcutsModal.html:56
+msgid "to close"
+msgstr "щоб закрити"

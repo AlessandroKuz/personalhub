@@ -610,13 +610,13 @@ a.project-featured {
 }
 
 .project-visual {
-  aspect-ratio: 16 / 9;
-  background:   var(--color-surface);
-  border:       1px solid var(--color-border);
-  border-radius: 4px;
-  overflow:     hidden;
-  display:      flex;
-  align-items:  center;
+  aspect-ratio:    16 / 9;
+  background:      var(--color-surface);
+  border:          1px solid var(--color-border);
+  border-radius:   4px;
+  overflow:        hidden;
+  display:         flex;
+  align-items:     center;
   justify-content: center;
 }
 
@@ -667,12 +667,6 @@ a.project-featured {
     padding: 36px 28px;
   }
 
-  .project-visual {
-    aspect-ratio: 4 / 3;
-  }
-}
-
-@media (max-width: 575.98px) {
   .project-visual {
     display: none;
   }
