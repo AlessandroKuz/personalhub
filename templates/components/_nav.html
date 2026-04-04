@@ -6,7 +6,7 @@
     {# ── 1. Brand — Grid col 1 on desktop, flex item on mobile ── #}
     <a class="navbar-brand fw-semibold font-monospace text-accent"
        href="{% if request.resolver_match.url_name == 'home' %}#{% else %}{% url 'core:home' %}{% endif %}">
-      Kuz
+      {% trans "Kuz" %}
     </a>
 
     {# ── 2. Controls — Grid col 3 on desktop (justify-self: end) ── #}

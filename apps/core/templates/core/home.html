@@ -2,7 +2,7 @@
 {% extends "base.html" %}
 {% load i18n static %}
 
-{% block title %}{% trans "Alessandro Kuz - Data Scientist & ML Engineer" %}{% endblock %}
+{% block title %}{% trans "Alessandro Kuz - Data Scientist & AI/ML Engineer" %}{% endblock %}
 
 {% block extra_css %}
   <link rel="stylesheet" href="{% static 'css/home.css' %}">
@@ -10,9 +10,6 @@
 
 {% block scrollspy %}
 <nav id="scrollspy-nav" class="d-none d-md-block" aria-label="{% trans 'Page sections' %}">
-  {% comment %}
-  <ul class="nav nav-pills flex-column sticky-top top-0 start-0">
-  {% endcomment %}
   <ul class="nav flex-column">
     {% for section_element in section_list %}
       <li class="nav-item">
@@ -48,7 +45,9 @@
           </p>
 
           <h1 id="hero-label" class="hero-name mb-2">
-            Alessandro <span class="text-accent">Kuz</span>
+            {% blocktrans trimmed %}
+              Alessandro <span class="text-accent">Kuz</span>
+            {% endblocktrans %}
           </h1>
 
           <h2 class="hero-tagline">
@@ -57,9 +56,9 @@
 
           <p class="hero-desc">
             {% blocktrans trimmed %}
-            Data Scientist and ML Engineer with a degree in AI.
-            I work end-to-end: data pipelines, model training, and the interfaces
-            people actually use. Based in Italy, working globally.
+              Data Scientist and ML Engineer with a degree in AI.
+              I work end-to-end: data pipelines, model training, and the interfaces
+              people actually use. Based in Italy, working globally.
             {% endblocktrans %}
           </p>
 
@@ -87,26 +86,26 @@
             <li>
               <p class="stat-label">{% trans "Role" %}</p>
               <p class="stat-value">
-                Data Scientist
+                {% trans "Data Scientist" %}
                 <span>{% trans "& ML Engineer" %}</span>
               </p>
             </li>
             <li>
               <p class="stat-label">{% trans "Experience" %}</p>
               <p class="stat-value">
-                3+ <span>{% trans "years" %}</span>
+                {% blocktrans %}3+ <span>years</span>{% endblocktrans %}
               </p>
             </li>
             <li>
               <p class="stat-label">{% trans "Location" %}</p>
               <p class="stat-value">
-                {% trans "Italy" %} <span>EU</span>
+                {% blocktrans %}Italy <span>EU</span>{% endblocktrans %}
               </p>
             </li>
             <li>
               <p class="stat-label">{% trans "Languages" %}</p>
               <p class="stat-value">
-                6 <span>{% trans "spoken" %}</span>
+                {% blocktrans %}6 <span>spoken</span>{% endblocktrans %}
               </p>
             </li>
           </ul>
@@ -136,21 +135,21 @@
   {# aria-hidden: purely decorative - screen readers skip it       #}
   <div class="marquee-wrap" aria-hidden="true">
     <div class="marquee-track" id="marquee-track">
-      <span class="marquee-item">Data Analysis</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">Data Pipelines</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">LLMs</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">RAG</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">End-to-End ML</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">Model Deployment</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">CI/CD</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">Containerisation</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">REST APIs</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">Async Python</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">Backend Development</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">Server-Side Rendering</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">TDD</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">Linux</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">Self-Hosting</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">{% trans "Data Analysis" %}</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">{% trans "Data Pipelines" %}</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">{% trans "LLMs" %}</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">{% trans "RAG" %}</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">{% trans "End-to-End ML" %}</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">{% trans "Model Deployment" %}</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">{% trans "CI/CD" %}</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">{% trans "Containerisation" %}</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">{% trans "REST APIs" %}</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">{% trans "Async Python" %}</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">{% trans "Backend Development" %}</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">{% trans "Server-Side Rendering" %}</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">{% trans "TDD" %}</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">{% trans "Linux" %}</span><span class="marquee-sep">◆</span>
+      <span class="marquee-item">{% trans "Self-Hosting" %}</span><span class="marquee-sep">◆</span>
     </div>
   </div>
 
@@ -228,7 +227,7 @@
             {% trans "View" %}
             <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
           </span>
-          <span class="skill-icon">[ DATA ]</span>
+          <span class="skill-icon">{% trans '[ DATA ]' %}</span>
           <h3 class="skill-col-title">
             <i class="bi bi-bar-chart-line" aria-hidden="true"></i>
             {% trans "Data Science" %}
@@ -247,7 +246,7 @@
             <span class="skill-tag">Matplotlib</span>
             <span class="skill-tag">Seaborn</span>
             <span class="skill-tag">SQL</span>
-            <span class="skill-tag">Data Pipelines</span>
+            <span class="skill-tag">{% trans "Data Pipelines" %}</span>
           </div>
         </a>
 
@@ -259,7 +258,7 @@
             {% trans "View" %}
             <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
           </span>
-          <span class="skill-icon">[ ML / AI ]</span>
+          <span class="skill-icon">{% trans '[ ML / AI ]' %}</span>
           <h3 class="skill-col-title">
             <i class="bi bi-cpu" aria-hidden="true"></i>
             {% trans "Machine Learning & AI" %}
@@ -273,11 +272,11 @@
           <div class="skill-tags">
             <span class="skill-tag">PyTorch</span>
             <span class="skill-tag">Scikit-Learn</span>
-            <span class="skill-tag">Classification</span>
-            <span class="skill-tag">Regression</span>
-            <span class="skill-tag">Fine-Tuning</span>
-            <span class="skill-tag">LLMs</span>
-            <span class="skill-tag">RAG</span>
+            <span class="skill-tag">{% trans "Classification" %}</span>
+            <span class="skill-tag">{% trans "Regression" %}</span>
+            <span class="skill-tag">{% trans "Fine-Tuning" %}</span>
+            <span class="skill-tag">{% trans "LLMs" %}</span>
+            <span class="skill-tag">{% trans "RAG" %}</span>
           </div>
         </a>
 
@@ -289,7 +288,7 @@
             {% trans "View" %}
             <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
           </span>
-          <span class="skill-icon">[ BACKEND ]</span>
+          <span class="skill-icon">{% trans '[ BACKEND ]' %}</span>
           <h3 class="skill-col-title">
             <i class="bi bi-layers" aria-hidden="true"></i>
             {% trans "Backend & Web" %}
@@ -362,7 +361,7 @@
           </span>
           <div>
             <span class="featured-badge">{% trans "Featured" %}</span>
-            <div class="project-num">001</div>
+            <div class="project-num">{% trans "001" %}</div>
             <h3 class="project-title">
               <i class="bi bi-globe" aria-hidden="true"></i>
               {% trans "PersonalHub" %}
@@ -391,9 +390,11 @@
 
           <div class="project-visual" aria-hidden="true">
             <div class="terminal-preview">
-              <div class="t-line-dim">Server: <span class="t-line-accent">Uvicorn ASGI</span> running on :8000</div>
-              <div>Templates: <span class="t-line-accent">Django</span> + HTMX + Bootstrap 5</div>
-              <div>Phase: <span class="t-line-accent">1 / 3</span> - shipping now<span class="t-cursor"></span></div>
+              {% blocktrans trimmed %}
+                <div class="t-line-dim">Server: <span class="t-line-accent">Uvicorn ASGI</span> running on :8000</div>
+                <div>Templates: <span class="t-line-accent">Django</span> + HTMX + Bootstrap 5</div>
+                <div>Phase: <span class="t-line-accent">1 / 3</span> - shipping now<span class="t-cursor"></span></div>
+              {% endblocktrans %}
             </div>
           </div>
 
@@ -408,14 +409,14 @@
             {% trans "View" %}
             <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
           </span>
-          <div class="project-num">002</div>
+          <div class="project-num">{% trans "002" %}</div>
           <h3 class="project-title">
             <i class="bi bi-journal-medical" aria-hidden="true"></i>
             {% trans "Online Anamnestic Module (MAO)" %}
           </h3>
           <p class="project-desc">
             {% blocktrans trimmed %}
-            Clinical data collection platform built for oncology specialists to digitise patient anamnestic intake. Integrates external tools and <strong>APIs</strong> for interactive pedigree tree building and for cancer mutation probability assessment. Role-based access via <strong>Microsoft Entra</strong>, deployed on <strong>Azure</strong>.
+              Clinical data collection platform built for oncology specialists to digitise patient anamnestic intake. Integrates external tools and <strong>APIs</strong> for interactive pedigree tree building and for cancer mutation probability assessment. Role-based access via <strong>Microsoft Entra</strong>, deployed on <strong>Azure</strong>.
             {% endblocktrans %}
           </p>
           <div class="project-meta">
@@ -440,7 +441,7 @@
             {% trans "View" %}
             <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
           </span>
-          <div class="project-num">003</div>
+          <div class="project-num">{% trans "003" %}</div>
           <h3 class="project-title">
             <i class="bi bi-terminal" aria-hidden="true"></i>
             {% trans "LLM Toolbox" %}
@@ -472,7 +473,7 @@
           </span>
 
           <div>
-            <div class="project-num">004</div>
+            <div class="project-num">{% trans "004" %}</div>
             <h3 class="project-title">
               <i class="bi bi-heart-pulse" aria-hidden="true"></i>
               {% trans "Cancer Stage Inference from DNA Methylation" %}
@@ -495,10 +496,12 @@
 
           <div class="project-visual" aria-hidden="true">
             <div class="terminal-preview">
-              <div class="t-line-dim">Dataset: <span class="t-line-accent">200GB</span> methylation profiles</div>
-              <div>Samples processed: <span class="t-line-accent">10841</span></div>
-              <div class="t-line-dim">Cancer vs. cancer-free accuracy: <span class="t-line-accent">98%</span></div>
-              <div>Stage prediction accuracy: <span class="t-line-accent">67,8%</span><span class="t-cursor"></span></div>
+              {% blocktrans trimmed %}
+                <div class="t-line-dim">Dataset: <span class="t-line-accent">200GB</span> methylation profiles</div>
+                <div>Samples processed: <span class="t-line-accent">10841</span></div>
+                <div class="t-line-dim">Cancer vs. cancer-free accuracy: <span class="t-line-accent">98%</span></div>
+                <div>Stage inference accuracy: <span class="t-line-accent">67,8%</span><span class="t-cursor"></span></div>
+              {% endblocktrans %}
             </div>
           </div>
 
@@ -536,9 +539,9 @@
           <div class="process-step-title">{% trans "Scope & Alignment" %}</div>
           <p>
             {% blocktrans trimmed %}
-            Scope before code. Understand the problem, not just the stated one,
-            the real one. The right question asked in week one beats the wrong
-            solution delivered in week six.
+              Scope before code. Understand the problem, not just the stated one,
+              the real one. The right question asked in week one beats the wrong
+              solution delivered in week six.
             {% endblocktrans %}
           </p>
         </div>
