@@ -7,7 +7,7 @@
 
 {% block error_code %}403{% endblock error_code %}
 {% block error_heading %}
-  {% trans "Fix: reload the page and submit the form again." %}
+  {% trans "Request blocked" %}
 {% endblock error_heading %}
 {% block error_description %}
   {% blocktrans %}Your form submission was blocked because the security token was missing or expired. This typically happens when your session times out or you navigate back after submitting a form.{% endblocktrans %}
