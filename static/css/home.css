@@ -781,7 +781,11 @@ a.project-featured {
    ══════════════════════════════════════════════════════════ */
 
 #contact {
-  background: var(--color-bg2);
+  background:  var(--color-bg2);
+  min-height:  calc(100vh - var(--footer-height));
+  display:     flex;
+  align-items: center;
+  padding:     20px 0;
 }
 
 .contact-sub {

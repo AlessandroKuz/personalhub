@@ -3,12 +3,13 @@
    ══════════════════════════════════════════════════════════ */
 
 :root {
-  --navbar-height:  50px;
-  --accent:         var(--bs-primary); /* overrode in scss file */
-  --green:          #4ade80;
-  --ease:           cubic-bezier(0.16, 1, 0.3, 1);
-  --nav-blur:       15px;
-  --shadow-hover:   0 4px 12px rgba(0, 0, 0, 0.1);
+  --navbar-height: 45px;
+  --footer-height: 118px;
+  --accent:        var(--bs-primary); /* overrode in scss file */
+  --green:         #4ade80;
+  --ease:          cubic-bezier(0.16, 1, 0.3, 1);
+  --nav-blur:      15px;
+  --shadow-hover:  0 4px 12px rgba(0, 0, 0, 0.1);
 
   /* Font aliases — chain to Bootstrap's compiled variables.
      The actual font names live in custom.scss only.          */
