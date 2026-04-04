@@ -267,7 +267,11 @@
    ══════════════════════════════════════════════════════════ */
 
 #about {
-  background: var(--color-bg2);
+  background:  var(--color-bg2);
+  min-height:  calc(100vh - var(--navbar-height));
+  display:     flex;
+  align-items: center;
+  padding:     20px 0;
 }
 
 .about-grid {
@@ -331,8 +335,15 @@
 }
 
 /* ══════════════════════════════════════════════════════════
-   SKILLS
+   WORK / SKILLS
    ══════════════════════════════════════════════════════════ */
+
+#work {
+  min-height:  calc(100vh - var(--navbar-height));
+  display:     flex;
+  align-items: center;
+  padding:     20px 0;
+}
 
 .skills-cols {
   display:               grid;
@@ -442,6 +453,10 @@ a.skill-col:hover .skill-view-link {
 
 #projects {
   background: var(--color-bg2);
+  min-height:  calc(100vh - var(--navbar-height));
+  display:     flex;
+  align-items: center;
+  padding:     20px 0;
 }
 
 .projects-grid {
@@ -666,6 +681,13 @@ a.project-featured {
 /* ══════════════════════════════════════════════════════════
    PROCESS
    ══════════════════════════════════════════════════════════ */
+
+#process {
+  min-height:  calc(100vh - var(--navbar-height));
+  display:     flex;
+  align-items: center;
+  padding:     20px 0;
+}
 
 .process-steps {
   display:               grid;
