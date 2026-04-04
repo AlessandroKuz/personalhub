@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     # Third party
     "django_htmx",
     # Local
-    # "apps.core.CoreConfig",
     "apps.core",
     "apps.projects",
     "apps.blog",
@@ -64,6 +63,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.middleware.csp.ContentSecurityPolicyMiddleware",  # add csp
     "django_htmx.middleware.HtmxMiddleware",  # adds request.htmx
 ]
 
@@ -80,6 +80,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.csp",
             ],
         },
     },
@@ -120,6 +121,69 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,  # Keep Django's default loggers active
+    "formatters": {
+        "verbose": {
+            "format": "[{levelname}] {asctime} {name} {module} — {message}",
+            "style": "{",
+        },
+        "simple": {
+            "format": "[{levelname}] {asctime} — {message}",
+            "style": "{",
+        },
+    },
+    "handlers": {
+        "console": {
+            # writes to stderr by default (visible in docker logs)
+            "class": "logging.StreamHandler",
+            "formatter": "verbose",
+        },
+    },
+    "root": {
+        # Catch-all: any logger that doesn't match below still surfaces WARNING+
+        "handlers": ["console"],
+        "level": "WARNING",
+    },
+    "loggers": {
+        # ---------------------------------------------------------------
+        # django.request: the one you NEED for 500 errors
+        # Django calls this at ERROR level with exc_info=True automatically,
+        # so the full traceback is included in the log output.
+        # ---------------------------------------------------------------
+        "django.request": {
+            "handlers": ["console"],
+            "level": "ERROR",
+            "propagate": False,
+        },
+        # ---------------------------------------------------------------
+        # django.security: catches SuspiciousOperation, DisallowedHost, etc.
+        # These silently become 400s in production — log them too.
+        # ---------------------------------------------------------------
+        "django.security": {
+            "handlers": ["console"],
+            "level": "WARNING",
+            "propagate": False,
+        },
+        # ---------------------------------------------------------------
+        # django: general Django internals (middleware, template errors, etc.)
+        # ---------------------------------------------------------------
+        "django": {
+            "handlers": ["console"],
+            "level": "INFO",
+            "propagate": False,
+        },
+        # ---------------------------------------------------------------
+        # Your own app loggers — replace "myapp" with your app name(s)
+        # ---------------------------------------------------------------
+        "apps": {
+            "handlers": ["console"],
+            "level": "DEBUG",
+            "propagate": False,
+        },
+    },
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
@@ -135,10 +199,15 @@ LANGUAGES = [
     ("it", _("Italian")),
     ("es", _("Spanish")),
     ("de", _("German")),
+    ("uk", _("Ukrainian")),
 ]
 
 LOCALE_PATHS = [BASE_DIR / "locale"]
 
+MAKEMESSAGES_IGNORE_PATTERNS = [
+    "site/*",
+    ".venv/*",
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
@@ -151,7 +220,6 @@ STATICFILES_FINDERS = [
 
 COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
 
-# STATIC_URL = 'static/'
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"  # where collectstatic writes to
@@ -166,3 +234,5 @@ EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "")
 DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "")
 CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", "")  # where form submissions go
+
+CSRF_FAILURE_VIEW = "apps.core.views.error_403_csrf"

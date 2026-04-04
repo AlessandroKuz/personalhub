@@ -18,9 +18,16 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
+from django.http import HttpResponse
 from django.urls import include, path
 
+handler400 = "apps.core.views.error_400"
+handler403 = "apps.core.views.error_403"
+handler404 = "apps.core.views.error_404"
+handler500 = "apps.core.views.error_500"
+
 urlpatterns = [
+    path("health/", lambda _: HttpResponse(b"ok"), name="health"),
     path("i18n/", include("django.conf.urls.i18n")),  # language switcher endpoint
 ]
 
@@ -35,7 +42,17 @@ urlpatterns += i18n_patterns(
 
 if settings.DEBUG:
     from debug_toolbar.toolbar import debug_toolbar_urls
+    from django.shortcuts import render
 
     urlpatterns += debug_toolbar_urls()
     # Import is inside the if — critical. A top-level import would crash prod
     # because debug_toolbar is not in prod's INSTALLED_APPS.
+
+    urlpatterns += [
+        path("__errors/400/", lambda r: render(r, "400.html", status=400)),
+        path("__errors/403/", lambda r: render(r, "403.html", status=403)),
+        path("__errors/403-csrf/", lambda r: render(r, "403_csrf.html", status=403)),
+        path("__errors/404/", lambda r: render(r, "404.html", status=404)),
+        path("__errors/410/", lambda r: render(r, "410.html", status=410)),
+        path("__errors/500/", lambda r: render(r, "500.html", status=500)),
+    ]

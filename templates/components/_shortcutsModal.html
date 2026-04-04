@@ -1,0 +1,67 @@
+{% load i18n %}
+
+<div class="modal fade" id="keyboardShortcutsModal" tabindex="-1" aria-labelledby="keyboardShortcutsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title font-monospace text-primary fs-5" id="keyboardShortcutsModalLabel">{% trans "Navigation Shortcuts" %}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+      </div>
+      <div class="modal-body pt-3">
+        <p>
+          {% trans "Inspired by" %} <a href="https://devhints.io/vim#navigating" target="_blank" rel="noopener noreferrer" class="fw-semibold">{% trans "vim keybindings" %}</a>.
+        </p>
+        <p class="vim-modal__section-label">{% trans "Scrolling" %}</p>
+          <ul class="list-unstyled">
+            <li><kbd>G</kbd> - {% trans "Jump to bottom" %}</li>
+            <li><kbd>gg</kbd> - {% trans "Jump to top" %}</li>
+            <li><kbd>j</kbd> / <kbd>k</kbd> - {% trans "Scroll down / up" %}</li>
+          </ul>
+
+          <p class="vim-modal__section-label">{% trans "Sections" %}</p>
+          <ul class="list-unstyled">
+            <li><kbd>h</kbd> / <kbd>l</kbd> - {% trans "Prev / next section" %}</li>
+          </ul>
+
+          <p class="vim-modal__section-label">{% trans "Pages" %}</p>
+          <ul class="list-unstyled">
+            <li><kbd>gh</kbd> - {% trans "Home" %}</li>
+            <li><kbd>ga</kbd> - {% trans "About" %}</li>
+            <li><kbd>gw</kbd> - {% trans "Work" %}</li>
+            <li><kbd>gp</kbd> - {% trans "Projects" %}</li>
+            <li><kbd>gc</kbd> - {% trans "Contact" %}</li>
+          </ul>
+
+          <p class="vim-modal__section-label">{% trans "Actions" %}</p>
+          <ul class="list-unstyled">
+            <li><kbd>gl</kbd> - {% trans "Select language" %}</li>
+            <li><kbd>gt</kbd> - {% trans "Switch theme" %}</li>
+          </ul>
+
+          <p class="vim-modal__section-label">{% trans "Other" %}</p>
+          <ul class="list-unstyled">
+            <li><kbd>Esc</kbd> - {% trans "Close opened menu / reset shortcut combination" %}</li>
+            <li><kbd>?</kbd> - {% trans "Toggle this help" %}</li>
+          </ul>
+
+        <div class="alert alert-secondary d-flex align-items-start gap-2 py-2 px-3 mt-3 mb-0 small" role="note">
+          <i class="bi bi-info-circle" aria-hidden="true"></i>
+          <small>
+            {% blocktrans %}Scrolling and navigation commands are inactive inside modals and dropdowns.{% endblocktrans %}
+          </small>
+        </div>
+      </div>
+      <div class="modal-footer border-0 pt-0">
+        <small class="text-muted">
+          {% trans "Press" %} <kbd>?</kbd> {% trans "or" %} <kbd>Esc</kbd> {% trans "to close" %}.
+        </small>
+      </div>
+
+      {% comment %}
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+      </div>
+      {% endcomment %}
+    </div>
+  </div>
+</div>

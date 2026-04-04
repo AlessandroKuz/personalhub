@@ -1,5 +1,8 @@
 # Python-generated files
 __pycache__/
+*.py[cod]
+*.pyo
+*.pyd
 *.py[oc]
 build/
 dist/
@@ -7,16 +10,65 @@ wheels/
 *.egg-info
 
 # Virtual environments
-.venv
+.venv/
+venv/
+env/
+ENV/
 
-# Env Variables
+# Environment / secrets
 .env
+.env.*
+*.pem
+*.key
+*.crt
 
 # Site - Built mkdocs (docs/) files
 site/
 
 # sqlite db
-db.sqlite3
+*.sqlite3
+*.sqlite3-journal
 
-# staticfiles
+# compiled static and media files
 staticfiles/
+mediafiles/
+
+# certifications
+certs/
+
+# Django / project-specific
+*.log
+
+# Translations
+*.mo
+*.pot
+
+# Node / frontend (if present)
+node_modules/
+npm-debug.log
+yarn.lock
+pnpm-lock.yaml
+
+# IDE / editor
+*.swp
+*.swo
+.idea/
+.vscode/
+*.iml
+.project
+.pydevproject
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Tests / coverage
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/
+
+# Packaging
+*.egg
+*.egg-info/
+.eggs/

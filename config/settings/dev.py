@@ -1,7 +1,10 @@
 # config/settings/dev.py
+from django.contrib.messages import constants as messages
+
 from .base import *  # noqa: F401, F403
 
 DEBUG = True
+MESSAGE_LEVEL = messages.DEBUG  # show all levels including debug
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
@@ -12,7 +15,7 @@ DATABASES = {
     }
 }
 
-INSTALLED_APPS += ["debug_toolbar"]  # noqa: F405
+INSTALLED_APPS += ["debug_toolbar", "django_extensions"]  # noqa: F405
 
 MIDDLEWARE.insert(2, "debug_toolbar.middleware.DebugToolbarMiddleware")  # noqa: F405
 

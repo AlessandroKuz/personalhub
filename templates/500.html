@@ -1,0 +1,232 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+{% comment %}
+STANDALONE - intentionally does NOT extend base.html.
+Reason: if a 500 is caused by a DB/cache/context-processor failure,
+extending base.html would trigger the same crash and produce a blank page.
+All resources loaded from CDN or inlined so this page works even
+if static files / whitenoise are unavailable.
+{% endcomment %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' width='64' height='64'><rect width='64' height='64' fill='%230a0a0a'/><text x='32' y='46' font-family='Jost,Futura,Century Gothic,Trebuchet MS,sans-serif' font-size='44' font-weight='500' fill='%23f0f0f0' text-anchor='middle'>K</text></svg>">
+  <title>500 - {% trans "Server error" %} | Alessandro Kuz</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  {# ── Theme init - must run before any render to prevent flash ── #}
+  <script nonce="{{ csp_nonce }}">
+    (function () {
+      try {
+        var s = localStorage.getItem("theme") || "auto";
+        var t = s === "auto"
+          ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+          : s;
+        document.documentElement.setAttribute("data-bs-theme", t);
+      } catch (e) {
+        document.documentElement.setAttribute("data-bs-theme", "dark");
+      }
+    })();
+  </script>
+
+  {# ── Fonts ── #}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  {# ── Bootstrap CSS ── #}
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+    crossorigin="anonymous">
+
+  {# ── Bootstrap Icons ── #}
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css"
+    integrity="sha384-Bk5cbLkZQ5raZ0+H2/+VbfYx3WpvxvQK4zqXZr7sYODuaX7bKXoSOnipQxkaS8sv"
+    crossorigin="anonymous">
+
+  {# ── Inline design tokens - mirrored from main.css & custom.scss ── #}
+  <style nonce="{{ csp_nonce }}">
+    :root {
+      --accent:          #275DAD;
+      --ease:            cubic-bezier(0.16, 1, 0.3, 1);
+      --font-sans:       "DM Sans", system-ui, -apple-system, sans-serif;
+      --font-mono:       "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+      --color-bg:        #f8f7f4;
+      --color-bg2:       #ececec;
+      --color-surface:   #efefec;
+      --color-text:      #1a1a1a;
+      --color-muted:     #6b6b6b;
+      --color-border:    #e0ddd8;
+    }
+    [data-bs-theme="dark"] {
+      --color-bg:        #141414;
+      --color-bg2:       #1a1a1a;
+      --color-surface:   #1e1e1e;
+      --color-text:      #e8e6e1;
+      --color-muted:     #888;
+      --color-border:    #2a2a2a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .error-code {
+      font-family: var(--font-mono);
+      font-size: clamp(5rem, 18vw, 10rem);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--accent);
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .btn {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-radius: 2px;
+      transition: all 0.25s var(--ease);
+      display: inline-block;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background-color: #1e4d96;
+      color: #fff;
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--color-muted);
+      border: 1px solid var(--color-border);
+    }
+    .btn-ghost:hover {
+      border-color: var(--color-muted);
+      color: var(--color-text);
+    }
+
+    .brand {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      margin-bottom: 3rem;
+      display: inline-block;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.65s var(--ease) both; }
+    .fade-up-1 { animation-delay: 0.1s; }
+    .fade-up-2 { animation-delay: 0.2s; }
+    .fade-up-3 { animation-delay: 0.3s; }
+    .fade-up-4 { animation-delay: 0.4s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { animation: none; opacity: 1; transform: none; }
+    }
+
+    .custom-div {
+      max-width: 520px;
+      width: 100%;
+    }
+
+    .custom-description {
+      color: var(--color-muted);
+      max-width: 52ch;
+      margin-bottom: 2.5rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  {# ── Brand link back home ── #}
+  <a href="/" class="brand fade-up" aria-label="{% trans 'Back to homepage' %}">Kuz</a>
+
+  <div class="custom-div">
+
+    {# ── Label ── #}
+    <p class="section-label fade-up" aria-hidden="true">
+      {% trans "Error" %}
+    </p>
+
+    {# ── Code ── #}
+    <div class="error-code fade-up fade-up-1" aria-hidden="true">500</div>
+
+    {# ── Heading ── #}
+    <h1 class="h2 mb-3 fade-up fade-up-2">
+      {% trans "Something went wrong" %}
+    </h1>
+
+    {# ── Description ── #}
+    <p class="fade-up fade-up-3">
+      {% blocktrans %}An unexpected error occurred on my end. I've been notified and I'm looking into it. Please try again in a moment.{% endblocktrans %}
+    </p>
+
+    {# ── Actions ── #}
+    <div class="d-flex flex-wrap gap-3 fade-up fade-up-4">
+      <button type="button" onclick="window.location.reload()" class="btn btn-primary">
+        <i class="bi bi-arrow-clockwise me-2" aria-hidden="true"></i>{% trans "Try again" %}
+      </button>
+      <a href="/" class="btn btn-ghost">
+        <i class="bi bi-house me-2" aria-hidden="true"></i>{% trans "Go home" %}
+      </a>
+    </div>
+
+  </div>
+
+  {# ── Bootstrap JS - minimal, only for potential future use ── #}
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous">
+    </script>
+
+</body>
+</html>

@@ -45,13 +45,24 @@ async def test_home_url_is_root():
     assert url == "/en/"
 
 
+# @pytest.mark.parametrize(
+#    "url_name, expected_template",
+#    [
+#        ("core:home", "core/home.html"),
+#        ("core:about", "core/about.html"),
+#        ("core:work", "core/work.html"),
+#        ("core:projects", "core/work.html"),
+#        ("core:contact", "core/contact.html"),
+#    ],
+# )
 @pytest.mark.parametrize(
     "url_name, expected_template",
     [
         ("core:home", "core/home.html"),
-        ("core:about", "core/about.html"),
-        ("core:work", "core/work.html"),
-        ("core:contact", "core/contact.html"),
+        ("core:about", "coming_soon.html"),
+        ("core:work", "coming_soon.html"),
+        ("core:projects", "coming_soon.html"),
+        ("core:contact", "coming_soon.html"),
     ],
 )
 async def test_core_views(
@@ -92,13 +103,23 @@ async def test_nav_has_lang_options(
         )
 
 
+# @pytest.mark.parametrize(
+#    "url_name, expected_template",
+#    [
+#        ("core:home", "core/home.html"),
+#        ("core:about", "core/about.html"),
+#        ("core:work", "core/work.html"),
+#        ("core:contact", "core/contact.html"),
+#    ],
+# )
 @pytest.mark.parametrize(
     "url_name, expected_template",
     [
         ("core:home", "core/home.html"),
-        ("core:about", "core/about.html"),
-        ("core:work", "core/work.html"),
-        ("core:contact", "core/contact.html"),
+        ("core:about", "coming_soon.html"),
+        ("core:work", "coming_soon.html"),
+        ("core:projects", "coming_soon.html"),
+        ("core:contact", "coming_soon.html"),
     ],
 )
 @pytest.mark.asyncio

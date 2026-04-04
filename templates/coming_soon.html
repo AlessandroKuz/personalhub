@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+  {% if page_title %}{{ page_title }} - {% endif %}{% trans "Coming soon" %} | Alessandro Kuz
+{% endblock %}
+
+{% block meta_description %}{% trans "This page is under construction. Check back soon." %}{% endblock %}
+{% block og_title %}{% trans "Coming soon" %} | Alessandro Kuz{% endblock %}
+
+{% block content %}
+<section class="d-flex align-items-center custom-page-section" aria-labelledby="coming-soon-heading">
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-7 col-xl-6">
+
+        {# ── Label ── #}
+        <p class="section-label reveal mb-4" aria-hidden="true">
+          {% trans "work in progress" %}
+        </p>
+
+        {# ── Optional page icon ── #}
+        {% if page_icon %}
+        <div class="reveal reveal-delay-1 mb-3" aria-hidden="true">
+          <i class="bi {{ page_icon }} custom-page-icon"></i>
+        </div>
+        {% endif %}
+
+        {# ── Heading ── #}
+        <h1 id="coming-soon-heading" class="h2 mb-3 reveal reveal-delay-2">
+          {% if page_title %}
+            {{ page_title }}
+          {% else %}
+            {% trans "Coming soon" %}
+          {% endif %}
+        </h1>
+
+        {# ── Description ── #}
+        <p class="text-body-secondary mb-5 reveal reveal-delay-3 custom-page-description"">
+          {% if page_message %}
+            {{ page_message }}
+          {% else %}
+            {% blocktrans %}This page is currently being built. Come back soon, it won't be long.{% endblocktrans %}
+          {% endif %}
+        </p>
+
+        {# ── Actions ── #}
+        <div class="d-flex flex-wrap gap-3 reveal reveal-delay-4">
+          <a href="/" class="btn btn-primary">
+            <i class="bi bi-house me-2" aria-hidden="true"></i>{% trans "Go home" %}
+          </a>
+          <button type="button" onclick="history.back()" class="btn btn-ghost">
+            <i class="bi bi-arrow-left me-2" aria-hidden="true"></i>{% trans "Go back" %}
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
