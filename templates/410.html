@@ -1,53 +1,20 @@
-{% extends "base.html" %}
+{% extends "4xx_base.html" %}
 {% load i18n %}
 
 {% block title %}410 - {% trans "Page gone" %} | Alessandro Kuz{% endblock %}
 {% block meta_description %}{% trans "This page has been permanently removed." %}{% endblock %}
 {% block og_title %}410 - {% trans "Page gone" %} | Alessandro Kuz{% endblock %}
 
-{% block content %}
-<section
-  class="d-flex align-items-center"
-  style="min-height: calc(100vh - var(--navbar-height) - 120px); padding: clamp(48px, 8vh, 96px) 0;"
-  aria-labelledby="error-heading">
+{% block error_code %}410{% endblock error_code %}
+{% block error_heading %}
+  {% trans "Page permanently removed" %}
+{% endblock error_heading %}
+{% block error_description %}
+  {% blocktrans %}This page has been intentionally and permanently removed, it won't be coming back. If you followed a link here, that link is now outdated.{% endblocktrans %}
+{% endblock error_description %}
 
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-10 col-lg-7 col-xl-6">
-
-        {# ── Label ── #}
-        <p class="section-label reveal mb-4" aria-hidden="true">
-          {% trans "Error" %}
-        </p>
-
-        {# ── Code ── #}
-        <div class="reveal reveal-delay-1" aria-hidden="true">
-          <span
-            class="font-monospace fw-bold text-accent d-block"
-            style="font-size: clamp(5rem, 18vw, 10rem); line-height: 1; letter-spacing: -0.04em;">
-            410
-          </span>
-        </div>
-
-        {# ── Heading ── #}
-        <h1 id="error-heading" class="h2 mb-3 reveal reveal-delay-2">
-          {% trans "Page permanently removed" %}
-        </h1>
-
-        {# ── Description ── #}
-        <p class="text-body-secondary mb-5 reveal reveal-delay-3" style="max-width: 52ch;">
-          {% blocktrans %}This page has been intentionally and permanently removed, it won't be coming back. If you followed a link here, that link is now outdated.{% endblocktrans %}
-        </p>
-
-        {# ── Actions ── #}
-        <div class="d-flex flex-wrap gap-3 reveal reveal-delay-4">
-          <a href="/" class="btn btn-primary">
-            <i class="bi bi-house me-2" aria-hidden="true"></i>{% trans "Go home" %}
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-{% endblock %}
+{% block button1 %}
+  <a href="/" class="btn btn-primary">
+    <i class="bi bi-house me-2" aria-hidden="true"></i>{% trans "Go home" %}
+  </a>
+{% endblock button1 %}

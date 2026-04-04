@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<section class="d-flex align-items-center custom-page-section" aria-labelledby="error-heading">
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-7 col-xl-6">
+
+        {# ── Label ── #}
+        <p class="section-label reveal mb-4" aria-hidden="true">
+          {% trans "Error" %}
+        </p>
+
+        {# ── Code ── #}
+        <div class="reveal reveal-delay-1" aria-hidden="true">
+          <span class="font-monospace fw-bold text-accent d-block error-page-code">
+            {% block error_code %}{% endblock error_code %}
+          </span>
+        </div>
+
+        {# ── Heading ── #}
+        <h1 id="error-heading" class="h2 mb-3 reveal reveal-delay-2">
+          {% block error_heading %}{% endblock error_heading %}
+        </h1>
+
+        {# ── Description ── #}
+        <p class="text-body-secondary mb-5 reveal reveal-delay-3 custom-page-description">
+          {% block error_description %}{% endblock error_description %}
+        </p>
+
+        {# ── Hint box ── #}
+        {% block hint_box %}{% endblock hint_box %}
+
+        {# ── Actions ── #}
+        <div class="d-flex flex-wrap gap-3 reveal reveal-delay-4">
+          {% block button1 %}{% endblock button1 %}
+          {% block button2 %}{% endblock button2 %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
