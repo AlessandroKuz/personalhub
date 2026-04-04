@@ -23,7 +23,7 @@ CYAN  := \033[36m
 RESET := \033[0m
 
 # All supported locales. Add a new code here and `make messages` picks it up.
-LANGUAGES := en it es de
+LANGUAGES := en it es de uk
 
 # Extra arguments forwarded to targets that support them.
 # Usage: make migrate ARGS="--run-syncdb"

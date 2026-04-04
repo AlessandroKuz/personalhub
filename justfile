@@ -23,7 +23,7 @@ dc      := "docker compose"
 service := "web"
 
 # Languages for i18n - All supported locales. Add a new code here and `just messages` picks it up.
-langs := "en it es de"
+langs := "en it es de uk"
 
 
 # ── Default: list all recipes ──────────────────────────────────────────────────
