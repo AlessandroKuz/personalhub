@@ -1,7 +1,22 @@
 {% extends "base.html" %}
 {% load static i18n %}
 
-{% block title %}A.Kuz — {% trans "About" %}{% endblock title %}
+{% block title %}{% trans "Alessandro Kuz" %} - {% trans "About" %}{% endblock title %}
+{% block meta_description %}{% blocktrans %}{% endblocktrans %} {% endblock meta_description %}
+
+{% block og_title %}{% blocktrans %}Alessandro Kuz - Data Scientist & AI/ML Engineer{% endblocktrans %} - {% trans "About" %}{% endblock og_title %}
+{% block og_description %}{% blocktrans %}Data Scientist and AI/ML Engineer based in Italy. I build end-to-end data products: from pipelines and models to the interfaces people actually use. {% endblocktrans %}{% endblock og_description %}
+
+{% block twitter_title %}{% blocktrans %}Alessandro Kuz - Data Scientist & AI/ML Engineer{% endblocktrans %} - {% trans "About" %}{% endblock %}
+{% block twitter_description %}{% blocktrans %}Data Scientist and AI/ML Engineer based in Italy. I build end-to-end data products: from pipelines and models to the interfaces people actually use. {% endblocktrans %}{% endblock %}
+{% block twitter_image %}{% static 'img/og-card.png' %}{% endblock twitter_image %}
+
+{% block extra_css %}{% endblock extra_css %}
+
+{% block scrollspy %}
+{% endblock scrollspy %}
 
 {% block content %}
 {% endblock content %}
+
+{% block extra_js %}{% endblock extra_js %}
