@@ -1,4 +1,5 @@
-{% load i18n static compress %}
+{% load i18n static compress hreflang_tags %}
+{% get_available_languages as LANGUAGES %}
 {% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
@@ -6,41 +7,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Page Title -->
-    <title>{% block title %}Alessandro Kuz - Data Scientist & AI/ML Engineer{% endblock title %}</title>
-    <!-- Description & Author -->
-    <meta
-      name="description"
-      content="{% block meta_description %}{% blocktrans %}Data Scientist and ML Engineer based in Italy. I build end-to-end data products: from pipelines and models to the interfaces people actually use. {% endblocktrans %} {% endblock meta_description %}">
-    <meta name="author" content="{% blocktrans %}Alessandro Kuz{% endblocktrans %}">
+    {# Page Title #}
+    <title>{% block title %}{% trans "Alessandro Kuz - Data Scientist & AI/ML Engineer" %}{% endblock title %}</title>
 
-    <!-- Canonical - prevents duplicate content across i18n prefixes -->
+    {# Description & Author #}
+    <meta name="description"  content="{% block meta_description %}{% blocktrans %}Data Scientist and ML Engineer based in Italy. I build end-to-end data products: from pipelines and models to the interfaces people actually use. {% endblocktrans %} {% endblock meta_description %}">
+    <meta name="author"       content="{% blocktrans %}Alessandro Kuz{% endblocktrans %}">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color"  content="#275DAD">
+
+    <meta name="robots"                     content="index, follow">
+    <meta name="apple-mobile-web-app-title" content="{% block apple_site_name %}Alessandro Kuz Portfolio{% endblock apple_site_name %}">
+
+    {# hreflang — per ogni lingua disponibile #}
+    {% for lang_code, lang_name in LANGUAGES %} <link rel="alternate" hreflang="{{ lang_code }}" href="{{ request.scheme }}://{{ request.get_host }}{% hreflang_url lang_code %}">
+    {% endfor %}
+
+    {# x-default — punta alla versione EN #}
+    <link rel="alternate" hreflang="x-default" href="{{ request.scheme }}://{{ request.get_host }}{% hreflang_url 'en' %}">
+
+    {% comment %}
+    <link rel="alternate" hreflang="x-default" href="{{ request.scheme }}://{{ request.get_host }}/{{ request.resolver_match.url_name }}">
+    {% for lang_code, lang_name in LANGUAGES %}
+      {% if lang_code == "en"  %}
+        <link rel="alternate" hreflang="{{ lang_code }}" href="{{ request.scheme }}://{{ request.get_host }}/{{ request.resolver_match.url_name }}">
+      {% else %}
+        <link rel="alternate" hreflang="{{ lang_code }}" href="{{ request.scheme }}://{{ request.get_host }}/{{ lang_code }}/{{ request.resolver_match.url_name }}">
+      {% endif %}
+
+    {% endfor %}
+    {% for lang_code, lang_name in LANGUAGES %}
+      <link rel="alternate" hreflang="{{ lang_code }}"
+            href="{{ request.scheme }}://{{ request.get_host }}{% translate_url lang_code %}">
+    {% endfor %}
+    <link rel="alternate" hreflang="x-default"
+          href="{{ request.scheme }}://{{ request.get_host }}{% translate_url 'en' %}">
+    {% endcomment %}
+
+    {% with lang=LANGUAGE_CODE %}
+
+      {# ── Primary locale ── #}
+      {% if   lang == "en" %}<meta property="og:locale" content="en_US">
+      {% elif lang == "it" %}<meta property="og:locale" content="it_IT">
+      {% elif lang == "es" %}<meta property="og:locale" content="es_ES">
+      {% elif lang == "de" %}<meta property="og:locale" content="de_DE">
+      {% elif lang == "uk" %}<meta property="og:locale" content="uk_UA">
+      {% endif %}
+
+      {# ── Alternates — skip whichever is the active locale ── #}
+      {% if lang != "en" %}<meta property="og:locale:alternate" content="en_US">{% endif %}
+      {% if lang != "it" %}<meta property="og:locale:alternate" content="it_IT">{% endif %}
+      {% if lang != "es" %}<meta property="og:locale:alternate" content="es_ES">{% endif %}
+      {% if lang != "de" %}<meta property="og:locale:alternate" content="de_DE">{% endif %}
+      {% if lang != "uk" %}<meta property="og:locale:alternate" content="uk_UA">{% endif %}
+
+    {% endwith %}
+
+    {# Canonical - prevents duplicate content across i18n prefixes #}
     <link rel="canonical" href="{{ request.build_absolute_uri }}">
 
-    <!-- Open Graph - controls how the page appears when shared on socials -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="{% block og_title %}{% blocktrans %}Alessandro Kuz - Data Scientist & AI/ML Engineer{% endblocktrans %}{% endblock og_title %}">
-    <meta property="og:description" content="{% block og_description %}{% blocktrans %}Data Scientist and ML Engineer based in Italy. I build end-to-end data products: from pipelines and models to the interfaces people actually use. {% endblocktrans %}{% endblock og_description %}">
-    <meta property="og:url" content="{{ request.build_absolute_uri }}">
-    <meta property="og:image" content="{% block og_image %}{% static 'img/og-card.png' %}{% endblock og_image %}">
+    {# Open Graph - controls how the page appears when shared on socials #}
+    <meta property="og:site_name"    content="{% block site_name %}Alessandro Kuz Portfolio{% endblock site_name %}">
+
+    <meta property="og:type"         content="website">
+    <meta property="og:url"          content="{{ request.build_absolute_uri }}">
+    <meta property="og:title"        content="{% block og_title %}{% blocktrans %}Alessandro Kuz - Data Scientist & AI/ML Engineer{% endblocktrans %}{% endblock og_title %}">
+    <meta property="og:description"  content="{% block og_description %}{% blocktrans %}Data Scientist and ML Engineer based in Italy. I build end-to-end data products: from pipelines and models to the interfaces people actually use. {% endblocktrans %}{% endblock og_description %}">
+    <meta property="og:image"        content="{% block og_image %}{% static 'img/og-card.png' %}{% endblock og_image %}">
     <meta property="og:image:type"   content="image/png">
     <meta property="og:image:width"  content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt"    content="{% block og_image_alt %}{% blocktrans %}Alessandro Kuz - Data Scientist & AI/ML Engineer{% endblocktrans %}{% endblock og_image_alt %}
-">
+    <meta property="og:image:alt"    content="{% block og_image_alt %}{% blocktrans %}Alessandro Kuz - Data Scientist & AI/ML Engineer{% endblocktrans %}{% endblock og_image_alt %}">
 
     <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:url"         content="{{ request.build_absolute_uri }}">
     <meta name="twitter:title"       content="{% block twitter_title %}{% blocktrans %}Alessandro Kuz - Data Scientist & AI/ML Engineer{% endblocktrans %}{% endblock %}">
     <meta name="twitter:description" content="{% block twitter_description %}{% blocktrans %}Data Scientist and ML Engineer based in Italy. I build end-to-end data products: from pipelines and models to the interfaces people actually use. {% endblocktrans %}{% endblock %}">
     <meta name="twitter:image"       content="{% block twitter_image %}{% static 'img/og-card.png' %}{% endblock twitter_image %}">
 
-    <!-- Meta Block -->
+    {# Meta Block #}
     {% block meta %}{% endblock meta %}
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="{% static 'img/kuz-favicon.svg' %}">
+    <script type="application/ld+json" nonce={{ csp_nonce }}>
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Alessandro Kuz",
+        "url": "https://alessandrokuz.com",
+        "jobTitle": "Data Scientist & AI/ML Engineer",
+        "description": "{% blocktrans %}Data Scientist and ML Engineer based in Italy. I build end-to-end data products from pipelines and models to the interfaces people actually use.{% endblocktrans %}",
+        "sameAs": [
+          "https://github.com/alessandrokuz",
+          "https://linkedin.com/in/alessandrokuz"
+          "https://youtube.com/@alessandrokuz"
+        ]
+      }
+    </script>
 
-    <!-- Theme Initialization JS - loading immediatly in order to prevent theme flash -->
+    {# Favicon #}
+    <link rel="icon"             type="image/svg+xml" href="{% static 'img/favicon.svg' %}">
+    <link rel="icon"             type="image/x-icon"  href="{% static 'img/favicon.ico' %}">
+    <link rel="apple-touch-icon"                      href="{% static 'img/favicon.png' %}">
+
+    {# Theme Initialization JS - loading immediatly in order to prevent theme flash #}
     <script nonce="{{ csp_nonce }}">
       (function () {
         try {
@@ -55,12 +124,12 @@
       })();
     </script>
 
-    <!-- Google Fonts - JetBrains Mono + DM Sans -->
+    {# Google Fonts - JetBrains Mono + DM Sans #}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 
-    <!-- Bootstrap CSS and Icons-->
+    {# Bootstrap CSS and Icons#}
     {% compress css %}
     <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/custom.scss' %}">
     {% endcompress %}
@@ -70,19 +139,19 @@
       integrity="sha384-Bk5cbLkZQ5raZ0+H2/+VbfYx3WpvxvQK4zqXZr7sYODuaX7bKXoSOnipQxkaS8sv"
       crossorigin="anonymous">
 
-    <!-- Base CSS -->
+    {# Base CSS #}
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
-    <!-- Extra CSS -->
+    {# Extra CSS #}
     {% block extra_css %}{% endblock extra_css %}
 
-    <!-- CSRF token for HTMX requests -->
+    {# CSRF token for HTMX requests #}
     <meta name="csrf-token" content="{{ csrf_token }}">
   </head>
 
   <body class="d-flex flex-column min-vh-100">
 
-    <!-- Skip link - Accessibility best practice -->
+    {# Skip link - Accessibility best practice #}
     <a class="visually-hidden-focusable" href="#main-content">
       {% trans "Skip to main content" %}
     </a>
@@ -90,67 +159,67 @@
     <div id="cursor-dot"  aria-hidden="true"></div>
     <div id="cursor-ring" aria-hidden="true"></div>
 
-    <!-- Navbar -->
+    {# Navbar #}
     {% block navbar %}
       {% include "components/_nav.html" %}
     {% endblock navbar %}
 
-    <!-- Alerts -->
+    {# Alerts #}
     {% block alerts %}
       {% include "components/_alerts.html" %}
     {% endblock alerts %}
 
-    <!-- Toasts -->
+    {# Toasts #}
     {% block toasts %}
       {% include "components/_toasts.html" %}
     {% endblock toasts %}
 
-    <!-- Shortcuts Modal -->
+    {# Shortcuts Modal #}
     {% block shortcutsModal %}
       {% include "components/_shortcutsModal.html" %}
     {% endblock shortcutsModal %}
 
-    <!-- Shortcuts Hint -->
+    {# Shortcuts Hint #}
     <div class="text-center d-none d-md-block">
       <small class="my-0 font-monospace text-muted opacity-50">
         {% trans "Press" %} <kbd>?</kbd> {% trans "for keyboard shortcuts" %}.
       </small>
     </div>
 
-    <!-- Main Content -->
+    {# Main Content #}
     <main id="main-content" class="flex-grow-1">
       {% block content %}{% endblock %}
     </main>
 
-    <!-- Scrollspy -->
+    {# Scrollspy #}
     {% block scrollspy %}{% endblock scrollspy %}
 
-    <!-- Footer -->
+    {# Footer #}
     {% block footer %}
       {% include "components/_footer.html" %}
     {% endblock footer %}
 
-    <!-- Bootstrap JS -->
+    {# Bootstrap JS #}
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous">
     </script>
 
-    <!-- HTMX -->
+    {# HTMX #}
     <script
       src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"
       integrity="sha384-/TgkGk7p307TH7EXJDuUlgG3Ce1UVolAOFopFekQkkXihi5u/6OCvVKyz1W+idaz"
       crossorigin="anonymous">
     </script>
 
-    <!-- Theme Script -->
+    {# Theme Script #}
     <script src="{% static 'js/theme.js' %}" defer></script>
 
-    <!-- Main JavaScript -->
+    {# Main JavaScript #}
     <script type="module" src="{% static 'js/main.js' %}"></script>
 
-    <!-- Extra JavaScript -->
+    {# Extra JavaScript #}
     {% block extra_js %}{% endblock extra_js %}
   </body>
 </html>
