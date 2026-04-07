@@ -18,8 +18,14 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 from django.http import HttpResponse
 from django.urls import include, path
+
+from apps.core.sitemaps import StaticSitemap
+from apps.core.views import robots_txt
+
+sitemaps = {"static": StaticSitemap}
 
 handler400 = "apps.core.views.error_400"
 handler403 = "apps.core.views.error_403"
@@ -27,6 +33,8 @@ handler404 = "apps.core.views.error_404"
 handler500 = "apps.core.views.error_500"
 
 urlpatterns = [
+    path("robots.txt", robots_txt, name="robots_txt"),
+    path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
     path("health/", lambda _: HttpResponse(b"ok"), name="health"),
     path("i18n/", include("django.conf.urls.i18n")),  # language switcher endpoint
 ]
