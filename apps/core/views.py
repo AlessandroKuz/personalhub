@@ -6,12 +6,16 @@ from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
 from django.template.response import TemplateResponse
 from django.utils.translation import gettext as _
+from django.views.generic import TemplateView
 
 
 @dataclass
 class Section:
     id: str
     label: str
+
+
+robots_txt = TemplateView.as_view(template_name="robots.txt", content_type="text/plain")
 
 
 async def home(request: HttpRequest) -> HttpResponse:
