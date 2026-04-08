@@ -3,12 +3,14 @@
 # This file is distributed under the same license as the PERSONALHUB package.
 # Alessandro Kuz contact@alessandrokuz.com, 2026.
 #
+#: apps/core/templates/core/about.html:5
+#: apps/core/templates/core/contact.html:5 apps/core/templates/core/work.html:5
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-04 11:25+0200\n"
+"POT-Creation-Date: 2026-04-08 15:46+0200\n"
 "PO-Revision-Date: 2026-04-04 11:25+0200\n"
 "Last-Translator: Alessandro Kuz\n"
 "Language-Team: Español <es@li.org>\n"
@@ -18,24 +20,50 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps/core/templates/core/about.html:4 apps/core/templates/core/home.html:160
-#: apps/core/views.py:20 apps/core/views.py:39
-#: templates/components/_nav.html:98
+#: apps/core/templates/core/about.html:4
+#: apps/core/templates/core/contact.html:4 apps/core/templates/core/work.html:4
+#: templates/base.html:15 templates/components/_footer.html:12
+msgid "Alessandro Kuz"
+msgstr "Alessandro Kuz"
+
+#: apps/core/templates/core/about.html:4 apps/core/templates/core/about.html:7
+#: apps/core/templates/core/about.html:10
+#: apps/core/templates/core/home.html:160 apps/core/views.py:24
+#: apps/core/views.py:43 templates/components/_nav.html:98
 #: templates/components/_shortcutsModal.html:29
 msgid "About"
 msgstr "Sobre mí"
 
-#: apps/core/templates/core/contact.html:3
-#: apps/core/templates/core/home.html:593 apps/core/views.py:25
-#: apps/core/views.py:89 templates/components/_nav.html:144
+#: apps/core/templates/core/about.html:7 apps/core/templates/core/about.html:10
+#: apps/core/templates/core/contact.html:7
+#: apps/core/templates/core/contact.html:10
+#: apps/core/templates/core/home.html:5 apps/core/templates/core/work.html:7
+#: apps/core/templates/core/work.html:10 templates/base.html:11
+#: templates/base.html:75 templates/base.html:81 templates/base.html:85
+msgid "Alessandro Kuz - Data Scientist & AI/ML Engineer"
+msgstr "Alessandro Kuz - Data Scientist e Ingeniero de IA/ML"
+
+#: apps/core/templates/core/about.html:8 apps/core/templates/core/about.html:11
+#: apps/core/templates/core/contact.html:8
+#: apps/core/templates/core/contact.html:11
+#: apps/core/templates/core/work.html:8 apps/core/templates/core/work.html:11
+#: templates/base.html:76 templates/base.html:86
+msgid ""
+"Data Scientist and AI/ML Engineer based in Italy. I build end-to-end data "
+"products: from pipelines and models to the interfaces people actually use. "
+msgstr ""
+"Data Scientist e Ingeniero de ML e IA con base en Italia. Desarrollo productos de "
+"datos de extremo a extremo: desde pipelines y modelos hasta las interfaces "
+"que la gente realmente usa."
+
+#: apps/core/templates/core/contact.html:4
+#: apps/core/templates/core/contact.html:7
+#: apps/core/templates/core/contact.html:10
+#: apps/core/templates/core/home.html:593 apps/core/views.py:29
+#: apps/core/views.py:93 templates/components/_nav.html:144
 #: templates/components/_shortcutsModal.html:32
 msgid "Contact"
 msgstr "Contacto"
-
-#: apps/core/templates/core/home.html:5 templates/base.html:22
-#: templates/base.html:29 templates/base.html:33
-msgid "Alessandro Kuz - Data Scientist & AI/ML Engineer"
-msgstr "Alessandro Kuz - Data Scientist e Ingeniero de IA/ML"
 
 #: apps/core/templates/core/home.html:12
 msgid "Page sections"
@@ -65,9 +93,9 @@ msgid ""
 "end: data pipelines, model training, and the interfaces people actually use. "
 "Based in Italy, working globally."
 msgstr ""
-"Data Scientist e Ingeniero de ML con titulación superior en IA. Trabajo end-to-end: "
-"pipelines de datos, entrenamiento de modelos y las interfaces que la gente "
-"realmente usa. Desde Italia, trabajo a nivel global."
+"Data Scientist e Ingeniero de ML con titulación superior en IA. Trabajo end-"
+"to-end: pipelines de datos, entrenamiento de modelos y las interfaces que la "
+"gente realmente usa. Desde Italia, trabajo a nivel global."
 
 #: apps/core/templates/core/home.html:67
 msgid "View my work"
@@ -251,7 +279,8 @@ msgid "Calisthenics, nature, history and philosophy"
 msgstr "Calistenia, naturaleza, historia y filosofía"
 
 #: apps/core/templates/core/home.html:214 apps/core/templates/core/work.html:4
-#: apps/core/views.py:21 apps/core/views.py:56
+#: apps/core/templates/core/work.html:7 apps/core/templates/core/work.html:10
+#: apps/core/views.py:25 apps/core/views.py:60
 #: templates/components/_nav.html:106
 #: templates/components/_shortcutsModal.html:30
 msgid "Work"
@@ -356,8 +385,8 @@ msgstr "Ver CV completo"
 msgid "Open CV pdf"
 msgstr "Abrir CV en PDF"
 
-#: apps/core/templates/core/home.html:345 apps/core/views.py:22
-#: apps/core/views.py:73 templates/components/_nav.html:125
+#: apps/core/templates/core/home.html:345 apps/core/views.py:26
+#: apps/core/views.py:77 templates/components/_nav.html:125
 #: templates/components/_shortcutsModal.html:31
 msgid "Projects"
 msgstr "Proyectos"
@@ -511,7 +540,7 @@ msgstr ""
 msgid "All projects"
 msgstr "Todos los proyectos"
 
-#: apps/core/templates/core/home.html:529 apps/core/views.py:24
+#: apps/core/templates/core/home.html:529 apps/core/views.py:28
 msgid "Process"
 msgstr "Proceso"
 
@@ -645,11 +674,11 @@ msgstr "Visitar a Alessandro Kuz en LinkedIn"
 msgid "Go to contact page"
 msgstr "Ir a la página de contacto"
 
-#: apps/core/views.py:19
+#: apps/core/views.py:23
 msgid "Introduction"
 msgstr "Introducción"
 
-#: apps/core/views.py:42
+#: apps/core/views.py:46
 msgid ""
 "I'm putting together a proper about page: background, the six languages, how "
 "I think about problems. The homepage introduction covers the essentials for "
@@ -659,7 +688,7 @@ msgstr ""
 "idiomas, cómo abordo los problemas. La introducción en la página principal "
 "cubre lo esencial por ahora."
 
-#: apps/core/views.py:59
+#: apps/core/views.py:63
 msgid ""
 "A detailed breakdown of what I do and how I do it is coming: services, "
 "tools, and the approach behind the work. The homepage gives a summary in the "
@@ -669,7 +698,7 @@ msgstr ""
 "servicios, herramientas y el enfoque detrás del trabajo. La página principal "
 "ofrece un resumen mientras tanto."
 
-#: apps/core/views.py:76
+#: apps/core/views.py:80
 msgid ""
 "A curated showcase of my work is being put together: data pipelines, ML "
 "systems, and the web projects in between. The homepage gives a preview for "
@@ -679,7 +708,7 @@ msgstr ""
 "sistemas de ML y los proyectos web intermedios. La página principal ofrece "
 "una vista previa por ahora."
 
-#: apps/core/views.py:92
+#: apps/core/views.py:96
 msgid ""
 "This form is still being built. In the meantime, reach me directly at my "
 "email, I respond within 24 hours."
@@ -687,43 +716,43 @@ msgstr ""
 "Este formulario aún está en construcción. Mientras tanto, escríbeme "
 "directamente por correo electrónico, respondo en menos de 24 horas."
 
-#: apps/core/views.py:102
+#: apps/core/views.py:106
 msgid "🐛 DEBUG — lowest level, hidden in production"
 msgstr "🐛 DEBUG — nivel más bajo, oculto en producción"
 
-#: apps/core/views.py:103
+#: apps/core/views.py:107
 msgid "ℹ️ INFO — general information"
 msgstr "ℹ️ INFO — información general"
 
-#: apps/core/views.py:104
+#: apps/core/views.py:108
 msgid "✅ SUCCESS — action completed"
 msgstr "✅ SUCCESS — acción completada"
 
-#: apps/core/views.py:105
+#: apps/core/views.py:109
 msgid "⚠️ WARNING — something needs attention"
 msgstr "⚠️ WARNING — algo requiere atención"
 
-#: apps/core/views.py:106
+#: apps/core/views.py:110
 msgid "❌ ERROR — something went wrong"
 msgstr "❌ ERROR — algo salió mal"
 
-#: config/settings/base.py:198
+#: config/settings/base.py:199
 msgid "English"
 msgstr "Inglés"
 
-#: config/settings/base.py:199
+#: config/settings/base.py:200
 msgid "Italian"
 msgstr "Italiano"
 
-#: config/settings/base.py:200
+#: config/settings/base.py:201
 msgid "Spanish"
 msgstr "Español"
 
-#: config/settings/base.py:201
+#: config/settings/base.py:202
 msgid "German"
 msgstr "Alemán"
 
-#: config/settings/base.py:202
+#: config/settings/base.py:203
 msgid "Ukrainian"
 msgstr "Ucraniano"
 
@@ -872,7 +901,7 @@ msgstr ""
 msgid "Try again"
 msgstr "Intentarlo de nuevo"
 
-#: templates/base.html:14 templates/base.html:23 templates/base.html:34
+#: templates/base.html:14
 msgid ""
 "Data Scientist and ML Engineer based in Italy. I build end-to-end data "
 "products: from pipelines and models to the interfaces people actually use. "
@@ -881,19 +910,24 @@ msgstr ""
 "datos de extremo a extremo: desde pipelines y modelos hasta las interfaces "
 "que la gente realmente usa."
 
-#: templates/base.html:15 templates/components/_footer.html:12
-msgid "Alessandro Kuz"
-msgstr "Alessandro Kuz"
+#: templates/base.html:99
+msgid ""
+"Data Scientist and AI/ML Engineer based in Italy. I build end-to-end data "
+"products from pipelines and models to the interfaces people actually use."
+msgstr ""
+"Data Scientist e Ingeniero de ML e IA con base en Italia. Desarrollo productos de "
+"datos de extremo a extremo: desde pipelines y modelos hasta las interfaces "
+"que la gente realmente usa."
 
-#: templates/base.html:87
+#: templates/base.html:157
 msgid "Skip to main content"
 msgstr "Saltar al contenido principal"
 
-#: templates/base.html:116 templates/components/_shortcutsModal.html:56
+#: templates/base.html:186 templates/components/_shortcutsModal.html:56
 msgid "Press"
 msgstr "Pulsa"
 
-#: templates/base.html:116
+#: templates/base.html:186
 msgid "for keyboard shortcuts"
 msgstr "para los atajos de teclado"
 
