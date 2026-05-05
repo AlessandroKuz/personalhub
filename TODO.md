@@ -15,7 +15,7 @@ Legend:
 
 - [x] Finalise design tokens in `static/css/main.css`
       — `--accent`, `--bg`, `--surface`, `--text`, `--muted`, `--border`, `--mono`
-      for both `[data-theme="light"]` and `[data-theme="dark"]`
+      for both `[data-bs-theme="light"]` and `[data-bs-theme="dark"]`
 - [x] Confirm `data-theme` / `data-bs-theme` parity across all custom tokens
 - [x] Lock in font duo: DM Sans + JetBrains Mono
       — add Google Fonts `<link>` to `base.html` (or self-host in `static/`)

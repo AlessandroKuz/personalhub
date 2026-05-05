@@ -113,11 +113,17 @@
     <script nonce="{{ csp_nonce }}">
       (function () {
         try {
-          var s = localStorage.getItem("theme") || "auto";
-          var t = s === "auto"
-            ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
-            : s;
-          document.documentElement.setAttribute("data-bs-theme", t);
+          var stored = localStorage.getItem("theme");
+          var resolvedTheme = stored;
+
+          if (resolvedTheme !== "light" && resolvedTheme !== "dark") {
+            resolvedTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+            localStorage.setItem("theme", resolvedTheme);
+          }
+
+          document.documentElement.setAttribute("data-bs-theme", resolvedTheme);
         } catch (e) {
           document.documentElement.setAttribute("data-bs-theme", "dark");
         }

@@ -1,8 +1,5 @@
 # Current To-dos
 
-- [x] Creare nuova release su GitHub
-- [x] Aumentare tempo HSTS ad un anno
-- [x] Aggiornare il server di produzione
 - [ ] Aggiornare documentazione prima del v1.0.0
 - [ ] Aggiungere _cta, About, Work, Contact per la v1.0.0
 
