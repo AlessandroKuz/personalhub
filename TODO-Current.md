@@ -1,7 +1,10 @@
 # Current To-dos
 
-- [ ] aggiungere questo alla creazione del db in produzione:
-  - `python manage.py shell -c "from django.contrib.sites.models import Site; Site.objects.update_or_create(id=1, defaults={'domain': 'alessandrokuz.com', 'name': 'Alessandro Kuz'})"`
+- [x] Creare nuova release su GitHub
+- [x] Aumentare tempo HSTS ad un anno
+- [x] Aggiornare il server di produzione
+- [ ] Aggiornare documentazione prima del v1.0.0
+- [ ] Aggiungere _cta, About, Work, Contact per la v1.0.0
 
 ## SEO
 
