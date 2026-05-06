@@ -319,6 +319,11 @@ export function init({ scrollStep = 0.15, gTimeout = 2000 } = {}) {
     // ── Modal open: suppress everything (? and Escape handled above already) ──
     if (document.querySelector('.modal.show')) return;
 
+    // ── Cal.com popup open: suppress everything ──
+    // calPopout.js sets data-cal-open on <html> on trigger click and removes it
+    // via Cal's __closeIframe event — reliable regardless of iframe DOM state.
+    if (document.documentElement.dataset.calOpen) return;
+
     // Prevent browser defaults for our intercepted keys before processing
     if (INTERCEPTED.has(e.key)) e.preventDefault();
 

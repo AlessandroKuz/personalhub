@@ -56,7 +56,12 @@ CSRF_COOKIE_HTTPONLY = True
 
 SECURE_CSP = {
     "default-src": [CSP.NONE],
-    "script-src": [CSP.SELF, CSP.NONCE, "https://cdn.jsdelivr.net"],
+    "script-src": [
+        CSP.SELF,
+        CSP.NONCE,
+        "https://cdn.jsdelivr.net",
+        "https://app.cal.com",
+    ],
     "style-src": [
         CSP.SELF,
         CSP.NONCE,
