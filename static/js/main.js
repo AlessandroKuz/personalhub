@@ -126,9 +126,11 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.lang-option').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var lang = btn.dataset.lang;
+      var nextInput = form.querySelector('input[name="next"]');
+      if (nextInput) {
+        nextInput.value = nextInput.value.replace(/^\/[a-z]{2}(?=\/|$)/, '/' + lang);
+      }
       input.value = lang;
-      /* Update trigger label instantly — feels responsive before
-         the page reloads on form submit                         */
       if (label) label.textContent = lang.toUpperCase();
       form.submit();
     });
