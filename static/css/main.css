@@ -554,13 +554,15 @@ body.cursor-hover #cursor-ring {
   z-index: 1000;
 }
 
-#scrollspy-nav .nav { gap: 14px; }
+#scrollspy-nav .nav { gap: 0; }
 
 #scrollspy-nav .nav-link {
   position: relative;
-  padding: 0;
+  padding: 8px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
 
 /* Dot */
@@ -572,14 +574,16 @@ body.cursor-hover #cursor-ring {
   background: var(--color-muted);
   opacity: 0.3;
   flex-shrink: 0;
-  transition: opacity 0.2s var(--ease), transform 0.2s var(--ease),
-              background 0.2s var(--ease);
+  outline: 0 solid var(--accent);
+  outline-offset: 2px;
+  transition: opacity 0.2s var(--ease), width 0.2s var(--ease),
+              height 0.2s var(--ease), background 0.2s var(--ease);
 }
 
-/* Label — hidden by default, appears on hover only */
+/* Label — hidden by default, appears on hover/focus */
 #scrollspy-nav .dot-label {
   position: absolute;
-  right: calc(100% + 10px);
+  right: calc(100% + 2px);
   white-space: nowrap;
   font-family: var(--font-mono);
   font-size: 0.68rem;
@@ -596,23 +600,40 @@ body.cursor-hover #cursor-ring {
   transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
 }
 
-/* Hover & keyboard focus — label appears both on mouse hover and Tab focus */
-#scrollspy-nav .nav-link:hover .dot,
-#scrollspy-nav .nav-link:focus-visible .dot {
+/* Remove default focus outline on nav-link — ring is on the dot instead */
+#scrollspy-nav .nav-link:focus-visible,
+#scrollspy-nav .nav-link:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+/* Hover state — dot scales up, label appears */
+#scrollspy-nav .nav-link:hover .dot {
   opacity: 0.6;
   transform: scale(1.3);
 }
-#scrollspy-nav .nav-link:hover .dot-label,
+#scrollspy-nav .nav-link:hover .dot-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Keyboard focus state — ring around dot with spacing, label appears */
+#scrollspy-nav .nav-link:focus-visible .dot,
+#scrollspy-nav .nav-link:focus .dot {
+  opacity: 1;
+  outline-width: 2px;
+}
 #scrollspy-nav .nav-link:focus-visible .dot-label {
   opacity: 1;
   transform: translateX(0);
 }
 
-/* Active state — accent dot, no label */
+/* Active state — accent dot, larger, no label */
 #scrollspy-nav .nav-link.active .dot {
   opacity: 1;
   background: var(--accent);
-  transform: scale(1.35);
+  width: 12px;
+  height: 12px;
 }
 
 /* ══════════════════════════════════════════════════════════
