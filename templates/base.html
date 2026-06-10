@@ -137,7 +137,7 @@
 
     {# Bootstrap CSS and Icons#}
     {% compress css %}
-    <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/custom.scss' %}">
+      <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/custom.scss' %}">
     {% endcompress %}
     <link
       rel="stylesheet"
@@ -158,7 +158,7 @@
   <body class="d-flex flex-column min-vh-100">
 
     {# Skip link - Accessibility best practice #}
-    <a class="visually-hidden-focusable" href="#main-content">
+    <a class="skip-link" href="#main-content">
       {% trans "Skip to main content" %}
     </a>
 
