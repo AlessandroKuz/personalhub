@@ -214,6 +214,21 @@ urls:
     {{ manage }} show_urls
 
 
+# ── Documentation ───────────────────────────────────────────────────
+
+# Start the MkDocs documentation server with live reload
+# Default address: http://127.0.0.1:8001
+docs:
+    {{ run }} mkdocs serve -f docs/mkdocs.yml \
+        --dev-addr 127.0.0.1:8001 \
+        --livereload
+
+# MkDocs dev server, accepts extra arguments to override defaults
+# Usage:  just docs-serve --dev-addr 0.0.0.0:8002
+docs-serve *args:
+    {{ run }} mkdocs serve -f docs/mkdocs.yml {{ args }}
+
+
 # ── Cleanup ───────────────────────────────────────────────────────────────────
 
 # Remove Python bytecode caches and compiled translation files
