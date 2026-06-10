@@ -670,3 +670,64 @@ body.cursor-hover #cursor-ring {
   font-size: 0.75rem;
   color: var(--color-muted);
 }
+
+/* ══════════════════════════════════════════════════════════
+   KEYBOARD NAV MODE — suppress hover while [data-kb-nav]
+   ══════════════════════════════════════════════════════════ */
+
+html[data-kb-nav] .skill-col:not(:focus-visible):not(:focus):hover {
+  background: var(--color-bg);
+}
+html[data-kb-nav] a.skill-col:not(:focus-visible):not(:focus):hover .skill-view-link {
+  opacity: 0;
+}
+html[data-kb-nav] .skill-col:not(:focus-visible):not(:focus):hover .skill-tag {
+  border-color: var(--color-border);
+  color: var(--color-muted);
+}
+html[data-kb-nav] .project-card:not(:focus-visible):not(:focus):hover {
+  background: var(--color-bg2);
+}
+html[data-kb-nav] .project-card:not(:focus-visible):not(:focus):hover::after {
+  width: 0;
+}
+html[data-kb-nav] .project-card:not(:focus-visible):not(:focus):hover .project-link {
+  opacity: 0;
+}
+html[data-kb-nav] .contact-link:not(:focus-visible):not(:focus):hover {
+  color: var(--color-muted);
+  gap: 1rem;
+}
+html[data-kb-nav] .contact-link:not(:focus-visible):not(:focus):hover .contact-link-meta {
+  opacity: 0;
+}
+html[data-kb-nav] .contact-link:not(:focus-visible):not(:focus):hover .contact-link-arrow {
+  transform: translateX(0);
+}
+html[data-kb-nav] #scrollspy-nav .nav-link:not(:focus-visible):not(:focus):hover .dot {
+  opacity: 0.3;
+  transform: none;
+}
+html[data-kb-nav] #scrollspy-nav .nav-link:not(:focus-visible):not(:focus):hover .dot-label {
+  opacity: 0;
+  transform: translateX(4px);
+}
+html[data-kb-nav] .navbar .nav-link:not(:focus-visible):not(:focus):hover {
+  color: inherit !important;
+}
+html[data-kb-nav] .navbar .nav-link:not(:focus-visible):not(:focus):hover::after {
+  width: 0;
+}
+html[data-kb-nav] .navbar-brand:not(:focus-visible):not(:focus):hover {
+  color: inherit !important;
+  letter-spacing: 0.05em;
+}
+
+/* Keyboard nav mode — hide custom cursor, show default pointer */
+html[data-kb-nav] #cursor-dot,
+html[data-kb-nav] #cursor-ring {
+  display: none;
+}
+html[data-kb-nav] * {
+  cursor: auto !important;
+}

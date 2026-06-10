@@ -230,7 +230,30 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 })();
 
-/* ── 7. SHORTCUTS MODAL ───────────────────────────────────────── */
+/* ── 7. KEYBOARD NAV DETECTION ─────────────────────────────────── */
+/* Detects Tab/Arrow/Enter navigation and sets [data-kb-nav] on
+   <html>. While active, all :hover effects are suppressed via CSS
+   so mouse-hover on card A doesn't conflict with keyboard focus
+   on card B. Removes immediately on any mouse movement or click.  */
+
+(function () {
+  function enableKb() {
+    document.documentElement.setAttribute('data-kb-nav', '');
+  }
+  function disableKb() {
+    document.documentElement.removeAttribute('data-kb-nav');
+  }
+  document.addEventListener('keydown', function (e) {
+    if (['Tab', 'Enter', ' ', 'Escape', 'ArrowUp',
+         'ArrowDown', 'ArrowLeft', 'ArrowRight'].indexOf(e.key) !== -1) {
+      enableKb();
+    }
+  });
+  document.addEventListener('mousemove', disableKb);
+  document.addEventListener('mousedown', disableKb);
+})();
+
+/* ── 8. SHORTCUTS MODAL ───────────────────────────────────────── */
 
 import { init as initVimNav } from './vimNav.js';
 initVimNav();
