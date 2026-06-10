@@ -76,3 +76,31 @@ Tutto implementato. Da usare per rework docs.
 
 **File**: `static/js/vimNav.js`
 **Dettaglio**: State machine per `j`/`k` navigazione tra sezioni scrollabili. `getCurrentSectionIndex()` usa midpoint scroll. Listener keydown escluso su input/textarea/select.
+
+---
+
+## zz — Center current selected element
+
+**File**: `static/js/vimNav.js`
+**Dettaglio**: z-prefix. `zz` centra l'elemento attualmente focalizzato (`document.activeElement`). Se nessun focus esplicito (body/html), fallback: centra la sezione corrente via `getCurrentSectionIndex()` + `scrollIntoView({ block: 'center' })`. Timer 2s scade se nessun secondo tasto.
+
+---
+
+## zs — Center current section
+
+**File**: `static/js/vimNav.js`
+**Dettaglio**: `zs` nel blocco z-pending → centra la sezione corrente (midpoint scroll). Stessa logica di `zz` fallback. Utile quando si vuole forzare centratura sezione anche con un elemento focalizzato.
+
+---
+
+## gb — Go back (previous page)
+
+**File**: `static/js/vimNav.js`
+**Dettaglio**: `gb` nel blocco gPending → `window.history.back()`. Nessun side effect.
+
+---
+
+## gn / gf — Go forward (next page)
+
+**File**: `static/js/vimNav.js`
+**Dettaglio**: `gn` o `gf` nel blocco gPending → `window.history.forward()`. Duplice keybind per convenienza mnemonica. Nessun side effect.

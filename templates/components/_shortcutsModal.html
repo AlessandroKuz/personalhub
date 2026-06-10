@@ -12,37 +12,41 @@
           {% trans "Inspired by" %} <a href="https://devhints.io/vim#navigating" target="_blank" rel="noopener noreferrer" class="fw-semibold">{% trans "vim keybindings" %}</a>.
         </p>
         <p class="vim-modal__section-label">{% trans "Scrolling" %}</p>
-          <ul class="list-unstyled">
-            <li><kbd>G</kbd> - {% trans "Jump to bottom" %}</li>
-            <li><kbd>gg</kbd> - {% trans "Jump to top" %}</li>
-            <li><kbd>j</kbd> / <kbd>k</kbd> - {% trans "Scroll down / up" %}</li>
-          </ul>
+        <ul class="list-unstyled">
+          <li><kbd>G</kbd> - {% trans "Jump to bottom" %}</li>
+          <li><kbd>gg</kbd> - {% trans "Jump to top" %}</li>
+          <li><kbd>j</kbd> / <kbd>k</kbd> - {% trans "Scroll down / up" %}</li>
+          <li><kbd>zz</kbd> - {% trans "Center current selected element (falls back to current section)" %}</li>
+          <li><kbd>zs</kbd> - {% trans "Center current section" %}</li>
+        </ul>
 
-          <p class="vim-modal__section-label">{% trans "Sections" %}</p>
-          <ul class="list-unstyled">
-            <li><kbd>h</kbd> / <kbd>l</kbd> - {% trans "Prev / next section" %}</li>
-          </ul>
+        <p class="vim-modal__section-label">{% trans "Sections" %}</p>
+        <ul class="list-unstyled">
+          <li><kbd>h</kbd> / <kbd>l</kbd> - {% trans "Prev / next section" %}</li>
+        </ul>
 
-          <p class="vim-modal__section-label">{% trans "Pages" %}</p>
-          <ul class="list-unstyled">
-            <li><kbd>gh</kbd> - {% trans "Home" %}</li>
-            <li><kbd>ga</kbd> - {% trans "About" %}</li>
-            <li><kbd>gw</kbd> - {% trans "Work" %}</li>
-            <li><kbd>gp</kbd> - {% trans "Projects" %}</li>
-            <li><kbd>gc</kbd> - {% trans "Contact" %}</li>
-          </ul>
+        <p class="vim-modal__section-label">{% trans "Pages" %}</p>
+        <ul class="list-unstyled">
+          <li><kbd>gh</kbd> - {% trans "Home" %}</li>
+          <li><kbd>ga</kbd> - {% trans "About" %}</li>
+          <li><kbd>gw</kbd> - {% trans "Work" %}</li>
+          <li><kbd>gp</kbd> - {% trans "Projects" %}</li>
+          <li><kbd>gc</kbd> - {% trans "Contact" %}</li>
+        </ul>
 
-          <p class="vim-modal__section-label">{% trans "Actions" %}</p>
-          <ul class="list-unstyled">
-            <li><kbd>gl</kbd> - {% trans "Select language" %}</li>
-            <li><kbd>gt</kbd> - {% trans "Switch theme" %}</li>
-          </ul>
+        <p class="vim-modal__section-label">{% trans "Actions" %}</p>
+        <ul class="list-unstyled">
+          <li><kbd>gl</kbd> - {% trans "Select language" %}</li>
+          <li><kbd>gt</kbd> - {% trans "Switch theme" %}</li>
+          <li><kbd>gb</kbd> - {% trans "Go back (previous page)" %}</li>
+          <li><kbd>gn</kbd> / <kbd>gf</kbd> - {% trans "Go forward (next page)" %}</li>
+        </ul>
 
-          <p class="vim-modal__section-label">{% trans "Other" %}</p>
-          <ul class="list-unstyled">
-            <li><kbd>Esc</kbd> - {% trans "Close opened menu / reset shortcut combination" %}</li>
-            <li><kbd>?</kbd> - {% trans "Toggle this help" %}</li>
-          </ul>
+        <p class="vim-modal__section-label">{% trans "Other" %}</p>
+        <ul class="list-unstyled">
+          <li><kbd>Esc</kbd> - {% trans "Close opened menu / reset shortcut combination" %}</li>
+          <li><kbd>?</kbd> - {% trans "Toggle this help" %}</li>
+        </ul>
 
         <div class="alert alert-secondary d-flex align-items-start gap-2 py-2 px-3 mt-3 mb-0 small" role="note">
           <i class="bi bi-info-circle" aria-hidden="true"></i>
