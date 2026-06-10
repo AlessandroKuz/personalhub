@@ -253,6 +253,12 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('mousedown', disableKb);
 })();
 
+/* ── Scrollspy dot: blur after click, prevent :focus-visible ring ── */
+document.addEventListener('click', function (e) {
+  var link = e.target.closest('#scrollspy-nav .nav-link');
+  if (link) link.blur();
+});
+
 /* ── 8. SHORTCUTS MODAL ───────────────────────────────────────── */
 
 import { init as initVimNav } from './vimNav.js';
