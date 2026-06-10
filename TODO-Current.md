@@ -2,6 +2,8 @@
 
 - [ ] Aggiornare documentazione prima del v1.0.0
 - [ ] Aggiungere _cta, About, Work, Contact per la v1.0.0
+- [ ] Sostituire motto con foto profilo in hero
+- [ ] Animazioni cambio pagina (solo se prefers-reduced-motion è no-preference)
 
 ## SEO
 

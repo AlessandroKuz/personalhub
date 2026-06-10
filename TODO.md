@@ -42,6 +42,14 @@ Legend:
 
 ---
 
+## 🌀 Page Transitions `[P0]`
+
+- [ ] Page-switch animations (fade/slide) on internal navigation
+- [ ] Respect `prefers-reduced-motion: reduce` — no animation if set
+- [ ] Gate with `@media (prefers-reduced-motion: no-preference)`
+
+---
+
 ## 🏠 `home.html` — Primary Document `[P0]`
 
 > `home.html` is the main experience. Every other content page is an
@@ -49,9 +57,9 @@ Legend:
 
 - [x] Write tests first (`apps/core/tests/test_views.py`)
       — hero renders, each section `id` is present, CTA is included
-- [x] **Hero section**
+- [ ] **Hero section**
       — name + title, status card (pulsing green dot + availability line),
-        tag cloud, subtle entrance animation
+        tag cloud, subtle entrance animation, profile image replacing motto
 - [x] **Marquee ticker strip** — stack / tools scrolling banner
 - [x] **About section** (`id="about"`)
       — 2–3 sentence TLDR, "Read more →" links to `/about/`
