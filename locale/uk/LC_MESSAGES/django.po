@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-10 19:04+0200\n"
+"POT-Creation-Date: 2026-06-11 20:37+0200\n"
 "PO-Revision-Date: 2026-04-04 12:23+0200\n"
 "Last-Translator: Олександр Кузь\n"
 "Language-Team: Українська <uk@li.org>\n"
@@ -620,12 +620,12 @@ msgstr ""
 "кінець: це момент, коли починають надходити реальні дані."
 
 #: apps/core/templates/core/home.html:599
-msgid "Let's build"
-msgstr "Створімо"
+msgid "Let's build something"
+msgstr "Створімо те"
 
 #: apps/core/templates/core/home.html:600
-msgid "something worth building."
-msgstr "те, що справді має значення."
+msgid "worth building."
+msgstr "що справді має значення."
 
 #: apps/core/templates/core/home.html:604
 msgid ""
@@ -770,11 +770,11 @@ msgstr ""
 
 #: templates/400.html:18 templates/403.html:18 templates/403_csrf.html:32
 #: templates/404.html:18 templates/410.html:18 templates/500.html:218
-#: templates/coming_soon.html:51
+#: templates/coming_soon.html:42
 msgid "Go home"
 msgstr "На головну"
 
-#: templates/400.html:23 templates/404.html:23 templates/coming_soon.html:54
+#: templates/400.html:23 templates/404.html:23 templates/coming_soon.html:45
 msgid "Go back"
 msgstr "Назад"
 
@@ -923,20 +923,20 @@ msgstr "Натисніть"
 msgid "for keyboard shortcuts"
 msgstr "для перегляду гарячих клавіш"
 
-#: templates/coming_soon.html:5 templates/coming_soon.html:9
-#: templates/coming_soon.html:35
+#: templates/coming_soon.html:4 templates/coming_soon.html:7
+#: templates/coming_soon.html:28
 msgid "Coming soon"
 msgstr "Незабаром"
 
-#: templates/coming_soon.html:8
+#: templates/coming_soon.html:6
 msgid "This page is under construction. Check back soon."
 msgstr "Ця сторінка в процесі розробки. Завітайте пізніше."
 
-#: templates/coming_soon.html:20
+#: templates/coming_soon.html:15
 msgid "work in progress"
 msgstr "в процесі роботи"
 
-#: templates/coming_soon.html:44
+#: templates/coming_soon.html:36
 msgid "This page is currently being built. Come back soon, it won't be long."
 msgstr "Ця сторінка наразі створюється. Поверніться незабаром."
 
