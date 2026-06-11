@@ -731,3 +731,11 @@ html[data-kb-nav] #cursor-ring {
 html[data-kb-nav] * {
   cursor: auto !important;
 }
+
+/* Mobile: center action buttons on error/coming-soon pages */
+@media (max-width: 767.98px) {
+  .custom-page-section .d-flex.flex-wrap.gap-3,
+  .custom-div .d-flex.flex-wrap.gap-3 {
+    justify-content: center;
+  }
+}
