@@ -71,6 +71,14 @@ document.addEventListener('DOMContentLoaded', function () {
       document.body.classList.remove('cursor-hover');
     });
   });
+
+  /* Shrink ring on mousedown, restore on mouseup */
+  document.addEventListener('mousedown', function () {
+    document.body.classList.add('cursor-active');
+  });
+  document.addEventListener('mouseup', function () {
+    document.body.classList.remove('cursor-active');
+  });
 })();
 
 

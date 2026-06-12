@@ -338,16 +338,6 @@ uv run python manage.py makemessages -l <LANG_CODE>
 uv run python manage.py compilemessages
 ```
 
----
-
-## Screenshots
-
-| Light mode                                                 | Dark mode                                                |
-| ---------------------------------------------------------- | -------------------------------------------------------- |
-| ![Light mode screenshot](assets/screenshot-light.png) | ![Dark mode screenshot](assets/screenshot-dark.png) |
-
----
-
 ## What's Next
 
 ### Phase 2 — Projects Showcase

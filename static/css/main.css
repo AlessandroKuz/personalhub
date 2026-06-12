@@ -253,12 +253,13 @@ a:hover {
   border:         1.5px solid color-mix(in srgb, var(--accent) 35%, transparent);
   border-radius:  50%;
   border-color:   var(--accent);
-  transform:      translate(-50%, -50%);
+  transform:      translate(-50%, -50%) scale(1);
   pointer-events: none;
   z-index:        9998;
   transition:     width 0.2s var(--ease),
                   height 0.2s var(--ease),
-                  border-color 0.2s ease;
+                  border-color 0.2s ease,
+                  transform 0.15s var(--ease);
 }
 
 /* Hide both cursor elements on touch devices */
@@ -278,6 +279,11 @@ body.cursor-hover #cursor-ring {
   height:       60px;
   border-width: 2.5px;
   border-color: var(--color-text);
+}
+
+/* Shrink on click — scale composes with hover width/height */
+body.cursor-active #cursor-ring {
+  transform: translate(-50%, -50%) scale(0.65);
 }
 
 
