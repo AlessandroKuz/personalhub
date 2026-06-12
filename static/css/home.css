@@ -405,6 +405,16 @@
   line-height:   1.2;
 }
 
+.skill-col-title i {
+  color:      var(--accent);
+  transition: color 0.2s ease;
+}
+
+.skill-col:hover .skill-col-title i,
+.skill-col:focus-visible .skill-col-title i {
+  color: var(--accent-hover);
+}
+
 .skill-col p {
   font-size:     0.85rem;
   color:         var(--color-muted);
@@ -578,6 +588,16 @@ a.project-card {
   font-weight:   300;
   margin-bottom: 0.75rem;
   line-height:   1.2;
+}
+
+.project-title i {
+  color:      var(--accent);
+  transition: color 0.2s ease;
+}
+
+.project-card:hover .project-title i,
+.project-card:focus-visible .project-title i {
+  color: var(--accent-hover);
 }
 
 .project-desc {
@@ -860,9 +880,15 @@ a.project-featured {
   border-top: 1px solid var(--color-border);
 }
 
-.contact-link:hover {
+.contact-link:hover,
+.contact-link:focus-visible {
   color: var(--color-text);
   gap:   1.4rem;
+}
+
+.contact-link:hover .contact-link-icon,
+.contact-link:focus-visible .contact-link-icon {
+  color: var(--accent-hover);
 }
 
 .contact-link-icon {
@@ -871,6 +897,7 @@ a.project-featured {
   color:          var(--accent);
   min-width:      1.2rem;
   flex-shrink:    0;
+  transition:     color 0.2s ease;
 }
 
 .contact-link-icon i {
@@ -890,7 +917,8 @@ a.project-featured {
   transition:     opacity 0.2s ease;
 }
 
-.contact-link:hover .contact-link-meta {
+.contact-link:hover .contact-link-meta,
+.contact-link:focus-visible .contact-link-meta {
   opacity: 1;
 }
 
@@ -901,7 +929,8 @@ a.project-featured {
   transition:     transform 0.2s ease;
 }
 
-.contact-link:hover .contact-link-arrow {
+.contact-link:hover .contact-link-arrow,
+.contact-link:focus-visible .contact-link-arrow {
   transform: translateX(4px);
 }
 
@@ -934,12 +963,20 @@ a.project-featured {
   transition:      color 0.2s ease;
 }
 
-.social-link:hover {
+.social-link:hover,
+.social-link:focus-visible {
   color: var(--color-text);
 }
 
+.social-link:hover i,
+.social-link:focus-visible i {
+  color: var(--accent-hover);
+}
+
 .social-link i {
-  font-size: 1.2rem;
+  font-size:   1.2rem;
+  color:       var(--accent);
+  transition:  color 0.2s ease;
 }
 
 @media (max-width: 767.98px) {

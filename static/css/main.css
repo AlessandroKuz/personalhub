@@ -6,6 +6,7 @@
   --navbar-height: 45px;
   --footer-height: 118px;
   --accent:        var(--bs-primary); /* overrode in scss file */
+  --accent-hover:  color-mix(in srgb, var(--accent) 85%, black);
   --green:         #4ade80;
   --ease:          cubic-bezier(0.16, 1, 0.3, 1);
   --nav-blur:      15px;
