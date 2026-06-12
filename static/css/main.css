@@ -23,6 +23,15 @@
   --color-text:    #1a1a1a;
   --color-muted:   #6b6b6b;
   --color-border:  #e0ddd8;
+  --color-on-accent: #ffffff;
+  --radius-base:     2px;
+  --radius-card:     4px;
+  --radius-full:     50%;
+  --dur-fast:        0.2s;
+  --dur-base:        0.25s;
+  --dur-mid:         0.3s;
+  --dur-reveal:      0.65s;
+  --dur-slow:        0.9s;
 }
 
 [data-bs-theme="dark"] {
@@ -30,7 +39,7 @@
   --color-bg2:     #1a1a1a;
   --color-surface: #1e1e1e;
   --color-text:    #e8e6e1;
-  --color-muted:   #888;
+  --color-muted:   #888888;
   --color-border:  #2a2a2a;
 }
 
@@ -43,7 +52,7 @@ body {
   background-color: var(--color-bg);
   color:            var(--color-text);
   font-family:      var(--font-sans);
-  transition:       background-color 0.3s ease, color 0.3s ease;
+  transition:       background-color var(--dur-mid) ease, color var(--dur-mid) ease;
 }
 
 /* Offset anchor targets so sticky navbar doesn't cover headings */
@@ -87,7 +96,7 @@ h1[id], h2[id], h3[id], h4[id] {
   top: 0; left: 0; right: 0;
   z-index: 10000;
   transform: translateY(-100%);
-  transition: transform 0.25s var(--ease);
+  transition: transform var(--dur-base) var(--ease);
   background: var(--accent);
   color: var(--color-bg);
   font-family: var(--font-mono);
@@ -119,8 +128,8 @@ main .btn {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   padding:        14px 28px;
-  border-radius:  2px;
-  transition:     all 0.25s var(--ease);
+  border-radius:  var(--radius-base);
+  transition:     all var(--dur-base) var(--ease);
   display:        inline-block;
 }
 
@@ -194,7 +203,7 @@ a {
   color: var(--accent);
   text-decoration: none;
   position: relative;
-  transition: color 0.25s var(--ease);
+  transition: color var(--dur-base) var(--ease);
 }
 
 a:hover {
@@ -210,7 +219,7 @@ a:hover {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-text-muted, #6c757d);
+  color: var(--color-text-muted, var(--color-muted));
   margin-bottom: 0.35rem;
 }
 
@@ -237,7 +246,7 @@ a:hover {
   width:          6px;
   height:         6px;
   background:     var(--accent);
-  border-radius:  50%;
+  border-radius:  var(--radius-full);
   transform:      translate(-50%, -50%);
   pointer-events: none;
   z-index:        9999;
@@ -251,14 +260,14 @@ a:hover {
   width:          40px;
   height:         40px;
   border:         1.5px solid color-mix(in srgb, var(--accent) 35%, transparent);
-  border-radius:  50%;
+  border-radius:  var(--radius-full);
   border-color:   var(--accent);
   transform:      translate(-50%, -50%) scale(1);
   pointer-events: none;
   z-index:        9998;
-  transition:     width 0.2s var(--ease),
-                  height 0.2s var(--ease),
-                  border-color 0.2s ease,
+  transition:     width var(--dur-fast) var(--ease),
+                  height var(--dur-fast) var(--ease),
+                  border-color var(--dur-fast) var(--ease),
                   transform 0.15s var(--ease);
 }
 
@@ -294,7 +303,7 @@ body.cursor-active #cursor-ring {
 .reveal {
   opacity:    0;
   transform:  translateY(28px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
+  transition: opacity var(--dur-reveal) ease, transform var(--dur-reveal) ease;
 }
 
 .reveal.visible {
@@ -322,8 +331,8 @@ body.cursor-active #cursor-ring {
 
 #main-nav {
   border-bottom: 1px solid transparent;
-  transition:    background-color 0.3s ease, backdrop-filter 0.3s ease,
-                 border-color     0.3s ease, box-shadow      0.3s ease;
+  transition:    background-color var(--dur-mid) ease, backdrop-filter var(--dur-mid) ease,
+                 border-color     var(--dur-mid) ease, box-shadow      var(--dur-mid) ease;
 }
 
 #main-nav.scrolled {
@@ -371,7 +380,7 @@ body.cursor-active #cursor-ring {
   display:        inline-block;
   font-size:      1.4rem;
   letter-spacing: 0.05em;
-  transition:     color 0.3s ease, letter-spacing 0.3s ease;
+  transition:     color var(--dur-mid) ease, letter-spacing var(--dur-mid) ease;
 }
 
 .navbar-brand:hover {
@@ -391,7 +400,7 @@ body.cursor-active #cursor-ring {
 
 .navbar .nav-link {
   position:   relative;
-  transition: color 0.3s ease;
+  transition: color var(--dur-mid) ease;
 }
 
 .navbar .nav-link::after {
@@ -403,7 +412,7 @@ body.cursor-active #cursor-ring {
   height:           3px;
   background-color: var(--accent);
   transform:        translateX(-50%);
-  transition:       width 0.3s ease;
+  transition:       width var(--dur-mid) ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -445,9 +454,9 @@ body.cursor-active #cursor-ring {
   width:         37px;
   height:        37px;
   padding:       0;
-  border-radius: 50% !important;
-  transition:    background-color 0.3s ease, transform 0.3s ease,
-                 box-shadow 0.3s ease;
+  border-radius: var(--radius-full) !important;
+  transition:    background-color var(--dur-mid) ease, transform var(--dur-mid) ease,
+                 box-shadow var(--dur-mid) ease;
 }
 
 [data-bs-theme="light"] #theme-toggle:hover {
@@ -476,9 +485,9 @@ body.cursor-active #cursor-ring {
   width:         24px;
   height:        24px;
   padding:       0;
-  border-radius: 50% !important;
-  transition:    background-color 0.3s ease, transform 0.3s ease,
-                 box-shadow 0.3s ease;
+  border-radius: var(--radius-full) !important;
+  transition:    background-color var(--dur-mid) ease, transform var(--dur-mid) ease,
+                 box-shadow var(--dur-mid) ease;
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -569,7 +578,7 @@ body.cursor-active #cursor-ring {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
 }
 
 /* Dot */
@@ -577,14 +586,14 @@ body.cursor-active #cursor-ring {
   display: block;
   width: 8px;
   height: 8px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: var(--color-muted);
   opacity: 0.3;
   flex-shrink: 0;
   outline: 0 solid var(--accent);
   outline-offset: 2px;
-  transition: opacity 0.2s var(--ease), width 0.2s var(--ease),
-              height 0.2s var(--ease), background 0.2s var(--ease);
+  transition: opacity var(--dur-fast) var(--ease), width var(--dur-fast) var(--ease),
+              height var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
 }
 
 /* Label — hidden by default, appears on hover/focus */
@@ -604,7 +613,7 @@ body.cursor-active #cursor-ring {
   opacity: 0;
   pointer-events: none;
   transform: translateX(4px);
-  transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
+  transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
 }
 
 /* Remove default focus outline on nav-link — ring is on the dot instead */
@@ -669,7 +678,7 @@ body.cursor-active #cursor-ring {
 .error-hint-div {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 2px;
+  border-radius: var(--radius-base);
   padding: 0.9rem 1.1rem;
 }
 
