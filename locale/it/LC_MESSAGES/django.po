@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-15 16:09+0200\n"
+"POT-Creation-Date: 2026-06-15 17:13+0200\n"
 "PO-Revision-Date: 2026-04-04 11:25+0200\n"
 "Last-Translator: Alessandro Kuz\n"
 "Language-Team: Italiano <it@li.org>\n"
@@ -85,10 +85,12 @@ msgstr "Alessandro <span class=\"text-accent\">Kuz</span>"
 
 #: apps/core/templates/core/home.html:61
 msgid ""
-"Data Scientist and ML Engineer with a higher diploma in AI. Data pipelines, "
-"model training, and production interfaces. Based in Italy, working globally."
+"Data Scientist and AI/ML Engineer with a higher diploma in AI. Data "
+"pipelines, model training, and production interfaces. Based in Italy, "
+"working globally."
 msgstr ""
-"Data Scientist e ML Engineer con specializzazione ITS in AI. Pipeline dati, "
+"Data Scientist e AI/ML Engineer con specializzazione ITS in AI. Pipeline "
+"dati, "
 "training di modelli e interfacce di produzione. Dall'Italia, lavoro in tutto "
 "il mondo."
 
@@ -117,8 +119,8 @@ msgid "Data Scientist"
 msgstr "Data Scientist"
 
 #: apps/core/templates/core/home.html:93
-msgid "& ML Engineer"
-msgstr "& ML Engineer"
+msgid "& AI/ML Engineer"
+msgstr "& AI/ML Engineer"
 
 #: apps/core/templates/core/home.html:97
 msgid "Experience"
@@ -486,10 +488,9 @@ msgid ""
 msgstr ""
 "Una raccolta di strumenti basati su <strong>LLM</strong>, pensati per i "
 "flussi di lavoro quotidiani. Tailor-your-CV adatta un CV a un'offerta di "
-"lavoro "
-"usando modelli OpenAI, Gemini o Ollama in locale. Local <strong>RAG</strong> "
-"indicizza file locali in un vector store ChromaDB con chunking intelligente "
-"e attribuzione completa delle fonti."
+"lavoro usando modelli OpenAI, Gemini o Ollama in locale. Local <strong>RAG</"
+"strong> indicizza file locali in un vector store ChromaDB con chunking "
+"intelligente e attribuzione completa delle fonti."
 
 #: apps/core/templates/core/home.html:472
 #: apps/core/templates/core/home.html:482
@@ -579,9 +580,9 @@ msgid ""
 "place. Tested at every step, documented throughout. Iterate until there's "
 "nothing left to remove."
 msgstr ""
-"Sviluppare rapidamente, far funzionare qualcosa e poi tagliare via tutto ciò che "
-"non merita il suo posto. Testato ad ogni passo, documentato durante tutto il "
-"processo. Iterare finché non c'è più nulla da rimuovere."
+"Sviluppare rapidamente, far funzionare qualcosa e poi tagliare via tutto ciò "
+"che non merita il suo posto. Testato ad ogni passo, documentato durante "
+"tutto il processo. Iterare finché non c'è più nulla da rimuovere."
 
 #: apps/core/templates/core/home.html:565
 msgid "Validate"

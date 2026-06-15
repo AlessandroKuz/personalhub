@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-15 16:09+0200\n"
+"POT-Creation-Date: 2026-06-15 17:13+0200\n"
 "PO-Revision-Date: 2026-04-04 11:44+0200\n"
 "Last-Translator: Alessandro Kuz\n"
-"Language-Team: Deutsch <de@li.orgLanguage: de\n"
-"Language: \n"
+"Language-Team: Deutsch <de@li.org\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -85,10 +85,11 @@ msgstr "Alessandro <span class=\"text-accent\">Kuz</span>"
 
 #: apps/core/templates/core/home.html:61
 msgid ""
-"Data Scientist and ML Engineer with a higher diploma in AI. Data pipelines, "
-"model training, and production interfaces. Based in Italy, working globally."
+"Data Scientist and AI/ML Engineer with a higher diploma in AI. Data "
+"pipelines, model training, and production interfaces. Based in Italy, "
+"working globally."
 msgstr ""
-"Data Scientist und ML Engineer mit höherem Fachabschluss in KI. Data-"
+"Data Scientist und AI/ML Engineer mit höherem Fachabschluss in KI. Data-"
 "Pipelines, Modell-Training und Produktions-Interfaces. Aus Italien, weltweit "
 "tätig."
 
@@ -117,8 +118,8 @@ msgid "Data Scientist"
 msgstr "Data Scientist"
 
 #: apps/core/templates/core/home.html:93
-msgid "& ML Engineer"
-msgstr "& ML Engineer"
+msgid "& AI/ML Engineer"
+msgstr "& AI/ML Engineer"
 
 #: apps/core/templates/core/home.html:97
 msgid "Experience"
@@ -328,7 +329,7 @@ msgstr "[ ML / KI ]"
 
 #: apps/core/templates/core/home.html:267
 msgid "Machine Learning & AI"
-msgstr "Machine Learning & KI"
+msgstr "Machine Learning und KI"
 
 #: apps/core/templates/core/home.html:270
 msgid ""

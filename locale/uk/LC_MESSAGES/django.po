@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-15 16:09+0200\n"
+"POT-Creation-Date: 2026-06-15 17:13+0200\n"
 "PO-Revision-Date: 2026-04-04 12:23+0200\n"
 "Last-Translator: Олександр Кузь\n"
 "Language-Team: Українська <uk@li.org>\n"
@@ -56,8 +56,7 @@ msgstr "Олександр Кузь - Data Scientist та ШІ/ML-інженер
 #: apps/core/templates/core/work.html:10 templates/base.html:14
 #: templates/base.html:58 templates/base.html:68
 msgid "Data, AI, web. I build across three. Based in Italy, working globally."
-msgstr ""
-"Дані, ШІ, веб. Будую на всіх трьох напрямах. З Італії, на весь світ."
+msgstr "Дані, ШІ, веб. Будую на всіх трьох напрямах. З Італії, на весь світ."
 
 #: apps/core/templates/core/contact.html:4
 #: apps/core/templates/core/contact.html:7
@@ -87,10 +86,11 @@ msgstr "Олександр <span class=\"text-accent\">Кузь</span>"
 
 #: apps/core/templates/core/home.html:61
 msgid ""
-"Data Scientist and ML Engineer with a higher diploma in AI. Data pipelines, "
-"model training, and production interfaces. Based in Italy, working globally."
+"Data Scientist and AI/ML Engineer with a higher diploma in AI. Data "
+"pipelines, model training, and production interfaces. Based in Italy, "
+"working globally."
 msgstr ""
-"Data Scientist та ML-інженер із профільним дипломом у сфері ШІ. Пайплайни "
+"Data Scientist та ШІ/ML-інженер із профільним дипломом у сфері ШІ. Пайплайни "
 "даних, тренування моделей та продакшн-інтерфейси. Знаходжусь в Італії, "
 "працюю з усім світом."
 
@@ -119,8 +119,8 @@ msgid "Data Scientist"
 msgstr "Data Scientist"
 
 #: apps/core/templates/core/home.html:93
-msgid "& ML Engineer"
-msgstr "та ML Engineer"
+msgid "& AI/ML Engineer"
+msgstr "та AI/ML Engineer"
 
 #: apps/core/templates/core/home.html:97
 msgid "Experience"
@@ -228,8 +228,8 @@ msgid ""
 "what people can do, not replaces what we enjoy doing."
 msgstr ""
 "Я <strong>Олександр Кузь</strong>, мені подобається створювати рішення у "
-"сфері штучного інтелекту, які підсилюють можливості людей, а не замінюють те, "
-"що нам подобається робити."
+"сфері штучного інтелекту, які підсилюють можливості людей, а не замінюють "
+"те, що нам подобається робити."
 
 #: apps/core/templates/core/home.html:179
 msgid ""
@@ -748,7 +748,7 @@ msgstr "Німецька"
 msgid "Ukrainian"
 msgstr "Українська"
 
-#: templates/400.html:4 templates/400.html:- templates/400.html:10
+#: templates/400.html:4 templates/400.html:6 templates/400.html:10
 msgid "Bad request"
 msgstr "Неправильний запит"
 
