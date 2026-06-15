@@ -74,15 +74,28 @@
     <script type="application/ld+json" nonce={{ csp_nonce }}>
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Alessandro Kuz",
-        "url": "https://alessandrokuz.com",
-        "jobTitle": "Data Scientist & AI/ML Engineer",
-        "description": "{% blocktrans %}Data Scientist and AI/ML Engineer based in Italy. I build end-to-end data products from pipelines and models to the interfaces people actually use.{% endblocktrans %}",
-        "sameAs": [
-          "https://github.com/alessandrokuz",
-          "https://linkedin.com/in/alessandrokuz",
-          "https://youtube.com/@alessandrokuz"
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{% url 'core:home' %}#person",
+            "name": "Alessandro Kuz",
+            "url": "{{ request.scheme }}://{{ request.get_host }}",
+            "image": "{{ request.scheme }}://{{ request.get_host }}{% static 'img/profile-1000.webp' %}",
+            "jobTitle": "Data Scientist & AI/ML Engineer",
+            "description": "{% blocktrans %}Data Scientist & AI/ML Engineer bridging Data, AI, and Web. Based in Italy, working globally.{% endblocktrans %}",
+            "sameAs": [
+              "https://github.com/alessandrokuz",
+              "https://linkedin.com/in/alessandrokuz",
+              "https://youtube.com/@alessandrokuz"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{% url 'core:home' %}#website",
+            "url": "{{ request.scheme }}://{{ request.get_host }}{% url 'core:home' %}",
+            "name": "Alessandro Kuz Portfolio",
+            "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}{% url 'core:home' %}#person" }
+          }
         ]
       }
     </script>
