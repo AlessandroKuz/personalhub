@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-15 17:13+0200\n"
+"POT-Creation-Date: 2026-06-15 17:44+0200\n"
 "PO-Revision-Date: 2026-04-04 11:25+0200\n"
 "Last-Translator: Alessandro Kuz\n"
 "Language-Team: Español <es@li.org>\n"
@@ -90,8 +90,7 @@ msgid ""
 "working globally."
 msgstr ""
 "Data Scientist e Ingeniero de IA/ML con titulación superior en IA. Pipelines "
-"de "
-"datos, entrenamiento de modelos e interfaces de producción. Desde Italia, "
+"de datos, entrenamiento de modelos e interfaces de producción. Desde Italia, "
 "trabajo a nivel global."
 
 #: apps/core/templates/core/home.html:70
@@ -374,8 +373,8 @@ msgstr ""
 "listos para producción."
 
 #: apps/core/templates/core/home.html:326
-msgid "See full CV"
-msgstr "Ver CV completo"
+msgid "See full career"
+msgstr "Ver carrera completa"
 
 #: apps/core/templates/core/home.html:335
 msgid "Open CV pdf"

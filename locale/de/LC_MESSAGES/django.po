@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-15 17:13+0200\n"
+"POT-Creation-Date: 2026-06-15 17:44+0200\n"
 "PO-Revision-Date: 2026-04-04 11:44+0200\n"
 "Last-Translator: Alessandro Kuz\n"
 "Language-Team: Deutsch <de@li.org\n"
@@ -373,8 +373,8 @@ msgstr ""
 "containerisierten, produktionsreifen Deployments."
 
 #: apps/core/templates/core/home.html:326
-msgid "See full CV"
-msgstr "Vollständigen Lebenslauf ansehen"
+msgid "See full career"
+msgstr "Gesamten Werdegang ansehen"
 
 #: apps/core/templates/core/home.html:335
 msgid "Open CV pdf"

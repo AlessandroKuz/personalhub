@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-15 17:13+0200\n"
+"POT-Creation-Date: 2026-06-15 17:44+0200\n"
 "PO-Revision-Date: 2026-04-04 12:23+0200\n"
 "Last-Translator: Олександр Кузь\n"
 "Language-Team: Українська <uk@li.org>\n"
@@ -374,8 +374,8 @@ msgstr ""
 "продакшену."
 
 #: apps/core/templates/core/home.html:326
-msgid "See full CV"
-msgstr "Переглянути повне CV"
+msgid "See full career"
+msgstr "Переглянути всю кар'єру"
 
 #: apps/core/templates/core/home.html:335
 msgid "Open CV pdf"

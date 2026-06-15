@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-15 17:13+0200\n"
+"POT-Creation-Date: 2026-06-15 17:44+0200\n"
 "PO-Revision-Date: 2026-04-04 10:46+0200\n"
 "Last-Translator: Alessandro Kuz\n"
 "Language-Team: English <en@li.org>\n"
@@ -353,7 +353,7 @@ msgid ""
 msgstr ""
 
 #: apps/core/templates/core/home.html:326
-msgid "See full CV"
+msgid "See full career"
 msgstr ""
 
 #: apps/core/templates/core/home.html:335
