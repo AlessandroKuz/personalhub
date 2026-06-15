@@ -13,7 +13,7 @@ docker compose run --rm web \
   python manage.py compress --force
 
 echo "==> Collecting static files..."
-docker compose .yml run --rm web \
+docker compose run --rm web \
   python manage.py collectstatic --noinput
 
 echo "==> Starting services..."

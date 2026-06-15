@@ -32,7 +32,7 @@ SECRET_KEY = os.getenv(
     "fallback-insecure-key-only-for-ci" if os.getenv("GITHUB_ACTIONS") else None,
 )
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
+ALLOWED_HOSTS = [h for h in os.environ.get("ALLOWED_HOSTS", "").split(",") if h]
 
 
 # Application definition

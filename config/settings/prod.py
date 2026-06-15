@@ -38,7 +38,9 @@ SECURE_HSTS_PRELOAD = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
-CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS", "").split(",")
+CSRF_TRUSTED_ORIGINS = [
+    h for h in os.environ.get("CSRF_TRUSTED_ORIGINS", "").split(",") if h
+]
 
 STATIC_ROOT = "/srv/personalhub/staticfiles"
 COMPRESS_ROOT = STATIC_ROOT
@@ -48,7 +50,6 @@ USE_X_FORWARDED_HOST = True
 # behind reverse proxy / load balancer
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
-SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 
 # Might need to change in the future: Prevent JS from reading it via document.cookie
@@ -56,6 +57,9 @@ CSRF_COOKIE_HTTPONLY = True
 
 SECURE_CSP = {
     "default-src": [CSP.NONE],
+    "base-uri": [CSP.SELF],
+    "form-action": [CSP.SELF],
+    "frame-ancestors": [CSP.NONE],
     "script-src": [
         CSP.SELF,
         CSP.NONCE,
