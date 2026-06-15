@@ -20,29 +20,12 @@
     <meta name="apple-mobile-web-app-title" content="{% block apple_site_name %}Alessandro Kuz Portfolio{% endblock apple_site_name %}">
 
     {# hreflang — per ogni lingua disponibile #}
-    {% for lang_code, lang_name in LANGUAGES %} <link rel="alternate" hreflang="{{ lang_code }}" href="{{ request.scheme }}://{{ request.get_host }}{% hreflang_url lang_code %}">
+    {% for lang_code, lang_name in LANGUAGES %}
+      <link rel="alternate" hreflang="{{ lang_code }}" href="{{ request.scheme }}://{{ request.get_host }}{% hreflang_url lang_code %}">
     {% endfor %}
 
     {# x-default — punta alla versione EN #}
     <link rel="alternate" hreflang="x-default" href="{{ request.scheme }}://{{ request.get_host }}{% hreflang_url 'en' %}">
-
-    {% comment %}
-    <link rel="alternate" hreflang="x-default" href="{{ request.scheme }}://{{ request.get_host }}/{{ request.resolver_match.url_name }}">
-    {% for lang_code, lang_name in LANGUAGES %}
-      {% if lang_code == "en"  %}
-        <link rel="alternate" hreflang="{{ lang_code }}" href="{{ request.scheme }}://{{ request.get_host }}/{{ request.resolver_match.url_name }}">
-      {% else %}
-        <link rel="alternate" hreflang="{{ lang_code }}" href="{{ request.scheme }}://{{ request.get_host }}/{{ lang_code }}/{{ request.resolver_match.url_name }}">
-      {% endif %}
-
-    {% endfor %}
-    {% for lang_code, lang_name in LANGUAGES %}
-      <link rel="alternate" hreflang="{{ lang_code }}"
-            href="{{ request.scheme }}://{{ request.get_host }}{% translate_url lang_code %}">
-    {% endfor %}
-    <link rel="alternate" hreflang="x-default"
-          href="{{ request.scheme }}://{{ request.get_host }}{% translate_url 'en' %}">
-    {% endcomment %}
 
     {% with lang=LANGUAGE_CODE %}
 
