@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-11 20:37+0200\n"
+"POT-Creation-Date: 2026-06-15 16:09+0200\n"
 "PO-Revision-Date: 2026-04-04 12:23+0200\n"
 "Last-Translator: Олександр Кузь\n"
 "Language-Team: Українська <uk@li.org>\n"
@@ -31,38 +31,37 @@ msgid "Alessandro Kuz"
 msgstr "Олександр Кузь"
 
 #: apps/core/templates/core/about.html:4 apps/core/templates/core/about.html:7
-#: apps/core/templates/core/about.html:10
+#: apps/core/templates/core/about.html:11
 #: apps/core/templates/core/home.html:163 apps/core/views.py:24
 #: apps/core/views.py:43 templates/components/_nav.html:98
 #: templates/components/_shortcutsModal.html:31
 msgid "About"
 msgstr "Про мене"
 
-#: apps/core/templates/core/about.html:7 apps/core/templates/core/about.html:10
+#: apps/core/templates/core/about.html:7 apps/core/templates/core/about.html:11
 #: apps/core/templates/core/contact.html:7
-#: apps/core/templates/core/contact.html:10
+#: apps/core/templates/core/contact.html:11
 #: apps/core/templates/core/home.html:5 apps/core/templates/core/work.html:7
-#: apps/core/templates/core/work.html:10 templates/base.html:11
-#: templates/base.html:75 templates/base.html:81 templates/base.html:85
+#: apps/core/templates/core/work.html:11 templates/base.html:11
+#: templates/base.html:57 templates/base.html:63 templates/base.html:67
 msgid "Alessandro Kuz - Data Scientist & AI/ML Engineer"
 msgstr "Олександр Кузь - Data Scientist та ШІ/ML-інженер"
 
-#: apps/core/templates/core/about.html:8 apps/core/templates/core/about.html:11
+#: apps/core/templates/core/about.html:8 apps/core/templates/core/about.html:9
+#: apps/core/templates/core/about.html:10
 #: apps/core/templates/core/contact.html:8
-#: apps/core/templates/core/contact.html:11
-#: apps/core/templates/core/work.html:8 apps/core/templates/core/work.html:11
-#: templates/base.html:76 templates/base.html:86
-msgid ""
-"Data Scientist and AI/ML Engineer based in Italy. I build end-to-end data "
-"products: from pipelines and models to the interfaces people actually use. "
+#: apps/core/templates/core/contact.html:9
+#: apps/core/templates/core/contact.html:10
+#: apps/core/templates/core/work.html:8 apps/core/templates/core/work.html:9
+#: apps/core/templates/core/work.html:10 templates/base.html:14
+#: templates/base.html:58 templates/base.html:68
+msgid "Data, AI, web. I build across three. Based in Italy, working globally."
 msgstr ""
-"Data Scientist та ШІ/ML-інженер з Італії. Я створюю data-продукти end-to-"
-"end: від пайплайнів і моделей до інтерфейсів, якими користуються реальні "
-"люди."
+"Дані, ШІ, веб. Будую на всіх трьох напрямах. З Італії, на весь світ."
 
 #: apps/core/templates/core/contact.html:4
 #: apps/core/templates/core/contact.html:7
-#: apps/core/templates/core/contact.html:10
+#: apps/core/templates/core/contact.html:11
 #: apps/core/templates/core/home.html:596 apps/core/views.py:29
 #: apps/core/views.py:93 templates/components/_nav.html:144
 #: templates/components/_shortcutsModal.html:34
@@ -80,7 +79,7 @@ msgstr "%(label)s"
 
 #: apps/core/templates/core/home.html:43
 msgid "Building with data"
-msgstr "Створюючи за допомогою даних"
+msgstr "Розробка на основі даних"
 
 #: apps/core/templates/core/home.html:55
 msgid "Alessandro <span class=\"text-accent\">Kuz</span>"
@@ -88,13 +87,12 @@ msgstr "Олександр <span class=\"text-accent\">Кузь</span>"
 
 #: apps/core/templates/core/home.html:61
 msgid ""
-"Data Scientist and ML Engineer with a higher diploma in AI. I work end-to-"
-"end: data pipelines, model training, and the interfaces people actually use. "
-"Based in Italy, working globally."
+"Data Scientist and ML Engineer with a higher diploma in AI. Data pipelines, "
+"model training, and production interfaces. Based in Italy, working globally."
 msgstr ""
-"Data Scientist та ШІ/ML-інженер із профільним дипломом у сфері ШІ. Я працюю "
-"end-to-end: від пайплайнів даних і тренування моделей до інтерфейсів, якими "
-"реально користуються люди. Знаходжусь в Італії, працюю з усім світом."
+"Data Scientist та ML-інженер із профільним дипломом у сфері ШІ. Пайплайни "
+"даних, тренування моделей та продакшн-інтерфейси. Знаходжусь в Італії, "
+"працюю з усім світом."
 
 #: apps/core/templates/core/home.html:70
 msgid "View my work"
@@ -147,7 +145,7 @@ msgstr "Мови"
 
 #: apps/core/templates/core/home.html:111
 msgid "6 <span>spoken</span>"
-msgstr "6 <span>якими володію</span>"
+msgstr "6 <span>робочих</span>"
 
 #: apps/core/templates/core/home.html:118
 msgid "Core technologies"
@@ -226,12 +224,12 @@ msgstr "допитливий від природи."
 
 #: apps/core/templates/core/home.html:174
 msgid ""
-"I'm <strong>Alessandro Kuz</strong>, I like building toward AI that "
-"genuinely augments what people can do, not replaces what we enjoy doing."
+"I'm <strong>Alessandro Kuz</strong>, I like building toward AI that augments "
+"what people can do, not replaces what we enjoy doing."
 msgstr ""
 "Я <strong>Олександр Кузь</strong>, мені подобається створювати рішення у "
-"сфері штучного інтелекту, які справді підсилюють можливості людей, а не "
-"замінюють те, що нам подобається робити."
+"сфері штучного інтелекту, які підсилюють можливості людей, а не замінюють те, "
+"що нам подобається робити."
 
 #: apps/core/templates/core/home.html:179
 msgid ""
@@ -277,7 +275,7 @@ msgid "Calisthenics, nature, history and philosophy"
 msgstr "Калістеніка, природа, історія та філософія"
 
 #: apps/core/templates/core/home.html:217 apps/core/templates/core/work.html:4
-#: apps/core/templates/core/work.html:7 apps/core/templates/core/work.html:10
+#: apps/core/templates/core/work.html:7 apps/core/templates/core/work.html:11
 #: apps/core/views.py:25 apps/core/views.py:60
 #: templates/components/_nav.html:106
 #: templates/components/_shortcutsModal.html:32
@@ -394,8 +392,8 @@ msgid "Things I've built"
 msgstr "Те, що я розробив"
 
 #: apps/core/templates/core/home.html:351
-msgid "that are actually useful."
-msgstr "що справді корисне."
+msgid "and shipped to production."
+msgstr "і вивів у продакшн."
 
 #: apps/core/templates/core/home.html:360
 #: apps/core/templates/core/home.html:410
@@ -481,14 +479,14 @@ msgstr "003"
 
 #: apps/core/templates/core/home.html:453
 msgid ""
-"A collection of <strong>LLM</strong>-powered developer tools built around "
-"real workflows. Tailor-your-CV aligns a CV to a job description using "
+"A collection of <strong>LLM</strong>-powered developer tools built for "
+"everyday workflows. Tailor-your-CV aligns a CV to a job description using "
 "OpenAI, Gemini, or local Ollama models. Local <strong>RAG</strong> indexes "
 "local files into a ChromaDB vector store with smart chunking and full source "
 "attribution."
 msgstr ""
 "Набір інструментів для розробників на базі <strong>LLM</strong>, створених "
-"для реальних робочих процесів. Tailor-your-CV узгоджує резюме з описом "
+"для щоденних робочих процесів. Tailor-your-CV узгоджує резюме з описом "
 "вакансії за допомогою OpenAI, Gemini або локальних моделей Ollama. Локальний "
 "<strong>RAG</strong> індексує файли у векторне сховище ChromaDB зі смарт-"
 "чанкінгом та повною атрибуцією джерел."
@@ -546,8 +544,8 @@ msgid "A process built"
 msgstr "Процес, створений"
 
 #: apps/core/templates/core/home.html:535
-msgid "for real delivery."
-msgstr "для реального результату."
+msgid "to ship with confidence."
+msgstr "щоб упевнено випускати."
 
 #: apps/core/templates/core/home.html:541
 msgid "Understand"
@@ -621,7 +619,7 @@ msgstr ""
 
 #: apps/core/templates/core/home.html:599
 msgid "Let's build something"
-msgstr "Створімо те"
+msgstr "Створімо те,"
 
 #: apps/core/templates/core/home.html:600
 msgid "worth building."
@@ -632,7 +630,7 @@ msgid ""
 "Open to freelance projects, consulting, and full-time roles. Response within "
 "24 hours."
 msgstr ""
-"Відкритий до фриланс проєктів, консалтингу та повної зайнятості. Відповідь "
+"Відкритий до фриланс-проєктів, консалтингу та повної зайнятості. Відповідь "
 "протягом 24 годин."
 
 #: apps/core/templates/core/home.html:611
@@ -750,7 +748,7 @@ msgstr "Німецька"
 msgid "Ukrainian"
 msgstr "Українська"
 
-#: templates/400.html:4 templates/400.html:6 templates/400.html:10
+#: templates/400.html:4 templates/400.html:- templates/400.html:10
 msgid "Bad request"
 msgstr "Неправильний запит"
 
@@ -769,7 +767,7 @@ msgstr ""
 "і повторити дію."
 
 #: templates/400.html:18 templates/403.html:18 templates/403_csrf.html:32
-#: templates/404.html:18 templates/410.html:18 templates/500.html:218
+#: templates/404.html:18 templates/410.html:18 templates/500.html:228
 #: templates/coming_soon.html:42
 msgid "Go home"
 msgstr "На головну"
@@ -866,7 +864,7 @@ msgstr ""
 "Цю сторінку було навмисно та остаточно видалено, вона не буде відновлена. "
 "Якщо ви перейшли за посиланням, воно більше не актуальне."
 
-#: templates/4xx_base.html:13 templates/500.html:196
+#: templates/4xx_base.html:13 templates/500.html:206
 msgid "Error"
 msgstr "Помилка"
 
@@ -874,15 +872,15 @@ msgstr "Помилка"
 msgid "Server error"
 msgstr "Помилка сервера"
 
-#: templates/500.html:190
+#: templates/500.html:200
 msgid "Back to homepage"
 msgstr "Повернутися на головну"
 
-#: templates/500.html:204
+#: templates/500.html:214
 msgid "Something went wrong"
 msgstr "Щось пішло не так"
 
-#: templates/500.html:209
+#: templates/500.html:219
 msgid ""
 "An unexpected error occurred on my end. I've been notified and I'm looking "
 "into it. Please try again in a moment."
@@ -890,36 +888,27 @@ msgstr ""
 "На моєму сервері сталася неочікувана помилка. Я вже отримав сповіщення і "
 "розбираюся з цим. Будь ласка, спробуйте ще раз за мить."
 
-#: templates/500.html:215
+#: templates/500.html:225
 msgid "Try again"
 msgstr "Спробувати ще раз"
 
-#: templates/base.html:14
+#: templates/base.html:85
 msgid ""
-"Data Scientist and ML Engineer based in Italy. I build end-to-end data "
-"products: from pipelines and models to the interfaces people actually use. "
+"Data Scientist & AI/ML Engineer bridging Data, AI, and web. Based in Italy, "
+"working globally."
 msgstr ""
-"Data Scientist та ML-інженер з Італії. Я створюю data-продукти end-to-end: "
-"від пайплайнів і моделей до інтерфейсів, якими користуються реальні люди."
+"Data Scientist та ШІ/ML-інженер, що поєднує Дані, ШІ та Web. З Італії, "
+"працюю з усім світом."
 
-#: templates/base.html:99
-msgid ""
-"Data Scientist and AI/ML Engineer based in Italy. I build end-to-end data "
-"products from pipelines and models to the interfaces people actually use."
-msgstr ""
-"Data Scientist та ШІ/ML-інженер з Італії. Я створюю data-продукти end-to-"
-"end: від пайплайнів і моделей до інтерфейсів, якими користуються реальні "
-"люди."
-
-#: templates/base.html:163
+#: templates/base.html:158
 msgid "Skip to main content"
 msgstr "Перейти до основного вмісту"
 
-#: templates/base.html:192 templates/components/_shortcutsModal.html:60
+#: templates/base.html:187 templates/components/_shortcutsModal.html:60
 msgid "Press"
 msgstr "Натисніть"
 
-#: templates/base.html:192
+#: templates/base.html:187
 msgid "for keyboard shortcuts"
 msgstr "для перегляду гарячих клавіш"
 
@@ -1070,6 +1059,38 @@ msgstr "або"
 #: templates/components/_shortcutsModal.html:60
 msgid "to close"
 msgstr "щоб закрити"
+
+#~ msgid "that are actually useful."
+#~ msgstr "що справді корисне."
+
+#~ msgid "for real delivery."
+#~ msgstr "для реального результату."
+
+#~ msgid ""
+#~ "Data Scientist and AI/ML Engineer based in Italy. I build end-to-end data "
+#~ "products: from pipelines and models to the interfaces people actually "
+#~ "use. "
+#~ msgstr ""
+#~ "Data Scientist та ШІ/ML-інженер з Італії. Я створюю data-продукти end-to-"
+#~ "end: від пайплайнів і моделей до інтерфейсів, якими користуються реальні "
+#~ "люди."
+
+#~ msgid ""
+#~ "Data Scientist and ML Engineer based in Italy. I build end-to-end data "
+#~ "products: from pipelines and models to the interfaces people actually "
+#~ "use. "
+#~ msgstr ""
+#~ "Data Scientist та ML-інженер з Італії. Я створюю data-продукти end-to-"
+#~ "end: від пайплайнів і моделей до інтерфейсів, якими користуються реальні "
+#~ "люди."
+
+#~ msgid ""
+#~ "Data Scientist and AI/ML Engineer based in Italy. I build end-to-end data "
+#~ "products from pipelines and models to the interfaces people actually use."
+#~ msgstr ""
+#~ "Data Scientist та ШІ/ML-інженер з Італії. Я створюю data-продукти end-to-"
+#~ "end: від пайплайнів і моделей до інтерфейсів, якими користуються реальні "
+#~ "люди."
 
 #~ msgid "Available for opportunities"
 #~ msgstr "Відкритий до можливостей"

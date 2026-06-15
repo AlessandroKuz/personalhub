@@ -11,7 +11,7 @@
     <title>{% block title %}{% trans "Alessandro Kuz - Data Scientist & AI/ML Engineer" %}{% endblock title %}</title>
 
     {# Description & Author #}
-    <meta name="description"  content="{% block meta_description %}{% blocktrans %}Data Scientist and ML Engineer based in Italy. I build end-to-end data products: from pipelines and models to the interfaces people actually use. {% endblocktrans %} {% endblock meta_description %}">
+    <meta name="description"  content="{% block meta_description %}{% blocktrans %}Data, AI, web. I build across three. Based in Italy, working globally.{% endblocktrans %}{% endblock meta_description %}">
     <meta name="author"       content="{% blocktrans %}Alessandro Kuz{% endblocktrans %}">
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color"  content="#275DAD">
@@ -55,7 +55,7 @@
     <meta property="og:type"         content="website">
     <meta property="og:url"          content="{{ request.build_absolute_uri }}">
     <meta property="og:title"        content="{% block og_title %}{% blocktrans %}Alessandro Kuz - Data Scientist & AI/ML Engineer{% endblocktrans %}{% endblock og_title %}">
-    <meta property="og:description"  content="{% block og_description %}{% blocktrans %}Data Scientist and AI/ML Engineer based in Italy. I build end-to-end data products: from pipelines and models to the interfaces people actually use. {% endblocktrans %}{% endblock og_description %}">
+    <meta property="og:description"  content="{% block og_description %}{% blocktrans %}Data, AI, web. I build across three. Based in Italy, working globally.{% endblocktrans %}{% endblock og_description %}">
     <meta property="og:image"        content="{% block og_image %}{% static 'img/og-card.png' %}{% endblock og_image %}">
     <meta property="og:image:type"   content="image/png">
     <meta property="og:image:width"  content="1200">
@@ -65,7 +65,7 @@
     <meta name="twitter:card"        content="summary_large_image">
     <meta name="twitter:url"         content="{{ request.build_absolute_uri }}">
     <meta name="twitter:title"       content="{% block twitter_title %}{% blocktrans %}Alessandro Kuz - Data Scientist & AI/ML Engineer{% endblocktrans %}{% endblock %}">
-    <meta name="twitter:description" content="{% block twitter_description %}{% blocktrans %}Data Scientist and AI/ML Engineer based in Italy. I build end-to-end data products: from pipelines and models to the interfaces people actually use. {% endblocktrans %}{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}{% blocktrans %}Data, AI, web. I build across three. Based in Italy, working globally.{% endblocktrans %}{% endblock %}">
     <meta name="twitter:image"       content="{% block twitter_image %}{% static 'img/og-card.png' %}{% endblock twitter_image %}">
 
     {# Meta Block #}
@@ -82,7 +82,7 @@
             "url": "{{ request.scheme }}://{{ request.get_host }}",
             "image": "{{ request.scheme }}://{{ request.get_host }}{% static 'img/profile-1000.webp' %}",
             "jobTitle": "Data Scientist & AI/ML Engineer",
-            "description": "{% blocktrans %}Data Scientist & AI/ML Engineer bridging Data, AI, and Web. Based in Italy, working globally.{% endblocktrans %}",
+            "description": "{% blocktrans %}Data Scientist & AI/ML Engineer bridging Data, AI, and web. Based in Italy, working globally.{% endblocktrans %}",
             "sameAs": [
               "https://github.com/alessandrokuz",
               "https://linkedin.com/in/alessandrokuz",
