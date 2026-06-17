@@ -36,7 +36,7 @@ urlpatterns = [
     path("robots.txt", robots_txt, name="robots_txt"),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
     path("health/", lambda _: HttpResponse(b"ok"), name="health"),
-    path("admin/", admin.site.urls),
+    path("stratos/", admin.site.urls),
     path("i18n/", include("django.conf.urls.i18n")),  # language switcher endpoint
 ]
 
