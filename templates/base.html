@@ -223,6 +223,19 @@
 
     {# Main JavaScript #}
     <script type="module" src="{% static 'js/main.js' %}"></script>
+    <script>
+      /* ── 9. CROSSPAGE TRANSITIONS ─────────────────────────────────── */
+      document.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href^="/"]');
+        if (!link || e.metaKey || e.ctrlKey) return;
+        if (!document.startViewTransition) return;
+
+        e.preventDefault();
+        document.startViewTransition(() => {
+          window.location.href = link.href;
+        });
+      });
+    </script>
 
     {# Extra JavaScript #}
     {% block extra_js %}{% endblock extra_js %}
