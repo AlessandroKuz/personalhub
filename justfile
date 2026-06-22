@@ -22,9 +22,6 @@ manage  := run + " manage.py"
 dc      := "docker compose"
 service := "web"
 
-# Languages for i18n - All supported locales. Add a new code here and `just messages` picks it up.
-langs := "en it es de uk"
-
 
 # ── Default: list all recipes ──────────────────────────────────────────────────
 # Running bare `just` lists all recipes and their doc-comments automatically.
@@ -97,12 +94,7 @@ createsuperuser:
 
 # Extract all translatable strings into .po files (runs for all configured languages)
 messages:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    for lang in {{ langs }}; do
-        echo "→ Extracting messages for $lang..."
-        {{ manage }} makemessages -l $lang --ignore="site/*" --ignore="docs/*" --ignore=".venv/*"
-    done
+    {{ manage }} makemessages --all --ignore="site/*" --ignore="docs/*" --ignore=".venv/*"
 
 # Extract translatable strings for a single language (usage: just message de)
 message lang:
