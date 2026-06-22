@@ -182,7 +182,8 @@
     {% endblock shortcutsModal %}
 
     {# Shortcuts Hint #}
-    <div class="text-center d-none d-md-block">
+    <div class="shortcuts-hint text-center"
+         data-bs-toggle="modal" data-bs-target="#keyboardShortcutsModal">
       <small class="my-0 font-monospace text-muted opacity-50">
         {% trans "Press" %} <kbd>?</kbd> {% trans "for keyboard shortcuts" %}.
       </small>

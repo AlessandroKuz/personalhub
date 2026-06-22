@@ -769,6 +769,9 @@ html[data-kb-nav] * {
   cursor: auto !important;
 }
 
+/* ── Shortcuts hint (clickable, hidden on coarse-pointer devices) ── */
+.shortcuts-hint { cursor: pointer; }
+
 /* Mobile: center action buttons on error/coming-soon pages */
 @media (max-width: 767.98px) {
   .custom-page-section .d-flex.flex-wrap.gap-3,
