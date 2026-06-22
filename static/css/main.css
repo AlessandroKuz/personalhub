@@ -772,6 +772,10 @@ html[data-kb-nav] * {
 /* ── Shortcuts hint (clickable, hidden on coarse-pointer devices) ── */
 .shortcuts-hint { cursor: pointer; }
 
+@media (pointer: coarse) {
+  .shortcuts-hint { display: none; }
+}
+
 /* Mobile: center action buttons on error/coming-soon pages */
 @media (max-width: 767.98px) {
   .custom-page-section .d-flex.flex-wrap.gap-3,

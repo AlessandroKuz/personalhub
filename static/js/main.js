@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* Expand both elements when hovering interactive targets */
   document.querySelectorAll(
-    'a, button, .project-card, .skill-col, [data-bs-toggle], select, input, textarea'
+    'a, button, .project-card, .skill-col, .portrait-frame, [data-bs-toggle], select, input, textarea'
   ).forEach(function (el) {
     el.addEventListener('mouseenter', function () {
       document.body.classList.add('cursor-hover');
@@ -271,3 +271,15 @@ document.addEventListener('click', function (e) {
 
 import { init as initVimNav } from './vimNav.js';
 initVimNav();
+
+/* ── 9. PORTRAIT CLICK TOGGLE ────────────────────────────────── */
+/* Click inside the portrait-frame toggles image between circle
+   and square (via .portrait-frame--square class).              */
+
+(function () {
+  var frame = document.querySelector('.portrait-frame');
+  if (!frame) return;
+  frame.addEventListener('click', function () {
+    this.classList.toggle('portrait-frame--square');
+  });
+})();

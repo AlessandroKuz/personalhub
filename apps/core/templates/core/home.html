@@ -43,14 +43,6 @@
               {% trans "Building with data" %}
             </p>
 
-            <img src="{% static 'img/profile-400.webp' %}"
-                 alt="{% trans 'Alessandro Kuz' %}"
-                 class="hero-profile-img"
-                 width="400"
-                 height="400"
-                 loading="lazy"
-                 decoding="async">
-
             <h1 id="hero-label" class="hero-name mb-2">
               {% blocktrans trimmed %}
                 Alessandro <span class="text-accent">Kuz</span>
@@ -77,57 +69,28 @@
             </div>
           </div>
 
-        {# Right: status card #}
-          <aside class="hero-card" role="complementary" aria-label="{% trans 'Quick profile summary' %}">
+        {# Right: portrait #}
+          <aside class="hero-visual" role="complementary" aria-label="{% trans 'Photo portrait' %}">
+            <div class="portrait-frame">
+              <span class="frame-tick tl" aria-hidden="true"></span>
+              <span class="frame-tick tr" aria-hidden="true"></span>
+              <span class="frame-tick bl" aria-hidden="true"></span>
+              <span class="frame-tick br" aria-hidden="true"></span>
 
-            <div class="status-row" role="status">
-              <span class="status-dot" aria-hidden="true"></span>
-              {% trans "Open to work" %}
+              <img src="{% static 'img/profile-400.png' %}"
+                   alt="{% trans 'Alessandro Kuz' %}"
+                   class="hero-portrait-img"
+                   width="400"
+                   height="400"
+                   loading="lazy"
+                   decoding="async">
+
+              <span class="hero-location" aria-label="{% trans 'Location' %}">{% blocktrans trimmed %}Italy, <span>EU</span>{% endblocktrans %}</span>
+
+              <p class="hero-role-label" aria-label="{% trans 'Role' %}">
+                // {% trans "Data Scientist" %} <span>{% trans "& AI/ML Engineer" %}</span>
+              </p>
             </div>
-
-            <ul class="stat-list">
-              <li>
-                <p class="stat-label">{% trans "Role" %}</p>
-                <p class="stat-value">
-                  {% trans "Data Scientist" %}
-                  <span>{% trans "& AI/ML Engineer" %}</span>
-                </p>
-              </li>
-              <li>
-                <p class="stat-label">{% trans "Experience" %}</p>
-                <p class="stat-value">
-                  {% blocktrans %}3+ <span>years</span>{% endblocktrans %}
-                </p>
-              </li>
-              <li>
-                <p class="stat-label">{% trans "Location" %}</p>
-                <p class="stat-value">
-                  {% blocktrans %}Italy <span>EU</span>{% endblocktrans %}
-                </p>
-              </li>
-              <li>
-                <p class="stat-label">{% trans "Languages" %}</p>
-                <p class="stat-value">
-                  {% blocktrans %}6 <span>spoken</span>{% endblocktrans %}
-                </p>
-              </li>
-            </ul>
-
-            <div class="divider-h" role="separator"></div>
-
-            <div class="tag-cloud" aria-label="{% trans 'Core technologies' %}">
-              <span class="tag">Python</span>
-              <span class="tag">PyTorch</span>
-              <span class="tag">Scikit-Learn</span>
-              <span class="tag">Pandas</span>
-              <span class="tag">Polars</span>
-              <span class="tag">Django</span>
-              <span class="tag">FastAPI</span>
-              <span class="tag">HTMX</span>
-              <span class="tag">Docker</span>
-              <span class="tag">Linux</span>
-            </div>
-
           </aside>
 
         </div>

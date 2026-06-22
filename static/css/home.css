@@ -4,6 +4,7 @@
    ══════════════════════════════════════════════════════════ */
 
 #hero {
+  position:    relative;
   min-height:  calc(100vh - var(--navbar-height));
   display:     flex;
   align-items: center;
@@ -19,11 +20,10 @@
 }
 
 .hero-eyebrow { animation: fadeUp 0.8s var(--ease) 0.10s both; }
-.hero-profile-img { animation: fadeUp 0.9s var(--ease) 0.25s both; }
 .hero-name    { animation: fadeUp 0.9s var(--ease) 0.40s both; }
 .hero-desc    { animation: fadeUp 0.9s var(--ease) 0.55s both; }
 .hero-cta     { animation: fadeUp 0.9s var(--ease) 0.70s both; }
-.hero-card    { animation: fadeUp 0.9s var(--ease) 0.65s both; }
+.hero-visual { animation: fadeUp 0.9s var(--ease) 0.65s both; }
 
 .hero-eyebrow {
   font-family:    var(--font-mono);
@@ -73,113 +73,99 @@
   flex-wrap: wrap;
 }
 
-/* ── Hero profile image ──────────────────────────────── */
+/* ── Hero visual (right column) ─────────────────────────── */
 
-.hero-profile-img {
-  width:            100%;
-  max-width:        400px;
-  height:           auto;
-  border-radius:    0;
-  margin-bottom:    2rem;
-  aspect-ratio:     1/1;
-  object-fit:       cover;
-  background:       var(--color-surface);
+.hero-visual {
+  display:        flex;
+  justify-content: center;
 }
 
-/* ── Hero card (right column) ─────────────────────────── */
+/* ── Portrait frame ────────────────────────────────────── */
 
-.hero-card {
+.portrait-frame {
+  --badge-gap:    10px;
+  position:       relative;
+  overflow:       visible;
+  cursor:         pointer;
+}
+
+.frame-tick {
+  position:    absolute;
+  width:       24px;
+  height:      24px;
+  border:      2px solid var(--color-text);
+  opacity:     0.15;
+  z-index:     2;
+}
+
+.frame-tick.tl { top: -1px;  left: -1px;  border-width: 2px 0 0 2px; }
+.frame-tick.tr { top: -1px;  right: -1px; border-width: 2px 2px 0 0; }
+.frame-tick.bl { bottom: -1px; left: -1px;  border-width: 0 0 2px 2px; }
+.frame-tick.br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+.hero-portrait-img {
+  width:         400px;
+  max-width:     100%;
+  height:        auto;
+  border-radius: 50%;
+  object-fit:    cover;
+  filter:        grayscale(1);
   background:    var(--color-surface);
-  border:        1px solid var(--color-border);
-  border-radius: var(--radius-card);
-  padding:       2rem;
+  display:       block;
+  position:      relative;
+  z-index:       0;
+  transition:    border-radius 0.35s var(--ease);
 }
 
-.status-row {
-  display:        flex;
-  align-items:    center;
-  gap:            0.6rem;
+.portrait-frame--square .hero-portrait-img {
+  border-radius: 0;
+}
+
+.hero-location {
+  position:       absolute;
+  top:            var(--badge-gap);
+  right:          var(--badge-gap);
   font-family:    var(--font-mono);
-  font-size:      0.7rem;
-  letter-spacing: 0.1em;
-  color:          var(--color-muted);
-  margin-bottom:  1.75rem;
-  text-transform: uppercase;
-}
-
-/* Glow via box-shadow makes the dot feel "live" */
-.status-dot {
-  width:         7px;
-  height:        7px;
-  border-radius: var(--radius-full);
-  background:    var(--green);
-  box-shadow:    0 0 8px var(--green);
-  flex-shrink:   0;
-  animation:     pulse 2.4s ease-in-out infinite;
-}
-
-/* ── Stat list ────────────────────────────────────────── */
-
-.stat-list {
-  display:        flex;
-  flex-direction: column;
-  gap:            1.25rem;
-  list-style:     none;
-  padding:        0;
-  margin:         0;
-}
-
-/* Mono label (small) + large value = visual hierarchy
-   without any colour — pure size contrast.               */
-.stat-label {
-  font-family:    var(--font-mono);
-  font-size:      0.65rem;
+  font-size:      0.6rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color:          var(--color-muted);
-  margin-bottom:  0.25rem;
-}
-
-.stat-value {
-  font-size:   1.5rem;
-  font-weight: 600;
-  line-height: 1;
-}
-
-.stat-label,
-.stat-value {
-  margin-bottom: 0;
-}
-
-/* The accent word inside stat-value (e.g. "Engineer", "EU") */
-.stat-value span {
-  font-size:   0.9rem;
-  color:       var(--accent);
-  font-family: var(--font-mono);
-}
-
-.divider-h {
-  height:     1px;
-  background: var(--color-border);
-  margin:     1.25rem 0;
-}
-
-/* Tags: border-only, no fill — featherlight */
-.tag-cloud {
-  display:   flex;
-  flex-wrap: wrap;
-  gap:       6px;
-}
-
-.tag {
-  font-family:    var(--font-mono);
-  font-size:      0.62rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding:        4px 9px;
+  padding:        4px 10px;
+  background:     var(--color-surface);
   border:         1px solid var(--color-border);
   border-radius:  var(--radius-base);
+  white-space:    nowrap;
+  z-index:        3;
+}
+
+.hero-location span {
+  color: var(--accent);
+}
+
+.hero-role-label {
+  position:       absolute;
+  bottom:         var(--badge-gap);
+  left:           var(--badge-gap);
+  max-width:      calc(100% - var(--badge-gap) * 2);
+  font-family:    var(--font-mono);
+  font-size:      0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color:          var(--color-muted);
+  margin:         0;
+  line-height:    1.5;
+  padding:        4px 10px;
+  background:     var(--color-surface);
+  border:         1px solid var(--color-border);
+  border-radius:  var(--radius-base);
+  z-index:        3;
+}
+
+.hero-role-label span {
+  display:       inline-block;
+  color:         var(--accent);
+  font-family:   inherit;
+  font-size:     inherit;
 }
 
 /* Responsive: stack to single column below lg */
@@ -190,16 +176,16 @@
 
   .hero-grid {
     grid-template-columns: 1fr;
+    padding-bottom: 2rem;
   }
 
-  .hero-card {
+  .hero-visual {
     margin-top: 2rem;
   }
 
   .hero-cta {
     justify-content: center;
   }
-
   .about-text .btn {
     display: block;
     width: fit-content;
@@ -216,12 +202,10 @@
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .hero-eyebrow, .hero-name,
-  .hero-desc, .hero-cta, .hero-card, .hero-profile-img {
+  .hero-desc, .hero-cta, .hero-visual {
     animation: none;
     opacity:   1;
   }
-
-  .status-dot { animation: none; }
 }
 
 /* ══════════════════════════════════════════════════════════
