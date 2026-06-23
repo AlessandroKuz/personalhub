@@ -45,7 +45,7 @@
           {% for code, name in languages %}
             <li role="option" aria-selected="{% if code == current_lang %}true{% else %}false{% endif %}">
               <button class="dropdown-item lang-option font-monospace d-flex align-items-center gap-2
-                            {% if code == current_lang %}active{% endif %}"
+                             {% if code == current_lang %}active{% endif %}"
                       type="button"
                       data-lang="{{ code }}">
                 <span class="text-body-secondary small">{{ code|upper }}</span>
@@ -68,14 +68,15 @@
 
     {# ── 4. Mobile toggler — d-lg-none: invisible inside the desktop grid ── #}
     {# ms-2 provides breathing room from controls on mobile ── #}
-    <button class="navbar-toggler border-0 d-lg-none ms-2"
+    <button class="navbar-toggler collapsed border-0 d-lg-none ms-2"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarContent"
             aria-controls="navbarContent"
             aria-expanded="false"
             aria-label="{% trans 'Toggle navigation menu' %}">
-      <span class="navbar-toggler-icon"></span>
+      <i class="bi bi-list" aria-hidden="true"></i>
+      <i class="bi bi-x" aria-hidden="true"></i>
     </button>
 
     {# ── 4. Collapse — Grid col 2 on desktop (auto → truly centred) ── #}
@@ -84,25 +85,25 @@
       <ul class="navbar-nav gap-lg-1 py-2 py-lg-0 font-monospace text-uppercase letter-spacing-1">
         <li class="nav-item">
           <a class="nav-link small {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
-            href="{% url 'core:home' %}"
-            data-vim-key="h"
-            {% if request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %}>
+             href="{% url 'core:home' %}"
+             data-vim-key="h"
+             {% if request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %}>
             {% trans "Home" %}
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link small {% if request.resolver_match.url_name == 'about' %}active{% endif %}"
-            href="{% url 'core:about' %}"
-            data-vim-key="a"
-            {% if request.resolver_match.url_name == 'about' %}aria-current="page"{% endif %}>
+             href="{% url 'core:about' %}"
+             data-vim-key="a"
+             {% if request.resolver_match.url_name == 'about' %}aria-current="page"{% endif %}>
             {% trans "About" %}
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link small {% if request.resolver_match.url_name == 'work' %}active{% endif %}"
-            href="{% url 'core:work' %}"
-            data-vim-key="w"
-            {% if request.resolver_match.url_name == 'work' %}aria-current="page"{% endif %}>
+             href="{% url 'core:work' %}"
+             data-vim-key="w"
+             {% if request.resolver_match.url_name == 'work' %}aria-current="page"{% endif %}>
             {% trans "Work" %}
           </a>
         </li>
@@ -118,9 +119,9 @@
         {% endcomment %}
         <li class="nav-item">
           <a class="nav-link small {% if request.resolver_match.url_name == 'projects' %}active{% endif %}"
-            href="{% url 'core:projects' %}"
-            data-vim-key="p"
-            {% if request.resolver_match.url_name == 'projects' %}aria-current="page"{% endif %}>
+             href="{% url 'core:projects' %}"
+             data-vim-key="p"
+             {% if request.resolver_match.url_name == 'projects' %}aria-current="page"{% endif %}>
             {% trans "Projects" %}
           </a>
         </li>
@@ -136,9 +137,9 @@
         {% endcomment %}
         <li class="nav-item">
           <a class="nav-link small {% if request.resolver_match.url_name == 'contact' %}active{% endif %}"
-            href="{% url 'core:contact' %}"
-            data-vim-key="c"
-            {% if request.resolver_match.url_name == 'contact' %}aria-current="page"{% endif %}>
+             href="{% url 'core:contact' %}"
+             data-vim-key="c"
+             {% if request.resolver_match.url_name == 'contact' %}aria-current="page"{% endif %}>
             {% trans "Contact" %}
           </a>
         </li>

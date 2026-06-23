@@ -15,7 +15,7 @@ Legend:
 
 - [x] Finalise design tokens in `static/css/main.css`
       — `--accent`, `--bg`, `--surface`, `--text`, `--muted`, `--border`, `--mono`
-      for both `[data-theme="light"]` and `[data-theme="dark"]`
+      for both `[data-bs-theme="light"]` and `[data-bs-theme="dark"]`
 - [x] Confirm `data-theme` / `data-bs-theme` parity across all custom tokens
 - [x] Lock in font duo: DM Sans + JetBrains Mono
       — add Google Fonts `<link>` to `base.html` (or self-host in `static/`)
@@ -42,6 +42,14 @@ Legend:
 
 ---
 
+## 🌀 Page Transitions `[P0]`
+
+- [ ] Page-switch animations (fade/slide) on internal navigation
+- [ ] Respect `prefers-reduced-motion: reduce` — no animation if set
+- [ ] Gate with `@media (prefers-reduced-motion: no-preference)`
+
+---
+
 ## 🏠 `home.html` — Primary Document `[P0]`
 
 > `home.html` is the main experience. Every other content page is an
@@ -49,9 +57,9 @@ Legend:
 
 - [x] Write tests first (`apps/core/tests/test_views.py`)
       — hero renders, each section `id` is present, CTA is included
-- [x] **Hero section**
+- [ ] **Hero section**
       — name + title, status card (pulsing green dot + availability line),
-        tag cloud, subtle entrance animation
+        tag cloud, subtle entrance animation, profile image replacing motto
 - [x] **Marquee ticker strip** — stack / tools scrolling banner
 - [x] **About section** (`id="about"`)
       — 2–3 sentence TLDR, "Read more →" links to `/about/`
@@ -148,6 +156,13 @@ Legend:
     - [ ] Bootstrap ICONS
 - [ ] Add `legal` app with needed pages
 - [ ] Create dedicated pages
+
+---
+
+### Infrastructure & Security `[P1 wrap-up]`
+
+- [ ] Structured JSON logging (production)
+- [ ] Rate-limiting middleware on contact form and auth endpoints
 
 ---
 

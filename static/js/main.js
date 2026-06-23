@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* Expand both elements when hovering interactive targets */
   document.querySelectorAll(
-    'a, button, .project-card, .skill-col, [data-bs-toggle], select, input, textarea'
+    'a, button, .project-card, .skill-col, .portrait-frame, [data-bs-toggle], select, input, textarea'
   ).forEach(function (el) {
     el.addEventListener('mouseenter', function () {
       document.body.classList.add('cursor-hover');
@@ -70,6 +70,14 @@ document.addEventListener('DOMContentLoaded', function () {
     el.addEventListener('mouseleave', function () {
       document.body.classList.remove('cursor-hover');
     });
+  });
+
+  /* Shrink ring on mousedown, restore on mouseup */
+  document.addEventListener('mousedown', function () {
+    document.body.classList.add('cursor-active');
+  });
+  document.addEventListener('mouseup', function () {
+    document.body.classList.remove('cursor-active');
   });
 })();
 
@@ -126,9 +134,11 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.lang-option').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var lang = btn.dataset.lang;
+      var nextInput = form.querySelector('input[name="next"]');
+      if (nextInput) {
+        nextInput.value = nextInput.value.replace(/^\/[a-z]{2}(?=\/|$)/, '/' + lang);
+      }
       input.value = lang;
-      /* Update trigger label instantly — feels responsive before
-         the page reloads on form submit                         */
       if (label) label.textContent = lang.toUpperCase();
       form.submit();
     });
@@ -228,7 +238,48 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 })();
 
-/* ── 7. SHORTCUTS MODAL ───────────────────────────────────────── */
+/* ── 7. KEYBOARD NAV DETECTION ─────────────────────────────────── */
+/* Detects Tab/Arrow/Enter navigation and sets [data-kb-nav] on
+   <html>. While active, all :hover effects are suppressed via CSS
+   so mouse-hover on card A doesn't conflict with keyboard focus
+   on card B. Removes immediately on any mouse movement or click.  */
+
+(function () {
+  function enableKb() {
+    document.documentElement.setAttribute('data-kb-nav', '');
+  }
+  function disableKb() {
+    document.documentElement.removeAttribute('data-kb-nav');
+  }
+  document.addEventListener('keydown', function (e) {
+    if (['Tab', 'Enter', ' ', 'Escape', 'ArrowUp',
+         'ArrowDown', 'ArrowLeft', 'ArrowRight'].indexOf(e.key) !== -1) {
+      enableKb();
+    }
+  });
+  document.addEventListener('mousemove', disableKb);
+  document.addEventListener('mousedown', disableKb);
+})();
+
+/* ── Scrollspy dot: blur after click, prevent :focus-visible ring ── */
+document.addEventListener('click', function (e) {
+  var link = e.target.closest('#scrollspy-nav .nav-link');
+  if (link) link.blur();
+});
+
+/* ── 8. SHORTCUTS MODAL ───────────────────────────────────────── */
 
 import { init as initVimNav } from './vimNav.js';
 initVimNav();
+
+/* ── 9. PORTRAIT CLICK TOGGLE ────────────────────────────────── */
+/* Click inside the portrait-frame toggles image between circle
+   and square (via .portrait-frame--square class).              */
+
+(function () {
+  var frame = document.querySelector('.portrait-frame');
+  if (!frame) return;
+  frame.addEventListener('click', function () {
+    this.classList.toggle('portrait-frame--square');
+  });
+})();

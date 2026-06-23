@@ -32,7 +32,7 @@ SECRET_KEY = os.getenv(
     "fallback-insecure-key-only-for-ci" if os.getenv("GITHUB_ACTIONS") else None,
 )
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
+ALLOWED_HOSTS = [h for h in os.environ.get("ALLOWED_HOSTS", "").split(",") if h]
 
 
 # Application definition
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "apps.projects",
     "apps.blog",
     "compressor",
+    "django.contrib.sitemaps",
 ]
 
 MIDDLEWARE = [
@@ -236,3 +237,5 @@ DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "")
 CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", "")  # where form submissions go
 
 CSRF_FAILURE_VIEW = "apps.core.views.error_403_csrf"
+
+SITE_ID = 1  # uses domain inside of sitemap.xml in production

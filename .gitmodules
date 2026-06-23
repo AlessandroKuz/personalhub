@@ -1,3 +1,6 @@
 [submodule "docs"]
 	path = docs
 	url = https://github.com/alessandrokuz/personalhub-docs.git
+[submodule "design-system"]
+	path = design-system
+	url = https://github.com/alessandrokuz/Kuz-Design-System

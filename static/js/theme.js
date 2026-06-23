@@ -1,6 +1,6 @@
 // static/js/theme.js
 // Handles theme toggle. Loaded just before </body> — DOM is already ready.
-// themeInit.js already set the correct initial data-theme on <html>,
+// themeInit.js already set the correct initial data-bs-theme on <html>,
 // so the first job here is just syncing the icon to match.
 
 (function () {
@@ -10,7 +10,6 @@
 
     // ── Apply a theme ────────────────────────────────────────
     function applyTheme(theme) {
-        html.setAttribute('data-theme',    theme);
         html.setAttribute('data-bs-theme', theme);  // Bootstrap utilities
         localStorage.setItem('theme', theme);
         syncIcon(theme);
@@ -27,12 +26,12 @@
     }
 
     // ── Initialise icon to match whatever themeInit.js set ───
-    syncIcon(html.getAttribute('data-theme') || 'dark');
+    syncIcon(html.getAttribute('data-bs-theme') || 'dark');
 
     // ── Wire up the toggle button ─────────────────────────────
     if (toggle) {
         toggle.addEventListener('click', function () {
-            var current = html.getAttribute('data-theme') || 'dark';
+            var current = html.getAttribute('data-bs-theme') || 'dark';
             applyTheme(current === 'dark' ? 'light' : 'dark');
         });
     }

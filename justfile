@@ -20,10 +20,8 @@ uv      := "uv"
 run     := uv + " run"
 manage  := run + " manage.py"
 dc      := "docker compose"
+dc_staging := "docker compose -f docker-compose.staging.yml"
 service := "web"
-
-# Languages for i18n - All supported locales. Add a new code here and `just messages` picks it up.
-langs := "en it es de uk"
 
 
 # ── Default: list all recipes ──────────────────────────────────────────────────
@@ -44,7 +42,7 @@ install:
 # Upgrade all dependencies to latest compatible versions and update uv.lock
 upgrade:
     {{ uv }} sync --upgrade
-    @echo "→ uv.lock has been updated. Review the diff before committing."
+    echo "→ uv.lock has been updated. Review the diff before committing."
 
 
 # ── Development Server ────────────────────────────────────────────────────────
@@ -97,12 +95,7 @@ createsuperuser:
 
 # Extract all translatable strings into .po files (runs for all configured languages)
 messages:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    for lang in {{ langs }}; do
-        echo "→ Extracting messages for $lang..."
-        {{ manage }} makemessages -l $lang --ignore="site/*" --ignore="docs/*" --ignore=".venv/*"
-    done
+    {{ manage }} makemessages --all --ignore="site/*" --ignore="docs/*" --ignore=".venv/*"
 
 # Extract translatable strings for a single language (usage: just message de)
 message lang:
@@ -139,6 +132,16 @@ format *args:
     {{ run }} ruff format {{ if args == "" { "." } else { args } }}
 
 
+# Sync canonical assets from design-system submodule into live static dirs
+ds-sync:
+    cp design-system/assets/branding/favicons/*.ico static/img/
+    cp design-system/assets/branding/favicons/*.png static/img/
+    cp design-system/assets/branding/favicons/*.svg static/img/
+    cp design-system/assets/profile-pictures/*.webp static/img/
+    cp design-system/assets/profile-pictures/*.png static/img/
+    echo "design-system assets synced. Run 'just compress && just static' to deploy."
+
+
 # ── Testing ───────────────────────────────────────────────────────────────────
 
 # Run the full test suite
@@ -160,9 +163,7 @@ ci:
     {{ run }} pytest
 
 
-# ── Deployment (Docker) ───────────────────────────────────────────────────────
-# Docker is used exclusively for deployment. There is one compose file.
-# All commands here operate on docker-compose.yml.
+# ── Docker (Production) ─────────────────────────────────────────────────────
 
 # Build Docker images (run after changing Dockerfile or adding dependencies)
 build:
@@ -193,6 +194,29 @@ deploy: build
     {{ dc }} up -d
 
 
+# ── Docker Staging ─────────────────────────────────────────────────────────────
+
+# Full staging deploy: rebuild and start in background
+staging: staging-build
+    {{ dc_staging }} up -d
+
+# Rebuild staging images
+staging-build *args:
+    {{ dc_staging }} build {{ args }}
+
+# Start staging containers
+staging-up *args:
+    {{ dc_staging }} up {{ args }}
+
+# Stop staging containers
+staging-down *args:
+    {{ dc_staging }} down {{ args }}
+
+# Stream staging logs
+staging-logs *args:
+    {{ dc_staging }} logs -f {{ args }}
+
+
 # ── Utils ─────────────────────────────────────────────────────────────────────
 
 # Generate a new cryptographically strong SECRET_KEY value (copy into your .env)
@@ -214,6 +238,21 @@ urls:
     {{ manage }} show_urls
 
 
+# ── Documentation ───────────────────────────────────────────────────
+
+# Start the MkDocs documentation server with live reload
+# Default address: http://127.0.0.1:8001
+docs:
+    {{ run }} mkdocs serve -f docs/mkdocs.yml \
+        --dev-addr 127.0.0.1:8001 \
+        --livereload
+
+# MkDocs dev server, accepts extra arguments to override defaults
+# Usage:  just docs-serve --dev-addr 0.0.0.0:8002
+docs-serve *args:
+    {{ run }} mkdocs serve -f docs/mkdocs.yml {{ args }}
+
+
 # ── Cleanup ───────────────────────────────────────────────────────────────────
 
 # Remove Python bytecode caches and compiled translation files
@@ -221,4 +260,4 @@ clean:
     find . -type d -name __pycache__ -exec rm -rf {} +
     find . -name "*.pyc" -delete
     find . -name "*.mo" -delete
-    @echo "→ Workspace cleaned."
+    echo "→ Workspace cleaned."

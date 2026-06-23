@@ -9,8 +9,9 @@
  * init() wires everything together: reads config from the DOM, attaches a
  * keydown listener, and returns a destroy() for cleanup.
  *
- * The g-prefix mechanism is a two-state machine:
- *   idle  →[g pressed]→  gPending  →[second key or timeout]→  idle
+ * Prefix mechanisms:
+ *   g: idle  →[g pressed]→  gPending  →[second key or timeout]→  idle
+ *   z: idle  →[z pressed]→  zPending  →[second key or timeout]→  idle
  */
 
 
@@ -67,7 +68,7 @@ export function getCurrentSectionIndex(sections, viewportHeight = window.innerHe
  * @returns {{ gPending: boolean, gTimer: ReturnType<typeof setTimeout> | null }}
  */
 export function createState() {
-  return { gPending: false, gTimer: null };
+  return { gPending: false, gTimer: null, zPending: false, zTimer: null };
 }
 
 /**
@@ -87,6 +88,19 @@ export function createState() {
  * @returns {{ type: string, url?: string } | null}
  */
 export function processKey(key, state, routes, timeout = 2000) {
+  // ── Resolve a pending z-prefix ───────────────────────────────────────────
+  if (state.zPending) {
+    clearTimeout(state.zTimer);
+    state.zPending = false;
+    state.zTimer   = null;
+
+    if (key === 'z') return { type: 'centerElement' };
+    if (key === 's') return { type: 'centerSection' };
+
+    // Unrecognised combo (e.g. zx): eat the keypress silently.
+    return null;
+  }
+
   // ── Resolve a pending g-prefix ───────────────────────────────────────────
   if (state.gPending) {
     clearTimeout(state.gTimer);
@@ -96,6 +110,8 @@ export function processKey(key, state, routes, timeout = 2000) {
     if (key === 'g') return { type: 'scrollTop' };
     if (key === 't') return { type: 'toggleTheme' };
     if (key === 'l') return { type: 'openLangDropdown' };
+    if (key === 'b') return { type: 'goBack' };
+    if (key === 'n' || key === 'f') return { type: 'goForward' };
 
     const url = routes[key];
     if (url) return { type: 'navigate', url };
@@ -121,6 +137,15 @@ export function processKey(key, state, routes, timeout = 2000) {
       state.gTimer   = setTimeout(() => {
         state.gPending = false;
         state.gTimer   = null;
+      }, timeout);
+      return null;
+
+    case 'z':
+      // Begin a z-prefix sequence, mirroring the g-prefix mechanism.
+      state.zPending = true;
+      state.zTimer   = setTimeout(() => {
+        state.zPending = false;
+        state.zTimer   = null;
       }, timeout);
       return null;
 
@@ -219,13 +244,26 @@ export function init({ scrollStep = 0.15, gTimeout = 2000 } = {}) {
         window.scrollBy({ top: -step, behavior: 'instant' });
         break;
 
-      case 'scrollBottom':
+      case 'scrollBottom': {
+        const sbMenu = document.querySelector('.dropdown-menu.show');
+        if (sbMenu) {
+          const items = sbMenu.querySelectorAll('button:not(:disabled), a:not(.disabled)[href]');
+          items[items.length - 1]?.focus();
+          break;
+        }
         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         break;
+      }
 
-      case 'scrollTop':
+      case 'scrollTop': {
+        const stMenu = document.querySelector('.dropdown-menu.show');
+        if (stMenu) {
+          stMenu.querySelector('button:not(:disabled), a:not(.disabled)[href]')?.focus();
+          break;
+        }
         window.scrollTo({ top: 0, behavior: 'smooth' });
         break;
+      }
 
       case 'prevSection': {
         const sections = getSections();
@@ -274,13 +312,41 @@ export function init({ scrollStep = 0.15, gTimeout = 2000 } = {}) {
         window.bootstrap?.Modal.getOrCreateInstance(el).toggle();
         break;
       }
+
+      case 'goBack':
+        window.history.back();
+        break;
+
+      case 'goForward':
+        window.history.forward();
+        break;
+
+      case 'centerElement': {
+        const el = document.activeElement;
+        if (!el || el === document.body || el === document.documentElement) {
+          // No explicit focus → fallback: center the current section
+          const sections = getSections();
+          const idx      = getCurrentSectionIndex(sections);
+          sections[idx]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        break;
+      }
+
+      case 'centerSection': {
+        const sections = getSections();
+        const idx      = getCurrentSectionIndex(sections);
+        sections[idx]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        break;
+      }
     }
   }
 
   // ── Keydown handler ──────────────────────────────────────────────────────
 
   // Keys whose browser defaults we want to suppress
-  const INTERCEPTED = new Set(['j', 'k', 'G', 'h', 'l', 'g']);
+  const INTERCEPTED = new Set(['j', 'k', 'G', 'h', 'l', 'g', 'z']);
 
   function handleKeydown(e) {
     // ── Guard: modified keypress (Ctrl+l = clear address bar, Cmd+k, etc.) ─
@@ -289,11 +355,14 @@ export function init({ scrollStep = 0.15, gTimeout = 2000 } = {}) {
     // ── Guard: user is typing in a form field ────────────────────────────
     if (isTypingContext()) return;
 
-    // ── Escape: cancel pending g-sequence; Bootstrap handles modal close ──
+    // ── Escape: cancel pending g/z-sequences; Bootstrap handles modal close ──
     if (e.key === 'Escape') {
       clearTimeout(state.gTimer);
       state.gPending = false;
       state.gTimer   = null;
+      clearTimeout(state.zTimer);
+      state.zPending = false;
+      state.zTimer   = null;
       return; // let event propagate — Bootstrap's modal listens for it too
     }
 
@@ -308,8 +377,8 @@ export function init({ scrollStep = 0.15, gTimeout = 2000 } = {}) {
     // ── Guard: open modal or dropdown  ───────────────────────────────────
     // ── Dropdown open: only j/k navigate options, everything else suppressed ──
     if (document.querySelector('.dropdown-menu.show')) {
-      if (e.key === 'g' || (state.gPending && e.key === 'l')) {
-        // let g and the subsequent l fall through to processKey/executeCommand
+      if (e.key === 'g' || e.key === 'G' || (state.gPending && e.key === 'l')) {
+        // let g-prefix fall through for language-switcher access
       } else {
         if (handleDropdownNav(e.key)) e.preventDefault();
         return;
@@ -318,6 +387,11 @@ export function init({ scrollStep = 0.15, gTimeout = 2000 } = {}) {
 
     // ── Modal open: suppress everything (? and Escape handled above already) ──
     if (document.querySelector('.modal.show')) return;
+
+    // ── Cal.com popup open: suppress everything ──
+    // calPopout.js sets data-cal-open on <html> on trigger click and removes it
+    // via Cal's __closeIframe event — reliable regardless of iframe DOM state.
+    if (document.documentElement.dataset.calOpen) return;
 
     // Prevent browser defaults for our intercepted keys before processing
     if (INTERCEPTED.has(e.key)) e.preventDefault();
@@ -333,6 +407,7 @@ export function init({ scrollStep = 0.15, gTimeout = 2000 } = {}) {
     destroy() {
       window.removeEventListener('keydown', handleKeydown);
       clearTimeout(state.gTimer);
+      clearTimeout(state.zTimer);
     },
   };
 }

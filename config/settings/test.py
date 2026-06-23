@@ -2,6 +2,13 @@
 from .base import *  # noqa: F401, F403
 
 TESTING = True
+
+# django-compressor auto-enables when DEBUG=False (which we set below).
+# Without collectstatic, SCSS resolution fails. Keep it disabled in tests.
+# Must clear PRECOMPILERS too, else compressor still parses SCSS even when
+# COMPRESS_ENABLED=False (see CompressorMixin.render_compressed shortcut).
+COMPRESS_ENABLED = False
+COMPRESS_PRECOMPILERS = ()
 # ─────────────────────────────────────────────────────────────────────────────
 # SECURITY
 # ─────────────────────────────────────────────────────────────────────────────
