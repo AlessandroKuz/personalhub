@@ -133,7 +133,7 @@
 
     {# Bootstrap CSS and Icons#}
     {% compress css %}
-      <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/custom.scss' %}">
+      <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}scss/custom.scss">
     {% endcompress %}
     <link
       rel="stylesheet"

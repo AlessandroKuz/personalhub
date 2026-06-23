@@ -27,7 +27,7 @@ Built with Django, HTMX and Bootstrap 5. No JS framework, no build step. Just se
 | Custom design system | Two-font stack (DM Sans + JetBrains Mono), single blue accent, sharp 2px corners, 1px hairline grids |
 | Security | CSP headers, HSTS, secure cookies, rate-limit middleware, max scores on Security Headers and Mozilla Observatory |
 | SEO | hreflang, Open Graph, JSON-LD Person schema, sitemap.xml, robots.txt |
-| Dockerised | Multi-stage build, Compose for production (Django + PostgreSQL + Caddy with auto TLS) |
+| Dockerised | Multi-stage build, Compose for production (Django + PostgreSQL + Caddy) and staging (same stack + self-signed TLS + resource limits) |
 | Zero build step | No webpack, no Node, no asset pipeline |
 
 ---
@@ -93,7 +93,9 @@ Editorial/minimalist aesthetic: terminal UI meets editorial prose. Two-font syst
 | `just run` | Start ASGI dev server (mirrors production) |
 | `just test` | Run full test suite |
 | `just ci` | Lint + format check + tests |
-| `just deploy` | Build + deploy Docker stack |
+| `just deploy` | Build + deploy production Docker stack |
+| `just staging` | Build + deploy staging stack (background) |
+| `just staging-logs` | Tail staging container logs |
 | `just reset-db` | Wipe dev SQLite (irreversible) |
 
 Pass extra args naturally: `just test apps/core/tests.py -x`.
@@ -111,16 +113,29 @@ DJANGO_SETTINGS_MODULE=config.settings.dev
 
 Prod also needs `POSTGRES_*`, `EMAIL_*`, `ALLOWED_HOSTS`. See `.env.example`.
 
+Staging uses a dedicated `.env.staging` — copy from `.env` and adjust as needed.
+
 ---
 
 ## Deployment
+
+### Production
 
 ```bash
 docker compose up -d --build
 docker compose exec web uv run python manage.py migrate
 ```
 
-Production stack: Django/Uvicorn + PostgreSQL + Caddy (auto TLS via Let's Encrypt and Cloudflare origin certs). Hosted on a Hetzner VPS. Home server option in `docs/infrastructure/hosting.md` if you prefer a zero-cost setup.
+Stack: Django/Uvicorn + PostgreSQL + Caddy (auto TLS via Let's Encrypt and Cloudflare origin certs). Hosted on a Hetzner VPS. Home server option in `docs/infrastructure/hosting.md` if you prefer a zero-cost setup.
+
+### Staging
+
+```bash
+docker compose -f docker-compose.staging.yml up --build
+docker compose -f docker-compose.staging.yml exec web python manage.py createsuperuser
+```
+
+Same architecture as production with HTTPS via Caddy self-signed certs (`tls internal`), resource limits, and dedicated `.env.staging`. Useful for pre-deploy integration testing.
 
 ---
 

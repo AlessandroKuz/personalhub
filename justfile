@@ -20,6 +20,7 @@ uv      := "uv"
 run     := uv + " run"
 manage  := run + " manage.py"
 dc      := "docker compose"
+dc_staging := "docker compose -f docker-compose.staging.yml"
 service := "web"
 
 
@@ -162,9 +163,7 @@ ci:
     {{ run }} pytest
 
 
-# ── Deployment (Docker) ───────────────────────────────────────────────────────
-# Docker is used exclusively for deployment. There is one compose file.
-# All commands here operate on docker-compose.yml.
+# ── Docker (Production) ─────────────────────────────────────────────────────
 
 # Build Docker images (run after changing Dockerfile or adding dependencies)
 build:
@@ -193,6 +192,29 @@ exec:
 # Full deployment cycle: rebuild images, restart containers, migrate, compile translations
 deploy: build
     {{ dc }} up -d
+
+
+# ── Docker Staging ─────────────────────────────────────────────────────────────
+
+# Full staging deploy: rebuild and start in background
+staging: staging-build
+    {{ dc_staging }} up -d
+
+# Rebuild staging images
+staging-build *args:
+    {{ dc_staging }} build {{ args }}
+
+# Start staging containers
+staging-up *args:
+    {{ dc_staging }} up {{ args }}
+
+# Stop staging containers
+staging-down *args:
+    {{ dc_staging }} down {{ args }}
+
+# Stream staging logs
+staging-logs *args:
+    {{ dc_staging }} logs -f {{ args }}
 
 
 # ── Utils ─────────────────────────────────────────────────────────────────────
