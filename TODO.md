@@ -159,6 +159,13 @@ Legend:
 
 ---
 
+### Infrastructure & Security `[P1 wrap-up]`
+
+- [ ] Structured JSON logging (production)
+- [ ] Rate-limiting middleware on contact form and auth endpoints
+
+---
+
 ## 🗃️ Phase 2 — Projects App `[P2]`
 
 - [ ] Write model tests first (`apps/projects/tests/test_models.py`)
