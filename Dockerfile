@@ -60,6 +60,11 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
   # resolve to the venv versions, not the system Python.
   PATH="/app/.venv/bin:$PATH"
 
+# gettext provides msgfmt for compilemessages
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends gettext \
+  && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 
 # Create a non-root user for running the application.

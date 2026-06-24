@@ -11,18 +11,17 @@
 # Requires: just, uv, docker, docker compose v2
 # ══════════════════════════════════════════════════════════════════════════════
 
-
 # ── Variables ─────────────────────────────────────────────────────────────────
 # just variables use := and are interpolated with {{ }} in recipes.
 # No $ escaping needed — shell commands use $ freely without conflicts.
 
-uv      := "uv"
-run     := uv + " run"
-manage  := run + " manage.py"
-dc      := "docker compose"
-dc_staging := "docker compose -f docker-compose.staging.yml"
+uv := "uv"
+run := uv + " run"
+manage := run + " manage.py"
+dc := "docker compose -p personalhub-prod"
+dc_staging := "docker compose -p personalhub-staging -f docker-compose.staging.yml"
+dc_staging_ghcr := "docker compose -p personalhub-staging-ghcr -f docker-compose.staging-ghcr.yml"
 service := "web"
-
 
 # ── Default: list all recipes ──────────────────────────────────────────────────
 # Running bare `just` lists all recipes and their doc-comments automatically.
@@ -31,7 +30,6 @@ service := "web"
 # List all recipes — run `just` with no arguments to invoke this
 default:
     @just --list --list-heading $'PersonalHub - available recipes:\n'
-
 
 # ── Dependencies ──────────────────────────────────────────────────────────────
 
@@ -43,7 +41,6 @@ install:
 upgrade:
     {{ uv }} sync --upgrade
     echo "→ uv.lock has been updated. Review the diff before committing."
-
 
 # ── Development Server ────────────────────────────────────────────────────────
 
@@ -63,7 +60,6 @@ runserver *args:
 # Open an interactive Django Python shell
 shell *args:
     {{ manage }} shell {{ args }}
-
 
 # ── Django Management ─────────────────────────────────────────────────────────
 
@@ -87,7 +83,6 @@ migration name:
 createsuperuser:
     {{ manage }} createsuperuser
 
-
 # ── i18n ──────────────────────────────────────────────────────────────────────
 # The shebang line #!/usr/bin/env bash tells just to run this recipe in bash,
 # giving us a real shell with proper for-loop support.
@@ -107,7 +102,6 @@ compile-messages:
 
 # Full i18n refresh: extract new strings then immediately compile everything
 i18n: messages compile-messages
-
 
 # ── Static Files & Linting ────────────────────────────────────────────────────
 
@@ -131,7 +125,6 @@ lint-fix:
 format *args:
     {{ run }} ruff format {{ if args == "" { "." } else { args } }}
 
-
 # Sync canonical assets from design-system submodule into live static dirs
 ds-sync:
     cp design-system/assets/branding/favicons/*.ico static/img/
@@ -140,7 +133,6 @@ ds-sync:
     cp design-system/assets/profile-pictures/*.webp static/img/
     cp design-system/assets/profile-pictures/*.png static/img/
     echo "design-system assets synced. Run 'just compress && just static' to deploy."
-
 
 # ── Testing ───────────────────────────────────────────────────────────────────
 
@@ -161,7 +153,6 @@ ci:
     {{ run }} ruff check .
     {{ run }} ruff format --check .
     {{ run }} pytest
-
 
 # ── Docker (Production) ─────────────────────────────────────────────────────
 
@@ -193,7 +184,6 @@ exec:
 deploy: build
     {{ dc }} up -d
 
-
 # ── Docker Staging ─────────────────────────────────────────────────────────────
 
 # Full staging deploy: rebuild and start in background
@@ -216,6 +206,14 @@ staging-down *args:
 staging-logs *args:
     {{ dc_staging }} logs -f {{ args }}
 
+# Pull latest GHCR image and test with staging settings
+staging-ghcr: staging-ghcr-down
+    {{ dc_staging_ghcr }} pull web
+    {{ dc_staging_ghcr }} up -d
+
+# Stop GHCR staging containers
+staging-ghcr-down *args:
+    {{ dc_staging_ghcr }} down {{ args }}
 
 # ── Utils ─────────────────────────────────────────────────────────────────────
 
@@ -237,7 +235,6 @@ reset-db:
 urls:
     {{ manage }} show_urls
 
-
 # ── Documentation ───────────────────────────────────────────────────
 
 # Start the MkDocs documentation server with live reload
@@ -251,7 +248,6 @@ docs:
 # Usage:  just docs-serve --dev-addr 0.0.0.0:8002
 docs-serve *args:
     {{ run }} mkdocs serve -f docs/mkdocs.yml {{ args }}
-
 
 # ── Cleanup ───────────────────────────────────────────────────────────────────
 
