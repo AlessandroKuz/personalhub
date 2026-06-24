@@ -10,7 +10,7 @@ echo "==> Running database migrations..."
 python manage.py migrate --noinput
 
 echo "==> Compiling translation messages..."
-python manage.py compilemessages --noinput
+python manage.py compilemessages
 
 echo "==> Compressing SCSS and JS assets (offline compression)..."
 # compress must run BEFORE collectstatic.

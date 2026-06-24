@@ -15,7 +15,7 @@ docker compose run --rm web sh -c "
   python manage.py migrate --noinput &&
   python manage.py compress --force &&
   python manage.py collectstatic --noinput &&
-  python manage.py compilemessages --noinput
+  python manage.py compilemessages
 "
 
 echo "==> Restarting web service..."
