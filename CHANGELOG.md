@@ -5,6 +5,7 @@
 ### Other
 
 - ci: lowercase repo name for GHCR tag (0c28425)
+- ci: exclude submodules from docker build (8133fcc)
 
 ---
 
