@@ -78,3 +78,7 @@ assets/
 # Markdown docs (usually not needed at runtime)
 *.md
 !README.md  # keep the README
+
+# Submodules
+design-system/
+# docs/  # already ignored above
