@@ -9,6 +9,9 @@ set -e
 echo "==> Running database migrations..."
 python manage.py migrate --noinput
 
+echo "==> Compiling translation messages..."
+python manage.py compilemessages --noinput
+
 echo "==> Compressing SCSS and JS assets (offline compression)..."
 # compress must run BEFORE collectstatic.
 # It compiles SCSS → CSS, writes output files, and generates a manifest

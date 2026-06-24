@@ -9,10 +9,7 @@
 services:
   # ─── Django Application ───────────────────────────────────────────────────
   web:
-    image: personalhub-web:latest
-    build:
-      context: .
-      target: runtime # Use the lean production stage
+    image: ghcr.io/alessandrokuz/personalhub/web:latest
     restart: unless-stopped # Automatically restart if the container crashes
     env_file:
       - .env

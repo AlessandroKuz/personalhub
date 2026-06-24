@@ -1,0 +1,96 @@
+# Staging compose that pulls the latest GHCR image instead of building locally.
+# Use to verify a released tag works with staging settings before next deploy.
+# Usage: docker compose -p personalhub-staging-ghcr -f docker-compose.staging-ghcr.yml up -d
+
+services:
+  # ─── Django Application ───────────────────────────────────────────────────
+  web:
+    image: ghcr.io/alessandrokuz/personalhub/web:latest
+    restart: unless-stopped
+    env_file:
+      - .env.staging
+    mem_limit: 512m
+    cpus: "0.5"
+    environment:
+      - DJANGO_SETTINGS_MODULE=config.settings.staging
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - static_files:/srv/personalhub/staticfiles
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import http.client; c = http.client.HTTPConnection('localhost', 8000, timeout=5); c.request('GET', '/health/'); r = c.getresponse(); exit(0 if r.status == 200 else 1)",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 90s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+    networks:
+      - internal
+
+  # ─── PostgreSQL Database ──────────────────────────────────────────────────
+  db:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    env_file:
+      - .env.staging
+    mem_limit: 512m
+    cpus: "0.5"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - internal
+
+  # ─── Caddy Reverse Proxy ──────────────────────────────────────────────────
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile.staging:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+      - static_files:/srv/personalhub/staticfiles:ro
+    depends_on:
+      web:
+        condition: service_healthy
+    mem_limit: 128m
+    cpus: "0.25"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - internal
+
+# ─── Named Volumes ────────────────────────────────────────────────────────────
+volumes:
+  postgres_data:
+  static_files:
+  caddy_data:
+  caddy_config:
+
+# ─── Networks ─────────────────────────────────────────────────────────────────
+networks:
+  internal:
+    driver: bridge
