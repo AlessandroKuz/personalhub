@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.2.2] - 2026-06-24
+
+### Fixed
+
+- fix: remove --noinput from compilemessages calls (9ed3ebd)
+
+---
+
 ## [v0.2.1-fix] - 2026-06-24
 
 ### Other
