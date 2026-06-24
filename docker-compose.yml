@@ -10,6 +10,10 @@ services:
   # ─── Django Application ───────────────────────────────────────────────────
   web:
     image: ghcr.io/alessandrokuz/personalhub/web:latest
+    # Uncomment for local build fallback (e.g., arch mismatch):
+    # build:
+    #   context: .
+    #   target: runtime
     restart: unless-stopped # Automatically restart if the container crashes
     env_file:
       - .env

@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.2.3] - 2026-06-24
+
+### Fixed
+
+- fix: multi-arch CI, Dash compat, CF purge prefix (3cbae01)
+
+---
+
 ## [v0.2.2] - 2026-06-24
 
 ### Fixed

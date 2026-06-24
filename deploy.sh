@@ -5,7 +5,7 @@
 set -e
 
 # Load Cloudflare credentials from optional .env.prod file
-[ -f .env.prod ] && . .env.prod
+[ -f .env.prod ] && . ./.env.prod
 
 echo "==> Pulling new image from GHCR..."
 docker compose pull web
@@ -25,6 +25,6 @@ echo "==> Purging Cloudflare static JS cache..."
 curl -X POST "https://api.cloudflare.com/client/v4/zones/${CF_ZONE_ID}/purge_cache" \
   -H "Authorization: Bearer ${CF_API_TOKEN}" \
   -H "Content-Type: application/json" \
-  -d '{"prefixes":["https://alessandrokuz.com/static/js/"]}'
+  -d '{"prefixes":["alessandrokuz.com/static/"]}'
 
 echo "==> Done."
