@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.2.1-fix] - 2026-06-24
+
+### Other
+
+- ci: lowercase repo name for GHCR tag (0c28425)
+
+---
+
 ## [v0.2.1] - 2026-06-24
 
 ### Updated

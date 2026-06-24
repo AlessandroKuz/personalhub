@@ -18,10 +18,13 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Lowercase repository
+        id: repo
+        run: echo "repo=${GITHUB_REPOSITORY,,}" >> $GITHUB_OUTPUT
       - uses: docker/build-push-action@v6
         with:
           target: runtime
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/web:${{ github.ref_name }}
-            ghcr.io/${{ github.repository }}/web:latest
+            ghcr.io/${{ steps.repo.outputs.repo }}/web:${{ github.ref_name }}
+            ghcr.io/${{ steps.repo.outputs.repo }}/web:latest
